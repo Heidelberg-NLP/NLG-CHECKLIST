@@ -1,0 +1,13 @@
+BERT Score
+BLEU
+chrF++
+Meteor
+MF Score
+MF Score (Meaning)
+MF Score (Form)
+S-BERT (rl)
+S-BERT (rb)
+S-BERT (bl)
+S-BERT (db)
+S2match
+Smatch

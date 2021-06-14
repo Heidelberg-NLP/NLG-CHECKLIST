@@ -1,0 +1,1960 @@
+---------------------
+     Co-Hyponymy
+---------------------
+
+SICK Data Set
+=============
+
+Number of Test Cases: 35
+---------------------
+
+Semantic Relatedness Statistics:
+--------------------------------
+Mean:                  3.7 (0.67)
+Median:                3.6 (0.65)
+Standard deviation:    0.5 (0.12)
+Standard error:       0.08 (0.02)
+
+
+Average Scores (Overall):
+-------------------------
+Average Semantic Relatedness: 3.699 (0.675)
+
++--------------------+-----------------+
+| Metric             |   Average Score |
++====================+=================+
+| Ann. Score         |        3.699    |
++--------------------+-----------------+
+| BERT Score         |        0.981947 |
++--------------------+-----------------+
+| BLEU               |        0.728026 |
++--------------------+-----------------+
+| MF Score           |        0.929066 |
++--------------------+-----------------+
+| MF Score (Form)    |        0.971429 |
++--------------------+-----------------+
+| MF Score (Meaning) |        0.910783 |
++--------------------+-----------------+
+| Meteor             |        0.506561 |
++--------------------+-----------------+
+| S-BERT (bl)        |        0.681472 |
++--------------------+-----------------+
+| S-BERT (db)        |        0.715232 |
++--------------------+-----------------+
+| S-BERT (rb)        |        0.713953 |
++--------------------+-----------------+
+| S-BERT (rl)        |        0.71135  |
++--------------------+-----------------+
+| S2match            |        0.925374 |
++--------------------+-----------------+
+| Smatch             |        0.874937 |
++--------------------+-----------------+
+| chrF++             |       80.5142   |
++--------------------+-----------------+
+
+Correlation Matrix (Overall):
+-----------------------------
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+|                    |   Ann. Score |   BERT Score |   BLEU |   chrF++ |   Meteor |   MF Score |   MF Score (Form) |   MF Score (Meaning) |   S-BERT (bl) |   S-BERT (db) |   S-BERT (rb) |   S-BERT (rl) |   S2match |   Smatch |
++====================+==============+==============+========+==========+==========+============+===================+======================+===============+===============+===============+===============+===========+==========+
+| Ann. Score         |        1     |        0.063 |  0.186 |    0.101 |    0.264 |     -0.035 |            -0.111 |               -0.035 |         0.634 |         0.716 |         0.689 |         0.67  |    -0.078 |    0.077 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| BERT Score         |        0.063 |        1     |  0.417 |    0.654 |    0.529 |      0.548 |             0.136 |                0.548 |         0.166 |         0.198 |         0.137 |         0.214 |     0.538 |    0.556 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| BLEU               |        0.186 |        0.417 |  1     |    0.712 |    0.687 |      0.161 |             0.289 |                0.161 |         0.221 |         0.279 |         0.308 |         0.301 |     0.19  |    0.543 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| chrF++             |        0.101 |        0.654 |  0.712 |    1     |    0.697 |      0.388 |             0.238 |                0.388 |         0.355 |         0.431 |         0.372 |         0.412 |     0.52  |    0.732 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| Meteor             |        0.264 |        0.529 |  0.687 |    0.697 |    1     |      0.48  |             0.272 |                0.48  |         0.305 |         0.369 |         0.347 |         0.369 |     0.556 |    0.728 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| MF Score           |       -0.035 |        0.548 |  0.161 |    0.388 |    0.48  |      1     |             0.289 |                1     |         0.07  |         0.149 |         0.022 |         0.132 |     0.692 |    0.514 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| MF Score (Form)    |       -0.111 |        0.136 |  0.289 |    0.238 |    0.272 |      0.289 |             1     |                0.289 |        -0.255 |        -0.17  |        -0.119 |        -0.034 |     0.289 |    0.291 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| MF Score (Meaning) |       -0.035 |        0.548 |  0.161 |    0.388 |    0.48  |      1     |             0.289 |                1     |         0.07  |         0.149 |         0.022 |         0.132 |     0.692 |    0.514 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| S-BERT (bl)        |        0.634 |        0.166 |  0.221 |    0.355 |    0.305 |      0.07  |            -0.255 |                0.07  |         1     |         0.945 |         0.917 |         0.893 |     0.168 |    0.261 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| S-BERT (db)        |        0.716 |        0.198 |  0.279 |    0.431 |    0.369 |      0.149 |            -0.17  |                0.149 |         0.945 |         1     |         0.938 |         0.951 |     0.241 |    0.373 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| S-BERT (rb)        |        0.689 |        0.137 |  0.308 |    0.372 |    0.347 |      0.022 |            -0.119 |                0.022 |         0.917 |         0.938 |         1     |         0.936 |     0.175 |    0.357 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| S-BERT (rl)        |        0.67  |        0.214 |  0.301 |    0.412 |    0.369 |      0.132 |            -0.034 |                0.132 |         0.893 |         0.951 |         0.936 |         1     |     0.285 |    0.455 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| S2match            |       -0.078 |        0.538 |  0.19  |    0.52  |    0.556 |      0.692 |             0.289 |                0.692 |         0.168 |         0.241 |         0.175 |         0.285 |     1     |    0.706 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| Smatch             |        0.077 |        0.556 |  0.543 |    0.732 |    0.728 |      0.514 |             0.291 |                0.514 |         0.261 |         0.373 |         0.357 |         0.455 |     0.706 |    1     |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+
+===================================================================================================================================
+
+
+
+
+Scores for Individual Test Cases:
+=================================
+
+D57sick
+---------
+
+A man is slicing a bun                              A man is slicing a tomato
+
+# ::id 57                                           # ::id 57
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / slice                                        (xv0 / slice
+      :ARG0 (xv2 / man)                                   :ARG0 (xv2 / man)
+      :ARG1 (xv1 / bun))                                  :ARG1 (xv1 / tomato))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.6 (0.65)
+
+BERT Score      ---  0.977
+BLEU            ---  0.76
+MF Score        ---  0.909
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.833
+Meteor          ---  0.424
+S-BERT (bl)     ---  0.453
+S-BERT (db)     ---  0.518
+S-BERT (rb)     ---  0.44
+S-BERT (rl)     ---  0.457
+S2match         ---  0.833
+Smatch          ---  0.833
+chrF++          ---  77.302
+
+---------------------------------------------------------------------------------------------------
+D246sick
+---------
+
+A group of men is playing soccer on the beach       A group of boys is playing soccer on the beach
+
+# ::id 246                                          # ::id 246
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / play-01                                      (xv0 / play-01
+      :ARG0 (xv2 / group                                  :ARG0 (xv2 / group
+            :consist-of (xv4 / man))                            :consist-of (xv4 / boy))
+      :ARG1 (xv1 / soccer)                                :ARG1 (xv1 / soccer)
+      :location (xv3 / beach))                            :location (xv3 / beach))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.4 (0.85)
+
+BERT Score      ---  0.993
+BLEU            ---  0.658
+MF Score        ---  0.989
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.979
+Meteor          ---  0.94
+S-BERT (bl)     ---  0.925
+S-BERT (db)     ---  0.88
+S-BERT (rb)     ---  0.867
+S-BERT (rl)     ---  0.862
+S2match         ---  0.979
+Smatch          ---  0.9
+chrF++          ---  83.061
+
+---------------------------------------------------------------------------------------------------
+D273sick
+---------
+
+Two sumo ringers are fighting                       Two sumo wrestlers are fighting
+
+# ::id 273                                          # ::id 273
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / fight-01                                     (xv0 / fight-01
+      :ARG0 (xv1 / ringer                                 :ARG0 (xv2 / person
+            :mod (xv2 / sumo)                                   :ARG0-of (xv1 / wrestle-01
+            :quant 2))                                                :mod (xv3 / sumo))
+                                                                :quant 2))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.0 (0.75)
+
+BERT Score      ---  0.976
+BLEU            ---  0.171
+MF Score        ---  0.0
+MF Score (Form) ---  0.0
+MF Score (Meaning) ---  0.625
+Meteor          ---  0.347
+S-BERT (bl)     ---  0.974
+S-BERT (db)     ---  0.924
+S-BERT (rb)     ---  0.878
+S-BERT (rl)     ---  0.79
+S2match         ---  0.625
+Smatch          ---  0.625
+chrF++          ---  68.596
+
+---------------------------------------------------------------------------------------------------
+D405sick
+---------
+
+The girl has red hair and eyebrows, several piercings  The girl has red hair and eyebrows, several piercings
+in a ear and a drawing on the back                  in a ear and a tattoo on the back
+
+# ::id 405                                          # ::id 405
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / have-03                                      (xv0 / have-03
+      :ARG0 (xv5 / girl)                                  :ARG0 (xv5 / girl)
+      :ARG1 (xv1 / and                                    :ARG1 (xv1 / and
+            :op1 (xv6 / and                                     :op1 (xv6 / and
+                  :op1 (xv9 / hair                                    :op1 (xv9 / hair
+                        :ARG1-of (xv4 / red-02))                            :ARG1-of (xv4 / red-02))
+                  :op2 (xv10 / eyebrow                                :op2 (xv10 / eyebrow
+                        :ARG1-of xv4))                                      :ARG1-of xv4))
+            :op2 (xv7 / thing                                   :op2 (xv7 / thing
+                  :location (xv2 / ear)                               :location (xv2 / ear)
+                  :quant (xv12 / several)                             :quant (xv12 / several)
+                  :ARG0-of (xv11 / pierce-01))                        :ARG0-of (xv11 / pierce-01))
+            :op3 (xv8 / draw-01                                 :op3 (xv8 / tattoo-01
+                  :location (xv3 / back))))                           :location (xv3 / back))))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.4 (0.85)
+
+BERT Score      ---  0.987
+BLEU            ---  0.839
+MF Score        ---  0.977
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.955
+Meteor          ---  0.564
+S-BERT (bl)     ---  0.906
+S-BERT (db)     ---  0.94
+S-BERT (rb)     ---  0.918
+S-BERT (rl)     ---  0.938
+S2match         ---  0.963
+Smatch          ---  0.963
+chrF++          ---  87.864
+
+---------------------------------------------------------------------------------------------------
+D407sick
+---------
+
+Two people are driving a jeep and a lady            Two people are driving a jeep and a girl
+is sitting on the top of it                         is sitting on the top of it
+
+# ::id 407                                          # ::id 407
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / and                                          (xv0 / and
+      :op1 (xv1 / drive-01                                :op1 (xv1 / drive-01
+            :ARG0 (xv4 / person                                 :ARG0 (xv4 / person
+                  :quant 2)                                           :quant 2)
+            :ARG1 (xv3 / jeep-01                                :ARG1 (xv3 / jeep-01
+                  :part xv6))                                         :part xv6))
+      :op2 (xv2 / sit-01                                  :op2 (xv2 / sit-01
+            :ARG1 (xv5 / lady)                                  :ARG1 (xv5 / girl)
+            :ARG2 (xv6 / top                                    :ARG2 (xv6 / top
+                  :op1 xv3)))                                         :op1 xv3)))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.8 (0.95)
+
+BERT Score      ---  0.997
+BLEU            ---  0.815
+MF Score        ---  0.986
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.973
+Meteor          ---  0.53
+S-BERT (bl)     ---  0.975
+S-BERT (db)     ---  0.985
+S-BERT (rb)     ---  0.975
+S-BERT (rl)     ---  0.95
+S2match         ---  0.975
+Smatch          ---  0.941
+chrF++          ---  88.037
+
+---------------------------------------------------------------------------------------------------
+D443sick
+---------
+
+A young girl in a bikini is jumping on the beach    A young girl in swimming suite is jumping on the beach
+
+# ::id 443                                          # ::id 443
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / jump-03                                      (xv0 / jump-03
+      :ARG0 (xv3 / girl                                   :ARG0 (xv2 / girl
+            :mod (xv5 / young)                                  :ARG0-of (xv6 / have-03
+            :ARG0-of (xv4 / have-03                                   :ARG1 (xv3 / suit
+                  :ARG1 (xv2 / bikini)))                                    :purpose (xv4 / swim-01)))
+      :location (xv1 / beach))                                  :mod (xv5 / young))
+                                                          :location (xv1 / beach))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.4 (0.85)
+
+BERT Score      ---  0.961
+BLEU            ---  0.588
+MF Score        ---  0.87
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.769
+Meteor          ---  0.416
+S-BERT (bl)     ---  0.841
+S-BERT (db)     ---  0.853
+S-BERT (rb)     ---  0.907
+S-BERT (rl)     ---  0.912
+S2match         ---  0.846
+Smatch          ---  0.846
+chrF++          ---  73.503
+
+---------------------------------------------------------------------------------------------------
+D454sick
+---------
+
+A little brown and white dog is running on the sidewalk  A little brown and white dog is running on the road
+
+# ::id 454                                          # ::id 454
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / run-02                                       (xv0 / run-02
+      :ARG0 (xv1 / dog                                    :location (xv1 / road)
+            :mod (xv3 / little)                           :ARG0 (xv2 / dog
+            :mod (xv4 / brown)                                  :mod (xv3 / little)
+            :ARG1-of (xv5 / white-03))                          :mod (xv4 / brown)
+      :location (xv2 / sidewalk))                               :ARG1-of (xv5 / white-03)))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.7 (0.675)
+
+BERT Score      ---  0.993
+BLEU            ---  0.893
+MF Score        ---  0.957
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.917
+Meteor          ---  0.54
+S-BERT (bl)     ---  0.915
+S-BERT (db)     ---  0.834
+S-BERT (rb)     ---  0.89
+S-BERT (rl)     ---  0.889
+S2match         ---  0.917
+Smatch          ---  0.917
+chrF++          ---  85.208
+
+---------------------------------------------------------------------------------------------------
+T724sick
+---------
+
+A woman is brushing her hand                        A woman is brushing her feet
+
+# ::id 724                                          # ::id 724
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / brush-01                                     (xv0 / brush-01
+      :ARG0 (xv2 / woman                                  :ARG0 (xv2 / woman
+            :part xv1)                                          :part xv1)
+      :ARG1 (xv1 / hand))                                 :ARG1 (xv1 / foot))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.2 (0.55)
+
+BERT Score      ---  0.966
+BLEU            ---  0.76
+MF Score        ---  0.967
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.937
+Meteor          ---  0.424
+S-BERT (bl)     ---  0.734
+S-BERT (db)     ---  0.681
+S-BERT (rb)     ---  0.8
+S-BERT (rl)     ---  0.705
+S2match         ---  0.937
+Smatch          ---  0.857
+chrF++          ---  80.68
+
+---------------------------------------------------------------------------------------------------
+T1436sick
+---------
+
+Two people are riding a motorcycle                  Two people are riding a bike
+
+# ::id 1436                                         # ::id 1436
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / ride-01                                      (xv0 / ride-01
+      :ARG0 (xv2 / person                                 :ARG0 (xv2 / person
+            :quant 2)                                           :quant 2)
+      :ARG1 (xv1 / motorcycle))                           :ARG1 (xv1 / bike))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.1 (0.775)
+
+BERT Score      ---  0.983
+BLEU            ---  0.76
+MF Score        ---  0.98
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.96
+Meteor          ---  0.94
+S-BERT (bl)     ---  0.394
+S-BERT (db)     ---  0.454
+S-BERT (rb)     ---  0.501
+S-BERT (rl)     ---  0.37
+S2match         ---  0.96
+Smatch          ---  0.857
+chrF++          ---  69.659
+
+---------------------------------------------------------------------------------------------------
+T2032sick
+---------
+
+Someone is playing a piano                          Someone is playing the guitar
+
+# ::id 2032                                         # ::id 2032
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / play-11                                      (xv0 / play-11
+      :ARG0 (xv1 / someone)                               :ARG0 (xv2 / someone)
+      :ARG2 (xv2 / piano))                                :ARG1 (xv1 / guitar))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.1 (0.525)
+
+BERT Score      ---  0.95
+BLEU            ---  0.3
+MF Score        ---  0.981
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.963
+Meteor          ---  0.33
+S-BERT (bl)     ---  0.397
+S-BERT (db)     ---  0.449
+S-BERT (rb)     ---  0.336
+S-BERT (rl)     ---  0.374
+S2match         ---  0.796
+Smatch          ---  0.667
+chrF++          ---  65.049
+
+---------------------------------------------------------------------------------------------------
+T2396sick
+---------
+
+A woman is slicing potatoes                         A woman is slicing carrots
+
+# ::id 2396                                         # ::id 2396
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / slice                                        (xv0 / slice
+      :ARG0 (xv2 / woman)                                 :ARG0 (xv2 / woman)
+      :ARG1 (xv1 / potato))                               :ARG1 (xv1 / carrot))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.2 (0.55)
+
+BERT Score      ---  0.991
+BLEU            ---  0.669
+MF Score        ---  0.966
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.934
+Meteor          ---  0.397
+S-BERT (bl)     ---  0.22
+S-BERT (db)     ---  0.367
+S-BERT (rb)     ---  0.384
+S-BERT (rl)     ---  0.407
+S2match         ---  0.934
+Smatch          ---  0.833
+chrF++          ---  68.117
+
+---------------------------------------------------------------------------------------------------
+T2624sick
+---------
+
+A man is riding a motorbike                         A man is riding a scooter
+
+# ::id 2624                                         # ::id 2624
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / ride-01                                      (xv0 / ride-01
+      :ARG0 (xv2 / man)                                   :ARG0 (xv1 / man)
+      :ARG1 (xv3 / motorbike))                            :ARG1 (xv2 / scooter))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.9 (0.725)
+
+BERT Score      ---  0.973
+BLEU            ---  0.76
+MF Score        ---  0.909
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.833
+Meteor          ---  0.424
+S-BERT (bl)     ---  0.499
+S-BERT (db)     ---  0.574
+S-BERT (rb)     ---  0.605
+S-BERT (rl)     ---  0.665
+S2match         ---  0.833
+Smatch          ---  0.833
+chrF++          ---  64.874
+
+---------------------------------------------------------------------------------------------------
+T2747sick
+---------
+
+Someone is stirring chili in a kettle               Someone is stirring chili in a pot
+
+# ::id 2747                                         # ::id 2747
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / stir-up-04                                   (xv0 / stir-up-04
+      :ARG0 (xv3 / someone)                               :ARG0 (xv3 / someone)
+      :ARG1 (xv1 / chili)                                 :ARG1 (xv1 / chili)
+      :location (xv2 / kettle))                           :location (xv2 / pot))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.2 (0.8)
+
+BERT Score      ---  0.983
+BLEU            ---  0.809
+MF Score        ---  0.974
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.948
+Meteor          ---  0.465
+S-BERT (bl)     ---  0.946
+S-BERT (db)     ---  0.941
+S-BERT (rb)     ---  0.929
+S-BERT (rl)     ---  0.918
+S2match         ---  0.948
+Smatch          ---  0.875
+chrF++          ---  81.971
+
+---------------------------------------------------------------------------------------------------
+T2798sick
+---------
+
+A cow is eating grass                               A cow is eating hay
+
+# ::id 2798                                         # ::id 2798
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / eat-01                                       (xv0 / eat-01
+      :ARG0 (xv2 / cow)                                   :ARG0 (xv2 / cow)
+      :ARG1 (xv1 / grass))                                :ARG1 (xv1 / hay-01))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.2 (0.8)
+
+BERT Score      ---  0.985
+BLEU            ---  0.669
+MF Score        ---  0.909
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.833
+Meteor          ---  0.397
+S-BERT (bl)     ---  0.877
+S-BERT (db)     ---  0.843
+S-BERT (rb)     ---  0.887
+S-BERT (rl)     ---  0.816
+S2match         ---  0.833
+Smatch          ---  0.833
+chrF++          ---  70.292
+
+---------------------------------------------------------------------------------------------------
+T2863sick
+---------
+
+A boy is skateboarding on a half pipe               A man is skateboarding on a half pipe
+
+# ::id 2863                                         # ::id 2863
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / skateboard-01                                (xv0 / skateboard-01
+      :ARG0 (xv1 / boy)                                   :ARG0 (xv1 / man)
+      :location (xv2 / pipe                               :location (xv2 / pipe
+            :mod (xv3 / half)))                                 :mod (xv3 / half)))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.9 (0.725)
+
+BERT Score      ---  0.985
+BLEU            ---  0.707
+MF Score        ---  0.918
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.849
+Meteor          ---  0.433
+S-BERT (bl)     ---  0.881
+S-BERT (db)     ---  0.893
+S-BERT (rb)     ---  0.834
+S-BERT (rl)     ---  0.876
+S2match         ---  0.974
+Smatch          ---  0.875
+chrF++          ---  84.331
+
+---------------------------------------------------------------------------------------------------
+T3830sick
+---------
+
+A black cat is jumping from a hay ball              A black dog is jumping from n hay ball
+to another hay ball                                 to another hay ball
+
+# ::id 3830                                         # ::id 3830
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / jump-03                                      (xv0 / jump-03
+      :ARG1 (xv1 / cat                                    :ARG1 (xv1 / dog
+            :ARG1-of (xv4 / black-04))                          :ARG1-of (xv5 / black-04))
+      :destination (xv3 / ball                            :destination (xv3 / ball
+            :mod (xv6 / another)                                :mod (xv7 / another)
+            :mod (xv7 / hay-01))                                :mod (xv4 / hay-01))
+      :source (xv2 / ball                                 :source (xv2 / ball
+            :mod (xv5 / hay-01)))                               :mod (xv6 / hay-01)))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.2 (0.55)
+
+BERT Score      ---  0.969
+BLEU            ---  0.527
+MF Score        ---  0.929
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.868
+Meteor          ---  0.438
+S-BERT (bl)     ---  0.584
+S-BERT (db)     ---  0.677
+S-BERT (rb)     ---  0.78
+S-BERT (rl)     ---  0.818
+S2match         ---  0.993
+Smatch          ---  0.938
+chrF++          ---  78.137
+
+---------------------------------------------------------------------------------------------------
+T3934sick
+---------
+
+A brown and white cat is playing on the grass       A brown and white dog is playing on the grass
+
+# ::id 3934                                         # ::id 3934
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / play-01                                      (xv0 / play-01
+      :ARG0 (xv1 / cat                                    :ARG0 (xv1 / dog
+            :ARG1-of (xv3 / and                                 :ARG1-of (xv3 / and
+                  :op1 (xv2 / brown)                                  :op1 (xv2 / brown)
+                  :op2 (xv4 / white-03)))                             :op2 (xv4 / white-03)))
+      :location (xv5 / grass))                            :location (xv5 / grass))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.0 (0.5)
+
+BERT Score      ---  0.993
+BLEU            ---  0.658
+MF Score        ---  0.994
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.988
+Meteor          ---  0.472
+S-BERT (bl)     ---  0.64
+S-BERT (db)     ---  0.614
+S-BERT (rb)     ---  0.54
+S-BERT (rl)     ---  0.642
+S2match         ---  0.99
+Smatch          ---  0.917
+chrF++          ---  83.431
+
+---------------------------------------------------------------------------------------------------
+T3987sick
+---------
+
+A group of people is holding food and pointing      A group of people is holding drinks and pointing
+at the camera                                       at the camera
+
+# ::id 3987                                         # ::id 3987
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / and                                          (xv0 / and
+      :op1 (xv4 / hold-01                                 :op1 (xv4 / hold-01
+            :ARG0 (xv3 / group                                  :ARG0 (xv3 / group
+                  :consist-of (xv6 / person))                         :consist-of (xv6 / person))
+            :ARG1 (xv2 / food))                                 :ARG1 (xv2 / drink-01))
+      :op2 (xv5 / point-01                                :op2 (xv5 / point-01
+            :ARG0 xv3                                           :ARG0 xv3
+            :ARG2 (xv1 / camera)))                              :ARG2 (xv1 / camera)))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.1 (0.525)
+
+BERT Score      ---  0.993
+BLEU            ---  0.735
+MF Score        ---  0.986
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.973
+Meteor          ---  0.495
+S-BERT (bl)     ---  0.495
+S-BERT (db)     ---  0.608
+S-BERT (rb)     ---  0.507
+S-BERT (rl)     ---  0.474
+S2match         ---  0.954
+Smatch          ---  0.933
+chrF++          ---  85.79
+
+---------------------------------------------------------------------------------------------------
+T4115sick
+---------
+
+The young girl in blue is having fun on a swing     The young girl in blue is having fun on a slide
+
+# ::id 4115                                         # ::id 4115
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / have-06                                      (xv0 / have-06
+      :ARG0 (xv2 / girl                                   :ARG0 (xv2 / girl
+            :mod (xv4 / young)                                  :mod (xv4 / young)
+            :mod (xv5 / blue))                                  :mod (xv5 / blue))
+      :ARG1 (xv1 / fun-01                                 :ARG1 (xv1 / fun-01
+            :ARG0 xv2)                                          :ARG0 xv2)
+      :location (xv3 / swing))                            :location (xv3 / slide-01))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.8 (0.7)
+
+BERT Score      ---  0.993
+BLEU            ---  0.893
+MF Score        ---  0.964
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.931
+Meteor          ---  0.54
+S-BERT (bl)     ---  0.453
+S-BERT (db)     ---  0.535
+S-BERT (rb)     ---  0.664
+S-BERT (rl)     ---  0.572
+S2match         ---  0.923
+Smatch          ---  0.923
+chrF++          ---  89.234
+
+---------------------------------------------------------------------------------------------------
+T4136sick
+---------
+
+A bride in a white dress is running                 A girl in a white dress is running
+
+# ::id 4136                                         # ::id 4136
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / run-02                                       (xv0 / run-02
+      :ARG0 (xv1 / bride                                  :ARG0 (xv2 / girl
+            :ARG1-of (xv2 / dress-01                            :ARG1-of (xv1 / dress-01
+                  :ARG2 (xv3 / white-03))))                           :ARG2 (xv3 / white-03))))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.4 (0.85)
+
+BERT Score      ---  0.963
+BLEU            ---  0.707
+MF Score        ---  0.98
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.961
+Meteor          ---  0.433
+S-BERT (bl)     ---  0.843
+S-BERT (db)     ---  0.93
+S-BERT (rb)     ---  0.873
+S-BERT (rl)     ---  0.845
+S2match         ---  0.952
+Smatch          ---  0.875
+chrF++          ---  78.942
+
+---------------------------------------------------------------------------------------------------
+T4170sick
+---------
+
+A shirtless man is playing football on a lawn       A shirtless man is playing football on a field
+
+# ::id 4170                                         # ::id 4170
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / play-01                                      (xv0 / play-01
+      :ARG0 (xv4 / man                                    :ARG0 (xv4 / man
+            :ARG0-of (xv5 / have-03                             :ARG0-of (xv5 / have-03
+                  :ARG1 (xv2 / shirt                                  :ARG1 (xv2 / shirt
+                        :polarity -)))                                      :polarity -)))
+      :ARG1 (xv1 / football)                              :ARG1 (xv1 / football)
+      :location (xv3 / lawn))                             :location (xv3 / field))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.1 (0.775)
+
+BERT Score      ---  0.99
+BLEU            ---  0.863
+MF Score        ---  0.952
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.909
+Meteor          ---  0.509
+S-BERT (bl)     ---  0.957
+S-BERT (db)     ---  0.958
+S-BERT (rb)     ---  0.965
+S-BERT (rl)     ---  0.985
+S2match         ---  0.923
+Smatch          ---  0.923
+chrF++          ---  88.285
+
+---------------------------------------------------------------------------------------------------
+T4193sick
+---------
+
+A tan dog is splashing in the water on              A tan dog is splashing in the water on
+the bank of a pond                                  the bank of a river
+
+# ::id 4193                                         # ::id 4193
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / splash-01                                    (xv0 / splash-01
+      :ARG0 (xv1 / dog                                    :ARG0 (xv1 / dog
+            :ARG1-of (xv4 / tan))                               :ARG1-of (xv4 / tan))
+      :location (xv2 / bank                               :location (xv2 / bank
+            :part-of (xv5 / pond))                              :part-of (xv5 / river))
+      :location (xv3 / water))                            :location (xv3 / water))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.3 (0.825)
+
+BERT Score      ---  0.994
+BLEU            ---  0.919
+MF Score        ---  0.986
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.973
+Meteor          ---  0.567
+S-BERT (bl)     ---  0.863
+S-BERT (db)     ---  0.95
+S-BERT (rb)     ---  0.947
+S-BERT (rl)     ---  0.933
+S2match         ---  0.966
+Smatch          ---  0.917
+chrF++          ---  90.579
+
+---------------------------------------------------------------------------------------------------
+T4292sick
+---------
+
+A young couple is lying on a bed together           A young couple is lying on a couch together
+
+# ::id 4292                                         # ::id 4292
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / lay-01                                       (xv0 / lay-01
+      :ARG1 (xv2 / couple                                 :ARG1 (xv1 / couple
+            :mod (xv4 / young))                                 :mod (xv4 / young))
+      :ARG2 (xv1 / bed)                                   :ARG2 (xv2 / couch)
+      :mod (xv3 / together))                              :mod (xv3 / together))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.6 (0.65)
+
+BERT Score      ---  0.992
+BLEU            ---  0.751
+MF Score        ---  0.982
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.965
+Meteor          ---  0.459
+S-BERT (bl)     ---  0.601
+S-BERT (db)     ---  0.821
+S-BERT (rb)     ---  0.828
+S-BERT (rl)     ---  0.85
+S2match         ---  0.965
+Smatch          ---  0.9
+chrF++          ---  80.891
+
+---------------------------------------------------------------------------------------------------
+T4352sick
+---------
+
+A brown and white dog with a brown and              A brown and white cat with a brown and
+black bandanna is running very fast                 black bandanna is running very fast
+
+# ::id 4352                                         # ::id 4352
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / run-02                                       (xv0 / run-02
+      :manner (xv8 / fast-02                              :manner (xv8 / fast-02
+            :degree (xv10 / very))                              :degree (xv10 / very))
+      :ARG0 (xv7 / dog                                    :ARG0 (xv7 / cat
+            :ARG1-of (xv11 / white-02)                          :ARG1-of (xv11 / white-02)
+            :mod (xv2 / brown)                                  :mod (xv2 / brown)
+            :ARG0-of (xv9 / have-03                             :ARG0-of (xv9 / have-03
+                  :ARG1 (xv1 / bandanna                               :ARG1 (xv1 / bandanna
+                        :mod (xv5 / brown)                                  :mod (xv5 / brown)
+                        :ARG1-of (xv4 / black-04)))))                          :ARG1-of (xv4 / black-04)))))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.7 (0.675)
+
+BERT Score      ---  0.994
+BLEU            ---  0.8
+MF Score        ---  0.997
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.994
+Meteor          ---  0.539
+S-BERT (bl)     ---  0.586
+S-BERT (db)     ---  0.754
+S-BERT (rb)     ---  0.543
+S-BERT (rl)     ---  0.716
+S2match         ---  0.994
+Smatch          ---  0.95
+chrF++          ---  90.134
+
+---------------------------------------------------------------------------------------------------
+T4574sick
+---------
+
+Two women with dogs are walking on a forest path    Two girl with dogs are walking on a forest path
+
+# ::id 4574                                         # ::id 4574
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / walk-01                                      (xv0 / walk-01
+      :ARG0 (xv1 / woman                                  :ARG0 (xv1 / girl
+            :quant 2                                            :quant 2
+            :ARG0-of (xv3 / have-03                             :ARG0-of (xv3 / have-03
+                  :ARG1 (xv4 / dog)))                                 :ARG1 (xv4 / dog)))
+      :location (xv2 / path                               :location (xv2 / path
+            :location (xv5 / forest)))                          :location (xv5 / forest)))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.0 (0.75)
+
+BERT Score      ---  0.976
+BLEU            ---  0.783
+MF Score        ---  0.994
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.988
+Meteor          ---  0.94
+S-BERT (bl)     ---  0.989
+S-BERT (db)     ---  0.983
+S-BERT (rb)     ---  0.972
+S-BERT (rl)     ---  0.934
+S2match         ---  0.988
+Smatch          ---  0.923
+chrF++          ---  81.788
+
+---------------------------------------------------------------------------------------------------
+T4588sick
+---------
+
+A man in a red shirt is doing a                     A man in a red shirt is doing a
+trick with the rollerblades                         trick with the skateboard
+
+# ::id 4588                                         # ::id 4588
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / do-02                                        (xv0 / do-02
+      :ARG0 (xv2 / man                                    :ARG0 (xv2 / man
+            :prep-in (xv4 / shirt                               :prep-in (xv4 / shirt
+                  :ARG1-of (xv5 / red-02)))                           :ARG1-of (xv5 / red-02)))
+      :ARG1 (xv1 / trick-01                               :ARG1 (xv1 / trick-01
+            :ARG0 xv2                                           :ARG0 xv2
+            :ARG1 (xv3 / rollerblade)))                         :ARG1 (xv3 / skateboard-01)))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.365 (0.591)
+
+BERT Score      ---  0.973
+BLEU            ---  0.912
+MF Score        ---  0.957
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.917
+Meteor          ---  0.559
+S-BERT (bl)     ---  0.706
+S-BERT (db)     ---  0.695
+S-BERT (rb)     ---  0.743
+S-BERT (rl)     ---  0.786
+S2match         ---  0.943
+Smatch          ---  0.923
+chrF++          ---  80.391
+
+---------------------------------------------------------------------------------------------------
+T4624sick
+---------
+
+The players is maneuvering for the soccer ball      The players is maneuvering for the basket ball
+
+# ::id 4624                                         # ::id 4624
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / maneuver-01                                  (xv0 / maneuver-01
+      :ARG0 (xv1 / person                                 :ARG0 (xv1 / person
+            :ARG0-of (xv3 / play-01))                           :ARG0-of (xv3 / play-01))
+      :ARG2 (xv2 / ball                                   :ARG2 (xv2 / ball
+            :part-of (xv4 / soccer)))                           :part-of (xv4 / basket)))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.1 (0.525)
+
+BERT Score      ---  0.973
+BLEU            ---  0.707
+MF Score        ---  0.947
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.9
+Meteor          ---  0.433
+S-BERT (bl)     ---  0.438
+S-BERT (db)     ---  0.498
+S-BERT (rb)     ---  0.473
+S-BERT (rl)     ---  0.458
+S2match         ---  0.9
+Smatch          ---  0.9
+chrF++          ---  78.206
+
+---------------------------------------------------------------------------------------------------
+T4639sick
+---------
+
+Two cats on a lawn are playing with a plastic toy   Two dogs on a lawn are playing with a plastic toy
+
+# ::id 4639                                         # ::id 4639
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / play-01                                      (xv0 / play-01
+      :ARG0 (xv1 / cat                                    :ARG0 (xv1 / dog
+            :location (xv3 / lawn)                              :location (xv3 / lawn)
+            :quant 2)                                           :quant 2)
+      :ARG2 (xv2 / toy                                    :ARG2 (xv2 / toy
+            :consist-of (xv4 / plastic)))                       :consist-of (xv4 / plastic)))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.0 (0.5)
+
+BERT Score      ---  0.991
+BLEU            ---  0.807
+MF Score        ---  0.946
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.898
+Meteor          ---  0.484
+S-BERT (bl)     ---  0.667
+S-BERT (db)     ---  0.585
+S-BERT (rb)     ---  0.689
+S-BERT (rl)     ---  0.591
+S2match         ---  0.989
+Smatch          ---  0.909
+chrF++          ---  85.965
+
+---------------------------------------------------------------------------------------------------
+T4650sick
+---------
+
+A dog is in a sandy area with the                   A cat is in a sandy area with the
+sand that is being stirred up into the air and several plants are in the background  sand that is being stirred up into the air and several plants are in the background
+
+# ::id 4650                                         # ::id 4650
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / and                                          (xv0 / and
+      :op1 (xv1 / be-located-at-91                        :op1 (xv1 / be-located-at-91
+            :ARG1 (xv5 / dog                                    :ARG1 (xv5 / cat
+                  :ARG0-of (xv10 / stir-up-04                         :ARG0-of (xv10 / stir-up-04
+                        :ARG1(xv2 / sand)                                   :ARG1(xv2 / sand)
+                        :destination (xv3 / air)))                          :destination (xv3 / air)))
+            :ARG2 (xv6 / area                                   :ARG2 (xv6 / area
+                  :mod (xv7 / sandy)))                                :mod (xv7 / sandy)))
+      :op2 (xv4 / be-located-at-91                        :op2 (xv4 / be-located-at-91
+            :ARG1 (xv8 / plant                                  :ARG1 (xv8 / plant
+                  :quant (xv11 / several))                            :quant (xv11 / several))
+            :ARG2 (xv9 / background)))                          :ARG2 (xv9 / background)))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.2 (0.55)
+
+BERT Score      ---  0.996
+BLEU            ---  0.924
+MF Score        ---  0.997
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.994
+Meteor          ---  0.593
+S-BERT (bl)     ---  0.673
+S-BERT (db)     ---  0.696
+S-BERT (rb)     ---  0.573
+S-BERT (rl)     ---  0.764
+S2match         ---  0.995
+Smatch          ---  0.958
+chrF++          ---  95.277
+
+---------------------------------------------------------------------------------------------------
+T4662sick
+---------
+
+A man on a green bike is performing tricks          A man on a green car is performing tricks
+on a dirt ramp                                      on a dirt ramp
+
+# ::id 4662                                         # ::id 4662
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / perform-01                                   (xv0 / perform-02
+      :ARG0 (xv2 / man                                    :ARG0 (xv2 / man
+            :location (xv4 / bike                               :location (xv4 / car
+                  :ARG1-of (xv6 / green-02)))                         :ARG1-of (xv6 / green-02)))
+      :ARG1 (xv1 / trick-01                               :ARG1 (xv1 / trick-01
+            :ARG0 xv2)                                          :ARG0 xv2)
+      :location (xv3 / ramp                               :location (xv3 / ramp
+            :mod (xv5 / dirt)))                                 :mod (xv5 / dirt)))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.5 (0.625)
+
+BERT Score      ---  0.981
+BLEU            ---  0.761
+MF Score        ---  0.92
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.852
+Meteor          ---  0.516
+S-BERT (bl)     ---  0.757
+S-BERT (db)     ---  0.758
+S-BERT (rb)     ---  0.744
+S-BERT (rl)     ---  0.694
+S2match         ---  0.909
+Smatch          ---  0.8
+chrF++          ---  85.644
+
+---------------------------------------------------------------------------------------------------
+T4757sick
+---------
+
+A brown and white dog is catching a dirty           A brown and white dog is catching a dirty
+tennis ball in a dirt field                         golf ball in a dirt field
+
+# ::id 4757                                         # ::id 4757
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / catch-01                                     (xv0 / catch-01
+      :ARG0 (xv2 / dog                                    :ARG0 (xv2 / dog
+            :ARG1-of (xv6 / brown)                              :ARG1-of (xv6 / brown)
+            :ARG1-of (xv7 / white-03))                          :ARG1-of (xv7 / white-03))
+      :ARG1 (xv1 / ball                                   :ARG1 (xv1 / ball
+            :poss (xv5 / tennis)                                :poss (xv5 / golf)
+            :ARG1-of (xv4 / dirty-02))                          :ARG1-of (xv4 / dirty-02))
+      :location (xv3 / field                              :location (xv3 / field
+            :mod (xv8 / dirt)))                                 :mod (xv8 / dirt)))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.5 (0.625)
+
+BERT Score      ---  0.992
+BLEU            ---  0.8
+MF Score        ---  0.98
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.961
+Meteor          ---  0.539
+S-BERT (bl)     ---  0.797
+S-BERT (db)     ---  0.826
+S-BERT (rb)     ---  0.945
+S-BERT (rl)     ---  0.834
+S2match         ---  0.987
+Smatch          ---  0.944
+chrF++          ---  85.627
+
+---------------------------------------------------------------------------------------------------
+T598sick
+---------
+
+A woman is slicing a potato                         A woman is slicing a carrot
+
+# ::id 598                                          # ::id 598
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / slice                                        (xv0 / slice
+      :ARG0 (xv2 / woman)                                 :ARG0 (xv2 / woman)
+      :ARG1 (xv1 / potato))                               :ARG1 (xv1 / carrot))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.2 (0.55)
+
+BERT Score      ---  0.988
+BLEU            ---  0.76
+MF Score        ---  0.966
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.934
+Meteor          ---  0.424
+S-BERT (bl)     ---  0.244
+S-BERT (db)     ---  0.313
+S-BERT (rb)     ---  0.286
+S-BERT (rl)     ---  0.44
+S2match         ---  0.934
+Smatch          ---  0.833
+chrF++          ---  74.46
+
+---------------------------------------------------------------------------------------------------
+T2770sick
+---------
+
+A woman is slicing tofu                             A woman is slicing butter
+
+# ::id 2770                                         # ::id 2770
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / slice                                        (xv0 / slice
+      :ARG0 (xv2 / woman)                                 :ARG0 (xv2 / woman)
+      :ARG1 (xv1 / tofu))                                 :ARG1 (xv1 / butter))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.4 (0.6)
+
+BERT Score      ---  0.977
+BLEU            ---  0.669
+MF Score        ---  0.964
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.931
+Meteor          ---  0.397
+S-BERT (bl)     ---  0.322
+S-BERT (db)     ---  0.354
+S-BERT (rb)     ---  0.387
+S-BERT (rl)     ---  0.25
+S2match         ---  0.931
+Smatch          ---  0.833
+chrF++          ---  75.934
+
+---------------------------------------------------------------------------------------------------
+T2836sick
+---------
+
+A man is shooting with a bow                        A man is shooting with a gun
+
+# ::id 2836                                         # ::id 2836
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / shoot-02                                     (xv0 / shoot-02
+      :ARG0 (xv2 / man)                                   :ARG0 (xv2 / man)
+      :instrument (xv1 / bow))                            :instrument (xv1 / gun))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.6 (0.65)
+
+BERT Score      ---  0.955
+BLEU            ---  0.809
+MF Score        ---  0.8
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.667
+Meteor          ---  0.447
+S-BERT (bl)     ---  0.591
+S-BERT (db)     ---  0.673
+S-BERT (rb)     ---  0.702
+S-BERT (rl)     ---  0.652
+S2match         ---  0.833
+Smatch          ---  0.833
+chrF++          ---  84.503
+
+---------------------------------------------------------------------------------------------------
+T2842sick
+---------
+
+A man is playing a guitar                           A boy is playing a guitar
+
+# ::id 2842                                         # ::id 2842
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / play-11                                      (xv0 / play-11
+      :ARG0 (xv2 / man)                                   :ARG0 (xv2 / boy)
+      :ARG1 (xv1 / guitar))                               :ARG1 (xv1 / guitar))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.3 (0.575)
+
+BERT Score      ---  0.985
+BLEU            ---  0.537
+MF Score        ---  0.982
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.965
+Meteor          ---  0.375
+S-BERT (bl)     ---  0.707
+S-BERT (db)     ---  0.67
+S-BERT (rb)     ---  0.675
+S-BERT (rl)     ---  0.727
+S2match         ---  0.965
+Smatch          ---  0.833
+chrF++          ---  76.233
+
+---------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------
+
+STS Data Set
+=============
+
+Number of Test Cases: 20
+---------------------
+
+Semantic Similarity Statistics:
+--------------------------------
+Mean:                 2.49 (0.5)
+Median:               2.29 (0.46)
+Standard deviation:   0.83 (0.17)
+Standard error:       0.19 (0.04)
+
+
+Average Scores (Overall):
+-------------------------
+Average Semantic Similarity: 2.488 (0.498)
+
++--------------------+-----------------+
+| Metric             |   Average Score |
++====================+=================+
+| Ann. Score         |        2.48765  |
++--------------------+-----------------+
+| BERT Score         |        0.978649 |
++--------------------+-----------------+
+| BLEU               |        0.601011 |
++--------------------+-----------------+
+| MF Score           |        0.81725  |
++--------------------+-----------------+
+| MF Score (Form)    |        0.85     |
++--------------------+-----------------+
+| MF Score (Meaning) |        0.913665 |
++--------------------+-----------------+
+| Meteor             |        0.388804 |
++--------------------+-----------------+
+| S-BERT (bl)        |        0.559444 |
++--------------------+-----------------+
+| S-BERT (db)        |        0.540974 |
++--------------------+-----------------+
+| S-BERT (rb)        |        0.539963 |
++--------------------+-----------------+
+| S-BERT (rl)        |        0.526884 |
++--------------------+-----------------+
+| S2match            |        0.93538  |
++--------------------+-----------------+
+| Smatch             |        0.834495 |
++--------------------+-----------------+
+| chrF++             |       68.3602   |
++--------------------+-----------------+
+
+Correlation Matrix (Overall):
+-----------------------------
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+|                    |   Ann. Score |   BERT Score |   BLEU |   chrF++ |   Meteor |   MF Score |   MF Score (Form) |   MF Score (Meaning) |   S-BERT (bl) |   S-BERT (db) |   S-BERT (rb) |   S-BERT (rl) |   S2match |   Smatch |
++====================+==============+==============+========+==========+==========+============+===================+======================+===============+===============+===============+===============+===========+==========+
+| Ann. Score         |        1     |        0.549 | -0.823 |    0.252 |   -0.171 |      0.398 |            -0.049 |                0.31  |         0.618 |         0.658 |         0.722 |         0.766 |     0.623 |    0.244 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| BERT Score         |        0.549 |        1     | -0.399 |    0.421 |    0.177 |      0.376 |             0.073 |                0.384 |         0.495 |         0.699 |         0.745 |         0.617 |     0.503 |    0.111 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| BLEU               |       -0.823 |       -0.399 |  1     |    0.021 |    0.433 |     -0.152 |             0.088 |                0.021 |        -0.652 |        -0.665 |        -0.743 |        -0.633 |    -0.33  |   -0.312 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| chrF++             |        0.252 |        0.421 |  0.021 |    1     |    0.549 |      0.149 |            -0.255 |                0.288 |         0.153 |         0.199 |         0.199 |         0.073 |     0.465 |    0.061 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| Meteor             |       -0.171 |        0.177 |  0.433 |    0.549 |    1     |      0.069 |            -0.089 |                0.479 |         0.032 |        -0.051 |        -0.102 |        -0.012 |     0.17  |    0.085 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| MF Score           |        0.398 |        0.376 | -0.152 |    0.149 |    0.069 |      1     |             0.621 |                0.577 |         0.167 |         0.149 |         0.163 |         0.303 |     0.655 |    0.542 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| MF Score (Form)    |       -0.049 |        0.073 |  0.088 |   -0.255 |   -0.089 |      0.621 |             1     |                0.073 |        -0.182 |        -0.134 |        -0.158 |         0.012 |    -0.049 |    0.4   |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| MF Score (Meaning) |        0.31  |        0.384 |  0.021 |    0.288 |    0.479 |      0.577 |             0.073 |                1     |         0.191 |         0.128 |         0.13  |         0.383 |     0.656 |    0.307 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| S-BERT (bl)        |        0.618 |        0.495 | -0.652 |    0.153 |    0.032 |      0.167 |            -0.182 |                0.191 |         1     |         0.914 |         0.86  |         0.805 |     0.428 |    0.197 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| S-BERT (db)        |        0.658 |        0.699 | -0.665 |    0.199 |   -0.051 |      0.149 |            -0.134 |                0.128 |         0.914 |         1     |         0.958 |         0.837 |     0.401 |    0.176 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| S-BERT (rb)        |        0.722 |        0.745 | -0.743 |    0.199 |   -0.102 |      0.163 |            -0.158 |                0.13  |         0.86  |         0.958 |         1     |         0.797 |     0.413 |    0.197 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| S-BERT (rl)        |        0.766 |        0.617 | -0.633 |    0.073 |   -0.012 |      0.303 |             0.012 |                0.383 |         0.805 |         0.837 |         0.797 |         1     |     0.44  |    0.175 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| S2match            |        0.623 |        0.503 | -0.33  |    0.465 |    0.17  |      0.655 |            -0.049 |                0.656 |         0.428 |         0.401 |         0.413 |         0.44  |     1     |    0.263 |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+| Smatch             |        0.244 |        0.111 | -0.312 |    0.061 |    0.085 |      0.542 |             0.4   |                0.307 |         0.197 |         0.176 |         0.197 |         0.175 |     0.263 |    1     |
++--------------------+--------------+--------------+--------+----------+----------+------------+-------------------+----------------------+---------------+---------------+---------------+---------------+-----------+----------+
+
+===================================================================================================================================
+
+
+
+
+Scores for Individual Test Cases:
+=================================
+
+D11sts
+---------
+
+A man is playing a guitar.                          A man is playing a flute.
+
+# ::id 11                                           # ::id 11
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / play-11                                      (xv0 / play-11
+      :ARG0 (xv2 / man)                                   :ARG0 (xv2 / man)
+      :ARG1 (xv1 / guitar))                               :ARG1 (xv1 / flute))
+
+Scores:
+-------
+Semantic Similarity Score:      1.583 (0.317)
+
+BERT Score      ---  0.969
+BLEU            ---  0.76
+MF Score        ---  0.0
+MF Score (Form) ---  0.0
+MF Score (Meaning) ---  0.941
+Meteor          ---  0.399
+S-BERT (bl)     ---  0.452
+S-BERT (db)     ---  0.4
+S-BERT (rb)     ---  0.394
+S-BERT (rl)     ---  0.413
+S2match         ---  0.941
+Smatch          ---  0.833
+chrF++          ---  67.735
+
+---------------------------------------------------------------------------------------------------
+D16sts
+---------
+
+The girl sang into a microphone.                    The lady sang into a microphone.
+
+# ::id 16                                           # ::id 16
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / sing-01                                      (xv0 / sing-01
+      :ARG0 (xv1 / girl)                                  :ARG0 (xv1 / lady)
+      :ARG2 (xv2 / microphone))                           :ARG2 (xv2 / microphone))
+
+Scores:
+-------
+Semantic Similarity Score:      2.4 (0.48)
+
+BERT Score      ---  0.984
+BLEU            ---  0.116
+MF Score        ---  0.963
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.928
+Meteor          ---  0.317
+S-BERT (bl)     ---  0.981
+S-BERT (db)     ---  0.984
+S-BERT (rb)     ---  0.988
+S-BERT (rl)     ---  0.935
+S2match         ---  0.928
+Smatch          ---  0.833
+chrF++          ---  58.473
+
+---------------------------------------------------------------------------------------------------
+D21sts
+---------
+
+A man is playing a guitar.                          A man is playing a trumpet.
+
+# ::id 21                                           # ::id 21
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / play-11                                      (xv0 / play-11
+      :ARG0 (xv2 / man)                                   :ARG0 (xv2 / man)
+      :ARG1 (xv1 / guitar))                               :ARG1 (xv1 / trumpet-01))
+
+Scores:
+-------
+Semantic Similarity Score:      1.714 (0.343)
+
+BERT Score      ---  0.98
+BLEU            ---  0.76
+MF Score        ---  0.973
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.948
+Meteor          ---  0.399
+S-BERT (bl)     ---  0.412
+S-BERT (db)     ---  0.372
+S-BERT (rb)     ---  0.382
+S-BERT (rl)     ---  0.368
+S2match         ---  0.882
+Smatch          ---  0.833
+chrF++          ---  67.285
+
+---------------------------------------------------------------------------------------------------
+D35sts
+---------
+
+A puppy plays with a plastic container.             A dog is playing with a plastic container.
+
+# ::id 35                                           # ::id 35
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / play-01                                      (xv0 / play-01
+      :ARG0 (xv2 / puppy)                                 :ARG0 (xv2 / dog)
+      :ARG2 (xv1 / container                              :ARG2 (xv1 / container
+            :consist-of (xv3 / plastic)))                       :consist-of (xv3 / plastic)))
+
+Scores:
+-------
+Semantic Similarity Score:      3.8 (0.76)
+
+BERT Score      ---  0.979
+BLEU            ---  0.346
+MF Score        ---  0.982
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.966
+Meteor          ---  0.394
+S-BERT (bl)     ---  0.899
+S-BERT (db)     ---  0.809
+S-BERT (rb)     ---  0.86
+S-BERT (rl)     ---  0.821
+S2match         ---  0.966
+Smatch          ---  0.875
+chrF++          ---  65.391
+
+---------------------------------------------------------------------------------------------------
+D513sts
+---------
+
+A woman is bungee jumping.                          A girl is bungee jumping.
+
+# ::id 513                                          # ::id 513
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / jump-08                                      (xv0 / jump-08
+      :instrument (xv2 / bungee)                          :instrument (xv2 / bungee)
+      :ARG0 (xv1 / woman))                                :ARG0 (xv1 / girl))
+
+Scores:
+-------
+Semantic Similarity Score:      4.2 (0.84)
+
+BERT Score      ---  0.987
+BLEU            ---  0.322
+MF Score        ---  0.987
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.808
+Meteor          ---  0.375
+S-BERT (bl)     ---  0.991
+S-BERT (db)     ---  0.989
+S-BERT (rb)     ---  0.984
+S-BERT (rl)     ---  0.859
+S2match         ---  0.975
+Smatch          ---  0.833
+chrF++          ---  70.772
+
+---------------------------------------------------------------------------------------------------
+D517sts
+---------
+
+A man playing the violin in the rain.               A man playing the guitar in the rain.
+
+# ::id 517                                          # ::id 517
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / man                                          (xv0 / man
+      :ARG0-of (xv1 / play-11                             :ARG0-of (xv2 / play-11
+            :location (xv2 / rain-01)                           :ARG1 (xv1 / guitar)
+            :ARG1 (xv3 / violin)))                              :location (xv3 / rain-01)))
+
+Scores:
+-------
+Semantic Similarity Score:      3.2 (0.64)
+
+BERT Score      ---  0.988
+BLEU            ---  0.5
+MF Score        ---  0.979
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.959
+Meteor          ---  0.449
+S-BERT (bl)     ---  0.643
+S-BERT (db)     ---  0.557
+S-BERT (rb)     ---  0.68
+S-BERT (rl)     ---  0.618
+S2match         ---  0.959
+Smatch          ---  0.875
+chrF++          ---  72.34
+
+---------------------------------------------------------------------------------------------------
+D138sts
+---------
+
+A woman is slicing a potato.                        A woman is slicing a carrot.
+
+# ::id 138                                          # ::id 138
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / slice-01                                     (xv0 / slice-01
+      :ARG0 (xv2 / woman)                                 :ARG0 (xv2 / woman)
+      :ARG1 (xv1 / potato))                               :ARG1 (xv1 / carrot))
+
+Scores:
+-------
+Semantic Similarity Score:      2.5 (0.5)
+
+BERT Score      ---  0.964
+BLEU            ---  0.548
+MF Score        ---  0.966
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.934
+Meteor          ---  0.371
+S-BERT (bl)     ---  0.262
+S-BERT (db)     ---  0.319
+S-BERT (rb)     ---  0.286
+S-BERT (rl)     ---  0.433
+S2match         ---  0.934
+Smatch          ---  0.833
+chrF++          ---  64.399
+
+---------------------------------------------------------------------------------------------------
+D148sts
+---------
+
+A man is playing a flute.                           A man is playing guitar.
+
+# ::id 148                                          # ::id 148
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / play-11                                      (xv0 / play-11
+      :ARG0 (xv2 / man)                                   :ARG0 (xv2 / man)
+      :ARG1 (xv1 / flute))                                :ARG1 (xv1 / guitar))
+
+Scores:
+-------
+Semantic Similarity Score:      2.167 (0.433)
+
+BERT Score      ---  0.971
+BLEU            ---  0.548
+MF Score        ---  0.97
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.941
+Meteor          ---  0.371
+S-BERT (bl)     ---  0.444
+S-BERT (db)     ---  0.375
+S-BERT (rb)     ---  0.363
+S-BERT (rl)     ---  0.412
+S2match         ---  0.941
+Smatch          ---  0.833
+chrF++          ---  62.866
+
+---------------------------------------------------------------------------------------------------
+D143sts
+---------
+
+A man is cutting up a potato.                       A man is cutting up carrots.
+
+# ::id 143                                          # ::id 143
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / cut-up-08                                    (xv0 / cut-up-08
+      :ARG0 (xv2 / man)                                   :ARG0 (xv2 / man)
+      :ARG1 (xv1 / potato))                               :ARG1 (xv1 / carrot))
+
+Scores:
+-------
+Semantic Similarity Score:      2.375 (0.475)
+
+BERT Score      ---  0.976
+BLEU            ---  0.643
+MF Score        ---  0.966
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.934
+Meteor          ---  0.394
+S-BERT (bl)     ---  0.455
+S-BERT (db)     ---  0.482
+S-BERT (rb)     ---  0.47
+S-BERT (rl)     ---  0.471
+S2match         ---  0.934
+Smatch          ---  0.833
+chrF++          ---  65.237
+
+---------------------------------------------------------------------------------------------------
+T4sts
+---------
+
+A man is playing a harp.                            A man is playing a keyboard.
+
+# ::id 4                                            # ::id 4
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / play-11                                      (xv0 / play-11
+      :ARG0 (xv2 / man)                                   :ARG0 (xv1 / man)
+      :ARG2 (xv1 / harp))                                 :ARG2 (xv2 / keyboard))
+
+Scores:
+-------
+Semantic Similarity Score:      1.5 (0.3)
+
+BERT Score      ---  0.968
+BLEU            ---  0.76
+MF Score        ---  0.909
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.833
+Meteor          ---  0.399
+S-BERT (bl)     ---  0.415
+S-BERT (db)     ---  0.37
+S-BERT (rb)     ---  0.262
+S-BERT (rl)     ---  0.264
+S2match         ---  0.833
+Smatch          ---  0.833
+chrF++          ---  71.213
+
+---------------------------------------------------------------------------------------------------
+T5sts
+---------
+
+A woman is cutting onions.                          A woman is cutting tofu.
+
+# ::id 5                                            # ::id 5
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / cut-01                                       (xv0 / cut-01
+      :ARG0 (xv2 / woman)                                 :ARG0 (xv2 / woman)
+      :ARG1 (xv1 / onion))                                :ARG1 (xv1 / tofu))
+
+Scores:
+-------
+Semantic Similarity Score:      1.8 (0.36)
+
+BERT Score      ---  0.982
+BLEU            ---  0.669
+MF Score        ---  0.869
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.768
+Meteor          ---  0.375
+S-BERT (bl)     ---  0.408
+S-BERT (db)     ---  0.396
+S-BERT (rb)     ---  0.4
+S-BERT (rl)     ---  0.318
+S2match         ---  0.935
+Smatch          ---  0.833
+chrF++          ---  67.948
+
+---------------------------------------------------------------------------------------------------
+T7sts
+---------
+
+A man is playing the drums.                         A man is playing the guitar.
+
+# ::id 7                                            # ::id 7
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / play-11                                      (xv0 / play-11
+      :ARG0 (xv2 / man)                                   :ARG0 (xv2 / man)
+      :ARG2 (xv1 / drum))                                 :ARG2 (xv1 / guitar))
+
+Scores:
+-------
+Semantic Similarity Score:      2.2 (0.44)
+
+BERT Score      ---  0.978
+BLEU            ---  0.76
+MF Score        ---  0.979
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.959
+Meteor          ---  0.399
+S-BERT (bl)     ---  0.333
+S-BERT (db)     ---  0.311
+S-BERT (rb)     ---  0.311
+S-BERT (rl)     ---  0.369
+S2match         ---  0.959
+Smatch          ---  0.833
+chrF++          ---  71.953
+
+---------------------------------------------------------------------------------------------------
+T9sts
+---------
+
+A man is playing a guitar.                          A man is playing a trumpet.
+
+# ::id 9                                            # ::id 9
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / play-11                                      (xv0 / play-11
+      :ARG0 (xv2 / man)                                   :ARG0 (xv2 / man)
+      :ARG2 (xv1 / guitar))                               :ARG2 (xv1 / trumpet))
+
+Scores:
+-------
+Semantic Similarity Score:      1.714 (0.343)
+
+BERT Score      ---  0.98
+BLEU            ---  0.76
+MF Score        ---  0.973
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.948
+Meteor          ---  0.399
+S-BERT (bl)     ---  0.412
+S-BERT (db)     ---  0.372
+S-BERT (rb)     ---  0.382
+S-BERT (rl)     ---  0.368
+S2match         ---  0.948
+Smatch          ---  0.833
+chrF++          ---  67.285
+
+---------------------------------------------------------------------------------------------------
+T14sts
+---------
+
+A man is slicing a tomato.                          A man is slicing a bun.
+
+# ::id 14                                           # ::id 14
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / slice-01                                     (xv0 / slice-01
+      :ARG0 (xv2 / man)                                   :ARG0 (xv2 / man)
+      :ARG1 (xv1 / tomato))                               :ARG1 (xv1 / bun))
+
+Scores:
+-------
+Semantic Similarity Score:      2.0 (0.4)
+
+BERT Score      ---  0.982
+BLEU            ---  0.76
+MF Score        ---  0.909
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.833
+Meteor          ---  0.399
+S-BERT (bl)     ---  0.443
+S-BERT (db)     ---  0.499
+S-BERT (rb)     ---  0.445
+S-BERT (rl)     ---  0.438
+S2match         ---  0.833
+Smatch          ---  0.833
+chrF++          ---  67.597
+
+---------------------------------------------------------------------------------------------------
+T15sts
+---------
+
+A man is playing a guitar.                          A man is playing a keyboard.
+
+# ::id 15                                           # ::id 15
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / play-11                                      (xv0 / play-11
+      :ARG0 (xv2 / man)                                   :ARG0 (xv1 / man)
+      :ARG2 (xv1 / guitar))                               :ARG2 (xv2 / keyboard))
+
+Scores:
+-------
+Semantic Similarity Score:      1.8 (0.36)
+
+BERT Score      ---  0.974
+BLEU            ---  0.76
+MF Score        ---  0.975
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.952
+Meteor          ---  0.399
+S-BERT (bl)     ---  0.423
+S-BERT (db)     ---  0.323
+S-BERT (rb)     ---  0.325
+S-BERT (rl)     ---  0.34
+S2match         ---  0.952
+Smatch          ---  0.833
+chrF++          ---  66.804
+
+---------------------------------------------------------------------------------------------------
+T20sts
+---------
+
+A woman is cutting tofu.                            A woman is cutting an onion.
+
+# ::id 20                                           # ::id 20
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / cut-01                                       (xv0 / cut-01
+      :ARG0 (xv2 / woman)                                 :ARG0 (xv2 / woman)
+      :ARG1 (xv1 / tofu))                                 :ARG1 (xv1 / onion))
+
+Scores:
+-------
+Semantic Similarity Score:      2.4 (0.48)
+
+BERT Score      ---  0.972
+BLEU            ---  0.508
+MF Score        ---  0.0
+MF Score (Form) ---  0.0
+MF Score (Meaning) ---  0.768
+Meteor          ---  0.351
+S-BERT (bl)     ---  0.43
+S-BERT (db)     ---  0.388
+S-BERT (rb)     ---  0.464
+S-BERT (rl)     ---  0.269
+S2match         ---  0.935
+Smatch          ---  0.833
+chrF++          ---  70.091
+
+---------------------------------------------------------------------------------------------------
+T138sts
+---------
+
+A man is playing a flute.                           A man is playing a guitar.
+
+# ::id 138                                          # ::id 138
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / play-11                                      (xv0 / play-11
+      :ARG0 (xv2 / man)                                   :ARG0 (xv2 / man)
+      :ARG2 (xv1 / flute))                                :ARG2 (xv1 / guitar))
+
+Scores:
+-------
+Semantic Similarity Score:      2.0 (0.4)
+
+BERT Score      ---  0.969
+BLEU            ---  0.76
+MF Score        ---  0.97
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.941
+Meteor          ---  0.399
+S-BERT (bl)     ---  0.452
+S-BERT (db)     ---  0.4
+S-BERT (rb)     ---  0.394
+S-BERT (rl)     ---  0.413
+S2match         ---  0.941
+Smatch          ---  0.833
+chrF++          ---  69.384
+
+---------------------------------------------------------------------------------------------------
+T351sts
+---------
+
+A woman riding a brown horse.                       A girl riding a brown horse.
+
+# ::id 351                                          # ::id 351
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / woman                                        (xv0 / girl
+      :ARG0-of (xv1 / ride-01                             :ARG0-of (xv1 / ride-01
+            :ARG1 (xv2 / horse                                  :ARG1 (xv2 / horse
+                  :mod (xv3 / brown))))                               :mod (xv3 / brown))))
+
+Scores:
+-------
+Semantic Similarity Score:      4.0 (0.8)
+
+BERT Score      ---  0.99
+BLEU            ---  0.537
+MF Score        ---  0.0
+MF Score (Form) ---  0.0
+MF Score (Meaning) ---  0.962
+Meteor          ---  0.415
+S-BERT (bl)     ---  0.961
+S-BERT (db)     ---  0.976
+S-BERT (rb)     ---  0.963
+S-BERT (rl)     ---  0.887
+S2match         ---  0.962
+Smatch          ---  0.75
+chrF++          ---  74.017
+
+---------------------------------------------------------------------------------------------------
+T503sts
+---------
+
+The boy is raising his hand.                        The man is raising his hand.
+
+# ::id 503                                          # ::id 503
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / raise-01                                     (xv0 / raise-01
+      :ARG0 (xv2 / boy                                    :ARG0 (xv2 / man
+            :part xv1)                                          :part xv1)
+      :ARG1 (xv1 / hand))                                 :ARG1 (xv1 / hand))
+
+Scores:
+-------
+Semantic Similarity Score:      3.4 (0.68)
+
+BERT Score      ---  0.989
+BLEU            ---  0.537
+MF Score        ---  0.985
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.97
+Meteor          ---  0.399
+S-BERT (bl)     ---  0.93
+S-BERT (db)     ---  0.936
+S-BERT (rb)     ---  0.948
+S-BERT (rl)     ---  0.876
+S2match         ---  0.97
+Smatch          ---  0.857
+chrF++          ---  75.304
+
+---------------------------------------------------------------------------------------------------
+T603sts
+---------
+
+A man holding a cat.                                A man holding a dog.
+
+# ::id 603                                          # ::id 603
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / man                                          (xv0 / man
+      :ARG0-of (xv1 / hold-01                             :ARG0-of (xv1 / hold-01
+            :ARG1 (xv2 / cat)))                                 :ARG1 (xv2 / dog)))
+
+Scores:
+-------
+Semantic Similarity Score:      3.0 (0.6)
+
+BERT Score      ---  0.992
+BLEU            ---  0.669
+MF Score        ---  0.99
+MF Score (Form) ---  1.0
+MF Score (Meaning) ---  0.98
+Meteor          ---  0.375
+S-BERT (bl)     ---  0.444
+S-BERT (db)     ---  0.563
+S-BERT (rb)     ---  0.497
+S-BERT (rl)     ---  0.666
+S2match         ---  0.98
+Smatch          ---  0.833
+chrF++          ---  71.11
+
+---------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------
+
