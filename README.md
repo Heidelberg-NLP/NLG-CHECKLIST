@@ -73,7 +73,7 @@ The follwing metrics are employed in the testsuite are the following:
 - Meteor
 - MF Score
 - MF Score (&beta;=0)
-- MF Score (&beta;=\infty)
+- MF Score (&beta;=&infin;)
 - S-BERT (roberta-large)
 - S-BERT (roberta-base)
 - S-BERT (bert-large)
