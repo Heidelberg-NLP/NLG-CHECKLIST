@@ -2686,9 +2686,9 @@ A small child is showing excitement on a swing set at the park
 
 (<span class="amr-frame" tok-id="s">s/show-01</span>
     <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="c">c/child</span>
-        <span class="amr-edge" tok-id="1.1-1.1.2">:ARG1-of</span> (<span class="amr-frame red" tok-id="e" title="excite-01 != bore-01">e/excite-01</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.2">:ARG1-of</span> <span class="amr-node red" tok-id="e" title="excite-01 != bore-01">e</span>
         <span class="amr-edge" tok-id="1.1-1.1.1">:mod</span> (<span class="amr-node" tok-id="s2">s2/small</span>))
-    <span class="amr-edge red" tok-id="1-1.1.2" title="No corresponding relation show-01 :ARG1 bore-01">:ARG1</span> <span class="amr-node red" tok-id="e" title="excite-01 != bore-01">e</span>
+    <span class="amr-edge red" tok-id="1-1.1.2" title="No corresponding relation show-01 :ARG1 bore-01">:ARG1</span> (<span class="amr-frame red" tok-id="e" title="excite-01 != bore-01">e/excite-01</span>)
     <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="s3">s3/set</span>
         <span class="amr-edge" tok-id="1.3-1.3.1">:location</span> (<span class="amr-node" tok-id="p">p/park</span>)
         <span class="amr-edge" tok-id="1.3-1.3.2">:mod</span> (<span class="amr-node" tok-id="s4">s4/swing</span>)))</pre>
@@ -4457,8 +4457,8 @@ Several swimmers are jumping out of the water
     <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="p">p/person</span>
         <span class="amr-edge" tok-id="1.1-1.1.2">:ARG0-of</span> (<span class="amr-frame" tok-id="s2">s2/swim-01</span>)
         <span class="amr-edge" tok-id="1.1-1.1.1">:quant</span> (<span class="amr-node" tok-id="s">s/several</span>))
-    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation jump-03 :source jump-03">:source</span> (<span class="amr-frame red" tok-id="o" title="out-06 != jump-03">o/out-06</span>
-        <span class="amr-edge red" tok-id="1.2-1.2.1" title="No corresponding relation jump-03 :ARG2 water">:ARG2</span> (<span class="amr-node" tok-id="w">w/water</span>)))</pre>
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation jump-03 :source water">:source</span> (<span class="amr-frame red" tok-id="o" title="out-06 != water">o/out-06</span>
+        <span class="amr-edge red" tok-id="1.2-1.2.1" title="No corresponding relation water :ARG2 water">:ARG2</span> (<span class="amr-node" tok-id="w">w/water</span>)))</pre>
 </div><br><h4>Scores:</h4>
 Semantic Relatedness Score: 4.1 (0.775)<br><br>
 <table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.974</td><tr><tr><td>BLEU</td><td>0.411</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>0.818</td><tr><tr><td>Meteor</td><td>0.458</td><tr><tr><td>S-BERT (bl)</td><td>0.943</td><tr><tr><td>S-BERT (db)</td><td>0.948</td><tr><tr><td>S-BERT (rb)</td><td>0.943</td><tr><tr><td>S-BERT (rl)</td><td>0.945</td><tr><tr><td>S2match</td><td>0.818</td><tr><tr><td>Smatch</td><td>0.818</td><tr><tr><td>chrF++</td><td>79.8</td><tr></table></p>
@@ -4472,8 +4472,8 @@ A boy in blue is running away from a woman in blue
     <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="b">b/boy</span>
         <span class="amr-edge" tok-id="1.1-1.1.1">:mod</span> (<span class="amr-node" tok-id="b2">b2/blue</span>))
     <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation run-02 :direction woman">:direction</span> (<span class="amr-node red" tok-id="a" title="away != woman">a/away</span>
-        <span class="amr-edge red" tok-id="1.2-1.2.1" title="No corresponding relation woman :op1 woman">:op1</span> (<span class="amr-node" tok-id="w">w/woman</span>
-            <span class="amr-edge" tok-id="1.2.1-1.2.1.1">:mod</span> (<span class="amr-node" tok-id="b3">b3/blue</span>))))</pre>
+        <span class="amr-edge red" tok-id="1.2-1.2.1" title="No corresponding relation woman :op1 blue">:op1</span> (<span class="amr-node red" tok-id="w" title="woman != blue">w/woman</span>
+            <span class="amr-edge red" tok-id="1.2.1-1.2.1.1" title="No corresponding relation blue :mod blue">:mod</span> (<span class="amr-node" tok-id="b3">b3/blue</span>))))</pre>
 </div>
 
 AMR 2:

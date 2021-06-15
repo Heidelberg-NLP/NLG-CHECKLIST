@@ -603,13 +603,13 @@ AMR 2:
 <pre>
 A group of people is equipped with gear used for protection
 
-(<span class="amr-frame red" tok-id="e" title="equip-01 != gear">e/equip-01</span>
-    <span class="amr-edge red" tok-id="1-1.1" title="No corresponding relation gear :ARG1 group">:ARG1</span> (<span class="amr-node" tok-id="g">g/group</span>
+(<span class="amr-frame" tok-id="e">e/equip-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG1</span> (<span class="amr-node" tok-id="g">g/group</span>
         <span class="amr-edge" tok-id="1.1-1.1.1">:consist-of</span> (<span class="amr-node" tok-id="p">p/person</span>
-            <span class="amr-edge red" tok-id="1.1.1-1.1.1.1" title="No corresponding relation person :ARG1-of protect-01">:ARG1-of</span> (<span class="amr-frame" tok-id="p2">p2/protect-01</span>)))
-    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation gear :ARG2 equip-01">:ARG2</span> (<span class="amr-node red" tok-id="g2" title="gear != equip-01">g2/gear</span>
-        <span class="amr-edge red" tok-id="1.2-1.2.1" title="No corresponding relation equip-01 :ARG1-of equip-01">:ARG1-of</span> (<span class="amr-frame red" tok-id="u" title="use-01 != equip-01">u/use-01</span>
-            <span class="amr-edge red" tok-id="1.2.1-1.1.1.1" title="No corresponding relation equip-01 :ARG2 protect-01">:ARG2</span> <span class="amr-node" tok-id="p2">p2</span>)))</pre>
+            <span class="amr-edge red" tok-id="1.1.1-1.1.1.1" title="No corresponding relation person :ARG1-of gear">:ARG1-of</span> (<span class="amr-frame red" tok-id="p2" title="protect-01 != gear">p2/protect-01</span>)))
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation equip-01 :ARG2 protect-01">:ARG2</span> (<span class="amr-node red" tok-id="g2" title="gear != protect-01">g2/gear</span>
+        <span class="amr-edge red" tok-id="1.2-1.2.1" title="No corresponding relation protect-01 :ARG1-of protect-01">:ARG1-of</span> (<span class="amr-frame red" tok-id="u" title="use-01 != protect-01">u/use-01</span>
+            <span class="amr-edge red" tok-id="1.2.1-1.1.1.1" title="No corresponding relation protect-01 :ARG2 gear">:ARG2</span> <span class="amr-node red" tok-id="p2" title="protect-01 != gear">p2</span>)))</pre>
 </div><br><h4>Scores:</h4>
 Semantic Relatedness Score: 5.0 (1.0)<br><br>
 <table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.978</td><tr><tr><td>BLEU</td><td>0.59</td><tr><tr><td>MF Score</td><td>0.9</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>0.818</td><tr><tr><td>Meteor</td><td>0.419</td><tr><tr><td>S-BERT (bl)</td><td>0.955</td><tr><tr><td>S-BERT (db)</td><td>0.937</td><tr><tr><td>S-BERT (rb)</td><td>0.935</td><tr><tr><td>S-BERT (rl)</td><td>0.966</td><tr><tr><td>S2match</td><td>0.783</td><tr><tr><td>Smatch</td><td>0.783</td><tr><tr><td>chrF++</td><td>79.488</td><tr></table></p>
@@ -970,11 +970,11 @@ A big cat is opening a drawer made of plastic with its paws and is jumping insid
     <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="o">o/open-01</span>
         <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0</span> (<span class="amr-node" tok-id="c">c/cat</span>
             <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:mod</span> (<span class="amr-node" tok-id="b">b/big</span>)
-            <span class="amr-edge" tok-id="1.1.1-1.1.1.2">:part</span> <span class="amr-node" tok-id="p">p</span>)
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.2">:part</span> (<span class="amr-frame" tok-id="p">p/paw-01</span>))
         <span class="amr-edge" tok-id="1.1-1.1.2">:ARG1</span> (<span class="amr-node" tok-id="d">d/drawer</span>
             <span class="amr-edge red" tok-id="1.1.2-1.1.2.1" title="No corresponding relation drawer :ARG1-of drawer">:ARG1-of</span> (<span class="amr-frame red" tok-id="m" title="make-01 != drawer">m/make-01</span>
                 <span class="amr-edge red" tok-id="1.1.2.1-1.1.2.1.1" title="No corresponding relation drawer :ARG2 plastic">:ARG2</span> (<span class="amr-node" tok-id="p2">p2/plastic</span>)))
-        <span class="amr-edge" tok-id="1.1-1.1.1.2">:instrument</span> (<span class="amr-frame" tok-id="p">p/paw-01</span>))
+        <span class="amr-edge" tok-id="1.1-1.1.1.2">:instrument</span> <span class="amr-node" tok-id="p">p</span>)
     <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="j">j/jump-03</span>
         <span class="amr-edge" tok-id="1.2-1.1.1">:ARG0</span> <span class="amr-node" tok-id="c">c</span>
         <span class="amr-edge red" tok-id="1.2-1.2.2" title="No corresponding relation jump-03 :destination inside">:destination</span> (<span class="amr-node" tok-id="i">i/inside</span>)))</pre>
@@ -989,13 +989,13 @@ A big cat is opening a plastic drawer with its paws and is jumping inside
     <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="o">o/open-01</span>
         <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0</span> (<span class="amr-node" tok-id="c">c/cat</span>
             <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:mod</span> (<span class="amr-node" tok-id="b">b/big</span>)
-            <span class="amr-edge" tok-id="1.1.1-1.1.1.2">:part</span> <span class="amr-node" tok-id="p">p</span>)
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.2">:part</span> (<span class="amr-frame" tok-id="p">p/paw-01</span>))
         <span class="amr-edge" tok-id="1.1-1.1.2">:ARG1</span> (<span class="amr-node" tok-id="d">d/drawer</span>
-            <span class="amr-edge red" tok-id="1.1.2-1.1.2.1" title="No corresponding relation drawer :consist-of plastic">:consist-of</span> (<span class="amr-node" tok-id="p2">p2/plastic</span>))
-        <span class="amr-edge" tok-id="1.1-1.1.1.2">:instrument</span> (<span class="amr-frame" tok-id="p">p/paw-01</span>))
-    <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="j">j/jump-03</span>
-        <span class="amr-edge" tok-id="1.2-1.1.1">:ARG0</span> <span class="amr-node" tok-id="c">c</span>
-        <span class="amr-edge red" tok-id="1.2-1.2.2" title="No corresponding relation jump-03 :direction inside">:direction</span> (<span class="amr-node" tok-id="i">i/inside</span>)))</pre>
+            <span class="amr-edge red" tok-id="1.1.2-1.1.2.1" title="No corresponding relation drawer :consist-of make-01">:consist-of</span> (<span class="amr-node red" tok-id="p2" title="plastic != make-01">p2/plastic</span>))
+        <span class="amr-edge" tok-id="1.1-1.1.1.2">:instrument</span> <span class="amr-node" tok-id="p">p</span>)
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation and :op2 plastic">:op2</span> (<span class="amr-frame red" tok-id="j" title="jump-03 != plastic">j/jump-03</span>
+        <span class="amr-edge red" tok-id="1.2-1.1.1" title="No corresponding relation plastic :ARG0 cat">:ARG0</span> <span class="amr-node" tok-id="c">c</span>
+        <span class="amr-edge red" tok-id="1.2-1.2.2" title="No corresponding relation plastic :direction inside">:direction</span> (<span class="amr-node" tok-id="i">i/inside</span>)))</pre>
 </div><br><h4>Scores:</h4>
 Semantic Relatedness Score: 4.9 (0.975)<br><br>
 <table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.987</td><tr><tr><td>BLEU</td><td>0.657</td><tr><tr><td>MF Score</td><td>0.895</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>0.809</td><tr><tr><td>Meteor</td><td>0.529</td><tr><tr><td>S-BERT (bl)</td><td>0.991</td><tr><tr><td>S-BERT (db)</td><td>0.984</td><tr><tr><td>S-BERT (rb)</td><td>0.987</td><tr><tr><td>S-BERT (rl)</td><td>0.99</td><tr><tr><td>S2match</td><td>0.857</td><tr><tr><td>Smatch</td><td>0.857</td><tr><tr><td>chrF++</td><td>79.874</td><tr></table></p>
@@ -1043,7 +1043,7 @@ One man is climbing a rock wall and another man is holding a rope
         <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>
             <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:quant</span> <span class="amr-node" tok-id="x0">1</span>)
         <span class="amr-edge" tok-id="1.1-1.1.2">:ARG1</span> (<span class="amr-node" tok-id="w">w/wall</span>
-            <span class="amr-edge red" tok-id="1.1.2-1.1.2.1" title="No corresponding relation wall :consist-of rock">:consist-of</span> (<span class="amr-node" tok-id="r">r/rock</span>)))
+            <span class="amr-edge red" tok-id="1.1.2-1.1.2.1" title="No corresponding relation wall :consist-of make-01">:consist-of</span> (<span class="amr-node red" tok-id="r" title="rock != make-01">r/rock</span>)))
     <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="h">h/hold-01</span>
         <span class="amr-edge" tok-id="1.2-1.2.1">:ARG0</span> (<span class="amr-node" tok-id="m2">m2/man</span>
             <span class="amr-edge" tok-id="1.2.1-1.2.1.1">:mod</span> (<span class="amr-node" tok-id="a2">a2/another</span>))
@@ -1147,8 +1147,8 @@ The woman is cracking two eggs into a bowl made of glass
     <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="e">e/egg</span>
         <span class="amr-edge" tok-id="1.2-1.2.1">:quant</span> <span class="amr-node" tok-id="x0">2</span>)
     <span class="amr-edge" tok-id="1-1.3">:ARG2</span> (<span class="amr-node" tok-id="b">b/bowl</span>
-        <span class="amr-edge red" tok-id="1.3-1.3.1" title="No corresponding relation bowl :ARG1-of bowl">:ARG1-of</span> (<span class="amr-frame red" tok-id="m" title="make-01 != bowl">m/make-01</span>
-            <span class="amr-edge red" tok-id="1.3.1-1.3.1.1" title="No corresponding relation bowl :ARG2 glass">:ARG2</span> (<span class="amr-node" tok-id="g">g/glass</span>))))</pre>
+        <span class="amr-edge red" tok-id="1.3-1.3.1" title="No corresponding relation bowl :ARG1-of glass">:ARG1-of</span> (<span class="amr-frame red" tok-id="m" title="make-01 != glass">m/make-01</span>
+            <span class="amr-edge red" tok-id="1.3.1-1.3.1.1" title="No corresponding relation glass :ARG2 glass">:ARG2</span> (<span class="amr-node" tok-id="g">g/glass</span>))))</pre>
 </div>
 
 AMR 2:
@@ -1200,9 +1200,9 @@ A person is pouring oil made with olives into a pot on the stove
     <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="p2">p2/person</span>)
     <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="o">o/oil</span>
         <span class="amr-edge red" tok-id="1.2-1.2.1" title="No corresponding relation oil :ARG1-of oil">:ARG1-of</span> (<span class="amr-frame red" tok-id="m" title="make-01 != oil">m/make-01</span>
-            <span class="amr-edge red" tok-id="1.2.1-1.2.1.1" title="No corresponding relation oil :ARG2 olive">:ARG2</span> (<span class="amr-node" tok-id="o2">o2/olive</span>)))
+            <span class="amr-edge red" tok-id="1.2.1-1.2.1.1" title="No corresponding relation oil :ARG2 stove">:ARG2</span> (<span class="amr-node red" tok-id="o2" title="olive != stove">o2/olive</span>)))
     <span class="amr-edge" tok-id="1-1.3">:ARG3</span> (<span class="amr-node" tok-id="p3">p3/pot</span>
-        <span class="amr-edge" tok-id="1.3-1.3.1">:location</span> (<span class="amr-node" tok-id="s">s/stove</span>)))</pre>
+        <span class="amr-edge red" tok-id="1.3-1.3.1" title="No corresponding relation pot :location olive">:location</span> (<span class="amr-node red" tok-id="s" title="stove != olive">s/stove</span>)))</pre>
 </div>
 
 AMR 2:
@@ -1303,9 +1303,9 @@ A kitten is playing with a toy made of blue rope
 (<span class="amr-frame" tok-id="p">p/play-01</span>
     <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="k">k/kitten</span>)
     <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="t">t/toy</span>
-        <span class="amr-edge red" tok-id="1.2-1.2.1" title="No corresponding relation toy :ARG1-of toy">:ARG1-of</span> (<span class="amr-frame red" tok-id="m" title="make-01 != toy">m/make-01</span>
-            <span class="amr-edge red" tok-id="1.2.1-1.2.1.1" title="No corresponding relation toy :ARG2 rope">:ARG2</span> (<span class="amr-node" tok-id="r">r/rope</span>
-                <span class="amr-edge red" tok-id="1.2.1.1-1.2.1.1.1" title="No corresponding relation rope :consist-of blue">:consist-of</span> (<span class="amr-node" tok-id="b">b/blue</span>)))))</pre>
+        <span class="amr-edge red" tok-id="1.2-1.2.1" title="No corresponding relation toy :ARG1-of blue">:ARG1-of</span> (<span class="amr-frame red" tok-id="m" title="make-01 != blue">m/make-01</span>
+            <span class="amr-edge red" tok-id="1.2.1-1.2.1.1" title="No corresponding relation blue :ARG2 rope">:ARG2</span> (<span class="amr-node" tok-id="r">r/rope</span>
+                <span class="amr-edge red" tok-id="1.2.1.1-1.2.1.1.1" title="No corresponding relation rope :consist-of rope">:consist-of</span> (<span class="amr-node red" tok-id="b" title="blue != rope">b/blue</span>)))))</pre>
 </div><br><h4>Scores:</h4>
 Semantic Relatedness Score: 4.8 (0.95)<br><br>
 <table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.979</td><tr><tr><td>BLEU</td><td>0.535</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>0.682</td><tr><tr><td>Meteor</td><td>0.44</td><tr><tr><td>S-BERT (bl)</td><td>0.985</td><tr><tr><td>S-BERT (db)</td><td>0.985</td><tr><tr><td>S-BERT (rb)</td><td>0.982</td><tr><tr><td>S-BERT (rl)</td><td>0.981</td><tr><tr><td>S2match</td><td>0.636</td><tr><tr><td>Smatch</td><td>0.636</td><tr><tr><td>chrF++</td><td>81.551</td><tr></table></p>
@@ -1379,9 +1379,9 @@ A boy is playing a game with wooden blocks
 
 (<span class="amr-frame" tok-id="p">p/play-01</span>
     <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="b">b/boy</span>)
-    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation play-01 :ARG1 block">:ARG1</span> (<span class="amr-node red" tok-id="g" title="game != block">g/game</span>)
-    <span class="amr-edge red" tok-id="1-1.3" title="No corresponding relation play-01 :ARG2 game">:ARG2</span> (<span class="amr-node red" tok-id="b2" title="block != game">b2/block</span>
-        <span class="amr-edge red" tok-id="1.3-1.3.1" title="No corresponding relation game :mod make-01">:mod</span> (<span class="amr-node red" tok-id="w" title="wooden != make-01">w/wooden</span>)))</pre>
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="g">g/game</span>)
+    <span class="amr-edge red" tok-id="1-1.3" title="No corresponding relation play-01 :ARG2 wood">:ARG2</span> (<span class="amr-node red" tok-id="b2" title="block != wood">b2/block</span>
+        <span class="amr-edge red" tok-id="1.3-1.3.1" title="No corresponding relation wood :mod wood">:mod</span> (<span class="amr-node red" tok-id="w" title="wooden != wood">w/wooden</span>)))</pre>
 </div>
 
 AMR 2:
@@ -1792,13 +1792,13 @@ Semantic Relatedness Score: 4.9 (0.975)<br><br>
 A woman, who is seated, is singing a song and playing the guitar
 
 (<span class="amr-node" tok-id="a">a/and</span>
-    <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="s">s/sing-01</span>
-        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0</span> (<span class="amr-node" tok-id="w">w/woman</span>
-            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:ARG1-of</span> (<span class="amr-frame" tok-id="s2">s2/seat-01</span>))
-        <span class="amr-edge" tok-id="1.1-1.1.2">:ARG1</span> (<span class="amr-node" tok-id="s3">s3/song</span>))
-    <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="p">p/play-11</span>
-        <span class="amr-edge" tok-id="1.2-1.1.1">:ARG0</span> <span class="amr-node" tok-id="w">w</span>
-        <span class="amr-edge" tok-id="1.2-1.2.2">:ARG1</span> (<span class="amr-node" tok-id="g">g/guitar</span>)))</pre>
+    <span class="amr-edge red" tok-id="1-1.1" title="No corresponding relation and :op1 woman">:op1</span> (<span class="amr-frame red" tok-id="s" title="sing-01 != woman">s/sing-01</span>
+        <span class="amr-edge red" tok-id="1.1-1.1.1" title="No corresponding relation woman :ARG0 seat-01">:ARG0</span> (<span class="amr-node red" tok-id="w" title="woman != seat-01">w/woman</span>
+            <span class="amr-edge red" tok-id="1.1.1-1.1.1.1" title="No corresponding relation seat-01 :ARG1-of song">:ARG1-of</span> (<span class="amr-frame red" tok-id="s2" title="seat-01 != song">s2/seat-01</span>))
+        <span class="amr-edge red" tok-id="1.1-1.1.2" title="No corresponding relation woman :ARG1 play-11">:ARG1</span> (<span class="amr-node red" tok-id="s3" title="song != play-11">s3/song</span>))
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation and :op2 sing-01">:op2</span> (<span class="amr-frame red" tok-id="p" title="play-11 != sing-01">p/play-11</span>
+        <span class="amr-edge red" tok-id="1.2-1.1.1" title="No corresponding relation sing-01 :ARG0 seat-01">:ARG0</span> <span class="amr-node red" tok-id="w" title="woman != seat-01">w</span>
+        <span class="amr-edge red" tok-id="1.2-1.2.2" title="No corresponding relation sing-01 :ARG1 guitar">:ARG1</span> (<span class="amr-node" tok-id="g">g/guitar</span>)))</pre>
 </div>
 
 AMR 2:
@@ -1830,7 +1830,7 @@ Two men are taking a break from a trip on a snowy road
         <span class="amr-edge" tok-id="1.2-1.1">:ARG0</span> <span class="amr-node" tok-id="m">m</span>
         <span class="amr-edge" tok-id="1.2-1.2.2">:ARG1</span> (<span class="amr-frame" tok-id="t2">t2/trip-03</span>
             <span class="amr-edge" tok-id="1.2.2-1.2.2.1">:ARG1</span> (<span class="amr-node" tok-id="r">r/road</span>
-                <span class="amr-edge red" tok-id="1.2.2.1-1.2.2.1.1" title="No corresponding relation road :mod cover-02">:mod</span> (<span class="amr-frame red" tok-id="s" title="snowy-02 != cover-02">s/snowy-02</span>)))))</pre>
+                <span class="amr-edge red" tok-id="1.2.2.1-1.2.2.1.1" title="No corresponding relation road :mod road">:mod</span> (<span class="amr-frame red" tok-id="s" title="snowy-02 != road">s/snowy-02</span>)))))</pre>
 </div>
 
 AMR 2:
@@ -2825,7 +2825,7 @@ A small child is showing excitement on a swing set at the park
         <span class="amr-edge" tok-id="1.2-1.1">:ARG1</span> <span class="amr-node" tok-id="c">c</span>)
     <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="s3">s3/set</span>
         <span class="amr-edge red" tok-id="1.3-1.3.1" title="No corresponding relation set :consist-of park">:consist-of</span> (<span class="amr-node red" tok-id="s4" title="swing != park">s4/swing</span>)
-        <span class="amr-edge red" tok-id="1.3-1.3.2" title="No corresponding relation set :location swing">:location</span> (<span class="amr-node red" tok-id="p" title="park != swing">p/park</span>)))</pre>
+        <span class="amr-edge" tok-id="1.3-1.3.2">:location</span> (<span class="amr-node" tok-id="p">p/park</span>)))</pre>
 </div>
 
 AMR 2:
@@ -2836,11 +2836,11 @@ A small child is showing excitement on a set of swings at the park
 (<span class="amr-frame" tok-id="s">s/show-01</span>
     <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="c">c/child</span>
         <span class="amr-edge" tok-id="1.1-1.1.1">:mod</span> (<span class="amr-node" tok-id="s2">s2/small</span>))
-    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation show-01 :ARG1 park">:ARG1</span> (<span class="amr-frame red" tok-id="e" title="excite-01 != park">e/excite-01</span>
-        <span class="amr-edge red" tok-id="1.2-1.1" title="No corresponding relation park :ARG1 child">:ARG1</span> <span class="amr-node" tok-id="c">c</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-frame" tok-id="e">e/excite-01</span>
+        <span class="amr-edge" tok-id="1.2-1.1">:ARG1</span> <span class="amr-node" tok-id="c">c</span>)
     <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="s3">s3/set</span>
-        <span class="amr-edge" tok-id="1.3-1.3.2">:consist-of</span> (<span class="amr-node" tok-id="s4">s4/swing</span>)
-        <span class="amr-edge" tok-id="1.3-1.3.1">:location</span> (<span class="amr-node" tok-id="p">p/park</span>)))</pre>
+        <span class="amr-edge red" tok-id="1.3-1.3.2" title="No corresponding relation set :consist-of park">:consist-of</span> (<span class="amr-node red" tok-id="s4" title="swing != park">s4/swing</span>)
+        <span class="amr-edge red" tok-id="1.3-1.3.1" title="No corresponding relation set :location swing">:location</span> (<span class="amr-node red" tok-id="p" title="park != swing">p/park</span>)))</pre>
 </div><br><h4>Scores:</h4>
 Semantic Relatedness Score: 4.8 (0.95)<br><br>
 <table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.99</td><tr><tr><td>BLEU</td><td>0.63</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>0.933</td><tr><tr><td>Meteor</td><td>0.47</td><tr><tr><td>S-BERT (bl)</td><td>0.975</td><tr><tr><td>S-BERT (db)</td><td>0.951</td><tr><tr><td>S-BERT (rb)</td><td>0.97</td><tr><tr><td>S-BERT (rl)</td><td>0.989</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>86.1</td><tr></table></p>

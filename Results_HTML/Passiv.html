@@ -1470,9 +1470,9 @@ A person is climbing a rock with a rope, which is pink
 
 (<span class="amr-frame" tok-id="c">c/climb-01</span>
     <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="p">p/person</span>)
-    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation climb-01 :ARG1 rope">:ARG1</span> (<span class="amr-node red" tok-id="r" title="rock != rope">r/rock</span>)
-    <span class="amr-edge red" tok-id="1-1.3" title="No corresponding relation climb-01 :instrument pink-04">:instrument</span> (<span class="amr-node red" tok-id="r2" title="rope != pink-04">r2/rope</span>
-        <span class="amr-edge red" tok-id="1.3-1.3.1" title="No corresponding relation pink-04 :ARG1-of rock">:ARG1-of</span> (<span class="amr-frame red" tok-id="p2" title="pink-04 != rock">p2/pink-04</span>)))</pre>
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation climb-01 :ARG1 have-03">:ARG1</span> (<span class="amr-node red" tok-id="r" title="rock != have-03">r/rock</span>)
+    <span class="amr-edge red" tok-id="1-1.3" title="No corresponding relation climb-01 :instrument rope">:instrument</span> (<span class="amr-node" tok-id="r2">r2/rope</span>
+        <span class="amr-edge red" tok-id="1.3-1.3.1" title="No corresponding relation rope :ARG1-of rock">:ARG1-of</span> (<span class="amr-frame red" tok-id="p2" title="pink-04 != rock">p2/pink-04</span>)))</pre>
 </div>
 
 AMR 2:
@@ -1480,12 +1480,12 @@ AMR 2:
 <pre>
 A rock is being climbed by a person with a rope, which is pink
 
-(<span class="amr-frame red" tok-id="c" title="climb-01 != pink-04">c/climb-01</span>
-    <span class="amr-edge red" tok-id="1-1.1" title="No corresponding relation pink-04 :ARG0 person">:ARG0</span> (<span class="amr-node" tok-id="p">p/person</span>
-        <span class="amr-edge red" tok-id="1.1-1.1.1" title="No corresponding relation person :ARG0-of person">:ARG0-of</span> (<span class="amr-frame red" tok-id="h" title="have-03 != person">h/have-03</span>
-            <span class="amr-edge red" tok-id="1.1.1-1.1.1.1" title="No corresponding relation person :ARG1 rope">:ARG1</span> (<span class="amr-node" tok-id="r">r/rope</span>
-                <span class="amr-edge red" tok-id="1.1.1.1-1.1.1.1.1" title="No corresponding relation rope :ARG1-of climb-01">:ARG1-of</span> (<span class="amr-frame red" tok-id="p2" title="pink-04 != climb-01">p2/pink-04</span>))))
-    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation pink-04 :ARG1 rock">:ARG1</span> (<span class="amr-node" tok-id="r2">r2/rock</span>))</pre>
+(<span class="amr-frame" tok-id="c">c/climb-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="p">p/person</span>
+        <span class="amr-edge red" tok-id="1.1-1.1.1" title="No corresponding relation person :ARG0-of rock">:ARG0-of</span> (<span class="amr-frame red" tok-id="h" title="have-03 != rock">h/have-03</span>
+            <span class="amr-edge red" tok-id="1.1.1-1.1.1.1" title="No corresponding relation rock :ARG1 rope">:ARG1</span> (<span class="amr-node" tok-id="r">r/rope</span>
+                <span class="amr-edge" tok-id="1.1.1.1-1.1.1.1.1">:ARG1-of</span> (<span class="amr-frame" tok-id="p2">p2/pink-04</span>))))
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="r2">r2/rock</span>))</pre>
 </div><br><h4>Scores:</h4>
 Semantic Relatedness Score: 5.0 (1.0)<br><br>
 <table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.971</td><tr><tr><td>BLEU</td><td>0.407</td><tr><tr><td>MF Score</td><td>0.872</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>0.773</td><tr><tr><td>Meteor</td><td>0.393</td><tr><tr><td>S-BERT (bl)</td><td>0.948</td><tr><tr><td>S-BERT (db)</td><td>0.944</td><tr><tr><td>S-BERT (rb)</td><td>0.967</td><tr><tr><td>S-BERT (rl)</td><td>0.984</td><tr><tr><td>S2match</td><td>0.818</td><tr><tr><td>Smatch</td><td>0.818</td><tr><tr><td>chrF++</td><td>67.042</td><tr></table></p>
@@ -1702,8 +1702,8 @@ An alligator is being patted on the mouth by a man
 (<span class="amr-frame" tok-id="p">p/pat-01</span>
     <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
     <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-frame" tok-id="a">a/alligator-01</span>
-        <span class="amr-edge" tok-id="1.2-1.2.1">:part</span> (<span class="amr-node" tok-id="m2">m2/mouth</span>))
-    <span class="amr-edge" tok-id="1-1.2.1">:location</span> <span class="amr-node" tok-id="m2">m2</span>)</pre>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:part</span> <span class="amr-node" tok-id="m2">m2</span>)
+    <span class="amr-edge" tok-id="1-1.2.1">:location</span> (<span class="amr-node" tok-id="m2">m2/mouth</span>))</pre>
 </div>
 
 AMR 2:
@@ -1714,8 +1714,8 @@ A man is patting an alligator on the mouth
 (<span class="amr-frame" tok-id="p">p/pat-01</span>
     <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
     <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-frame" tok-id="a">a/alligator-01</span>
-        <span class="amr-edge" tok-id="1.2-1.2.1">:part</span> (<span class="amr-node" tok-id="m2">m2/mouth</span>))
-    <span class="amr-edge" tok-id="1-1.2.1">:location</span> <span class="amr-node" tok-id="m2">m2</span>)</pre>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:part</span> <span class="amr-node" tok-id="m2">m2</span>)
+    <span class="amr-edge" tok-id="1-1.2.1">:location</span> (<span class="amr-node" tok-id="m2">m2/mouth</span>))</pre>
 </div><br><h4>Scores:</h4>
 Semantic Relatedness Score: 4.8 (0.95)<br><br>
 <table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.95</td><tr><tr><td>BLEU</td><td>0.138</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>0.75</td><tr><tr><td>Meteor</td><td>0.38</td><tr><tr><td>S-BERT (bl)</td><td>0.943</td><tr><tr><td>S-BERT (db)</td><td>0.92</td><tr><tr><td>S-BERT (rb)</td><td>0.93</td><tr><tr><td>S-BERT (rl)</td><td>0.962</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>49.271</td><tr></table></p>

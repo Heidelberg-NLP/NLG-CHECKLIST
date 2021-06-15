@@ -1839,7 +1839,7 @@ A man in a red shirt is doing a trick with a skateboard
             <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:ARG1-of</span> (<span class="amr-frame" tok-id="r">r/red-02</span>)))
     <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-frame" tok-id="t">t/trick-01</span>
         <span class="amr-edge" tok-id="1.2-1.1">:ARG0</span> <span class="amr-node" tok-id="m">m</span>
-        <span class="amr-edge red" tok-id="1.2-1.2.2" title="No corresponding relation trick-01 :mod skateboard-01">:mod</span> (<span class="amr-frame" tok-id="s2">s2/skateboard-01</span>)))</pre>
+        <span class="amr-edge red" tok-id="1.2-1.2.2" title="No corresponding relation trick-01 :mod trick-01">:mod</span> (<span class="amr-frame red" tok-id="s2" title="skateboard-01 != trick-01">s2/skateboard-01</span>)))</pre>
 </div><br><h4>Scores:</h4>
 Semantic Relatedness Score: 4.9 (0.975)<br><br>
 <table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.992</td><tr><tr><td>BLEU</td><td>0.842</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.557</td><tr><tr><td>S-BERT (bl)</td><td>0.999</td><tr><tr><td>S-BERT (db)</td><td>0.997</td><tr><tr><td>S-BERT (rb)</td><td>0.998</td><tr><tr><td>S-BERT (rl)</td><td>0.999</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>87.731</td><tr></table></p>
@@ -2035,8 +2035,8 @@ The little boy is sticking his tongue out for the camera and another boy is look
     <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="s">s/stick-out-02</span>
         <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0</span> (<span class="amr-node" tok-id="b">b/boy</span>
             <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:mod</span> (<span class="amr-node" tok-id="l">l/little</span>)
-            <span class="amr-edge" tok-id="1.1.1-1.1.1.2">:part</span> <span class="amr-node" tok-id="t">t</span>)
-        <span class="amr-edge" tok-id="1.1-1.1.1.2">:ARG1</span> (<span class="amr-node" tok-id="t">t/tongue</span>)
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.2">:part</span> (<span class="amr-node" tok-id="t">t/tongue</span>))
+        <span class="amr-edge" tok-id="1.1-1.1.1.2">:ARG1</span> <span class="amr-node" tok-id="t">t</span>
         <span class="amr-edge" tok-id="1.1-1.1.3">:purpose</span> (<span class="amr-node" tok-id="c">c/camera</span>))
     <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="l2">l2/look-01</span>
         <span class="amr-edge" tok-id="1.2-1.2.2">:ARG0</span> (<span class="amr-node" tok-id="b2">b2/boy</span>
@@ -2053,8 +2053,8 @@ A little boy is sticking his tongue out for the camera and another boy is lookin
     <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="s">s/stick-out-02</span>
         <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0</span> (<span class="amr-node" tok-id="b">b/boy</span>
             <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:mod</span> (<span class="amr-node" tok-id="l">l/little</span>)
-            <span class="amr-edge" tok-id="1.1.1-1.1.1.2">:part</span> <span class="amr-node" tok-id="t">t</span>)
-        <span class="amr-edge" tok-id="1.1-1.1.1.2">:ARG1</span> (<span class="amr-node" tok-id="t">t/tongue</span>)
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.2">:part</span> (<span class="amr-node" tok-id="t">t/tongue</span>))
+        <span class="amr-edge" tok-id="1.1-1.1.1.2">:ARG1</span> <span class="amr-node" tok-id="t">t</span>
         <span class="amr-edge" tok-id="1.1-1.1.3">:purpose</span> (<span class="amr-node" tok-id="c">c/camera</span>))
     <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="l2">l2/look-01</span>
         <span class="amr-edge" tok-id="1.2-1.2.2">:ARG0</span> (<span class="amr-node" tok-id="b2">b2/boy</span>
@@ -2619,8 +2619,8 @@ The smiling boy in winter clothes is waving his mittened hands outside the build
         <span class="amr-edge" tok-id="1.1-1.1.2">:ARG0-of</span> (<span class="amr-frame" tok-id="w2">w2/wear-01</span>
             <span class="amr-edge" tok-id="1.1.2-1.1.2.1">:ARG1</span> (<span class="amr-node" tok-id="c">c/clothes</span>
                 <span class="amr-edge" tok-id="1.1.2.1-1.1.2.1.1">:mod</span> (<span class="amr-node" tok-id="w3">w3/winter</span>)))
-        <span class="amr-edge" tok-id="1.1-1.1.3">:part</span> (<span class="amr-node" tok-id="h">h/hand</span>))
-    <span class="amr-edge" tok-id="1-1.1.3">:ARG1</span> <span class="amr-node" tok-id="h">h</span>
+        <span class="amr-edge" tok-id="1.1-1.1.3">:part</span> <span class="amr-node" tok-id="h">h</span>)
+    <span class="amr-edge" tok-id="1-1.1.3">:ARG1</span> (<span class="amr-node" tok-id="h">h/hand</span>)
     <span class="amr-edge" tok-id="1-1.4">:location</span> (<span class="amr-node" tok-id="o">o/outside</span>
         <span class="amr-edge" tok-id="1.4-1.4.1">:op1</span> (<span class="amr-node" tok-id="b2">b2/building</span>))
     <span class="amr-edge" tok-id="1-1.5">:location</span> (<span class="amr-node" tok-id="s2">s2/snow</span>)
@@ -2638,8 +2638,8 @@ A smiling boy in winter clothes is waving his mittened hands outside a building 
         <span class="amr-edge" tok-id="1.1-1.1.2">:ARG0-of</span> (<span class="amr-frame" tok-id="w2">w2/wear-01</span>
             <span class="amr-edge" tok-id="1.1.2-1.1.2.1">:ARG1</span> (<span class="amr-node" tok-id="c">c/clothes</span>
                 <span class="amr-edge" tok-id="1.1.2.1-1.1.2.1.1">:mod</span> (<span class="amr-node" tok-id="w3">w3/winter</span>)))
-        <span class="amr-edge" tok-id="1.1-1.1.3">:part</span> (<span class="amr-node" tok-id="h">h/hand</span>))
-    <span class="amr-edge" tok-id="1-1.1.3">:ARG1</span> <span class="amr-node" tok-id="h">h</span>
+        <span class="amr-edge" tok-id="1.1-1.1.3">:part</span> <span class="amr-node" tok-id="h">h</span>)
+    <span class="amr-edge" tok-id="1-1.1.3">:ARG1</span> (<span class="amr-node" tok-id="h">h/hand</span>)
     <span class="amr-edge" tok-id="1-1.4">:location</span> (<span class="amr-node" tok-id="o">o/outside</span>
         <span class="amr-edge" tok-id="1.4-1.4.1">:op1</span> (<span class="amr-node" tok-id="b2">b2/building</span>))
     <span class="amr-edge" tok-id="1-1.5">:location</span> (<span class="amr-node" tok-id="s2">s2/snow</span>)
@@ -2657,11 +2657,11 @@ A man is sitting on a train and resting his hand against his face
     <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="s">s/sit-01</span>
         <span class="amr-edge" tok-id="1.1-1.1.1">:ARG1</span> (<span class="amr-node" tok-id="m">m/man</span>
             <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:part</span> (<span class="amr-node" tok-id="f">f/face</span>)
-            <span class="amr-edge" tok-id="1.1.1-1.1.1.2">:part</span> <span class="amr-node" tok-id="h">h</span>)
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.2">:part</span> (<span class="amr-node" tok-id="h">h/hand</span>))
         <span class="amr-edge" tok-id="1.1-1.1.2">:ARG2</span> (<span class="amr-node" tok-id="t">t/train</span>))
     <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="r">r/rest-01</span>
         <span class="amr-edge" tok-id="1.2-1.1.1">:ARG0</span> <span class="amr-node" tok-id="m">m</span>
-        <span class="amr-edge" tok-id="1.2-1.1.1.2">:ARG1</span> (<span class="amr-node" tok-id="h">h/hand</span>)
+        <span class="amr-edge" tok-id="1.2-1.1.1.2">:ARG1</span> <span class="amr-node" tok-id="h">h</span>
         <span class="amr-edge" tok-id="1.2-1.2.3">:ARG2</span> (<span class="amr-node" tok-id="a2">a2/against</span>
             <span class="amr-edge" tok-id="1.2.3-1.1.1.1">:op1</span> <span class="amr-node" tok-id="f">f</span>)))</pre>
 </div>
@@ -2675,11 +2675,11 @@ The man is sitting on the train and resting his hand against his face
     <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="s">s/sit-01</span>
         <span class="amr-edge" tok-id="1.1-1.1.1">:ARG1</span> (<span class="amr-node" tok-id="m">m/man</span>
             <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:part</span> (<span class="amr-node" tok-id="f">f/face</span>)
-            <span class="amr-edge" tok-id="1.1.1-1.1.1.2">:part</span> <span class="amr-node" tok-id="h">h</span>)
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.2">:part</span> (<span class="amr-node" tok-id="h">h/hand</span>))
         <span class="amr-edge" tok-id="1.1-1.1.2">:ARG2</span> (<span class="amr-node" tok-id="t">t/train</span>))
     <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="r">r/rest-01</span>
         <span class="amr-edge" tok-id="1.2-1.1.1">:ARG0</span> <span class="amr-node" tok-id="m">m</span>
-        <span class="amr-edge" tok-id="1.2-1.1.1.2">:ARG1</span> (<span class="amr-node" tok-id="h">h/hand</span>)
+        <span class="amr-edge" tok-id="1.2-1.1.1.2">:ARG1</span> <span class="amr-node" tok-id="h">h</span>
         <span class="amr-edge" tok-id="1.2-1.2.3">:ARG2</span> (<span class="amr-node" tok-id="a2">a2/against</span>
             <span class="amr-edge" tok-id="1.2.3-1.1.1.1">:op1</span> <span class="amr-node" tok-id="f">f</span>)))</pre>
 </div><br><h4>Scores:</h4>
@@ -2791,8 +2791,8 @@ A red and brown dog is digging its nose inside the holiday gift bag
     <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="d2">d2/dog</span>
         <span class="amr-edge" tok-id="1.1-1.1.3">:ARG1-of</span> (<span class="amr-frame" tok-id="r">r/red-02</span>)
         <span class="amr-edge" tok-id="1.1-1.1.1">:mod</span> (<span class="amr-node" tok-id="b">b/brown</span>)
-        <span class="amr-edge" tok-id="1.1-1.1.2">:part</span> (<span class="amr-node" tok-id="n">n/nose</span>))
-    <span class="amr-edge" tok-id="1-1.1.2">:ARG1</span> <span class="amr-node" tok-id="n">n</span>
+        <span class="amr-edge" tok-id="1.1-1.1.2">:part</span> <span class="amr-node" tok-id="n">n</span>)
+    <span class="amr-edge" tok-id="1-1.1.2">:ARG1</span> (<span class="amr-node" tok-id="n">n/nose</span>)
     <span class="amr-edge" tok-id="1-1.3">:ARG2</span> (<span class="amr-node" tok-id="i">i/inside</span>
         <span class="amr-edge" tok-id="1.3-1.3.1">:op1</span> (<span class="amr-node" tok-id="b2">b2/bag</span>
             <span class="amr-edge" tok-id="1.3.1-1.3.1.1">:mod</span> (<span class="amr-node" tok-id="h">h/holiday</span>)
@@ -2808,8 +2808,8 @@ The red and brown dog is digging its nose inside a holiday gift bag
     <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="d2">d2/dog</span>
         <span class="amr-edge" tok-id="1.1-1.1.3">:ARG1-of</span> (<span class="amr-frame" tok-id="r">r/red-02</span>)
         <span class="amr-edge" tok-id="1.1-1.1.1">:mod</span> (<span class="amr-node" tok-id="b">b/brown</span>)
-        <span class="amr-edge" tok-id="1.1-1.1.2">:part</span> (<span class="amr-node" tok-id="n">n/nose</span>))
-    <span class="amr-edge" tok-id="1-1.1.2">:ARG1</span> <span class="amr-node" tok-id="n">n</span>
+        <span class="amr-edge" tok-id="1.1-1.1.2">:part</span> <span class="amr-node" tok-id="n">n</span>)
+    <span class="amr-edge" tok-id="1-1.1.2">:ARG1</span> (<span class="amr-node" tok-id="n">n/nose</span>)
     <span class="amr-edge" tok-id="1-1.3">:ARG2</span> (<span class="amr-node" tok-id="i">i/inside</span>
         <span class="amr-edge" tok-id="1.3-1.3.1">:op1</span> (<span class="amr-node" tok-id="b2">b2/bag</span>
             <span class="amr-edge" tok-id="1.3.1-1.3.1.1">:mod</span> (<span class="amr-node" tok-id="h">h/holiday</span>)
@@ -3293,9 +3293,9 @@ A man helps a boy ride a bike.
 (<span class="amr-frame" tok-id="h">h/help-01</span>
     <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
     <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation help-01 :ARG1 boy">:ARG1</span> (<span class="amr-frame red" tok-id="r" title="ride-01 != boy">r/ride-01</span>
-        <span class="amr-edge red" tok-id="1.2-1.2.1" title="No corresponding relation boy :ARG0 ride-01">:ARG0</span> (<span class="amr-node red" tok-id="b" title="boy != ride-01">b/boy</span>)
+        <span class="amr-edge red" tok-id="1.2-1.2.1" title="No corresponding relation boy :ARG0 ride-01">:ARG0</span> <span class="amr-node red" tok-id="b" title="boy != ride-01">b</span>
         <span class="amr-edge red" tok-id="1.2-1.2.2" title="No corresponding relation boy :ARG1 bike">:ARG1</span> (<span class="amr-node" tok-id="b2">b2/bike</span>))
-    <span class="amr-edge red" tok-id="1-1.2.1" title="No corresponding relation help-01 :ARG2 ride-01">:ARG2</span> <span class="amr-node red" tok-id="b" title="boy != ride-01">b</span>)</pre>
+    <span class="amr-edge red" tok-id="1-1.2.1" title="No corresponding relation help-01 :ARG2 ride-01">:ARG2</span> (<span class="amr-node red" tok-id="b" title="boy != ride-01">b/boy</span>))</pre>
 </div>
 
 AMR 2:
@@ -3306,9 +3306,9 @@ The man helps the boy ride a bike.
 (<span class="amr-frame" tok-id="h">h/help-01</span>
     <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
     <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation help-01 :ARG1 boy">:ARG1</span> (<span class="amr-frame red" tok-id="r" title="ride-01 != boy">r/ride-01</span>
-        <span class="amr-edge red" tok-id="1.2-1.2.1" title="No corresponding relation boy :ARG0 ride-01">:ARG0</span> (<span class="amr-node red" tok-id="b" title="boy != ride-01">b/boy</span>)
+        <span class="amr-edge red" tok-id="1.2-1.2.1" title="No corresponding relation boy :ARG0 ride-01">:ARG0</span> <span class="amr-node red" tok-id="b" title="boy != ride-01">b</span>
         <span class="amr-edge red" tok-id="1.2-1.2.2" title="No corresponding relation boy :ARG1 bike">:ARG1</span> (<span class="amr-node" tok-id="b2">b2/bike</span>))
-    <span class="amr-edge red" tok-id="1-1.2.1" title="No corresponding relation help-01 :ARG2 ride-01">:ARG2</span> <span class="amr-node red" tok-id="b" title="boy != ride-01">b</span>)</pre>
+    <span class="amr-edge red" tok-id="1-1.2.1" title="No corresponding relation help-01 :ARG2 ride-01">:ARG2</span> (<span class="amr-node red" tok-id="b" title="boy != ride-01">b/boy</span>))</pre>
 </div><br><h4>Scores:</h4>
 Semantic Similarity Score: 4.8 (0.96)<br><br>
 <table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.985</td><tr><tr><td>BLEU</td><td>0.411</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.471</td><tr><tr><td>S-BERT (bl)</td><td>0.985</td><tr><tr><td>S-BERT (db)</td><td>0.99</td><tr><tr><td>S-BERT (rb)</td><td>0.989</td><tr><tr><td>S-BERT (rl)</td><td>0.99</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>73.264</td><tr></table></p>
