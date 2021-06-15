@@ -23,7 +23,7 @@ pip install -r requirements.txt
 
 You also have to install the [`amr-utils`](https://github.com/ablodge/amr-utils) package.
 
-If you wish to add new test cases that have not yet been evaluated by the metrics used in the testsuite, you will have to install y with the following command:
+If you wish to add new test cases that have not yet been evaluated by the metrics used in the testsuite, you will have to install requirements_add.txt with the following command:
 
 ```
 pip install -r requirements_add.txt
@@ -72,10 +72,8 @@ The follwing metrics are employed in the testsuite are the following:
 - chrF++
 - Meteor
 - MF Score
-- MF Score (\beta=0.5)
-- MF Score (\beta=2)
-- MF Score (\beta=0)
-- MF Score (\beta=\infty)
+- MF Score (&beta;=0)
+- MF Score (&beta;=&infty;)
 - S-BERT (roberta-large)
 - S-BERT (roberta-base)
 - S-BERT (bert-large)
