@@ -89,7 +89,7 @@ def create_table_average(phens, av_scores):
 		rows.append(row)
 		row = []
 
-	return tabulate(rows, columns, tablefmt="latex")
+	return tabulate(rows, columns, tablefmt="grid")
 
 
 def create_cor_table(corr_dict, cols):
@@ -100,7 +100,7 @@ def create_cor_table(corr_dict, cols):
 		row = [k] + v
 		rows.append(row)
 		row = []
-	return tabulate(rows, columns, tablefmt="latex")
+	return tabulate(rows, columns, tablefmt="grid")
 
 
 def create_table_comps(id_dict, val_dict, s_value):
@@ -130,7 +130,7 @@ def create_table_comps(id_dict, val_dict, s_value):
 			row = []
 			continue
 
-	print(tabulate(rows, columns, tablefmt="latex"))
+	print(tabulate(rows, columns, tablefmt="grid"))
 
 
 if __name__ == "__main__":

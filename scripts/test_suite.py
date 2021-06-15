@@ -39,7 +39,7 @@ def print_testcase(sents, amrs, h_score, metrics, expl, sick=True):
 	mets.sort(key=lambda x:x[0])
 
 	for met in mets:	
-		string.append('{0:15} ---  {1}\n'.format(met[0], str(met[1])))
+		string.append('{0:30} ---  {1}\n'.format(met[0], str(met[1])))
 	string.append("\n---------------------------------------------------------------------------------------------------\n")
 	return string
 
@@ -70,7 +70,7 @@ def write_html(amrs, h_score, metrics, sick=True):
 	mets = [(k, str(round(v, 3))) if isinstance(v, float) else (k, v) for k,v in metrics.items()]
 	mets.sort(key=lambda x:x[0])
 
-	string += '<table style="width:30%">'
+	string += '<table style="width:20%"  border="1">'
 	for met in mets:	
 		string += '<tr><td>{}</td><td>{}</td><tr>'.format(met[0], str(met[1]))
 	string += '</table></p>\n'
@@ -185,13 +185,40 @@ if __name__ == "__main__":
 				phen_file += '<h2>{} Data Set</h2>\n'.format(ss.upper())
 				all_ids = [idx for k,v in sub_phens.items() for idx in v]
 				correlation, average = compute_av_scores(all_ids, wanted, your_wanted, metric_dict)
-				matrix = frame(correlation)			
+				matrix = frame(correlation)		
+				both = wanted + your_wanted	
 				if ss == "sick":
 					s = "Relatedness"
 					rel = True
+					av_columns_sick.append(phenomenon)
+					for met in both:
+						if met in all_average_sick:
+							all_average_sick[met].append(round(float(average[met.strip()]), 3))
+						else:
+							all_average_sick[met] = [round(float(average[met.strip()]), 3)]
+
+					unstack = matrix.unstack()
+					for k,v in unstack["Ann. Score"].items():
+						try:
+							corr_hj_sick[k].append(v)
+						except KeyError:
+							corr_hj_sick[k] = [v]
 				else:
 					s = "Similarity"
 					rel = False	
+					av_columns.append(phenomenon)
+					for met in both:
+						if met in all_average:
+							all_average[met].append(round(float(average[met.strip()]), 3))
+						else:
+							all_average[met] = [round(float(average[met.strip()]), 3)]
+
+					unstack = matrix.unstack()
+					for k,v in unstack["Ann. Score"].items():
+						try:
+							corr_hj[k].append(v)
+						except KeyError:
+							corr_hj[k] = [v]
 				id_list = [x for phen, ids in sub_phens.items() for x in ids]
 				total = [vals[idx][0] for idx in id_list]
 				phen_file += '<h2>Number of Test Cases: {}</h2>'.format(len(id_list))
@@ -207,7 +234,7 @@ if __name__ == "__main__":
 				phen_file += '<h3>Average Semantic {}: {} ({})</h3>'.format(s, round(float(average["Ann. Score"]), 3), round(float(norm(average["Ann. Score"], ss)), 3))
 				for met in your_wanted:
 					phen_file += '<h3>Tested Score ({}): {}</h3>'.format(met, round(float(average[met]), 3))
-				phen_file += '<table style="width:20%">'
+				phen_file += '<table style="width:20%"  border="1">'
 				for metric in sorted(average.keys()):
 					if metric in wanted:
 						phen_file += '<tr><td>{}</td><td>{}</td><tr>'.format(metric, round(float(average[metric]), 3))
@@ -226,10 +253,10 @@ if __name__ == "__main__":
 						phen_file += '<h4>Average Semantic {}:   {} ({})</h4>'.format(s, round(float(av_phen["Ann. Score"]), 3), round(float(norm(av_phen["Ann. Score"], ss)), 3))
 						for met in your_wanted:
 							phen_file += '<h3>Tested Score ({}): {}</h3>'.format(met, round(float(av_phen[met]), 3))
-						phen_file += '<table style="width:30%">'
+						phen_file += '<table style="width:20%"  border="1">'
 						for metric in sorted(av_phen.keys()):
 							if metric in wanted:
-								phen_file += '<table style="width:100%"><tr><td>{}</td><td>{}</td><tr></table>'.format(metric, round(float(av_phen[metric]), 3))
+								phen_file += '<tr><td>{}</td><td>{}</td><tr>\n'.format(metric, round(float(av_phen[metric]), 3))
 						phen_file += '</table>\n'
 						phen_file += '<h3>Correlation Matrix:</h3>'
 						phen_file += matrix_phen.to_html()
@@ -361,8 +388,8 @@ if __name__ == "__main__":
 					phen_file.append("\n\n------------------------------------------------------\n\n")
 				write_file("../Results/{}_results.txt".format(phenomenon), phen_file)
 
-	print(create_table_average(av_columns_sick, all_average_sick))
-	print(create_table_average(av_columns, all_average))
+	# print(create_table_average(av_columns_sick, all_average_sick))
+	# print(create_table_average(av_columns, all_average))
 
 	all_corr_sick, all_av_sick = compute_av_scores(all_used_ids["sick"], wanted, your_wanted, metric_dict)
 	all_matrix_sick = frame(all_corr_sick)
@@ -373,22 +400,22 @@ if __name__ == "__main__":
 	print("-----------------\n     OVERALL\n-----------------\n\n")
 	print("SICK Data Set\n=============\n")
 	print("Correlation Matrix:\n-------------------")
-	print(tabulate(all_matrix_sick, headers='keys', tablefmt='latex'))
-	si = all_matrix_sick.unstack()
-	for k,v in si["Ann. Score"].items():
-		corr_hj_sick[k].append(v)
-	print(create_cor_table(corr_hj_sick, av_columns_sick + ["Overall"]))
+	print(tabulate(all_matrix_sick, headers='keys', tablefmt='grid'))
+	# si = all_matrix_sick.unstack()
+	# for k,v in si["Ann. Score"].items():
+		# corr_hj_sick[k].append(v)
+	# print(create_cor_table(corr_hj_sick, av_columns_sick + ["Overall"]))
 	for met in your_wanted:
 		so = si[met].sort_values(kind="quicksort", ascending=False)
 		print("\n\nOverall Correlation with Tested Score ({}):\n".format(met))
 		print(so[1:].to_string())
 	print("\n\nSTS Data Set\n============\n")
 	print("Correlation Matrix:\n-------------------")
-	print(tabulate(all_matrix_sts, headers='keys', tablefmt='latex'))
-	st = all_matrix_sts.unstack()
-	for k,v in st["Ann. Score"].items():
-		corr_hj[k].append(v)
-	print(create_cor_table(corr_hj, av_columns + ["Overall"]))
+	print(tabulate(all_matrix_sts, headers='keys', tablefmt='grid'))
+	# st = all_matrix_sts.unstack()
+	# for k,v in st["Ann. Score"].items():
+		# corr_hj[k].append(v)
+	# print(create_cor_table(corr_hj, av_columns + ["Overall"]))
 	for met in your_wanted:
 		so = st[met].sort_values(kind="quicksort", ascending=False)
 		print("\n\nOverall Correlation with Tested Score ({}):\n".format(met))

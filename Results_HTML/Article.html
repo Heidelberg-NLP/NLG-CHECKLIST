@@ -1,0 +1,3340 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+            div.amr-container {
+                font-family: "Cambria Math", sans-serif;
+                font-size: 14px;
+            }
+
+            .amr-node {
+                color : black;
+            }
+            
+            .amr-frame {
+                color : purple;
+                text-decoration: underline;
+            }
+            
+            .amr-edge {
+                color : grey;
+            }
+            
+            .blue {
+                background: deepskyblue; 
+                color : white;
+            }
+            
+            .red {
+                background: crimson; 
+                color : white;
+            }
+            
+            .grey {
+                background: gainsboro; 
+                color : black;
+            }
+            
+            .green {
+                background: yellowgreen; 
+                color : black;
+            }
+</style>
+
+<body style="font-family: Helvetica">
+<h1>Article</h1>
+<h2>SICK Data Set</h2>
+<h2>Number of Test Cases: 77</h2><h2>Semantic Relatedness Statistics:</h2><table style="width:15%"><tr><td>Mean:</td><td>4.92 (0.98)</td><tr><tr><td>Median:</td><td>4.9 (0.98)</td><tr><tr><td>Standard deviation:</td><td>0.09 (0.02)</td><tr><tr><td>Standard Error:</td><td>0.01 (0.0)</td><tr></table>
+<br><h2>Average Scores (Overall):</h2><h3>Average Semantic Relatedness: 4.921 (0.98)</h3><table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.994</td><tr><tr><td>BLEU</td><td>0.725</td><tr><tr><td>MF Score</td><td>0.774</td><tr><tr><td>MF Score (Form)</td><td>0.779</td><tr><tr><td>MF Score (Meaning)</td><td>0.987</td><tr><tr><td>Meteor</td><td>0.645</td><tr><tr><td>S-BERT (bl)</td><td>0.994</td><tr><tr><td>S-BERT (db)</td><td>0.994</td><tr><tr><td>S-BERT (rb)</td><td>0.993</td><tr><tr><td>S-BERT (rl)</td><td>0.995</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>86.283</td><tr></table>
+<h2>Correlation Matrix (Overall):</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ann. Score</th>
+      <th>BERT Score</th>
+      <th>BLEU</th>
+      <th>chrF++</th>
+      <th>Meteor</th>
+      <th>MF Score</th>
+      <th>MF Score (Form)</th>
+      <th>MF Score (Meaning)</th>
+      <th>S-BERT (bl)</th>
+      <th>S-BERT (db)</th>
+      <th>S-BERT (rb)</th>
+      <th>S-BERT (rl)</th>
+      <th>S2match</th>
+      <th>Smatch</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Ann. Score</th>
+      <td>1.000</td>
+      <td>0.095</td>
+      <td>0.032</td>
+      <td>0.042</td>
+      <td>0.065</td>
+      <td>-0.056</td>
+      <td>-0.082</td>
+      <td>0.032</td>
+      <td>-0.055</td>
+      <td>-0.113</td>
+      <td>-0.148</td>
+      <td>-0.123</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>BERT Score</th>
+      <td>0.095</td>
+      <td>1.000</td>
+      <td>0.672</td>
+      <td>0.745</td>
+      <td>0.416</td>
+      <td>-0.155</td>
+      <td>-0.092</td>
+      <td>-0.164</td>
+      <td>0.153</td>
+      <td>0.238</td>
+      <td>0.127</td>
+      <td>0.172</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>BLEU</th>
+      <td>0.032</td>
+      <td>0.672</td>
+      <td>1.000</td>
+      <td>0.944</td>
+      <td>0.648</td>
+      <td>-0.044</td>
+      <td>0.066</td>
+      <td>-0.221</td>
+      <td>0.498</td>
+      <td>0.626</td>
+      <td>0.509</td>
+      <td>0.538</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>chrF++</th>
+      <td>0.042</td>
+      <td>0.745</td>
+      <td>0.944</td>
+      <td>1.000</td>
+      <td>0.601</td>
+      <td>-0.015</td>
+      <td>0.094</td>
+      <td>-0.214</td>
+      <td>0.435</td>
+      <td>0.572</td>
+      <td>0.439</td>
+      <td>0.489</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Meteor</th>
+      <td>0.065</td>
+      <td>0.416</td>
+      <td>0.648</td>
+      <td>0.601</td>
+      <td>1.000</td>
+      <td>-0.057</td>
+      <td>0.036</td>
+      <td>-0.157</td>
+      <td>0.277</td>
+      <td>0.368</td>
+      <td>0.286</td>
+      <td>0.413</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>MF Score</th>
+      <td>-0.056</td>
+      <td>-0.155</td>
+      <td>-0.044</td>
+      <td>-0.015</td>
+      <td>-0.057</td>
+      <td>1.000</td>
+      <td>0.882</td>
+      <td>0.414</td>
+      <td>-0.179</td>
+      <td>-0.066</td>
+      <td>-0.030</td>
+      <td>-0.014</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>MF Score (Form)</th>
+      <td>-0.082</td>
+      <td>-0.092</td>
+      <td>0.066</td>
+      <td>0.094</td>
+      <td>0.036</td>
+      <td>0.882</td>
+      <td>1.000</td>
+      <td>-0.006</td>
+      <td>-0.061</td>
+      <td>0.023</td>
+      <td>0.049</td>
+      <td>0.044</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>MF Score (Meaning)</th>
+      <td>0.032</td>
+      <td>-0.164</td>
+      <td>-0.221</td>
+      <td>-0.214</td>
+      <td>-0.157</td>
+      <td>0.414</td>
+      <td>-0.006</td>
+      <td>1.000</td>
+      <td>-0.246</td>
+      <td>-0.215</td>
+      <td>-0.165</td>
+      <td>-0.128</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S-BERT (bl)</th>
+      <td>-0.055</td>
+      <td>0.153</td>
+      <td>0.498</td>
+      <td>0.435</td>
+      <td>0.277</td>
+      <td>-0.179</td>
+      <td>-0.061</td>
+      <td>-0.246</td>
+      <td>1.000</td>
+      <td>0.796</td>
+      <td>0.773</td>
+      <td>0.648</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S-BERT (db)</th>
+      <td>-0.113</td>
+      <td>0.238</td>
+      <td>0.626</td>
+      <td>0.572</td>
+      <td>0.368</td>
+      <td>-0.066</td>
+      <td>0.023</td>
+      <td>-0.215</td>
+      <td>0.796</td>
+      <td>1.000</td>
+      <td>0.804</td>
+      <td>0.706</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S-BERT (rb)</th>
+      <td>-0.148</td>
+      <td>0.127</td>
+      <td>0.509</td>
+      <td>0.439</td>
+      <td>0.286</td>
+      <td>-0.030</td>
+      <td>0.049</td>
+      <td>-0.165</td>
+      <td>0.773</td>
+      <td>0.804</td>
+      <td>1.000</td>
+      <td>0.740</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S-BERT (rl)</th>
+      <td>-0.123</td>
+      <td>0.172</td>
+      <td>0.538</td>
+      <td>0.489</td>
+      <td>0.413</td>
+      <td>-0.014</td>
+      <td>0.044</td>
+      <td>-0.128</td>
+      <td>0.648</td>
+      <td>0.706</td>
+      <td>0.740</td>
+      <td>1.000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S2match</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Smatch</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<br><hr>
+<h2>One Article</h2>
+<h3>Average Scores:</h3><h4>Average Semantic Relatedness:   4.926 (0.982)</h4><table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.996</td><tr>
+<tr><td>BLEU</td><td>0.771</td><tr>
+<tr><td>MF Score</td><td>0.732</td><tr>
+<tr><td>MF Score (Form)</td><td>0.738</td><tr>
+<tr><td>MF Score (Meaning)</td><td>0.985</td><tr>
+<tr><td>Meteor</td><td>0.676</td><tr>
+<tr><td>S-BERT (bl)</td><td>0.994</td><tr>
+<tr><td>S-BERT (db)</td><td>0.994</td><tr>
+<tr><td>S-BERT (rb)</td><td>0.993</td><tr>
+<tr><td>S-BERT (rl)</td><td>0.995</td><tr>
+<tr><td>S2match</td><td>1.0</td><tr>
+<tr><td>Smatch</td><td>1.0</td><tr>
+<tr><td>chrF++</td><td>89.023</td><tr>
+</table>
+<h3>Correlation Matrix:</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ann. Score</th>
+      <th>BERT Score</th>
+      <th>BLEU</th>
+      <th>chrF++</th>
+      <th>Meteor</th>
+      <th>MF Score</th>
+      <th>MF Score (Form)</th>
+      <th>MF Score (Meaning)</th>
+      <th>S-BERT (bl)</th>
+      <th>S-BERT (db)</th>
+      <th>S-BERT (rb)</th>
+      <th>S-BERT (rl)</th>
+      <th>S2match</th>
+      <th>Smatch</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Ann. Score</th>
+      <td>1.000</td>
+      <td>-0.041</td>
+      <td>-0.051</td>
+      <td>-0.059</td>
+      <td>0.036</td>
+      <td>0.022</td>
+      <td>-0.005</td>
+      <td>0.099</td>
+      <td>-0.125</td>
+      <td>-0.229</td>
+      <td>-0.247</td>
+      <td>-0.127</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>BERT Score</th>
+      <td>-0.041</td>
+      <td>1.000</td>
+      <td>0.567</td>
+      <td>0.643</td>
+      <td>0.241</td>
+      <td>-0.018</td>
+      <td>0.051</td>
+      <td>-0.214</td>
+      <td>-0.016</td>
+      <td>0.084</td>
+      <td>-0.093</td>
+      <td>0.037</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>BLEU</th>
+      <td>-0.051</td>
+      <td>0.567</td>
+      <td>1.000</td>
+      <td>0.931</td>
+      <td>0.544</td>
+      <td>0.119</td>
+      <td>0.226</td>
+      <td>-0.211</td>
+      <td>0.408</td>
+      <td>0.546</td>
+      <td>0.361</td>
+      <td>0.500</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>chrF++</th>
+      <td>-0.059</td>
+      <td>0.643</td>
+      <td>0.931</td>
+      <td>1.000</td>
+      <td>0.466</td>
+      <td>0.205</td>
+      <td>0.297</td>
+      <td>-0.172</td>
+      <td>0.314</td>
+      <td>0.471</td>
+      <td>0.257</td>
+      <td>0.412</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Meteor</th>
+      <td>0.036</td>
+      <td>0.241</td>
+      <td>0.544</td>
+      <td>0.466</td>
+      <td>1.000</td>
+      <td>0.125</td>
+      <td>0.178</td>
+      <td>-0.070</td>
+      <td>0.118</td>
+      <td>0.220</td>
+      <td>0.069</td>
+      <td>0.253</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>MF Score</th>
+      <td>0.022</td>
+      <td>-0.018</td>
+      <td>0.119</td>
+      <td>0.205</td>
+      <td>0.125</td>
+      <td>1.000</td>
+      <td>0.898</td>
+      <td>0.316</td>
+      <td>-0.103</td>
+      <td>0.073</td>
+      <td>0.110</td>
+      <td>0.130</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>MF Score (Form)</th>
+      <td>-0.005</td>
+      <td>0.051</td>
+      <td>0.226</td>
+      <td>0.297</td>
+      <td>0.178</td>
+      <td>0.898</td>
+      <td>1.000</td>
+      <td>-0.098</td>
+      <td>0.017</td>
+      <td>0.159</td>
+      <td>0.163</td>
+      <td>0.155</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>MF Score (Meaning)</th>
+      <td>0.099</td>
+      <td>-0.214</td>
+      <td>-0.211</td>
+      <td>-0.172</td>
+      <td>-0.070</td>
+      <td>0.316</td>
+      <td>-0.098</td>
+      <td>1.000</td>
+      <td>-0.243</td>
+      <td>-0.173</td>
+      <td>-0.094</td>
+      <td>-0.024</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S-BERT (bl)</th>
+      <td>-0.125</td>
+      <td>-0.016</td>
+      <td>0.408</td>
+      <td>0.314</td>
+      <td>0.118</td>
+      <td>-0.103</td>
+      <td>0.017</td>
+      <td>-0.243</td>
+      <td>1.000</td>
+      <td>0.776</td>
+      <td>0.766</td>
+      <td>0.639</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S-BERT (db)</th>
+      <td>-0.229</td>
+      <td>0.084</td>
+      <td>0.546</td>
+      <td>0.471</td>
+      <td>0.220</td>
+      <td>0.073</td>
+      <td>0.159</td>
+      <td>-0.173</td>
+      <td>0.776</td>
+      <td>1.000</td>
+      <td>0.752</td>
+      <td>0.672</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S-BERT (rb)</th>
+      <td>-0.247</td>
+      <td>-0.093</td>
+      <td>0.361</td>
+      <td>0.257</td>
+      <td>0.069</td>
+      <td>0.110</td>
+      <td>0.163</td>
+      <td>-0.094</td>
+      <td>0.766</td>
+      <td>0.752</td>
+      <td>1.000</td>
+      <td>0.731</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S-BERT (rl)</th>
+      <td>-0.127</td>
+      <td>0.037</td>
+      <td>0.500</td>
+      <td>0.412</td>
+      <td>0.253</td>
+      <td>0.130</td>
+      <td>0.155</td>
+      <td>-0.024</td>
+      <td>0.639</td>
+      <td>0.672</td>
+      <td>0.731</td>
+      <td>1.000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S2match</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Smatch</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table><br><h3>Scores for Individual Test Cases:</h3>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>D174sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A woman is cleaning a shrimp
+
+(<span class="amr-frame" tok-id="c">c/clean-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w">w/woman</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="s">s/shrimp</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The woman is cleaning a shrimp
+
+(<span class="amr-frame" tok-id="c">c/clean-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w">w/woman</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="s">s/shrimp</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.999</td><tr><tr><td>BLEU</td><td>0.76</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.518</td><tr><tr><td>S-BERT (bl)</td><td>0.996</td><tr><tr><td>S-BERT (db)</td><td>0.997</td><tr><tr><td>S-BERT (rb)</td><td>0.996</td><tr><tr><td>S-BERT (rl)</td><td>0.996</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>90.359</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>D198sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A person is scrubbing a zucchini
+
+(<span class="amr-frame" tok-id="s">s/scrub-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="p">p/person</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="z">z/zucchini</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The person is scrubbing a zucchini
+
+(<span class="amr-frame" tok-id="s">s/scrub-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="p">p/person</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="z">z/zucchini</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.999</td><tr><tr><td>BLEU</td><td>0.76</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.867</td><tr><tr><td>S-BERT (bl)</td><td>0.992</td><tr><tr><td>S-BERT (db)</td><td>0.993</td><tr><tr><td>S-BERT (rb)</td><td>0.99</td><tr><tr><td>S-BERT (rl)</td><td>0.995</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>91.18</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>D358sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The group of people is standing together and looking at the camera
+
+(<span class="amr-node" tok-id="a">a/and</span>
+    <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="s">s/stand-01</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0</span> (<span class="amr-node" tok-id="g">g/group</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:consist-of</span> (<span class="amr-node" tok-id="p">p/person</span>))
+        <span class="amr-edge" tok-id="1.1-1.1.2">:mod</span> (<span class="amr-node" tok-id="t">t/together</span>))
+    <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="l">l/look-01</span>
+        <span class="amr-edge" tok-id="1.2-1.1.1">:ARG0</span> <span class="amr-node" tok-id="g">g</span>
+        <span class="amr-edge" tok-id="1.2-1.2.2">:ARG1</span> (<span class="amr-node" tok-id="c">c/camera</span>)))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A group of people is standing together and looking at the camera
+
+(<span class="amr-node" tok-id="a">a/and</span>
+    <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="s">s/stand-01</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0</span> (<span class="amr-node" tok-id="g">g/group</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:consist-of</span> (<span class="amr-node" tok-id="p">p/person</span>))
+        <span class="amr-edge" tok-id="1.1-1.1.2">:mod</span> (<span class="amr-node" tok-id="t">t/together</span>))
+    <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="l">l/look-01</span>
+        <span class="amr-edge" tok-id="1.2-1.1.1">:ARG0</span> <span class="amr-node" tok-id="g">g</span>
+        <span class="amr-edge" tok-id="1.2-1.2.2">:ARG1</span> (<span class="amr-node" tok-id="c">c/camera</span>)))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>1.0</td><tr><tr><td>BLEU</td><td>0.904</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.6</td><tr><tr><td>S-BERT (bl)</td><td>0.998</td><tr><tr><td>S-BERT (db)</td><td>0.996</td><tr><tr><td>S-BERT (rb)</td><td>0.994</td><tr><tr><td>S-BERT (rl)</td><td>0.997</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>94.075</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>D380sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The young girl in blue is jumping in the air
+
+(<span class="amr-frame" tok-id="j">j/jump-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="g">g/girl</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:mod</span> (<span class="amr-node red" tok-id="y" title="young != blue">y/young</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.2">:mod</span> (<span class="amr-node red" tok-id="b" title="blue != young">b/blue</span>))
+    <span class="amr-edge" tok-id="1-1.2">:ARG3</span> (<span class="amr-node" tok-id="a">a/air</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A young girl in blue is jumping in the air
+
+(<span class="amr-frame" tok-id="j">j/jump-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="g">g/girl</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:mod</span> (<span class="amr-node red" tok-id="y" title="young != blue">y/young</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.2">:mod</span> (<span class="amr-node red" tok-id="b" title="blue != young">b/blue</span>))
+    <span class="amr-edge" tok-id="1-1.2">:ARG3</span> (<span class="amr-node" tok-id="a">a/air</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>1.0</td><tr><tr><td>BLEU</td><td>0.88</td><tr><tr><td>MF Score</td><td>0.916</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>0.845</td><tr><tr><td>Meteor</td><td>0.92</td><tr><tr><td>S-BERT (bl)</td><td>0.998</td><tr><tr><td>S-BERT (db)</td><td>0.997</td><tr><tr><td>S-BERT (rb)</td><td>0.996</td><tr><tr><td>S-BERT (rl)</td><td>0.994</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>91.269</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>D462sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The skateboarder is jumping in the air
+
+(<span class="amr-frame" tok-id="j">j/jump-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="p">p/person</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-node" tok-id="s">s/skateboarder</span>))
+    <span class="amr-edge" tok-id="1-1.2">:ARG3</span> (<span class="amr-node" tok-id="a">a/air</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A skateboarder is jumping in the air
+
+(<span class="amr-frame" tok-id="j">j/jump-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="p">p/person</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-node" tok-id="s">s/skateboarder</span>))
+    <span class="amr-edge" tok-id="1-1.2">:ARG3</span> (<span class="amr-node" tok-id="a">a/air</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>1.0</td><tr><tr><td>BLEU</td><td>0.809</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>0.908</td><tr><tr><td>Meteor</td><td>0.536</td><tr><tr><td>S-BERT (bl)</td><td>0.995</td><tr><tr><td>S-BERT (db)</td><td>0.996</td><tr><tr><td>S-BERT (rb)</td><td>0.995</td><tr><tr><td>S-BERT (rl)</td><td>0.995</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>89.407</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>D480sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The young girl is playing on the edge of a fountain and an older woman is watching her
+
+(<span class="amr-node" tok-id="a">a/and</span>
+    <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="p">p/play-on-09</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0</span> (<span class="amr-node" tok-id="g">g/girl</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:mod</span> (<span class="amr-node" tok-id="y">y/young</span>))
+        <span class="amr-edge" tok-id="1.1-1.1.2">:location</span> (<span class="amr-node" tok-id="e">e/edge</span>
+            <span class="amr-edge" tok-id="1.1.2-1.1.2.1">:part-of</span> (<span class="amr-node" tok-id="f">f/fountain</span>)))
+    <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="w">w/watch-01</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:ARG0</span> (<span class="amr-node" tok-id="w2">w2/woman</span>
+            <span class="amr-edge" tok-id="1.2.1-1.2.1.1">:mod</span> (<span class="amr-node" tok-id="o">o/old</span>
+                <span class="amr-edge" tok-id="1.2.1.1-1.2.1.1.1">:degree</span> (<span class="amr-node" tok-id="m">m/more</span>)))
+        <span class="amr-edge" tok-id="1.2-1.1.1">:ARG1</span> <span class="amr-node" tok-id="g">g</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A young girl is playing on the edge of a fountain and an older woman is watching her
+
+(<span class="amr-node" tok-id="a">a/and</span>
+    <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="p">p/play-on-09</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0</span> (<span class="amr-node" tok-id="g">g/girl</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:mod</span> (<span class="amr-node" tok-id="y">y/young</span>))
+        <span class="amr-edge" tok-id="1.1-1.1.2">:location</span> (<span class="amr-node" tok-id="e">e/edge</span>
+            <span class="amr-edge" tok-id="1.1.2-1.1.2.1">:part-of</span> (<span class="amr-node" tok-id="f">f/fountain</span>)))
+    <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="w">w/watch-01</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:ARG0</span> (<span class="amr-node" tok-id="w2">w2/woman</span>
+            <span class="amr-edge" tok-id="1.2.1-1.2.1.1">:mod</span> (<span class="amr-node" tok-id="o">o/old</span>
+                <span class="amr-edge" tok-id="1.2.1.1-1.2.1.1.1">:degree</span> (<span class="amr-node" tok-id="m">m/more</span>)))
+        <span class="amr-edge" tok-id="1.2-1.1.1">:ARG1</span> <span class="amr-node" tok-id="g">g</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.8 (0.95)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>1.0</td><tr><tr><td>BLEU</td><td>0.939</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.953</td><tr><tr><td>S-BERT (bl)</td><td>0.999</td><tr><tr><td>S-BERT (db)</td><td>0.998</td><tr><tr><td>S-BERT (rb)</td><td>0.997</td><tr><tr><td>S-BERT (rl)</td><td>0.999</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>95.618</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T338sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+One man is climbing the cliff with a rope
+
+(<span class="amr-frame" tok-id="c">c/climb-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:quant</span> <span class="amr-node" tok-id="x0">1</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="c2">c2/cliff</span>)
+    <span class="amr-edge" tok-id="1-1.3">:instrument</span> (<span class="amr-node" tok-id="r">r/rope</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+One man is climbing a cliff with a rope
+
+(<span class="amr-frame" tok-id="c">c/climb-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:quant</span> <span class="amr-node" tok-id="x0">1</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="c2">c2/cliff</span>)
+    <span class="amr-edge" tok-id="1-1.3">:instrument</span> (<span class="amr-node" tok-id="r">r/rope</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.988</td><tr><tr><td>BLEU</td><td>0.597</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.513</td><tr><tr><td>S-BERT (bl)</td><td>0.999</td><tr><tr><td>S-BERT (db)</td><td>0.998</td><tr><tr><td>S-BERT (rb)</td><td>0.998</td><tr><tr><td>S-BERT (rl)</td><td>0.997</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>82.495</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T808sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The man is typing on a machine used for stenography
+
+(<span class="amr-frame" tok-id="t">t/type-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation type-01 :ARG2 use-01">:ARG2</span> (<span class="amr-node red" tok-id="m2" title="machine != use-01">m2/machine</span>
+        <span class="amr-edge red" tok-id="1.2-1.2.1" title="No corresponding relation use-01 :ARG1-of machine">:ARG1-of</span> (<span class="amr-frame red" tok-id="u" title="use-01 != machine">u/use-01</span>
+            <span class="amr-edge red" tok-id="1.2.1-1.2.1.1" title="No corresponding relation machine :ARG2 stenography">:ARG2</span> (<span class="amr-node" tok-id="s">s/stenography</span>))))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A man is typing on a machine used for stenography
+
+(<span class="amr-frame" tok-id="t">t/type-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation type-01 :ARG2 use-01">:ARG2</span> (<span class="amr-node red" tok-id="m2" title="machine != use-01">m2/machine</span>
+        <span class="amr-edge red" tok-id="1.2-1.2.1" title="No corresponding relation use-01 :ARG1-of machine">:ARG1-of</span> (<span class="amr-frame red" tok-id="u" title="use-01 != machine">u/use-01</span>
+            <span class="amr-edge red" tok-id="1.2.1-1.2.1.1" title="No corresponding relation machine :ARG2 stenography">:ARG2</span> (<span class="amr-node" tok-id="s">s/stenography</span>))))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.999</td><tr><tr><td>BLEU</td><td>0.88</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.92</td><tr><tr><td>S-BERT (bl)</td><td>0.996</td><tr><tr><td>S-BERT (db)</td><td>0.996</td><tr><tr><td>S-BERT (rb)</td><td>0.995</td><tr><tr><td>S-BERT (rl)</td><td>0.998</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>92.364</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T840sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The guitar is being played by the man
+
+(<span class="amr-frame" tok-id="p">p/play-11</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="g">g/guitar</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The guitar is being played by a man
+
+(<span class="amr-frame" tok-id="p">p/play-11</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="g">g/guitar</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.981</td><tr><tr><td>BLEU</td><td>0.707</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.9</td><tr><tr><td>S-BERT (bl)</td><td>0.98</td><tr><tr><td>S-BERT (db)</td><td>0.986</td><tr><tr><td>S-BERT (rb)</td><td>0.981</td><tr><tr><td>S-BERT (rl)</td><td>0.99</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>81.9</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T947sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The parrot is speaking
+
+(<span class="amr-frame" tok-id="s">s/speak-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="p">p/parrot</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A parrot is speaking
+
+(<span class="amr-frame" tok-id="s">s/speak-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="p">p/parrot</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.999</td><tr><tr><td>BLEU</td><td>0.431</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.454</td><tr><tr><td>S-BERT (bl)</td><td>0.987</td><tr><tr><td>S-BERT (db)</td><td>0.981</td><tr><tr><td>S-BERT (rb)</td><td>0.97</td><tr><tr><td>S-BERT (rl)</td><td>0.991</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>80.457</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T959sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A person is singing and playing a guitar
+
+(<span class="amr-node" tok-id="a">a/and</span>
+    <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="s">s/sing-01</span>
+        <span class="amr-edge red" tok-id="1.1-1.1.1" title="No corresponding relation sing-01 :ARG0 play-11">:ARG0</span> (<span class="amr-node red" tok-id="p" title="person != play-11">p/person</span>))
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation and :op2 person">:op2</span> (<span class="amr-frame red" tok-id="p2" title="play-11 != person">p2/play-11</span>
+        <span class="amr-edge red" tok-id="1.2-1.1.1" title="No corresponding relation person :ARG0 play-11">:ARG0</span> <span class="amr-node red" tok-id="p" title="person != play-11">p</span>
+        <span class="amr-edge red" tok-id="1.2-1.2.2" title="No corresponding relation person :ARG2 guitar">:ARG2</span> (<span class="amr-node" tok-id="g">g/guitar</span>)))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A person is singing and playing the guitar
+
+(<span class="amr-node" tok-id="a">a/and</span>
+    <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="s">s/sing-01</span>
+        <span class="amr-edge red" tok-id="1.1-1.1.1" title="No corresponding relation sing-01 :ARG0 play-11">:ARG0</span> (<span class="amr-node red" tok-id="p" title="person != play-11">p/person</span>))
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation and :op2 person">:op2</span> (<span class="amr-frame red" tok-id="p2" title="play-11 != person">p2/play-11</span>
+        <span class="amr-edge red" tok-id="1.2-1.1.1" title="No corresponding relation person :ARG0 play-11">:ARG0</span> <span class="amr-node red" tok-id="p" title="person != play-11">p</span>
+        <span class="amr-edge red" tok-id="1.2-1.2.2" title="No corresponding relation person :ARG2 guitar">:ARG2</span> (<span class="amr-node" tok-id="g">g/guitar</span>)))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.997</td><tr><tr><td>BLEU</td><td>0.707</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.5</td><tr><tr><td>S-BERT (bl)</td><td>0.997</td><tr><tr><td>S-BERT (db)</td><td>0.996</td><tr><tr><td>S-BERT (rb)</td><td>0.998</td><tr><tr><td>S-BERT (rl)</td><td>0.996</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>85.141</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1037sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The cat is playing with a device
+
+(<span class="amr-frame" tok-id="p">p/play-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="c">c/cat</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="d">d/device</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A cat is playing with a device
+
+(<span class="amr-frame" tok-id="p">p/play-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="c">c/cat</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="d">d/device</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.999</td><tr><tr><td>BLEU</td><td>0.809</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.536</td><tr><tr><td>S-BERT (bl)</td><td>0.986</td><tr><tr><td>S-BERT (db)</td><td>0.989</td><tr><tr><td>S-BERT (rb)</td><td>0.985</td><tr><tr><td>S-BERT (rl)</td><td>0.993</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>87.643</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1147sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A cat is playing with a watermelon
+
+(<span class="amr-frame" tok-id="p">p/play-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="c">c/cat</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="w">w/watermelon</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The cat is playing with a watermelon
+
+(<span class="amr-frame" tok-id="p">p/play-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="c">c/cat</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="w">w/watermelon</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.999</td><tr><tr><td>BLEU</td><td>0.809</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.536</td><tr><tr><td>S-BERT (bl)</td><td>0.993</td><tr><tr><td>S-BERT (db)</td><td>0.997</td><tr><tr><td>S-BERT (rb)</td><td>0.992</td><tr><tr><td>S-BERT (rl)</td><td>0.996</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>92.059</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1199sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The man is slicing a potato
+
+(<span class="amr-node" tok-id="s">s/slice</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="p">p/potato</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The man is slicing the potato
+
+(<span class="amr-node" tok-id="s">s/slice</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="p">p/potato</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.979</td><tr><tr><td>BLEU</td><td>0.537</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.459</td><tr><tr><td>S-BERT (bl)</td><td>0.997</td><tr><tr><td>S-BERT (db)</td><td>0.993</td><tr><tr><td>S-BERT (rb)</td><td>0.993</td><tr><tr><td>S-BERT (rl)</td><td>0.991</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>77.549</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1392sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A woman is walking the dog down the street
+
+(<span class="amr-frame" tok-id="w">w/walk-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w2">w2/woman</span>)
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation walk-01 :ARG2 down">:ARG2</span> (<span class="amr-node red" tok-id="d" title="dog != down">d/dog</span>)
+    <span class="amr-edge red" tok-id="1-1.3" title="No corresponding relation walk-01 :direction dog">:direction</span> (<span class="amr-node red" tok-id="d2" title="down != dog">d2/down</span>
+        <span class="amr-edge red" tok-id="1.3-1.3.1" title="No corresponding relation dog :op1 street">:op1</span> (<span class="amr-node" tok-id="s">s/street</span>)))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The woman is walking the dog down the street
+
+(<span class="amr-frame" tok-id="w">w/walk-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w2">w2/woman</span>)
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation walk-01 :ARG2 down">:ARG2</span> (<span class="amr-node red" tok-id="d" title="dog != down">d/dog</span>)
+    <span class="amr-edge red" tok-id="1-1.3" title="No corresponding relation walk-01 :direction dog">:direction</span> (<span class="amr-node red" tok-id="d2" title="down != dog">d2/down</span>
+        <span class="amr-edge red" tok-id="1.3-1.3.1" title="No corresponding relation dog :op1 street">:op1</span> (<span class="amr-node" tok-id="s">s/street</span>)))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.999</td><tr><tr><td>BLEU</td><td>0.863</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.572</td><tr><tr><td>S-BERT (bl)</td><td>0.997</td><tr><tr><td>S-BERT (db)</td><td>0.997</td><tr><tr><td>S-BERT (rb)</td><td>0.998</td><tr><tr><td>S-BERT (rl)</td><td>0.997</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>93.748</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1472sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A woman is penciling on eyeshadow
+
+(<span class="amr-node" tok-id="p">p/pencil-on</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w">w/woman</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="e">e/eyeshadow</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The woman is penciling on eyeshadow
+
+(<span class="amr-node" tok-id="p">p/pencil-on</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w">w/woman</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="e">e/eyeshadow</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.999</td><tr><tr><td>BLEU</td><td>0.76</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.518</td><tr><tr><td>S-BERT (bl)</td><td>0.989</td><tr><tr><td>S-BERT (db)</td><td>0.995</td><tr><tr><td>S-BERT (rb)</td><td>0.99</td><tr><tr><td>S-BERT (rl)</td><td>0.997</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>91.345</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1480sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+Different teams are playing football on the field
+
+(<span class="amr-frame" tok-id="p">p/play-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="t">t/team</span>
+        <span class="amr-edge red" tok-id="1.1-1.1.1" title="No corresponding relation team :ARG1-of football">:ARG1-of</span> (<span class="amr-frame red" tok-id="d" title="differ-02 != football">d/differ-02</span>))
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation play-01 :ARG1 differ-02">:ARG1</span> (<span class="amr-node red" tok-id="f" title="football != differ-02">f/football</span>)
+    <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="f2">f2/field</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+Different teams are playing football on a field
+
+(<span class="amr-frame" tok-id="p">p/play-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="t">t/team</span>
+        <span class="amr-edge red" tok-id="1.1-1.1.1" title="No corresponding relation team :ARG1-of football">:ARG1-of</span> (<span class="amr-frame red" tok-id="d" title="differ-02 != football">d/differ-02</span>))
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation play-01 :ARG1 differ-02">:ARG1</span> (<span class="amr-node red" tok-id="f" title="football != differ-02">f/football</span>)
+    <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="f2">f2/field</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.6 (0.9)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.965</td><tr><tr><td>BLEU</td><td>0.707</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.503</td><tr><tr><td>S-BERT (bl)</td><td>0.997</td><tr><tr><td>S-BERT (db)</td><td>0.998</td><tr><tr><td>S-BERT (rb)</td><td>0.999</td><tr><tr><td>S-BERT (rl)</td><td>0.997</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>84.921</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1518sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The man is pouring oil into a pan
+
+(<span class="amr-frame" tok-id="p">p/pour-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="o">o/oil</span>)
+    <span class="amr-edge" tok-id="1-1.3">:ARG3</span> (<span class="amr-node" tok-id="p2">p2/pan</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A man is pouring oil into a pan
+
+(<span class="amr-frame" tok-id="p">p/pour-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="o">o/oil</span>)
+    <span class="amr-edge" tok-id="1-1.3">:ARG3</span> (<span class="amr-node" tok-id="p2">p2/pan</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.999</td><tr><tr><td>BLEU</td><td>0.841</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.9</td><tr><tr><td>S-BERT (bl)</td><td>0.996</td><tr><tr><td>S-BERT (db)</td><td>0.996</td><tr><tr><td>S-BERT (rb)</td><td>0.996</td><tr><tr><td>S-BERT (rl)</td><td>0.993</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>88.164</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1549sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The man is sitting on the floor in a room and strumming a guitar
+
+(<span class="amr-node" tok-id="a">a/and</span>
+    <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="s">s/sit-01</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG1</span> (<span class="amr-node" tok-id="m">m/man</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.2">:ARG2</span> (<span class="amr-node" tok-id="f">f/floor</span>
+            <span class="amr-edge" tok-id="1.1.2-1.1.2.1">:location</span> (<span class="amr-node" tok-id="r">r/room</span>)))
+    <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-node" tok-id="s2">s2/strum</span>
+        <span class="amr-edge" tok-id="1.2-1.1.1">:ARG0</span> <span class="amr-node" tok-id="m">m</span>
+        <span class="amr-edge" tok-id="1.2-1.2.2">:ARG1</span> (<span class="amr-node" tok-id="g">g/guitar</span>)))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A man is sitting on the floor in a room and strumming a guitar
+
+(<span class="amr-node" tok-id="a">a/and</span>
+    <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="s">s/sit-01</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG1</span> (<span class="amr-node" tok-id="m">m/man</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.2">:ARG2</span> (<span class="amr-node" tok-id="f">f/floor</span>
+            <span class="amr-edge" tok-id="1.1.2-1.1.2.1">:location</span> (<span class="amr-node" tok-id="r">r/room</span>)))
+    <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-node" tok-id="s2">s2/strum</span>
+        <span class="amr-edge" tok-id="1.2-1.1.1">:ARG0</span> <span class="amr-node" tok-id="m">m</span>
+        <span class="amr-edge" tok-id="1.2-1.2.2">:ARG1</span> (<span class="amr-node" tok-id="g">g/guitar</span>)))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.999</td><tr><tr><td>BLEU</td><td>0.919</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.938</td><tr><tr><td>S-BERT (bl)</td><td>0.998</td><tr><tr><td>S-BERT (db)</td><td>0.997</td><tr><tr><td>S-BERT (rb)</td><td>0.997</td><tr><tr><td>S-BERT (rl)</td><td>0.999</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>94.086</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1565sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The baby is crawling happily
+
+(<span class="amr-frame" tok-id="c">c/crawl-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="b">b/baby</span>)
+    <span class="amr-edge" tok-id="1-1.2">:manner</span> (<span class="amr-frame" tok-id="h">h/happy-01</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A baby is crawling happily
+
+(<span class="amr-frame" tok-id="c">c/crawl-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="b">b/baby</span>)
+    <span class="amr-edge" tok-id="1-1.2">:manner</span> (<span class="amr-frame" tok-id="h">h/happy-01</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>1.0</td><tr><tr><td>BLEU</td><td>0.669</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.496</td><tr><tr><td>S-BERT (bl)</td><td>0.981</td><tr><tr><td>S-BERT (db)</td><td>0.984</td><tr><tr><td>S-BERT (rb)</td><td>0.988</td><tr><tr><td>S-BERT (rl)</td><td>0.995</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>85.072</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1603sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The man is slicing a tomato
+
+(<span class="amr-node" tok-id="s">s/slice</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="t">t/tomato</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A man is slicing a tomato
+
+(<span class="amr-node" tok-id="s">s/slice</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="t">t/tomato</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.999</td><tr><tr><td>BLEU</td><td>0.76</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.867</td><tr><tr><td>S-BERT (bl)</td><td>0.991</td><tr><tr><td>S-BERT (db)</td><td>0.995</td><tr><tr><td>S-BERT (rb)</td><td>0.993</td><tr><tr><td>S-BERT (rl)</td><td>0.998</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>85.124</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1635sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The squirrel is running in circles
+
+(<span class="amr-frame" tok-id="r">r/run-02</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="s">s/squirrel</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="c">c/circle</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A squirrel is running in circles
+
+(<span class="amr-frame" tok-id="r">r/run-02</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="s">s/squirrel</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="c">c/circle</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.6 (0.9)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>1.0</td><tr><tr><td>BLEU</td><td>0.76</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.518</td><tr><tr><td>S-BERT (bl)</td><td>0.993</td><tr><tr><td>S-BERT (db)</td><td>0.992</td><tr><tr><td>S-BERT (rb)</td><td>0.991</td><tr><tr><td>S-BERT (rl)</td><td>0.992</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>87.913</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1645sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The man is playing the guitar
+
+(<span class="amr-frame" tok-id="p">p/play-11</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="g">g/guitar</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A man is playing the guitar
+
+(<span class="amr-frame" tok-id="p">p/play-11</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="g">g/guitar</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.999</td><tr><tr><td>BLEU</td><td>0.76</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.867</td><tr><tr><td>S-BERT (bl)</td><td>0.991</td><tr><tr><td>S-BERT (db)</td><td>0.994</td><tr><tr><td>S-BERT (rb)</td><td>0.991</td><tr><tr><td>S-BERT (rl)</td><td>0.994</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>86.114</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1658sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A man and a woman are walking through the woods
+
+(<span class="amr-frame" tok-id="w">w/walk-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="a">a/and</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:op1</span> (<span class="amr-node" tok-id="m">m/man</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.2">:op2</span> (<span class="amr-node" tok-id="w2">w2/woman</span>))
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="t">t/through</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:op1</span> (<span class="amr-node" tok-id="w3">w3/wood</span>)))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The man and the woman are walking through the woods
+
+(<span class="amr-frame" tok-id="w">w/walk-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="a">a/and</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:op1</span> (<span class="amr-node" tok-id="m">m/man</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.2">:op2</span> (<span class="amr-node" tok-id="w2">w2/woman</span>))
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="t">t/through</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:op1</span> (<span class="amr-node" tok-id="w3">w3/wood</span>)))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.988</td><tr><tr><td>BLEU</td><td>0.581</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.484</td><tr><tr><td>S-BERT (bl)</td><td>0.99</td><tr><tr><td>S-BERT (db)</td><td>0.985</td><tr><tr><td>S-BERT (rb)</td><td>0.991</td><tr><tr><td>S-BERT (rl)</td><td>0.993</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>82.192</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1756sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The woman is dancing
+
+(<span class="amr-frame" tok-id="d">d/dance-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w">w/woman</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A woman is dancing
+
+(<span class="amr-frame" tok-id="d">d/dance-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w">w/woman</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.998</td><tr><tr><td>BLEU</td><td>0.431</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.454</td><tr><tr><td>S-BERT (bl)</td><td>0.987</td><tr><tr><td>S-BERT (db)</td><td>0.989</td><tr><tr><td>S-BERT (rb)</td><td>0.992</td><tr><tr><td>S-BERT (rl)</td><td>0.989</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>78.67</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1761sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The person is writing
+
+(<span class="amr-frame" tok-id="w">w/write-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="p">p/person</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A person is writing
+
+(<span class="amr-frame" tok-id="w">w/write-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="p">p/person</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.996</td><tr><tr><td>BLEU</td><td>0.431</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.8</td><tr><tr><td>S-BERT (bl)</td><td>0.982</td><tr><tr><td>S-BERT (db)</td><td>0.973</td><tr><tr><td>S-BERT (rb)</td><td>0.964</td><tr><tr><td>S-BERT (rl)</td><td>0.985</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>79.626</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1923sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The man is rising from a swamp
+
+(<span class="amr-frame" tok-id="r">r/rise-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="s">s/swamp</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A man is rising from a swamp
+
+(<span class="amr-frame" tok-id="r">r/rise-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="s">s/swamp</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.999</td><tr><tr><td>BLEU</td><td>0.809</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.877</td><tr><tr><td>S-BERT (bl)</td><td>0.991</td><tr><tr><td>S-BERT (db)</td><td>0.993</td><tr><tr><td>S-BERT (rb)</td><td>0.993</td><tr><tr><td>S-BERT (rl)</td><td>0.997</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>86.828</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1927sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A man is dancing upside-down on the ceiling
+
+(<span class="amr-frame" tok-id="d">d/dance-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="c">c/ceiling</span>)
+    <span class="amr-edge" tok-id="1-1.2">:manner</span> (<span class="amr-node" tok-id="u">u/upside-down</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The man is dancing upside-down on the ceiling
+
+(<span class="amr-frame" tok-id="d">d/dance-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="c">c/ceiling</span>)
+    <span class="amr-edge" tok-id="1-1.2">:manner</span> (<span class="amr-node" tok-id="u">u/upside-down</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.999</td><tr><tr><td>BLEU</td><td>0.841</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.916</td><tr><tr><td>S-BERT (bl)</td><td>0.997</td><tr><tr><td>S-BERT (db)</td><td>0.996</td><tr><tr><td>S-BERT (rb)</td><td>0.997</td><tr><tr><td>S-BERT (rl)</td><td>0.999</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>93.546</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1934sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The girl is exercising
+
+(<span class="amr-frame" tok-id="e">e/exercise-02</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="g">g/girl</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A girl is exercising
+
+(<span class="amr-frame" tok-id="e">e/exercise-02</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="g">g/girl</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.996</td><tr><tr><td>BLEU</td><td>0.431</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.454</td><tr><tr><td>S-BERT (bl)</td><td>0.993</td><tr><tr><td>S-BERT (db)</td><td>0.994</td><tr><tr><td>S-BERT (rb)</td><td>0.992</td><tr><tr><td>S-BERT (rl)</td><td>0.974</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>80.457</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1958sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A biker is riding along the top of a fence
+
+(<span class="amr-frame" tok-id="r">r/ride-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="p">p/person</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-node" tok-id="b">b/biker</span>))
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="a">a/along</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:op1</span> (<span class="amr-node" tok-id="t">t/top</span>
+            <span class="amr-edge" tok-id="1.2.1-1.2.1.1">:part-of</span> (<span class="amr-node" tok-id="f">f/fence</span>))))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The biker is riding along the top of a fence
+
+(<span class="amr-frame" tok-id="r">r/ride-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="p">p/person</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-node" tok-id="b">b/biker</span>))
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="a">a/along</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:op1</span> (<span class="amr-node" tok-id="t">t/top</span>
+            <span class="amr-edge" tok-id="1.2.1-1.2.1.1">:part-of</span> (<span class="amr-node" tok-id="f">f/fence</span>))))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>1.0</td><tr><tr><td>BLEU</td><td>0.88</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.583</td><tr><tr><td>S-BERT (bl)</td><td>0.991</td><tr><tr><td>S-BERT (db)</td><td>0.994</td><tr><tr><td>S-BERT (rb)</td><td>0.996</td><tr><tr><td>S-BERT (rl)</td><td>0.997</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>93.953</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1966sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The woman is slicing a clove of garlic
+
+(<span class="amr-frame" tok-id="s">s/slice-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w">w/woman</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="g">g/garlic</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:quant</span> (<span class="amr-node" tok-id="c">c/clove</span>)))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A woman is slicing a clove of garlic
+
+(<span class="amr-frame" tok-id="s">s/slice-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w">w/woman</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="g">g/garlic</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:quant</span> (<span class="amr-node" tok-id="c">c/clove</span>)))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.8 (0.95)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.999</td><tr><tr><td>BLEU</td><td>0.841</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.556</td><tr><tr><td>S-BERT (bl)</td><td>0.996</td><tr><tr><td>S-BERT (db)</td><td>0.999</td><tr><tr><td>S-BERT (rb)</td><td>0.997</td><tr><tr><td>S-BERT (rl)</td><td>0.998</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>89.686</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1977sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A woman is peeling a potato
+
+(<span class="amr-frame" tok-id="p">p/peel-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w">w/woman</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="p2">p2/potato</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The woman is peeling a potato
+
+(<span class="amr-frame" tok-id="p">p/peel-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w">w/woman</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="p2">p2/potato</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.999</td><tr><tr><td>BLEU</td><td>0.76</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.518</td><tr><tr><td>S-BERT (bl)</td><td>0.995</td><tr><tr><td>S-BERT (db)</td><td>0.996</td><tr><tr><td>S-BERT (rb)</td><td>0.993</td><tr><tr><td>S-BERT (rl)</td><td>0.996</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>90.101</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T2135sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A man is drawing
+
+(<span class="amr-node" tok-id="d">d/draw-06</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The man is drawing
+
+(<span class="amr-node" tok-id="d">d/draw-06</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.998</td><tr><tr><td>BLEU</td><td>0.431</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.8</td><tr><tr><td>S-BERT (bl)</td><td>0.99</td><tr><tr><td>S-BERT (db)</td><td>0.987</td><tr><tr><td>S-BERT (rb)</td><td>0.992</td><tr><tr><td>S-BERT (rl)</td><td>0.994</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>82.828</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T2761sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A small dog is lying on the bed
+
+(<span class="amr-frame" tok-id="l">l/lie-07</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG1</span> (<span class="amr-node" tok-id="d">d/dog</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:mod</span> (<span class="amr-node" tok-id="s">s/small</span>))
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="b">b/bed</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A small dog is lying on a bed
+
+(<span class="amr-frame" tok-id="l">l/lie-07</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG1</span> (<span class="amr-node" tok-id="d">d/dog</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:mod</span> (<span class="amr-node" tok-id="s">s/small</span>))
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="b">b/bed</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.975</td><tr><tr><td>BLEU</td><td>0.707</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.5</td><tr><tr><td>S-BERT (bl)</td><td>0.999</td><tr><tr><td>S-BERT (db)</td><td>0.996</td><tr><tr><td>S-BERT (rb)</td><td>0.999</td><tr><tr><td>S-BERT (rl)</td><td>0.998</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>78.103</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T2916sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A white bird is landing swiftly in the water
+
+(<span class="amr-frame" tok-id="l">l/land-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG1</span> (<span class="amr-node" tok-id="b">b/bird</span>
+        <span class="amr-edge red" tok-id="1.1-1.1.1" title="No corresponding relation bird :ARG1-of water">:ARG1-of</span> (<span class="amr-frame red" tok-id="w" title="white-03 != water">w/white-03</span>))
+    <span class="amr-edge red" tok-id="1-1.3" title="No corresponding relation land-01 :location swift">:location</span> (<span class="amr-node red" tok-id="w2" title="water != swift">w2/water</span>)
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation land-01 :manner white-03">:manner</span> (<span class="amr-node red" tok-id="s" title="swift != white-03">s/swift</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The white bird is landing swiftly in the water
+
+(<span class="amr-frame" tok-id="l">l/land-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG1</span> (<span class="amr-node" tok-id="b">b/bird</span>
+        <span class="amr-edge red" tok-id="1.1-1.1.1" title="No corresponding relation bird :ARG1-of swift">:ARG1-of</span> (<span class="amr-frame red" tok-id="w" title="white-03 != swift">w/white-03</span>))
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation land-01 :location white-03">:location</span> (<span class="amr-node red" tok-id="w2" title="water != white-03">w2/water</span>)
+    <span class="amr-edge red" tok-id="1-1.3" title="No corresponding relation land-01 :manner water">:manner</span> (<span class="amr-node red" tok-id="s" title="swift != water">s/swift</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>1.0</td><tr><tr><td>BLEU</td><td>0.863</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.916</td><tr><tr><td>S-BERT (bl)</td><td>0.993</td><tr><tr><td>S-BERT (db)</td><td>0.994</td><tr><tr><td>S-BERT (rb)</td><td>0.992</td><tr><tr><td>S-BERT (rl)</td><td>0.985</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>93.943</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T2963sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A woman in jeans is sitting on the saddle of a horse
+
+(<span class="amr-frame" tok-id="s">s/sit-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG1</span> (<span class="amr-node" tok-id="w">w/woman</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-frame" tok-id="w2">w2/wear-01</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:ARG1</span> (<span class="amr-node" tok-id="j">j/jeans</span>)))
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="s2">s2/saddle</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:part-of</span> (<span class="amr-node" tok-id="h">h/horse</span>)))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The woman in jeans is sitting on the saddle of a horse
+
+(<span class="amr-frame" tok-id="s">s/sit-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG1</span> (<span class="amr-node" tok-id="w">w/woman</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-frame" tok-id="w2">w2/wear-01</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:ARG1</span> (<span class="amr-node" tok-id="j">j/jeans</span>)))
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="s2">s2/saddle</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:part-of</span> (<span class="amr-node" tok-id="h">h/horse</span>)))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.999</td><tr><tr><td>BLEU</td><td>0.904</td><tr><tr><td>MF Score</td><td>0.957</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>0.917</td><tr><tr><td>Meteor</td><td>0.6</td><tr><tr><td>S-BERT (bl)</td><td>0.998</td><tr><tr><td>S-BERT (db)</td><td>0.998</td><tr><tr><td>S-BERT (rb)</td><td>0.996</td><tr><tr><td>S-BERT (rl)</td><td>0.997</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>95.118</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T3049sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A dog is swimming in a lake and the sun is shining on him
+
+(<span class="amr-node" tok-id="a">a/and</span>
+    <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="s">s/swim-01</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0</span> (<span class="amr-node" tok-id="d">d/dog</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.2">:location</span> (<span class="amr-node" tok-id="l">l/lake</span>))
+    <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="s2">s2/shine-01</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:ARG1</span> (<span class="amr-node" tok-id="s3">s3/sun</span>)
+        <span class="amr-edge" tok-id="1.2-1.1.1">:ARG2</span> <span class="amr-node" tok-id="d">d</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The dog is swimming in a lake and the sun is shining on him
+
+(<span class="amr-node" tok-id="a">a/and</span>
+    <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="s">s/swim-01</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0</span> (<span class="amr-node" tok-id="d">d/dog</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.2">:location</span> (<span class="amr-node" tok-id="l">l/lake</span>))
+    <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="s2">s2/shine-01</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:ARG1</span> (<span class="amr-node" tok-id="s3">s3/sun</span>)
+        <span class="amr-edge" tok-id="1.2-1.1.1">:ARG2</span> <span class="amr-node" tok-id="d">d</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>1.0</td><tr><tr><td>BLEU</td><td>0.919</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.616</td><tr><tr><td>S-BERT (bl)</td><td>0.997</td><tr><tr><td>S-BERT (db)</td><td>0.998</td><tr><tr><td>S-BERT (rb)</td><td>0.996</td><tr><tr><td>S-BERT (rl)</td><td>0.995</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>95.635</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T3294sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A dog is jumping for a Frisbee in the snow
+
+(<span class="amr-frame" tok-id="j">j/jump-03</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="d">d/dog</span>)
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation jump-03 :destination name">:destination</span> (<span class="amr-node red" tok-id="t" title="thing != name">t/thing</span>
+        <span class="amr-edge red" tok-id="1.2-1.2.1" title="No corresponding relation name :name thing">:name</span> (<span class="amr-node red" tok-id="n" title="name != thing">n/name</span>
+            <span class="amr-edge red" tok-id="1.2.1-1.2.1.1" title="No corresponding attribute thing :op1 &quot;frisbee&quot;">:op1</span> <span class="amr-node red" tok-id="x0" title="No corresponding attribute thing :op1 &quot;frisbee&quot;">&quot;frisbee&quot;</span>))
+    <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="s">s/snow</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The dog is jumping for a Frisbee in the snow
+
+(<span class="amr-frame" tok-id="j">j/jump-03</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="d">d/dog</span>)
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation jump-03 :destination name">:destination</span> (<span class="amr-node red" tok-id="t" title="thing != name">t/thing</span>
+        <span class="amr-edge red" tok-id="1.2-1.2.1" title="No corresponding relation name :name thing">:name</span> (<span class="amr-node red" tok-id="n" title="name != thing">n/name</span>
+            <span class="amr-edge red" tok-id="1.2.1-1.2.1.1" title="No corresponding attribute thing :op1 &quot;frisbee&quot;">:op1</span> <span class="amr-node red" tok-id="x0" title="No corresponding attribute thing :op1 &quot;frisbee&quot;">&quot;frisbee&quot;</span>))
+    <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="s">s/snow</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>1.0</td><tr><tr><td>BLEU</td><td>0.88</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.579</td><tr><tr><td>S-BERT (bl)</td><td>0.998</td><tr><tr><td>S-BERT (db)</td><td>0.996</td><tr><tr><td>S-BERT (rb)</td><td>0.996</td><tr><tr><td>S-BERT (rl)</td><td>0.998</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>93.953</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T3312sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The player in purple, white and black is playing near the end of the field
+
+(<span class="amr-frame" tok-id="p">p/play-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="p2">p2/person</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-frame" tok-id="h">h/have-03</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:location</span> (<span class="amr-node" tok-id="a">a/and</span>
+                <span class="amr-edge" tok-id="1.1.1.1-1.1.1.1.1">:op1</span> (<span class="amr-frame" tok-id="p3">p3/purple-02</span>)
+                <span class="amr-edge" tok-id="1.1.1.1-1.1.1.1.2">:op2</span> (<span class="amr-frame" tok-id="w">w/white-03</span>)
+                <span class="amr-edge" tok-id="1.1.1.1-1.1.1.1.3">:op3</span> (<span class="amr-frame" tok-id="b">b/black-04</span>)))
+        <span class="amr-edge" tok-id="1.1-1.1.2">:ARG0-of</span> (<span class="amr-frame" tok-id="p4">p4/play-01</span>))
+    <span class="amr-edge" tok-id="1-1.2">:location</span> (<span class="amr-frame" tok-id="n">n/near-02</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:ARG2</span> (<span class="amr-frame" tok-id="e">e/end-01</span>
+            <span class="amr-edge" tok-id="1.2.1-1.2.1.1">:ARG1</span> (<span class="amr-node" tok-id="f">f/field</span>))))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A player in purple, white and black is playing near the end of the field
+
+(<span class="amr-frame" tok-id="p">p/play-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="p2">p2/person</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-frame" tok-id="h">h/have-03</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:location</span> (<span class="amr-node" tok-id="a">a/and</span>
+                <span class="amr-edge" tok-id="1.1.1.1-1.1.1.1.1">:op1</span> (<span class="amr-frame" tok-id="p3">p3/purple-02</span>)
+                <span class="amr-edge" tok-id="1.1.1.1-1.1.1.1.2">:op2</span> (<span class="amr-frame" tok-id="w">w/white-03</span>)
+                <span class="amr-edge" tok-id="1.1.1.1-1.1.1.1.3">:op3</span> (<span class="amr-frame" tok-id="b">b/black-04</span>)))
+        <span class="amr-edge" tok-id="1.1-1.1.2">:ARG0-of</span> (<span class="amr-frame" tok-id="p4">p4/play-01</span>))
+    <span class="amr-edge" tok-id="1-1.2">:location</span> (<span class="amr-frame" tok-id="n">n/near-02</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:ARG2</span> (<span class="amr-frame" tok-id="e">e/end-01</span>
+            <span class="amr-edge" tok-id="1.2.1-1.2.1.1">:ARG1</span> (<span class="amr-node" tok-id="f">f/field</span>))))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.998</td><tr><tr><td>BLEU</td><td>0.925</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.631</td><tr><tr><td>S-BERT (bl)</td><td>0.997</td><tr><tr><td>S-BERT (db)</td><td>0.996</td><tr><tr><td>S-BERT (rb)</td><td>0.997</td><tr><tr><td>S-BERT (rl)</td><td>0.998</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>94.967</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T3349sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A golden dog is running through a field of tall grass
+
+(<span class="amr-frame" tok-id="r">r/run-02</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="d">d/dog</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:mod</span> (<span class="amr-node" tok-id="g">g/golden</span>))
+    <span class="amr-edge" tok-id="1-1.2">:path</span> (<span class="amr-node" tok-id="f">f/field</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:mod</span> (<span class="amr-node" tok-id="g2">g2/grass</span>
+            <span class="amr-edge" tok-id="1.2.1-1.2.1.1">:mod</span> (<span class="amr-node" tok-id="t">t/tall</span>))))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The golden dog is running through a field of tall grass
+
+(<span class="amr-frame" tok-id="r">r/run-02</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="d">d/dog</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:mod</span> (<span class="amr-node" tok-id="g">g/golden</span>))
+    <span class="amr-edge" tok-id="1-1.2">:path</span> (<span class="amr-node" tok-id="f">f/field</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:mod</span> (<span class="amr-node" tok-id="g2">g2/grass</span>
+            <span class="amr-edge" tok-id="1.2.1-1.2.1.1">:mod</span> (<span class="amr-node" tok-id="t">t/tall</span>))))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>1.0</td><tr><tr><td>BLEU</td><td>0.893</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.936</td><tr><tr><td>S-BERT (bl)</td><td>0.992</td><tr><tr><td>S-BERT (db)</td><td>0.996</td><tr><tr><td>S-BERT (rb)</td><td>0.998</td><tr><tr><td>S-BERT (rl)</td><td>0.998</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>95.042</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T3380sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The snowboarder is doing a flip over a mound of snow
+
+(<span class="amr-frame" tok-id="f">f/flip-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="p">p/person</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-node" tok-id="s">s/snowboard-01</span>))
+    <span class="amr-edge" tok-id="1-1.2">:direction</span> (<span class="amr-node" tok-id="o">o/over</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:op1</span> (<span class="amr-node" tok-id="m">m/mound</span>
+            <span class="amr-edge" tok-id="1.2.1-1.2.1.1">:consist-of</span> (<span class="amr-node" tok-id="s2">s2/snow</span>))))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A snowboarder is doing a flip over a mound of snow
+
+(<span class="amr-frame" tok-id="f">f/flip-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="p">p/person</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-node" tok-id="s">s/snowboard-01</span>))
+    <span class="amr-edge" tok-id="1-1.2">:direction</span> (<span class="amr-node" tok-id="o">o/over</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:op1</span> (<span class="amr-node" tok-id="m">m/mound</span>
+            <span class="amr-edge" tok-id="1.2.1-1.2.1.1">:consist-of</span> (<span class="amr-node" tok-id="s2">s2/snow</span>))))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.997</td><tr><tr><td>BLEU</td><td>0.893</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.592</td><tr><tr><td>S-BERT (bl)</td><td>0.995</td><tr><tr><td>S-BERT (db)</td><td>0.997</td><tr><tr><td>S-BERT (rb)</td><td>0.997</td><tr><tr><td>S-BERT (rl)</td><td>0.998</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>92.617</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T3634sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A man and a child are kayaking through gentle waters
+
+(<span class="amr-frame" tok-id="k">k/kayak-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="a">a/and</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:op1</span> (<span class="amr-node" tok-id="m">m/man</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.2">:op2</span> (<span class="amr-node" tok-id="c">c/child</span>))
+    <span class="amr-edge" tok-id="1-1.2">:path</span> (<span class="amr-node" tok-id="t">t/through</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:op1</span> (<span class="amr-node" tok-id="w">w/water</span>
+            <span class="amr-edge" tok-id="1.2.1-1.2.1.1">:mod</span> (<span class="amr-node" tok-id="g">g/gentle</span>))))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The man and the child are kayaking through gentle waters
+
+(<span class="amr-frame" tok-id="k">k/kayak-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="a">a/and</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:op1</span> (<span class="amr-node" tok-id="m">m/man</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.2">:op2</span> (<span class="amr-node" tok-id="c">c/child</span>))
+    <span class="amr-edge" tok-id="1-1.2">:path</span> (<span class="amr-node" tok-id="t">t/through</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:op1</span> (<span class="amr-node" tok-id="w">w/water</span>
+            <span class="amr-edge" tok-id="1.2.1-1.2.1.1">:mod</span> (<span class="amr-node" tok-id="g">g/gentle</span>))))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.994</td><tr><tr><td>BLEU</td><td>0.581</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.855</td><tr><tr><td>S-BERT (bl)</td><td>0.988</td><tr><tr><td>S-BERT (db)</td><td>0.982</td><tr><tr><td>S-BERT (rb)</td><td>0.99</td><tr><tr><td>S-BERT (rl)</td><td>0.988</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>83.564</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T3710sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The person is flying through the air on a bicycle
+
+(<span class="amr-frame" tok-id="f">f/fly-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG1</span> (<span class="amr-node" tok-id="p">p/person</span>)
+    <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="b">b/bicycle</span>)
+    <span class="amr-edge" tok-id="1-1.2">:path</span> (<span class="amr-node" tok-id="a">a/air</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The person is flying through the air on the bicycle
+
+(<span class="amr-frame" tok-id="f">f/fly-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG1</span> (<span class="amr-node" tok-id="p">p/person</span>)
+    <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="b">b/bicycle</span>)
+    <span class="amr-edge" tok-id="1-1.2">:path</span> (<span class="amr-node" tok-id="a">a/air</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.8 (0.95)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.992</td><tr><tr><td>BLEU</td><td>0.783</td><tr><tr><td>MF Score</td><td>0.933</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>0.728</td><tr><tr><td>Meteor</td><td>0.528</td><tr><tr><td>S-BERT (bl)</td><td>0.999</td><tr><tr><td>S-BERT (db)</td><td>0.996</td><tr><tr><td>S-BERT (rb)</td><td>0.998</td><tr><tr><td>S-BERT (rl)</td><td>0.998</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>88.086</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T3779sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A little girl is smiling and wearing a fake nose and glasses
+
+(<span class="amr-node" tok-id="a">a/and</span>
+    <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="s">s/smile-01</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0</span> (<span class="amr-node" tok-id="g">g/girl</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:mod</span> (<span class="amr-node" tok-id="l">l/little</span>)))
+    <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="w">w/wear-01</span>
+        <span class="amr-edge" tok-id="1.2-1.1.1">:ARG0</span> <span class="amr-node" tok-id="g">g</span>
+        <span class="amr-edge" tok-id="1.2-1.2.2">:ARG1</span> (<span class="amr-node" tok-id="a2">a2/and</span>
+            <span class="amr-edge" tok-id="1.2.2-1.2.2.1">:op1</span> (<span class="amr-node" tok-id="n">n/nose</span>
+                <span class="amr-edge" tok-id="1.2.2.1-1.2.2.1.1">:ARG1-of</span> (<span class="amr-frame" tok-id="f">f/fake-02</span>))
+            <span class="amr-edge" tok-id="1.2.2-1.2.2.2">:op2</span> (<span class="amr-node" tok-id="g2">g2/glass</span>))))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The little girl is smiling and wearing a fake nose and glasses
+
+(<span class="amr-node" tok-id="a">a/and</span>
+    <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="s">s/smile-01</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0</span> (<span class="amr-node" tok-id="g">g/girl</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:mod</span> (<span class="amr-node" tok-id="l">l/little</span>)))
+    <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="w">w/wear-01</span>
+        <span class="amr-edge" tok-id="1.2-1.1.1">:ARG0</span> <span class="amr-node" tok-id="g">g</span>
+        <span class="amr-edge" tok-id="1.2-1.2.2">:ARG1</span> (<span class="amr-node" tok-id="a2">a2/and</span>
+            <span class="amr-edge" tok-id="1.2.2-1.2.2.1">:op1</span> (<span class="amr-node" tok-id="n">n/nose</span>
+                <span class="amr-edge" tok-id="1.2.2.1-1.2.2.1.1">:ARG1-of</span> (<span class="amr-frame" tok-id="f">f/fake-02</span>))
+            <span class="amr-edge" tok-id="1.2.2-1.2.2.2">:op2</span> (<span class="amr-node" tok-id="g2">g2/glass</span>))))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>1.0</td><tr><tr><td>BLEU</td><td>0.904</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.604</td><tr><tr><td>S-BERT (bl)</td><td>0.998</td><tr><tr><td>S-BERT (db)</td><td>0.997</td><tr><tr><td>S-BERT (rb)</td><td>0.996</td><tr><tr><td>S-BERT (rl)</td><td>0.995</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>95.58</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T3790sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A dog is walking along the snowdrift
+
+(<span class="amr-frame" tok-id="w">w/walk-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="d">d/dog</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="a">a/along</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:op1</span> (<span class="amr-node" tok-id="s">s/snowdrift</span>)))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A dog is walking along a snowdrift
+
+(<span class="amr-frame" tok-id="w">w/walk-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="d">d/dog</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="a">a/along</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:op1</span> (<span class="amr-node" tok-id="s">s/snowdrift</span>)))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.991</td><tr><tr><td>BLEU</td><td>0.643</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.893</td><tr><tr><td>S-BERT (bl)</td><td>0.999</td><tr><tr><td>S-BERT (db)</td><td>0.997</td><tr><tr><td>S-BERT (rb)</td><td>0.997</td><tr><tr><td>S-BERT (rl)</td><td>0.998</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>79.577</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T3816sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A tennis player with a green headband is hitting the ball
+
+(<span class="amr-frame" tok-id="h">h/hit-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="p">p/person</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-frame" tok-id="h2">h2/have-03</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:ARG1</span> (<span class="amr-node" tok-id="h3">h3/headband</span>
+                <span class="amr-edge" tok-id="1.1.1.1-1.1.1.1.1">:ARG1-of</span> (<span class="amr-frame" tok-id="g">g/green-02</span>)))
+        <span class="amr-edge" tok-id="1.1-1.1.2">:ARG0-of</span> (<span class="amr-frame" tok-id="p2">p2/play-01</span>
+            <span class="amr-edge red" tok-id="1.1.2-1.1.2.1" title="No corresponding relation play-01 :ARG2 tennis">:ARG2</span> (<span class="amr-node" tok-id="t">t/tennis</span>)))
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="b">b/ball</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The tennis player with a green headband is hitting the ball
+
+(<span class="amr-frame" tok-id="h">h/hit-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="p">p/person</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-frame" tok-id="h2">h2/have-03</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:ARG1</span> (<span class="amr-node" tok-id="h3">h3/headband</span>
+                <span class="amr-edge" tok-id="1.1.1.1-1.1.1.1.1">:ARG1-of</span> (<span class="amr-frame" tok-id="g">g/green-02</span>)))
+        <span class="amr-edge" tok-id="1.1-1.1.2">:ARG0-of</span> (<span class="amr-frame" tok-id="p2">p2/play-01</span>
+            <span class="amr-edge red" tok-id="1.1.2-1.1.2.1" title="No corresponding relation play-01 :ARG1 tennis">:ARG1</span> (<span class="amr-node" tok-id="t">t/tennis</span>)))
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="b">b/ball</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>1.0</td><tr><tr><td>BLEU</td><td>0.893</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.594</td><tr><tr><td>S-BERT (bl)</td><td>0.999</td><tr><tr><td>S-BERT (db)</td><td>0.998</td><tr><tr><td>S-BERT (rb)</td><td>0.995</td><tr><tr><td>S-BERT (rl)</td><td>0.997</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>95.272</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T4448sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+Two dogs are playing on the beach
+
+(<span class="amr-frame" tok-id="p">p/play-01</span>
+    <span class="amr-edge" tok-id="1-1.2">:ARG0</span> (<span class="amr-node" tok-id="d">d/dog</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:quant</span> <span class="amr-node" tok-id="x0">2</span>)
+    <span class="amr-edge" tok-id="1-1.1">:location</span> (<span class="amr-node" tok-id="b">b/beach</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+Two dogs are playing on a beach
+
+(<span class="amr-frame" tok-id="p">p/play-01</span>
+    <span class="amr-edge" tok-id="1-1.2">:ARG0</span> (<span class="amr-node" tok-id="d">d/dog</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:quant</span> <span class="amr-node" tok-id="x0">2</span>)
+    <span class="amr-edge" tok-id="1-1.1">:location</span> (<span class="amr-node" tok-id="b">b/beach</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.8 (0.95)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.979</td><tr><tr><td>BLEU</td><td>0.643</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.877</td><tr><tr><td>S-BERT (bl)</td><td>0.999</td><tr><tr><td>S-BERT (db)</td><td>0.998</td><tr><tr><td>S-BERT (rb)</td><td>0.999</td><tr><tr><td>S-BERT (rl)</td><td>0.998</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>77.716</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T4493sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The woman is wearing a colorful shirt and a lot of jewelry
+
+(<span class="amr-frame" tok-id="w">w/wear-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w2">w2/woman</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="a">a/and</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:op1</span> (<span class="amr-node" tok-id="s">s/shirt</span>
+            <span class="amr-edge" tok-id="1.2.1-1.2.1.1">:mod</span> (<span class="amr-node" tok-id="c">c/colorful</span>))
+        <span class="amr-edge" tok-id="1.2-1.2.2">:op2</span> (<span class="amr-node" tok-id="j">j/jewelry</span>
+            <span class="amr-edge" tok-id="1.2.2-1.2.2.1">:quant</span> (<span class="amr-node" tok-id="l">l/lot</span>))))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A woman is wearing a colorful shirt and a lot of jewelry
+
+(<span class="amr-frame" tok-id="w">w/wear-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w2">w2/woman</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="a">a/and</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:op1</span> (<span class="amr-node" tok-id="s">s/shirt</span>
+            <span class="amr-edge" tok-id="1.2.1-1.2.1.1">:mod</span> (<span class="amr-node" tok-id="c">c/colorful</span>))
+        <span class="amr-edge" tok-id="1.2-1.2.2">:op2</span> (<span class="amr-node" tok-id="j">j/jewelry</span>
+            <span class="amr-edge" tok-id="1.2.2-1.2.2.1">:quant</span> (<span class="amr-node" tok-id="l">l/lot</span>))))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.999</td><tr><tr><td>BLEU</td><td>0.904</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.602</td><tr><tr><td>S-BERT (bl)</td><td>0.996</td><tr><tr><td>S-BERT (db)</td><td>0.995</td><tr><tr><td>S-BERT (rb)</td><td>0.995</td><tr><tr><td>S-BERT (rl)</td><td>0.997</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>93.394</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T4587sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A man in a red shirt is doing a trick with the skateboard
+
+(<span class="amr-frame" tok-id="d">d/do-02</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:prep-in</span> (<span class="amr-node" tok-id="s">s/shirt</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:ARG1-of</span> (<span class="amr-frame" tok-id="r">r/red-02</span>)))
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-frame" tok-id="t">t/trick-01</span>
+        <span class="amr-edge" tok-id="1.2-1.1">:ARG0</span> <span class="amr-node" tok-id="m">m</span>
+        <span class="amr-edge red" tok-id="1.2-1.2.2" title="No corresponding relation trick-01 :ARG1 skateboard-01">:ARG1</span> (<span class="amr-frame" tok-id="s2">s2/skateboard-01</span>)))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A man in a red shirt is doing a trick with a skateboard
+
+(<span class="amr-frame" tok-id="d">d/do-02</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:prep-in</span> (<span class="amr-node" tok-id="s">s/shirt</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:ARG1-of</span> (<span class="amr-frame" tok-id="r">r/red-02</span>)))
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-frame" tok-id="t">t/trick-01</span>
+        <span class="amr-edge" tok-id="1.2-1.1">:ARG0</span> <span class="amr-node" tok-id="m">m</span>
+        <span class="amr-edge red" tok-id="1.2-1.2.2" title="No corresponding relation trick-01 :mod skateboard-01">:mod</span> (<span class="amr-frame" tok-id="s2">s2/skateboard-01</span>)))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.992</td><tr><tr><td>BLEU</td><td>0.842</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.557</td><tr><tr><td>S-BERT (bl)</td><td>0.999</td><tr><tr><td>S-BERT (db)</td><td>0.997</td><tr><tr><td>S-BERT (rb)</td><td>0.998</td><tr><tr><td>S-BERT (rl)</td><td>0.999</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>87.731</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T4655sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A woman wearing a blue shirt and high heels is standing on the sidewalk next to a man
+
+(<span class="amr-frame" tok-id="s">s/stand-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG1</span> (<span class="amr-node" tok-id="w">w/woman</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-frame" tok-id="w2">w2/wear-01</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:ARG1</span> (<span class="amr-node" tok-id="a">a/and</span>
+                <span class="amr-edge" tok-id="1.1.1.1-1.1.1.1.1">:op1</span> (<span class="amr-node" tok-id="s2">s2/shirt</span>
+                    <span class="amr-edge" tok-id="1.1.1.1.1-1.1.1.1.1.1">:mod</span> (<span class="amr-node" tok-id="b">b/blue</span>))
+                <span class="amr-edge" tok-id="1.1.1.1-1.1.1.1.2">:op2</span> (<span class="amr-frame" tok-id="h">h/heel-01</span>
+                    <span class="amr-edge" tok-id="1.1.1.1.2-1.1.1.1.2.1">:ARG1-of</span> (<span class="amr-frame" tok-id="h2">h2/high-02</span>)))))
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="n">n/next-to</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:op1</span> (<span class="amr-node" tok-id="m">m/man</span>))
+    <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="s3">s3/sidewalk</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A woman wearing a blue shirt and high heels is standing on the sidewalk next to the man
+
+(<span class="amr-frame" tok-id="s">s/stand-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG1</span> (<span class="amr-node" tok-id="w">w/woman</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-frame" tok-id="w2">w2/wear-01</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:ARG1</span> (<span class="amr-node" tok-id="a">a/and</span>
+                <span class="amr-edge" tok-id="1.1.1.1-1.1.1.1.1">:op1</span> (<span class="amr-node" tok-id="s2">s2/shirt</span>
+                    <span class="amr-edge" tok-id="1.1.1.1.1-1.1.1.1.1.1">:mod</span> (<span class="amr-node" tok-id="b">b/blue</span>))
+                <span class="amr-edge" tok-id="1.1.1.1-1.1.1.1.2">:op2</span> (<span class="amr-frame" tok-id="h">h/heel-01</span>
+                    <span class="amr-edge" tok-id="1.1.1.1.2-1.1.1.1.2.1">:ARG1-of</span> (<span class="amr-frame" tok-id="h2">h2/high-02</span>)))))
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="n">n/next-to</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:op1</span> (<span class="amr-node" tok-id="m">m/man</span>))
+    <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="s3">s3/sidewalk</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.989</td><tr><tr><td>BLEU</td><td>0.892</td><tr><tr><td>MF Score</td><td>0.977</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>0.955</td><tr><tr><td>Meteor</td><td>0.958</td><tr><tr><td>S-BERT (bl)</td><td>0.995</td><tr><tr><td>S-BERT (db)</td><td>0.996</td><tr><tr><td>S-BERT (rb)</td><td>0.991</td><tr><tr><td>S-BERT (rl)</td><td>0.994</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>93.931</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T4713sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A brown dog is running in the snow
+
+(<span class="amr-frame" tok-id="r">r/run-02</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="d">d/dog</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:mod</span> (<span class="amr-node" tok-id="b">b/brown</span>))
+    <span class="amr-edge" tok-id="1-1.2">:location</span> (<span class="amr-node" tok-id="s">s/snow</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The brown dog is running in the snow
+
+(<span class="amr-frame" tok-id="r">r/run-02</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="d">d/dog</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:mod</span> (<span class="amr-node" tok-id="b">b/brown</span>))
+    <span class="amr-edge" tok-id="1-1.2">:location</span> (<span class="amr-node" tok-id="s">s/snow</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>1.0</td><tr><tr><td>BLEU</td><td>0.841</td><tr><tr><td>MF Score</td><td>0.897</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>0.812</td><tr><tr><td>Meteor</td><td>0.556</td><tr><tr><td>S-BERT (bl)</td><td>0.996</td><tr><tr><td>S-BERT (db)</td><td>0.994</td><tr><tr><td>S-BERT (rb)</td><td>0.995</td><tr><tr><td>S-BERT (rl)</td><td>0.996</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>92.415</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T4722sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The girl in a blue coverall is painting
+
+(<span class="amr-frame" tok-id="p">p/paint-02</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG1</span> (<span class="amr-node" tok-id="g">g/girl</span>
+        <span class="amr-edge red" tok-id="1.1-1.1.1" title="No corresponding relation girl :ARG0-of coverall">:ARG0-of</span> (<span class="amr-frame red" tok-id="h" title="have-03 != coverall">h/have-03</span>
+            <span class="amr-edge red" tok-id="1.1.1-1.1.1.1" title="No corresponding relation coverall :ARG1 have-03">:ARG1</span> (<span class="amr-node red" tok-id="c" title="coverall != have-03">c/coverall</span>
+                <span class="amr-edge red" tok-id="1.1.1.1-1.1.1.1.1" title="No corresponding relation have-03 :mod blue">:mod</span> (<span class="amr-node" tok-id="b">b/blue</span>)))))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The girl in the blue coverall is painting
+
+(<span class="amr-frame" tok-id="p">p/paint-02</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG1</span> (<span class="amr-node" tok-id="g">g/girl</span>
+        <span class="amr-edge red" tok-id="1.1-1.1.1" title="No corresponding relation girl :ARG0-of coverall">:ARG0-of</span> (<span class="amr-frame red" tok-id="h" title="have-03 != coverall">h/have-03</span>
+            <span class="amr-edge red" tok-id="1.1.1-1.1.1.1" title="No corresponding relation coverall :ARG1 have-03">:ARG1</span> (<span class="amr-node red" tok-id="c" title="coverall != have-03">c/coverall</span>
+                <span class="amr-edge red" tok-id="1.1.1.1-1.1.1.1.1" title="No corresponding relation have-03 :mod blue">:mod</span> (<span class="amr-node" tok-id="b">b/blue</span>)))))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.995</td><tr><tr><td>BLEU</td><td>0.5</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.5</td><tr><tr><td>S-BERT (bl)</td><td>0.999</td><tr><tr><td>S-BERT (db)</td><td>0.995</td><tr><tr><td>S-BERT (rb)</td><td>0.996</td><tr><tr><td>S-BERT (rl)</td><td>0.999</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>84.805</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T4750sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The man is standing in the water at the base of a waterfall
+
+(<span class="amr-frame" tok-id="s">s/stand-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG1</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation stand-01 :ARG2 base">:ARG2</span> (<span class="amr-node red" tok-id="w" title="water != base">w/water</span>
+        <span class="amr-edge red" tok-id="1.2-1.2.1" title="No corresponding relation base :location water">:location</span> (<span class="amr-node red" tok-id="b" title="base != water">b/base</span>
+            <span class="amr-edge red" tok-id="1.2.1-1.2.1.1" title="No corresponding relation water :part-of waterfall">:part-of</span> (<span class="amr-node" tok-id="w2">w2/waterfall</span>))))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A man is standing in the water at the base of a waterfall
+
+(<span class="amr-frame" tok-id="s">s/stand-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG1</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation stand-01 :ARG2 base">:ARG2</span> (<span class="amr-node red" tok-id="w" title="water != base">w/water</span>
+        <span class="amr-edge red" tok-id="1.2-1.2.1" title="No corresponding relation base :location water">:location</span> (<span class="amr-node red" tok-id="b" title="base != water">b/base</span>
+            <span class="amr-edge red" tok-id="1.2.1-1.2.1.1" title="No corresponding relation water :part-of waterfall">:part-of</span> (<span class="amr-node" tok-id="w2">w2/waterfall</span>))))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>1.0</td><tr><tr><td>BLEU</td><td>0.912</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.93</td><tr><tr><td>S-BERT (bl)</td><td>0.995</td><tr><tr><td>S-BERT (db)</td><td>0.996</td><tr><tr><td>S-BERT (rb)</td><td>0.995</td><tr><tr><td>S-BERT (rl)</td><td>0.998</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>93.568</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T4787sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A motorcycle racer is riding a red and black bike
+
+(<span class="amr-frame" tok-id="r">r/ride-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="p">p/person</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-frame" tok-id="r2">r2/race-02</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:ARG3</span> (<span class="amr-node" tok-id="m">m/motorcycle</span>)))
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="b">b/bike</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:ARG1-of</span> (<span class="amr-frame" tok-id="r3">r3/red-02</span>)
+        <span class="amr-edge" tok-id="1.2-1.2.2">:ARG1-of</span> (<span class="amr-frame" tok-id="b2">b2/black-04</span>)))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The motorcycle racer is riding a red and black bike
+
+(<span class="amr-frame" tok-id="r">r/ride-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="p">p/person</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-frame" tok-id="r2">r2/race-02</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:ARG3</span> (<span class="amr-node" tok-id="m">m/motorcycle</span>)))
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="b">b/bike</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:ARG1-of</span> (<span class="amr-frame" tok-id="r3">r3/red-02</span>)
+        <span class="amr-edge" tok-id="1.2-1.2.2">:ARG1-of</span> (<span class="amr-frame" tok-id="b2">b2/black-04</span>)))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.999</td><tr><tr><td>BLEU</td><td>0.88</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.585</td><tr><tr><td>S-BERT (bl)</td><td>0.994</td><tr><tr><td>S-BERT (db)</td><td>0.992</td><tr><tr><td>S-BERT (rb)</td><td>0.995</td><tr><tr><td>S-BERT (rl)</td><td>0.995</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>94.585</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T4792sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A woman is wearing ear protection and is firing a gun at an indoor shooting range
+
+(<span class="amr-node" tok-id="a">a/and</span>
+    <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="w">w/wear-01</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0</span> (<span class="amr-node" tok-id="w2">w2/woman</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.2">:ARG1</span> (<span class="amr-frame" tok-id="p">p/protect-01</span>
+            <span class="amr-edge" tok-id="1.1.2-1.1.2.1">:ARG1</span> (<span class="amr-node" tok-id="e">e/ear</span>)))
+    <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="f">f/fire-01</span>
+        <span class="amr-edge" tok-id="1.2-1.1.1">:ARG0</span> <span class="amr-node" tok-id="w2">w2</span>
+        <span class="amr-edge" tok-id="1.2-1.2.2">:ARG1</span> (<span class="amr-node" tok-id="g">g/gun</span>)
+        <span class="amr-edge" tok-id="1.2-1.2.3">:location</span> (<span class="amr-node" tok-id="r">r/range</span>
+            <span class="amr-edge" tok-id="1.2.3-1.2.3.1">:mod</span> (<span class="amr-node" tok-id="i">i/indoor</span>)
+            <span class="amr-edge" tok-id="1.2.3-1.2.3.2">:purpose</span> (<span class="amr-frame" tok-id="s">s/shoot-02</span>))))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The woman is wearing ear protection and is firing a gun at an indoor shooting range
+
+(<span class="amr-node" tok-id="a">a/and</span>
+    <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="w">w/wear-01</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0</span> (<span class="amr-node" tok-id="w2">w2/woman</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.2">:ARG1</span> (<span class="amr-frame" tok-id="p">p/protect-01</span>
+            <span class="amr-edge" tok-id="1.1.2-1.1.2.1">:ARG1</span> (<span class="amr-node" tok-id="e">e/ear</span>)))
+    <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="f">f/fire-01</span>
+        <span class="amr-edge" tok-id="1.2-1.1.1">:ARG0</span> <span class="amr-node" tok-id="w2">w2</span>
+        <span class="amr-edge" tok-id="1.2-1.2.2">:ARG1</span> (<span class="amr-node" tok-id="g">g/gun</span>)
+        <span class="amr-edge" tok-id="1.2-1.2.3">:location</span> (<span class="amr-node" tok-id="r">r/range</span>
+            <span class="amr-edge" tok-id="1.2.3-1.2.3.1">:mod</span> (<span class="amr-node" tok-id="i">i/indoor</span>)
+            <span class="amr-edge" tok-id="1.2.3-1.2.3.2">:purpose</span> (<span class="amr-frame" tok-id="s">s/shoot-02</span>))))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.999</td><tr><tr><td>BLEU</td><td>0.931</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.632</td><tr><tr><td>S-BERT (bl)</td><td>0.998</td><tr><tr><td>S-BERT (db)</td><td>0.998</td><tr><tr><td>S-BERT (rb)</td><td>0.996</td><tr><tr><td>S-BERT (rl)</td><td>0.999</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>96.741</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T4799sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The little boy is sticking his tongue out for the camera and another boy is looking on
+
+(<span class="amr-node" tok-id="a">a/and</span>
+    <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="s">s/stick-out-02</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0</span> (<span class="amr-node" tok-id="b">b/boy</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:mod</span> (<span class="amr-node" tok-id="l">l/little</span>)
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.2">:part</span> <span class="amr-node" tok-id="t">t</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.1.2">:ARG1</span> (<span class="amr-node" tok-id="t">t/tongue</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.3">:purpose</span> (<span class="amr-node" tok-id="c">c/camera</span>))
+    <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="l2">l2/look-01</span>
+        <span class="amr-edge" tok-id="1.2-1.2.2">:ARG0</span> (<span class="amr-node" tok-id="b2">b2/boy</span>
+            <span class="amr-edge" tok-id="1.2.2-1.2.2.1">:mod</span> (<span class="amr-node" tok-id="a2">a2/another</span>))
+        <span class="amr-edge" tok-id="1.2-1.2.1">:direction</span> (<span class="amr-node" tok-id="o">o/on</span>)))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A little boy is sticking his tongue out for the camera and another boy is looking on
+
+(<span class="amr-node" tok-id="a">a/and</span>
+    <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="s">s/stick-out-02</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0</span> (<span class="amr-node" tok-id="b">b/boy</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:mod</span> (<span class="amr-node" tok-id="l">l/little</span>)
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.2">:part</span> <span class="amr-node" tok-id="t">t</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.1.2">:ARG1</span> (<span class="amr-node" tok-id="t">t/tongue</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.3">:purpose</span> (<span class="amr-node" tok-id="c">c/camera</span>))
+    <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="l2">l2/look-01</span>
+        <span class="amr-edge" tok-id="1.2-1.2.2">:ARG0</span> (<span class="amr-node" tok-id="b2">b2/boy</span>
+            <span class="amr-edge" tok-id="1.2.2-1.2.2.1">:mod</span> (<span class="amr-node" tok-id="a2">a2/another</span>))
+        <span class="amr-edge" tok-id="1.2-1.2.1">:direction</span> (<span class="amr-node" tok-id="o">o/on</span>)))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>1.0</td><tr><tr><td>BLEU</td><td>0.935</td><tr><tr><td>MF Score</td><td>0.965</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>0.933</td><tr><tr><td>Meteor</td><td>0.636</td><tr><tr><td>S-BERT (bl)</td><td>0.999</td><tr><tr><td>S-BERT (db)</td><td>0.998</td><tr><tr><td>S-BERT (rb)</td><td>0.996</td><tr><tr><td>S-BERT (rl)</td><td>0.999</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>95.576</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1442sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A man is riding a mechanical bull
+
+(<span class="amr-frame" tok-id="r">r/ride-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="b">b/bull</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:mod</span> (<span class="amr-node" tok-id="m2">m2/mechanical</span>)))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The man is riding a mechanical bull
+
+(<span class="amr-frame" tok-id="r">r/ride-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="b">b/bull</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:mod</span> (<span class="amr-node" tok-id="m2">m2/mechanical</span>)))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.8 (0.95)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>1.0</td><tr><tr><td>BLEU</td><td>0.809</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.893</td><tr><tr><td>S-BERT (bl)</td><td>0.991</td><tr><tr><td>S-BERT (db)</td><td>0.993</td><tr><tr><td>S-BERT (rb)</td><td>0.991</td><tr><tr><td>S-BERT (rl)</td><td>0.996</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>91.894</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1494sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A man in a suit is standing at a microphone and singing
+
+(<span class="amr-node" tok-id="a">a/and</span>
+    <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="s">s/stand-01</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG1</span> (<span class="amr-node" tok-id="m">m/man</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:ARG0-of</span> (<span class="amr-frame" tok-id="w">w/wear-01</span>
+                <span class="amr-edge" tok-id="1.1.1.1-1.1.1.1.1">:ARG1-</span> (<span class="amr-node" tok-id="s2">s2/suit</span>)))
+        <span class="amr-edge" tok-id="1.1-1.1.2">:ARG2</span> (<span class="amr-node" tok-id="m2">m2/microphone</span>))
+    <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="s3">s3/sing-01</span>
+        <span class="amr-edge" tok-id="1.2-1.1.1">:ARG0</span> <span class="amr-node" tok-id="m">m</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The man in a suit is standing at a microphone and singing
+
+(<span class="amr-node" tok-id="a">a/and</span>
+    <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="s">s/stand-01</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG1</span> (<span class="amr-node" tok-id="m">m/man</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:ARG0-of</span> (<span class="amr-frame" tok-id="w">w/wear-01</span>
+                <span class="amr-edge" tok-id="1.1.1.1-1.1.1.1.1">:ARG1-</span> (<span class="amr-node" tok-id="s2">s2/suit</span>)))
+        <span class="amr-edge" tok-id="1.1-1.1.2">:ARG2</span> (<span class="amr-node" tok-id="m2">m2/microphone</span>))
+    <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="s3">s3/sing-01</span>
+        <span class="amr-edge" tok-id="1.2-1.1.1">:ARG0</span> <span class="amr-node" tok-id="m">m</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.999</td><tr><tr><td>BLEU</td><td>0.904</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.927</td><tr><tr><td>S-BERT (bl)</td><td>0.998</td><tr><tr><td>S-BERT (db)</td><td>0.998</td><tr><tr><td>S-BERT (rb)</td><td>0.997</td><tr><tr><td>S-BERT (rl)</td><td>0.999</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>95.312</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1677sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The woman is slicing herbs
+
+(<span class="amr-frame" tok-id="s">s/slice-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w">w/woman</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="h">h/herb</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A woman is slicing herbs
+
+(<span class="amr-frame" tok-id="s">s/slice-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w">w/woman</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="h">h/herb</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.999</td><tr><tr><td>BLEU</td><td>0.669</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.496</td><tr><tr><td>S-BERT (bl)</td><td>0.993</td><tr><tr><td>S-BERT (db)</td><td>0.996</td><tr><tr><td>S-BERT (rb)</td><td>0.995</td><tr><tr><td>S-BERT (rl)</td><td>0.995</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>84.083</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T2868sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The girl is tapping her fingernails
+
+(<span class="amr-frame" tok-id="t">t/tap-02</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="g">g/girl</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:part</span> <span class="amr-node" tok-id="f">f</span>)
+    <span class="amr-edge" tok-id="1-1.1.1">:ARG1</span> (<span class="amr-node" tok-id="f">f/fingernail</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A girl is tapping her fingernails
+
+(<span class="amr-frame" tok-id="t">t/tap-02</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="g">g/girl</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:part</span> <span class="amr-node" tok-id="f">f</span>)
+    <span class="amr-edge" tok-id="1-1.1.1">:ARG1</span> (<span class="amr-node" tok-id="f">f/fingernail</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.996</td><tr><tr><td>BLEU</td><td>0.76</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.518</td><tr><tr><td>S-BERT (bl)</td><td>0.994</td><tr><tr><td>S-BERT (db)</td><td>0.996</td><tr><tr><td>S-BERT (rb)</td><td>0.995</td><tr><tr><td>S-BERT (rl)</td><td>0.996</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>88.192</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T2943sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A young child is splashing in the water
+
+(<span class="amr-frame" tok-id="s">s/splash-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="c">c/child</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:mod</span> (<span class="amr-node" tok-id="y">y/young</span>))
+    <span class="amr-edge" tok-id="1-1.2">:location</span> (<span class="amr-node" tok-id="w">w/water</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The young child is splashing in the water
+
+(<span class="amr-frame" tok-id="s">s/splash-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="c">c/child</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:mod</span> (<span class="amr-node" tok-id="y">y/young</span>))
+    <span class="amr-edge" tok-id="1-1.2">:location</span> (<span class="amr-node" tok-id="w">w/water</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>1.0</td><tr><tr><td>BLEU</td><td>0.841</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.9</td><tr><tr><td>S-BERT (bl)</td><td>0.997</td><tr><tr><td>S-BERT (db)</td><td>0.994</td><tr><tr><td>S-BERT (rb)</td><td>0.99</td><tr><tr><td>S-BERT (rl)</td><td>0.994</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>93.129</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<hr>
+<h2>Two Articles</h2>
+<h3>Average Scores:</h3><h4>Average Semantic Relatedness:   4.9 (0.975)</h4><table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.987</td><tr>
+<tr><td>BLEU</td><td>0.547</td><tr>
+<tr><td>MF Score</td><td>0.936</td><tr>
+<tr><td>MF Score (Form)</td><td>0.938</td><tr>
+<tr><td>MF Score (Meaning)</td><td>0.994</td><tr>
+<tr><td>Meteor</td><td>0.525</td><tr>
+<tr><td>S-BERT (bl)</td><td>0.991</td><tr>
+<tr><td>S-BERT (db)</td><td>0.991</td><tr>
+<tr><td>S-BERT (rb)</td><td>0.99</td><tr>
+<tr><td>S-BERT (rl)</td><td>0.993</td><tr>
+<tr><td>S2match</td><td>1.0</td><tr>
+<tr><td>Smatch</td><td>1.0</td><tr>
+<tr><td>chrF++</td><td>75.835</td><tr>
+</table>
+<h3>Correlation Matrix:</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ann. Score</th>
+      <th>BERT Score</th>
+      <th>BLEU</th>
+      <th>chrF++</th>
+      <th>Meteor</th>
+      <th>MF Score</th>
+      <th>MF Score (Form)</th>
+      <th>MF Score (Meaning)</th>
+      <th>S-BERT (bl)</th>
+      <th>S-BERT (db)</th>
+      <th>S-BERT (rb)</th>
+      <th>S-BERT (rl)</th>
+      <th>S2match</th>
+      <th>Smatch</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Ann. Score</th>
+      <td>1.000</td>
+      <td>0.235</td>
+      <td>0.016</td>
+      <td>0.031</td>
+      <td>0.016</td>
+      <td>-0.231</td>
+      <td>-0.298</td>
+      <td>-0.204</td>
+      <td>-0.016</td>
+      <td>0.078</td>
+      <td>0.016</td>
+      <td>-0.141</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>BERT Score</th>
+      <td>0.235</td>
+      <td>1.000</td>
+      <td>0.508</td>
+      <td>0.522</td>
+      <td>0.425</td>
+      <td>-0.253</td>
+      <td>-0.252</td>
+      <td>-0.238</td>
+      <td>0.467</td>
+      <td>0.599</td>
+      <td>0.532</td>
+      <td>0.564</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>BLEU</th>
+      <td>0.016</td>
+      <td>0.508</td>
+      <td>1.000</td>
+      <td>0.936</td>
+      <td>0.787</td>
+      <td>-0.445</td>
+      <td>-0.424</td>
+      <td>-0.422</td>
+      <td>0.647</td>
+      <td>0.842</td>
+      <td>0.790</td>
+      <td>0.796</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>chrF++</th>
+      <td>0.031</td>
+      <td>0.522</td>
+      <td>0.936</td>
+      <td>1.000</td>
+      <td>0.864</td>
+      <td>-0.575</td>
+      <td>-0.420</td>
+      <td>-0.570</td>
+      <td>0.652</td>
+      <td>0.817</td>
+      <td>0.852</td>
+      <td>0.861</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Meteor</th>
+      <td>0.016</td>
+      <td>0.425</td>
+      <td>0.787</td>
+      <td>0.864</td>
+      <td>1.000</td>
+      <td>-0.528</td>
+      <td>-0.309</td>
+      <td>-0.538</td>
+      <td>0.641</td>
+      <td>0.759</td>
+      <td>0.765</td>
+      <td>0.918</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>MF Score</th>
+      <td>-0.231</td>
+      <td>-0.253</td>
+      <td>-0.445</td>
+      <td>-0.575</td>
+      <td>-0.528</td>
+      <td>1.000</td>
+      <td>0.730</td>
+      <td>0.991</td>
+      <td>-0.335</td>
+      <td>-0.422</td>
+      <td>-0.537</td>
+      <td>-0.484</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>MF Score (Form)</th>
+      <td>-0.298</td>
+      <td>-0.252</td>
+      <td>-0.424</td>
+      <td>-0.420</td>
+      <td>-0.309</td>
+      <td>0.730</td>
+      <td>1.000</td>
+      <td>0.633</td>
+      <td>-0.308</td>
+      <td>-0.420</td>
+      <td>-0.420</td>
+      <td>-0.252</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>MF Score (Meaning)</th>
+      <td>-0.204</td>
+      <td>-0.238</td>
+      <td>-0.422</td>
+      <td>-0.570</td>
+      <td>-0.538</td>
+      <td>0.991</td>
+      <td>0.633</td>
+      <td>1.000</td>
+      <td>-0.320</td>
+      <td>-0.397</td>
+      <td>-0.527</td>
+      <td>-0.499</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S-BERT (bl)</th>
+      <td>-0.016</td>
+      <td>0.467</td>
+      <td>0.647</td>
+      <td>0.652</td>
+      <td>0.641</td>
+      <td>-0.335</td>
+      <td>-0.308</td>
+      <td>-0.320</td>
+      <td>1.000</td>
+      <td>0.691</td>
+      <td>0.626</td>
+      <td>0.711</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S-BERT (db)</th>
+      <td>0.078</td>
+      <td>0.599</td>
+      <td>0.842</td>
+      <td>0.817</td>
+      <td>0.759</td>
+      <td>-0.422</td>
+      <td>-0.420</td>
+      <td>-0.397</td>
+      <td>0.691</td>
+      <td>1.000</td>
+      <td>0.882</td>
+      <td>0.814</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S-BERT (rb)</th>
+      <td>0.016</td>
+      <td>0.532</td>
+      <td>0.790</td>
+      <td>0.852</td>
+      <td>0.765</td>
+      <td>-0.537</td>
+      <td>-0.420</td>
+      <td>-0.527</td>
+      <td>0.626</td>
+      <td>0.882</td>
+      <td>1.000</td>
+      <td>0.809</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S-BERT (rl)</th>
+      <td>-0.141</td>
+      <td>0.564</td>
+      <td>0.796</td>
+      <td>0.861</td>
+      <td>0.918</td>
+      <td>-0.484</td>
+      <td>-0.252</td>
+      <td>-0.499</td>
+      <td>0.711</td>
+      <td>0.814</td>
+      <td>0.809</td>
+      <td>1.000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S2match</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Smatch</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table><br><h3>Scores for Individual Test Cases:</h3>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>D182sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A dog is licking a baby
+
+(<span class="amr-frame" tok-id="l">l/lick-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="d">d/dog</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="b">b/baby</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The dog is licking the baby
+
+(<span class="amr-frame" tok-id="l">l/lick-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="d">d/dog</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="b">b/baby</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.8 (0.95)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.98</td><tr><tr><td>BLEU</td><td>0.251</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.398</td><tr><tr><td>S-BERT (bl)</td><td>0.983</td><tr><tr><td>S-BERT (db)</td><td>0.98</td><tr><tr><td>S-BERT (rb)</td><td>0.979</td><tr><tr><td>S-BERT (rl)</td><td>0.985</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>63.74</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1069sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A small boy is playing with a dog
+
+(<span class="amr-frame" tok-id="p">p/play-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="b">b/boy</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:mod</span> (<span class="amr-node" tok-id="s">s/small</span>))
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="d">d/dog</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The small boy is playing with the dog
+
+(<span class="amr-frame" tok-id="p">p/play-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="b">b/boy</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:mod</span> (<span class="amr-node" tok-id="s">s/small</span>))
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="d">d/dog</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.993</td><tr><tr><td>BLEU</td><td>0.541</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.454</td><tr><tr><td>S-BERT (bl)</td><td>0.991</td><tr><tr><td>S-BERT (db)</td><td>0.988</td><tr><tr><td>S-BERT (rb)</td><td>0.98</td><tr><tr><td>S-BERT (rl)</td><td>0.988</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>76.4</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1749sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The dog is licking the baby
+
+(<span class="amr-frame" tok-id="l">l/lick-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="d">d/dog</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="b">b/baby</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A dog is licking a baby
+
+(<span class="amr-frame" tok-id="l">l/lick-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="d">d/dog</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="b">b/baby</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.98</td><tr><tr><td>BLEU</td><td>0.251</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.398</td><tr><tr><td>S-BERT (bl)</td><td>0.983</td><tr><tr><td>S-BERT (db)</td><td>0.98</td><tr><tr><td>S-BERT (rb)</td><td>0.979</td><tr><tr><td>S-BERT (rl)</td><td>0.985</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>57.327</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1785sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The man is playing the flute
+
+(<span class="amr-frame" tok-id="p">p/play-11</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="f">f/flute</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A man is playing a flute
+
+(<span class="amr-frame" tok-id="p">p/play-11</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="f">f/flute</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.8 (0.95)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.986</td><tr><tr><td>BLEU</td><td>0.251</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.392</td><tr><tr><td>S-BERT (bl)</td><td>0.985</td><tr><tr><td>S-BERT (db)</td><td>0.99</td><tr><tr><td>S-BERT (rb)</td><td>0.991</td><tr><tr><td>S-BERT (rl)</td><td>0.988</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>58.224</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T3477sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The black dog is playing with the brown dog on the sand
+
+(<span class="amr-frame" tok-id="p">p/play-01</span>
+    <span class="amr-edge red" tok-id="1-1.1" title="No corresponding relation play-01 :ARG0 dog">:ARG0</span> (<span class="amr-node" tok-id="d">d/dog</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG1-of</span> (<span class="amr-frame red" tok-id="b" title="black-04 != brown">b/black-04</span>))
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation play-01 :ARG1 dog">:ARG1</span> (<span class="amr-node" tok-id="d2">d2/dog</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:ARG1-of</span> (<span class="amr-node red" tok-id="b2" title="brown != black-04">b2/brown</span>))
+    <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="s">s/sand</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A black dog is playing with a brown dog on the sand
+
+(<span class="amr-frame" tok-id="p">p/play-01</span>
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation play-01 :ARG0 dog">:ARG0</span> (<span class="amr-node" tok-id="d2">d2/dog</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:ARG1-of</span> (<span class="amr-frame red" tok-id="b2" title="black-04 != brown">b2/black-04</span>))
+    <span class="amr-edge red" tok-id="1-1.1" title="No corresponding relation play-01 :ARG1 dog">:ARG1</span> (<span class="amr-node" tok-id="d">d/dog</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG1-of</span> (<span class="amr-node red" tok-id="b" title="brown != black-04">b/brown</span>))
+    <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="s">s/sand</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.8 (0.95)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.987</td><tr><tr><td>BLEU</td><td>0.634</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.518</td><tr><tr><td>S-BERT (bl)</td><td>0.992</td><tr><tr><td>S-BERT (db)</td><td>0.993</td><tr><tr><td>S-BERT (rb)</td><td>0.995</td><tr><tr><td>S-BERT (rl)</td><td>0.995</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>80.161</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T3528sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The man is standing on the sidewalk
+
+(<span class="amr-frame" tok-id="s">s/stand-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG1</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="s2">s2/sidewalk</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A man is standing on a sidewalk
+
+(<span class="amr-frame" tok-id="s">s/stand-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG1</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="s2">s2/sidewalk</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.984</td><tr><tr><td>BLEU</td><td>0.435</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.415</td><tr><tr><td>S-BERT (bl)</td><td>0.987</td><tr><tr><td>S-BERT (db)</td><td>0.989</td><tr><tr><td>S-BERT (rb)</td><td>0.983</td><tr><tr><td>S-BERT (rl)</td><td>0.991</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>67.274</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T3625sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The smiling boy in winter clothes is waving his mittened hands outside the building in the snow
+
+(<span class="amr-frame" tok-id="w">w/wave-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="b">b/boy</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-frame" tok-id="s">s/smile-01</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.2">:ARG0-of</span> (<span class="amr-frame" tok-id="w2">w2/wear-01</span>
+            <span class="amr-edge" tok-id="1.1.2-1.1.2.1">:ARG1</span> (<span class="amr-node" tok-id="c">c/clothes</span>
+                <span class="amr-edge" tok-id="1.1.2.1-1.1.2.1.1">:mod</span> (<span class="amr-node" tok-id="w3">w3/winter</span>)))
+        <span class="amr-edge" tok-id="1.1-1.1.3">:part</span> (<span class="amr-node" tok-id="h">h/hand</span>))
+    <span class="amr-edge" tok-id="1-1.1.3">:ARG1</span> <span class="amr-node" tok-id="h">h</span>
+    <span class="amr-edge" tok-id="1-1.4">:location</span> (<span class="amr-node" tok-id="o">o/outside</span>
+        <span class="amr-edge" tok-id="1.4-1.4.1">:op1</span> (<span class="amr-node" tok-id="b2">b2/building</span>))
+    <span class="amr-edge" tok-id="1-1.5">:location</span> (<span class="amr-node" tok-id="s2">s2/snow</span>)
+    <span class="amr-edge" tok-id="1-1.3">:mod</span> (<span class="amr-node" tok-id="m">m/mittened</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A smiling boy in winter clothes is waving his mittened hands outside a building in the snow
+
+(<span class="amr-frame" tok-id="w">w/wave-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="b">b/boy</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-frame" tok-id="s">s/smile-01</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.2">:ARG0-of</span> (<span class="amr-frame" tok-id="w2">w2/wear-01</span>
+            <span class="amr-edge" tok-id="1.1.2-1.1.2.1">:ARG1</span> (<span class="amr-node" tok-id="c">c/clothes</span>
+                <span class="amr-edge" tok-id="1.1.2.1-1.1.2.1.1">:mod</span> (<span class="amr-node" tok-id="w3">w3/winter</span>)))
+        <span class="amr-edge" tok-id="1.1-1.1.3">:part</span> (<span class="amr-node" tok-id="h">h/hand</span>))
+    <span class="amr-edge" tok-id="1-1.1.3">:ARG1</span> <span class="amr-node" tok-id="h">h</span>
+    <span class="amr-edge" tok-id="1-1.4">:location</span> (<span class="amr-node" tok-id="o">o/outside</span>
+        <span class="amr-edge" tok-id="1.4-1.4.1">:op1</span> (<span class="amr-node" tok-id="b2">b2/building</span>))
+    <span class="amr-edge" tok-id="1-1.5">:location</span> (<span class="amr-node" tok-id="s2">s2/snow</span>)
+    <span class="amr-edge" tok-id="1-1.3">:mod</span> (<span class="amr-node" tok-id="m">m/mittened</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.992</td><tr><tr><td>BLEU</td><td>0.762</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>0.957</td><tr><tr><td>Meteor</td><td>0.567</td><tr><tr><td>S-BERT (bl)</td><td>0.996</td><tr><tr><td>S-BERT (db)</td><td>0.997</td><tr><tr><td>S-BERT (rb)</td><td>0.996</td><tr><tr><td>S-BERT (rl)</td><td>0.998</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>88.515</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T3654sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A man is sitting on a train and resting his hand against his face
+
+(<span class="amr-node" tok-id="a">a/and</span>
+    <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="s">s/sit-01</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG1</span> (<span class="amr-node" tok-id="m">m/man</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:part</span> (<span class="amr-node" tok-id="f">f/face</span>)
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.2">:part</span> <span class="amr-node" tok-id="h">h</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.2">:ARG2</span> (<span class="amr-node" tok-id="t">t/train</span>))
+    <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="r">r/rest-01</span>
+        <span class="amr-edge" tok-id="1.2-1.1.1">:ARG0</span> <span class="amr-node" tok-id="m">m</span>
+        <span class="amr-edge" tok-id="1.2-1.1.1.2">:ARG1</span> (<span class="amr-node" tok-id="h">h/hand</span>)
+        <span class="amr-edge" tok-id="1.2-1.2.3">:ARG2</span> (<span class="amr-node" tok-id="a2">a2/against</span>
+            <span class="amr-edge" tok-id="1.2.3-1.1.1.1">:op1</span> <span class="amr-node" tok-id="f">f</span>)))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The man is sitting on the train and resting his hand against his face
+
+(<span class="amr-node" tok-id="a">a/and</span>
+    <span class="amr-edge" tok-id="1-1.1">:op1</span> (<span class="amr-frame" tok-id="s">s/sit-01</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG1</span> (<span class="amr-node" tok-id="m">m/man</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:part</span> (<span class="amr-node" tok-id="f">f/face</span>)
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.2">:part</span> <span class="amr-node" tok-id="h">h</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.2">:ARG2</span> (<span class="amr-node" tok-id="t">t/train</span>))
+    <span class="amr-edge" tok-id="1-1.2">:op2</span> (<span class="amr-frame" tok-id="r">r/rest-01</span>
+        <span class="amr-edge" tok-id="1.2-1.1.1">:ARG0</span> <span class="amr-node" tok-id="m">m</span>
+        <span class="amr-edge" tok-id="1.2-1.1.1.2">:ARG1</span> (<span class="amr-node" tok-id="h">h/hand</span>)
+        <span class="amr-edge" tok-id="1.2-1.2.3">:ARG2</span> (<span class="amr-node" tok-id="a2">a2/against</span>
+            <span class="amr-edge" tok-id="1.2.3-1.1.1.1">:op1</span> <span class="amr-node" tok-id="f">f</span>)))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.991</td><tr><tr><td>BLEU</td><td>0.7</td><tr><tr><td>MF Score</td><td>0.97</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>0.941</td><tr><tr><td>Meteor</td><td>0.886</td><tr><tr><td>S-BERT (bl)</td><td>0.995</td><tr><tr><td>S-BERT (db)</td><td>0.995</td><tr><tr><td>S-BERT (rb)</td><td>0.995</td><tr><tr><td>S-BERT (rl)</td><td>0.998</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>87.331</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T3743sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A man in a red jacket is standing next to a yellow kayak on some rocks by the ocean
+
+(<span class="amr-frame" tok-id="s">s/stand-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG1</span> (<span class="amr-node" tok-id="m">m/man</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-frame" tok-id="w">w/wear-01</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:ARG1</span> (<span class="amr-node" tok-id="j">j/jacket</span>
+                <span class="amr-edge" tok-id="1.1.1.1-1.1.1.1.1">:ARG1-of</span> (<span class="amr-frame" tok-id="r">r/red-02</span>))))
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-frame" tok-id="k">k/kayak-01</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:mod</span> (<span class="amr-node" tok-id="y">y/yellow</span>
+            <span class="amr-edge" tok-id="1.2.1-1.2.1.1">:location</span> (<span class="amr-node" tok-id="r2">r2/rocks</span>
+                <span class="amr-edge" tok-id="1.2.1.1-1.2.1.1.1">:quant</span> (<span class="amr-node" tok-id="s2">s2/some</span>))))
+    <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="n">n/next</span>
+        <span class="amr-edge" tok-id="1.3-1.3.1">:op1</span> (<span class="amr-node" tok-id="o">o/ocean</span>)))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The man in the red jacket is standing next to the yellow kayak on some rocks by the ocean
+
+(<span class="amr-frame" tok-id="s">s/stand-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG1</span> (<span class="amr-node" tok-id="m">m/man</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-frame" tok-id="w">w/wear-01</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:ARG1</span> (<span class="amr-node" tok-id="j">j/jacket</span>
+                <span class="amr-edge" tok-id="1.1.1.1-1.1.1.1.1">:ARG1-of</span> (<span class="amr-frame" tok-id="r">r/red-02</span>))))
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-frame" tok-id="k">k/kayak-01</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:mod</span> (<span class="amr-node" tok-id="y">y/yellow</span>
+            <span class="amr-edge" tok-id="1.2.1-1.2.1.1">:location</span> (<span class="amr-node" tok-id="r2">r2/rocks</span>
+                <span class="amr-edge" tok-id="1.2.1.1-1.2.1.1.1">:quant</span> (<span class="amr-node" tok-id="s2">s2/some</span>))))
+    <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="n">n/next</span>
+        <span class="amr-edge" tok-id="1.3-1.3.1">:op1</span> (<span class="amr-node" tok-id="o">o/ocean</span>)))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.8 (0.95)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.983</td><tr><tr><td>BLEU</td><td>0.65</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.544</td><tr><tr><td>S-BERT (bl)</td><td>0.987</td><tr><tr><td>S-BERT (db)</td><td>0.993</td><tr><tr><td>S-BERT (rb)</td><td>0.993</td><tr><tr><td>S-BERT (rl)</td><td>0.998</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>83.606</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T3756sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The girl in the black hat is wearing a bikini at the beach
+
+(<span class="amr-frame" tok-id="w">w/wear-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="g">g/girl</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-frame" tok-id="h">h/have-03</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:ARG1</span> (<span class="amr-node" tok-id="h2">h2/hat</span>
+                <span class="amr-edge" tok-id="1.1.1.1-1.1.1.1.1">:ARG1-of</span> (<span class="amr-frame" tok-id="b">b/black-04</span>))))
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="b2">b2/bikini</span>)
+    <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="b3">b3/beach</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A girl in a black hat is wearing a bikini at the beach
+
+(<span class="amr-frame" tok-id="w">w/wear-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="g">g/girl</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-frame" tok-id="h">h/have-03</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:ARG1</span> (<span class="amr-node" tok-id="h2">h2/hat</span>
+                <span class="amr-edge" tok-id="1.1.1.1-1.1.1.1.1">:ARG1-of</span> (<span class="amr-frame" tok-id="b">b/black-04</span>))))
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="b2">b2/bikini</span>)
+    <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="b3">b3/beach</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.982</td><tr><tr><td>BLEU</td><td>0.702</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.527</td><tr><tr><td>S-BERT (bl)</td><td>0.992</td><tr><tr><td>S-BERT (db)</td><td>0.996</td><tr><tr><td>S-BERT (rb)</td><td>0.993</td><tr><tr><td>S-BERT (rl)</td><td>0.995</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>81.285</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T3785sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A man is spraying a super soaker into the mouth of a dog
+
+(<span class="amr-frame" tok-id="s">s/spray-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="s2">s2/soaker</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:mod</span> (<span class="amr-node" tok-id="s3">s3/super</span>))
+    <span class="amr-edge" tok-id="1-1.3">:ARG2</span> (<span class="amr-node" tok-id="m2">m2/mouth</span>
+        <span class="amr-edge" tok-id="1.3-1.3.1">:part-of</span> (<span class="amr-node" tok-id="d">d/dog</span>)))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The man is spraying a super soaker into the mouth of the dog
+
+(<span class="amr-frame" tok-id="s">s/spray-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="s2">s2/soaker</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:mod</span> (<span class="amr-node" tok-id="s3">s3/super</span>))
+    <span class="amr-edge" tok-id="1-1.3">:ARG2</span> (<span class="amr-node" tok-id="m2">m2/mouth</span>
+        <span class="amr-edge" tok-id="1.3-1.3.1">:part-of</span> (<span class="amr-node" tok-id="d">d/dog</span>)))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.991</td><tr><tr><td>BLEU</td><td>0.754</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.52</td><tr><tr><td>S-BERT (bl)</td><td>0.99</td><tr><tr><td>S-BERT (db)</td><td>0.995</td><tr><tr><td>S-BERT (rb)</td><td>0.995</td><tr><tr><td>S-BERT (rl)</td><td>0.995</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>86.351</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T4420sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A red and brown dog is digging its nose inside the holiday gift bag
+
+(<span class="amr-frame" tok-id="d">d/dig-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="d2">d2/dog</span>
+        <span class="amr-edge" tok-id="1.1-1.1.3">:ARG1-of</span> (<span class="amr-frame" tok-id="r">r/red-02</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.1">:mod</span> (<span class="amr-node" tok-id="b">b/brown</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.2">:part</span> (<span class="amr-node" tok-id="n">n/nose</span>))
+    <span class="amr-edge" tok-id="1-1.1.2">:ARG1</span> <span class="amr-node" tok-id="n">n</span>
+    <span class="amr-edge" tok-id="1-1.3">:ARG2</span> (<span class="amr-node" tok-id="i">i/inside</span>
+        <span class="amr-edge" tok-id="1.3-1.3.1">:op1</span> (<span class="amr-node" tok-id="b2">b2/bag</span>
+            <span class="amr-edge" tok-id="1.3.1-1.3.1.1">:mod</span> (<span class="amr-node" tok-id="h">h/holiday</span>)
+            <span class="amr-edge" tok-id="1.3.1-1.3.1.2">:purpose</span> (<span class="amr-frame" tok-id="g">g/gift-01</span>))))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The red and brown dog is digging its nose inside a holiday gift bag
+
+(<span class="amr-frame" tok-id="d">d/dig-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="d2">d2/dog</span>
+        <span class="amr-edge" tok-id="1.1-1.1.3">:ARG1-of</span> (<span class="amr-frame" tok-id="r">r/red-02</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.1">:mod</span> (<span class="amr-node" tok-id="b">b/brown</span>)
+        <span class="amr-edge" tok-id="1.1-1.1.2">:part</span> (<span class="amr-node" tok-id="n">n/nose</span>))
+    <span class="amr-edge" tok-id="1-1.1.2">:ARG1</span> <span class="amr-node" tok-id="n">n</span>
+    <span class="amr-edge" tok-id="1-1.3">:ARG2</span> (<span class="amr-node" tok-id="i">i/inside</span>
+        <span class="amr-edge" tok-id="1.3-1.3.1">:op1</span> (<span class="amr-node" tok-id="b2">b2/bag</span>
+            <span class="amr-edge" tok-id="1.3.1-1.3.1.1">:mod</span> (<span class="amr-node" tok-id="h">h/holiday</span>)
+            <span class="amr-edge" tok-id="1.3.1-1.3.1.2">:purpose</span> (<span class="amr-frame" tok-id="g">g/gift-01</span>))))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.991</td><tr><tr><td>BLEU</td><td>0.7</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.533</td><tr><tr><td>S-BERT (bl)</td><td>0.996</td><tr><tr><td>S-BERT (db)</td><td>0.996</td><tr><tr><td>S-BERT (rb)</td><td>0.995</td><tr><tr><td>S-BERT (rl)</td><td>0.995</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>86.469</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T4661sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A man on a green bike is performing tricks on a dirt ramp
+
+(<span class="amr-frame" tok-id="p">p/perform-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:location</span> (<span class="amr-node" tok-id="b">b/bike</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:ARG1-of</span> (<span class="amr-frame" tok-id="g">g/green-02</span>)))
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-frame" tok-id="t">t/trick-01</span>
+        <span class="amr-edge" tok-id="1.2-1.1">:ARG0</span> <span class="amr-node" tok-id="m">m</span>)
+    <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="r">r/ramp</span>
+        <span class="amr-edge" tok-id="1.3-1.3.1">:mod</span> (<span class="amr-node" tok-id="d">d/dirt</span>)))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The man on a green bike is performing tricks on the dirt ramp
+
+(<span class="amr-frame" tok-id="p">p/perform-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:location</span> (<span class="amr-node" tok-id="b">b/bike</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:ARG1-of</span> (<span class="amr-frame" tok-id="g">g/green-02</span>)))
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-frame" tok-id="t">t/trick-01</span>
+        <span class="amr-edge" tok-id="1.2-1.1">:ARG0</span> <span class="amr-node" tok-id="m">m</span>)
+    <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="r">r/ramp</span>
+        <span class="amr-edge" tok-id="1.3-1.3.1">:mod</span> (<span class="amr-node" tok-id="d">d/dirt</span>)))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.8 (0.95)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.993</td><tr><tr><td>BLEU</td><td>0.702</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.525</td><tr><tr><td>S-BERT (bl)</td><td>0.997</td><tr><tr><td>S-BERT (db)</td><td>0.997</td><tr><tr><td>S-BERT (rb)</td><td>0.995</td><tr><tr><td>S-BERT (rl)</td><td>0.998</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>85.641</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T1448sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The woman is playing the flute
+
+(<span class="amr-frame" tok-id="p">p/play-11</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w">w/woman</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="f">f/flute</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A woman is playing a flute
+
+(<span class="amr-frame" tok-id="p">p/play-11</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w">w/woman</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="f">f/flute</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.984</td><tr><tr><td>BLEU</td><td>0.251</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.398</td><tr><tr><td>S-BERT (bl)</td><td>0.988</td><tr><tr><td>S-BERT (db)</td><td>0.991</td><tr><tr><td>S-BERT (rb)</td><td>0.991</td><tr><tr><td>S-BERT (rl)</td><td>0.988</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>61.084</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T2156sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A man is tying a shoe
+
+(<span class="amr-node" tok-id="t">t/tie</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="s">s/shoe</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A man is tying the shoe
+
+(<span class="amr-node" tok-id="t">t/tie</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="s">s/shoe</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.8 (0.95)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.976</td><tr><tr><td>BLEU</td><td>0.537</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.459</td><tr><tr><td>S-BERT (bl)</td><td>0.997</td><tr><tr><td>S-BERT (db)</td><td>0.987</td><tr><tr><td>S-BERT (rb)</td><td>0.989</td><tr><tr><td>S-BERT (rl)</td><td>0.994</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>71.481</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T3399sick</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The man in the white hat is playing guitar on stage
+
+(<span class="amr-frame" tok-id="p">p/play-11</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-frame" tok-id="h">h/have-03</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:ARG1</span> (<span class="amr-node" tok-id="h2">h2/hat</span>
+                <span class="amr-edge" tok-id="1.1.1.1-1.1.1.1.1">:ARG1-of</span> (<span class="amr-frame" tok-id="w">w/white-03</span>))))
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="g">g/guitar</span>)
+    <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="s">s/stage</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A man in a white hat is playing guitar on stage
+
+(<span class="amr-frame" tok-id="p">p/play-11</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>
+        <span class="amr-edge" tok-id="1.1-1.1.1">:ARG0-of</span> (<span class="amr-frame" tok-id="h">h/have-03</span>
+            <span class="amr-edge" tok-id="1.1.1-1.1.1.1">:ARG1</span> (<span class="amr-node" tok-id="h2">h2/hat</span>
+                <span class="amr-edge" tok-id="1.1.1.1-1.1.1.1.1">:ARG1-of</span> (<span class="amr-frame" tok-id="w">w/white-03</span>))))
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="g">g/guitar</span>)
+    <span class="amr-edge" tok-id="1-1.3">:location</span> (<span class="amr-node" tok-id="s">s/stage</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Relatedness Score: 4.9 (0.975)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.992</td><tr><tr><td>BLEU</td><td>0.632</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.861</td><tr><tr><td>S-BERT (bl)</td><td>0.995</td><tr><tr><td>S-BERT (db)</td><td>0.995</td><tr><tr><td>S-BERT (rb)</td><td>0.995</td><tr><tr><td>S-BERT (rl)</td><td>0.998</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>78.473</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<hr>
+<h2>STS Data Set</h2>
+<h2>Number of Test Cases: 6</h2><h2>Semantic Similarity Statistics:</h2><table style="width:15%"><tr><td>Mean:</td><td>4.88 (0.98)</td><tr><tr><td>Median:</td><td>4.95 (0.99)</td><tr><tr><td>Standard deviation:</td><td>0.16 (0.03)</td><tr><tr><td>Standard Error:</td><td>0.07 (0.01)</td><tr></table>
+<br><h2>Average Scores (Overall):</h2><h3>Average Semantic Similarity: 4.885 (0.977)</h3><table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.983</td><tr><tr><td>BLEU</td><td>0.336</td><tr><tr><td>MF Score</td><td>0.656</td><tr><tr><td>MF Score (Form)</td><td>0.667</td><tr><tr><td>MF Score (Meaning)</td><td>0.979</td><tr><tr><td>Meteor</td><td>0.456</td><tr><tr><td>S-BERT (bl)</td><td>0.984</td><tr><tr><td>S-BERT (db)</td><td>0.984</td><tr><tr><td>S-BERT (rb)</td><td>0.985</td><tr><tr><td>S-BERT (rl)</td><td>0.987</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>69.714</td><tr></table>
+<h2>Correlation Matrix (Overall):</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ann. Score</th>
+      <th>BERT Score</th>
+      <th>BLEU</th>
+      <th>chrF++</th>
+      <th>Meteor</th>
+      <th>MF Score</th>
+      <th>MF Score (Form)</th>
+      <th>MF Score (Meaning)</th>
+      <th>S-BERT (bl)</th>
+      <th>S-BERT (db)</th>
+      <th>S-BERT (rb)</th>
+      <th>S-BERT (rl)</th>
+      <th>S2match</th>
+      <th>Smatch</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Ann. Score</th>
+      <td>1.000</td>
+      <td>0.698</td>
+      <td>-0.097</td>
+      <td>0.334</td>
+      <td>0.152</td>
+      <td>0.033</td>
+      <td>0.220</td>
+      <td>-0.417</td>
+      <td>0.273</td>
+      <td>0.030</td>
+      <td>-0.395</td>
+      <td>0.334</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>BERT Score</th>
+      <td>0.698</td>
+      <td>1.000</td>
+      <td>0.395</td>
+      <td>0.257</td>
+      <td>0.657</td>
+      <td>0.062</td>
+      <td>0.000</td>
+      <td>0.131</td>
+      <td>0.086</td>
+      <td>0.086</td>
+      <td>0.257</td>
+      <td>0.829</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>BLEU</th>
+      <td>-0.097</td>
+      <td>0.395</td>
+      <td>1.000</td>
+      <td>0.334</td>
+      <td>0.820</td>
+      <td>0.557</td>
+      <td>0.220</td>
+      <td>0.696</td>
+      <td>0.213</td>
+      <td>0.577</td>
+      <td>0.880</td>
+      <td>0.638</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>chrF++</th>
+      <td>0.334</td>
+      <td>0.257</td>
+      <td>0.334</td>
+      <td>1.000</td>
+      <td>0.600</td>
+      <td>0.247</td>
+      <td>0.414</td>
+      <td>-0.393</td>
+      <td>0.943</td>
+      <td>0.886</td>
+      <td>0.314</td>
+      <td>-0.086</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Meteor</th>
+      <td>0.152</td>
+      <td>0.657</td>
+      <td>0.820</td>
+      <td>0.600</td>
+      <td>1.000</td>
+      <td>0.185</td>
+      <td>0.000</td>
+      <td>0.393</td>
+      <td>0.486</td>
+      <td>0.600</td>
+      <td>0.829</td>
+      <td>0.657</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>MF Score</th>
+      <td>0.033</td>
+      <td>0.062</td>
+      <td>0.557</td>
+      <td>0.247</td>
+      <td>0.185</td>
+      <td>1.000</td>
+      <td>0.894</td>
+      <td>0.141</td>
+      <td>0.031</td>
+      <td>0.586</td>
+      <td>0.309</td>
+      <td>0.093</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>MF Score (Form)</th>
+      <td>0.220</td>
+      <td>0.000</td>
+      <td>0.220</td>
+      <td>0.414</td>
+      <td>0.000</td>
+      <td>0.894</td>
+      <td>1.000</td>
+      <td>-0.316</td>
+      <td>0.207</td>
+      <td>0.621</td>
+      <td>0.000</td>
+      <td>-0.207</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>MF Score (Meaning)</th>
+      <td>-0.417</td>
+      <td>0.131</td>
+      <td>0.696</td>
+      <td>-0.393</td>
+      <td>0.393</td>
+      <td>0.141</td>
+      <td>-0.316</td>
+      <td>1.000</td>
+      <td>-0.393</td>
+      <td>-0.131</td>
+      <td>0.655</td>
+      <td>0.655</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S-BERT (bl)</th>
+      <td>0.273</td>
+      <td>0.086</td>
+      <td>0.213</td>
+      <td>0.943</td>
+      <td>0.486</td>
+      <td>0.031</td>
+      <td>0.207</td>
+      <td>-0.393</td>
+      <td>1.000</td>
+      <td>0.771</td>
+      <td>0.200</td>
+      <td>-0.200</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S-BERT (db)</th>
+      <td>0.030</td>
+      <td>0.086</td>
+      <td>0.577</td>
+      <td>0.886</td>
+      <td>0.600</td>
+      <td>0.586</td>
+      <td>0.621</td>
+      <td>-0.131</td>
+      <td>0.771</td>
+      <td>1.000</td>
+      <td>0.543</td>
+      <td>-0.086</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S-BERT (rb)</th>
+      <td>-0.395</td>
+      <td>0.257</td>
+      <td>0.880</td>
+      <td>0.314</td>
+      <td>0.829</td>
+      <td>0.309</td>
+      <td>0.000</td>
+      <td>0.655</td>
+      <td>0.200</td>
+      <td>0.543</td>
+      <td>1.000</td>
+      <td>0.486</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S-BERT (rl)</th>
+      <td>0.334</td>
+      <td>0.829</td>
+      <td>0.638</td>
+      <td>-0.086</td>
+      <td>0.657</td>
+      <td>0.093</td>
+      <td>-0.207</td>
+      <td>0.655</td>
+      <td>-0.200</td>
+      <td>-0.086</td>
+      <td>0.486</td>
+      <td>1.000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S2match</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Smatch</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<br><hr>
+<br><h3>Scores for Individual Test Cases:</h3>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>D2sts</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A man is feeding a mouse to a snake.
+
+(<span class="amr-frame" tok-id="f">f/feed-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="m2">m2/mouse</span>)
+    <span class="amr-edge" tok-id="1-1.3">:ARG2</span> (<span class="amr-node" tok-id="s">s/snake</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The man is feeding a mouse to the snake.
+
+(<span class="amr-frame" tok-id="f">f/feed-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="m2">m2/mouse</span>)
+    <span class="amr-edge" tok-id="1-1.3">:ARG2</span> (<span class="amr-node" tok-id="s">s/snake</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Similarity Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.986</td><tr><tr><td>BLEU</td><td>0.61</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.476</td><tr><tr><td>S-BERT (bl)</td><td>0.995</td><tr><tr><td>S-BERT (db)</td><td>0.992</td><tr><tr><td>S-BERT (rb)</td><td>0.988</td><tr><tr><td>S-BERT (rl)</td><td>0.992</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>77.837</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>D6sts</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A man is erasing a chalk board.
+
+(<span class="amr-frame" tok-id="e">e/erase-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="b">b/board</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:mod</span> (<span class="amr-node" tok-id="c">c/chalk</span>)))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The man is erasing the chalk board.
+
+(<span class="amr-frame" tok-id="e">e/erase-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="b">b/board</span>
+        <span class="amr-edge" tok-id="1.2-1.2.1">:mod</span> (<span class="amr-node" tok-id="c">c/chalk</span>)))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Similarity Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.984</td><tr><tr><td>BLEU</td><td>0.243</td><tr><tr><td>MF Score</td><td>0.933</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>0.875</td><tr><tr><td>Meteor</td><td>0.446</td><tr><tr><td>S-BERT (bl)</td><td>0.993</td><tr><tr><td>S-BERT (db)</td><td>0.983</td><tr><tr><td>S-BERT (rb)</td><td>0.976</td><tr><tr><td>S-BERT (rl)</td><td>0.98</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>73.959</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>D12sts</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The cougar is chasing the bear.
+
+(<span class="amr-frame" tok-id="c">c/chase-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="c2">c2/cougar</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="b">b/bear</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A cougar is chasing a bear.
+
+(<span class="amr-frame" tok-id="c">c/chase-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="c2">c2/cougar</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="b">b/bear</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Similarity Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.987</td><tr><tr><td>BLEU</td><td>0.251</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.465</td><tr><tr><td>S-BERT (bl)</td><td>0.972</td><tr><tr><td>S-BERT (db)</td><td>0.978</td><tr><tr><td>S-BERT (rb)</td><td>0.984</td><tr><tr><td>S-BERT (rl)</td><td>0.992</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>64.164</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>D14sts</h4>AMR 1:
+<div class="amr-container">
+<pre>
+The man is playing the guitar.
+
+(<span class="amr-frame" tok-id="p">p/play-11</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="g">g/guitar</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A man is playing a guitar.
+
+(<span class="amr-frame" tok-id="p">p/play-11</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="g">g/guitar</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Similarity Score: 4.909 (0.982)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.98</td><tr><tr><td>BLEU</td><td>0.251</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.415</td><tr><tr><td>S-BERT (bl)</td><td>0.971</td><tr><tr><td>S-BERT (db)</td><td>0.981</td><tr><tr><td>S-BERT (rb)</td><td>0.983</td><tr><tr><td>S-BERT (rl)</td><td>0.985</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>62.929</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>D439sts</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A man helps a boy ride a bike.
+
+(<span class="amr-frame" tok-id="h">h/help-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation help-01 :ARG1 boy">:ARG1</span> (<span class="amr-frame red" tok-id="r" title="ride-01 != boy">r/ride-01</span>
+        <span class="amr-edge red" tok-id="1.2-1.2.1" title="No corresponding relation boy :ARG0 ride-01">:ARG0</span> (<span class="amr-node red" tok-id="b" title="boy != ride-01">b/boy</span>)
+        <span class="amr-edge red" tok-id="1.2-1.2.2" title="No corresponding relation boy :ARG1 bike">:ARG1</span> (<span class="amr-node" tok-id="b2">b2/bike</span>))
+    <span class="amr-edge red" tok-id="1-1.2.1" title="No corresponding relation help-01 :ARG2 ride-01">:ARG2</span> <span class="amr-node red" tok-id="b" title="boy != ride-01">b</span>)</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The man helps the boy ride a bike.
+
+(<span class="amr-frame" tok-id="h">h/help-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge red" tok-id="1-1.2" title="No corresponding relation help-01 :ARG1 boy">:ARG1</span> (<span class="amr-frame red" tok-id="r" title="ride-01 != boy">r/ride-01</span>
+        <span class="amr-edge red" tok-id="1.2-1.2.1" title="No corresponding relation boy :ARG0 ride-01">:ARG0</span> (<span class="amr-node red" tok-id="b" title="boy != ride-01">b/boy</span>)
+        <span class="amr-edge red" tok-id="1.2-1.2.2" title="No corresponding relation boy :ARG1 bike">:ARG1</span> (<span class="amr-node" tok-id="b2">b2/bike</span>))
+    <span class="amr-edge red" tok-id="1-1.2.1" title="No corresponding relation help-01 :ARG2 ride-01">:ARG2</span> <span class="amr-node red" tok-id="b" title="boy != ride-01">b</span>)</pre>
+</div><br><h4>Scores:</h4>
+Semantic Similarity Score: 4.8 (0.96)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.985</td><tr><tr><td>BLEU</td><td>0.411</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.471</td><tr><tr><td>S-BERT (bl)</td><td>0.985</td><tr><tr><td>S-BERT (db)</td><td>0.99</td><tr><tr><td>S-BERT (rb)</td><td>0.989</td><tr><tr><td>S-BERT (rl)</td><td>0.99</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>73.264</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>D584sts</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A woman is in the bathroom.
+
+(<span class="amr-frame" tok-id="b">b/be-located-at-91</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG1</span> (<span class="amr-node" tok-id="w">w/woman</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="b2">b2/bathroom</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+The woman is in a bathroom.
+
+(<span class="amr-frame" tok-id="b">b/be-located-at-91</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG1</span> (<span class="amr-node" tok-id="w">w/woman</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="b2">b2/bathroom</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Similarity Score: 4.6 (0.92)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.977</td><tr><tr><td>BLEU</td><td>0.251</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.464</td><tr><tr><td>S-BERT (bl)</td><td>0.99</td><tr><tr><td>S-BERT (db)</td><td>0.982</td><tr><tr><td>S-BERT (rb)</td><td>0.987</td><tr><tr><td>S-BERT (rl)</td><td>0.98</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>66.133</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<hr>
+</body>
+</html>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+            div.amr-container {
+                font-family: "Cambria Math", sans-serif;
+                font-size: 14px;
+            }
+
+            .amr-node {
+                color : black;
+            }
+            
+            .amr-frame {
+                color : purple;
+                text-decoration: underline;
+            }
+            
+            .amr-edge {
+                color : grey;
+            }
+            
+            .blue {
+                background: deepskyblue; 
+                color : white;
+            }
+            
+            .red {
+                background: crimson; 
+                color : white;
+            }
+            
+            .grey {
+                background: gainsboro; 
+                color : black;
+            }
+            
+            .green {
+                background: yellowgreen; 
+                color : black;
+            }
+</style>
+
+<body style="font-family: Helvetica">
+<h1>Aspect</h1>
+<h2>STS Data Set</h2>
+<h2>Number of Test Cases: 10</h2><h2>Semantic Similarity Statistics:</h2><table style="width:15%"><tr><td>Mean:</td><td>5.0 (1.0)</td><tr><tr><td>Median:</td><td>5.0 (1.0)</td><tr><tr><td>Standard deviation:</td><td>0.0 (0.0)</td><tr><tr><td>Standard Error:</td><td>0.0 (0.0)</td><tr></table>
+<br><h2>Average Scores (Overall):</h2><h3>Average Semantic Similarity: 5.0 (1.0)</h3><table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.98</td><tr><tr><td>BLEU</td><td>0.165</td><tr><tr><td>MF Score</td><td>0.687</td><tr><tr><td>MF Score (Form)</td><td>0.7</td><tr><tr><td>MF Score (Meaning)</td><td>0.948</td><tr><tr><td>Meteor</td><td>0.624</td><tr><tr><td>S-BERT (bl)</td><td>0.981</td><tr><tr><td>S-BERT (db)</td><td>0.971</td><tr><tr><td>S-BERT (rb)</td><td>0.985</td><tr><tr><td>S-BERT (rl)</td><td>0.989</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>59.775</td><tr></table>
+<h2>Correlation Matrix (Overall):</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ann. Score</th>
+      <th>BERT Score</th>
+      <th>BLEU</th>
+      <th>chrF++</th>
+      <th>Meteor</th>
+      <th>MF Score</th>
+      <th>MF Score (Form)</th>
+      <th>MF Score (Meaning)</th>
+      <th>S-BERT (bl)</th>
+      <th>S-BERT (db)</th>
+      <th>S-BERT (rb)</th>
+      <th>S-BERT (rl)</th>
+      <th>S2match</th>
+      <th>Smatch</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Ann. Score</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>BERT Score</th>
+      <td>NaN</td>
+      <td>1.000</td>
+      <td>0.450</td>
+      <td>-0.042</td>
+      <td>-0.553</td>
+      <td>-0.021</td>
+      <td>-0.190</td>
+      <td>-0.061</td>
+      <td>-0.455</td>
+      <td>-0.188</td>
+      <td>-0.248</td>
+      <td>-0.248</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>BLEU</th>
+      <td>NaN</td>
+      <td>0.450</td>
+      <td>1.000</td>
+      <td>0.127</td>
+      <td>-0.429</td>
+      <td>-0.007</td>
+      <td>0.119</td>
+      <td>-0.651</td>
+      <td>-0.583</td>
+      <td>-0.260</td>
+      <td>-0.222</td>
+      <td>-0.171</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>chrF++</th>
+      <td>NaN</td>
+      <td>-0.042</td>
+      <td>0.127</td>
+      <td>1.000</td>
+      <td>0.168</td>
+      <td>-0.388</td>
+      <td>-0.266</td>
+      <td>-0.242</td>
+      <td>0.079</td>
+      <td>0.091</td>
+      <td>0.188</td>
+      <td>-0.479</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Meteor</th>
+      <td>NaN</td>
+      <td>-0.553</td>
+      <td>-0.429</td>
+      <td>0.168</td>
+      <td>1.000</td>
+      <td>-0.114</td>
+      <td>-0.039</td>
+      <td>-0.168</td>
+      <td>0.342</td>
+      <td>0.752</td>
+      <td>0.665</td>
+      <td>-0.317</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>MF Score</th>
+      <td>NaN</td>
+      <td>-0.021</td>
+      <td>-0.007</td>
+      <td>-0.388</td>
+      <td>-0.114</td>
+      <td>1.000</td>
+      <td>0.913</td>
+      <td>0.515</td>
+      <td>0.236</td>
+      <td>-0.194</td>
+      <td>0.083</td>
+      <td>-0.062</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>MF Score (Form)</th>
+      <td>NaN</td>
+      <td>-0.190</td>
+      <td>0.119</td>
+      <td>-0.266</td>
+      <td>-0.039</td>
+      <td>0.913</td>
+      <td>1.000</td>
+      <td>0.271</td>
+      <td>0.114</td>
+      <td>-0.266</td>
+      <td>-0.038</td>
+      <td>-0.038</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>MF Score (Meaning)</th>
+      <td>NaN</td>
+      <td>-0.061</td>
+      <td>-0.651</td>
+      <td>-0.242</td>
+      <td>-0.168</td>
+      <td>0.515</td>
+      <td>0.271</td>
+      <td>1.000</td>
+      <td>0.623</td>
+      <td>-0.216</td>
+      <td>-0.043</td>
+      <td>0.294</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S-BERT (bl)</th>
+      <td>NaN</td>
+      <td>-0.455</td>
+      <td>-0.583</td>
+      <td>0.079</td>
+      <td>0.342</td>
+      <td>0.236</td>
+      <td>0.114</td>
+      <td>0.623</td>
+      <td>1.000</td>
+      <td>0.394</td>
+      <td>0.503</td>
+      <td>0.079</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S-BERT (db)</th>
+      <td>NaN</td>
+      <td>-0.188</td>
+      <td>-0.260</td>
+      <td>0.091</td>
+      <td>0.752</td>
+      <td>-0.194</td>
+      <td>-0.266</td>
+      <td>-0.216</td>
+      <td>0.394</td>
+      <td>1.000</td>
+      <td>0.891</td>
+      <td>-0.515</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S-BERT (rb)</th>
+      <td>NaN</td>
+      <td>-0.248</td>
+      <td>-0.222</td>
+      <td>0.188</td>
+      <td>0.665</td>
+      <td>0.083</td>
+      <td>-0.038</td>
+      <td>-0.043</td>
+      <td>0.503</td>
+      <td>0.891</td>
+      <td>1.000</td>
+      <td>-0.648</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S-BERT (rl)</th>
+      <td>NaN</td>
+      <td>-0.248</td>
+      <td>-0.171</td>
+      <td>-0.479</td>
+      <td>-0.317</td>
+      <td>-0.062</td>
+      <td>-0.038</td>
+      <td>0.294</td>
+      <td>0.079</td>
+      <td>-0.515</td>
+      <td>-0.648</td>
+      <td>1.000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>S2match</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Smatch</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<br><hr>
+<br><h3>Scores for Individual Test Cases:</h3>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>D9sts</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A woman peels a potato.
+
+(<span class="amr-frame" tok-id="p">p/peel-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w">w/woman</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="p2">p2/potato</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A woman is peeling a potato.
+
+(<span class="amr-frame" tok-id="p">p/peel-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w">w/woman</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="p2">p2/potato</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Similarity Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.982</td><tr><tr><td>BLEU</td><td>0.137</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.436</td><tr><tr><td>S-BERT (bl)</td><td>0.985</td><tr><tr><td>S-BERT (db)</td><td>0.966</td><tr><tr><td>S-BERT (rb)</td><td>0.979</td><tr><tr><td>S-BERT (rl)</td><td>0.99</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>62.509</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>D17sts</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A man is climbing a rope.
+
+(<span class="amr-frame" tok-id="c">c/climb-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="r">r/rope</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A man climbs a rope.
+
+(<span class="amr-frame" tok-id="c">c/climb-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="r">r/rope</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Similarity Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.978</td><tr><tr><td>BLEU</td><td>0.14</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.461</td><tr><tr><td>S-BERT (bl)</td><td>0.993</td><tr><tr><td>S-BERT (db)</td><td>0.977</td><tr><tr><td>S-BERT (rb)</td><td>0.988</td><tr><tr><td>S-BERT (rl)</td><td>0.991</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>48.833</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>D137sts</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A woman is putting on sun glasses.
+
+(<span class="amr-frame" tok-id="p">p/put-on-08</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w">w/woman</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="s">s/sunglass</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A woman puts on sunglasses.
+
+(<span class="amr-frame" tok-id="p">p/put-on-08</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w">w/woman</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="s">s/sunglass</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Similarity Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.984</td><tr><tr><td>BLEU</td><td>0.249</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>0.714</td><tr><tr><td>Meteor</td><td>0.485</td><tr><tr><td>S-BERT (bl)</td><td>0.942</td><tr><tr><td>S-BERT (db)</td><td>0.985</td><tr><tr><td>S-BERT (rb)</td><td>0.992</td><tr><tr><td>S-BERT (rl)</td><td>0.987</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>62.614</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>D144sts</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A man is slicing an onion.
+
+(<span class="amr-node" tok-id="s">s/slice</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="o">o/onion</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A man slices an onion.
+
+(<span class="amr-node" tok-id="s">s/slice</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="o">o/onion</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Similarity Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.983</td><tr><tr><td>BLEU</td><td>0.14</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.461</td><tr><tr><td>S-BERT (bl)</td><td>0.967</td><tr><tr><td>S-BERT (db)</td><td>0.921</td><tr><tr><td>S-BERT (rb)</td><td>0.966</td><tr><tr><td>S-BERT (rl)</td><td>0.991</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>51.756</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>D391sts</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A man practicing boxing
+
+(<span class="amr-frame" tok-id="p">p/practice-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="b">b/boxing</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A man practices boxing
+
+(<span class="amr-frame" tok-id="p">p/practice-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="b">b/boxing</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Similarity Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.976</td><tr><tr><td>BLEU</td><td>0.186</td><tr><tr><td>MF Score</td><td>0.87</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>0.769</td><tr><tr><td>Meteor</td><td>0.88</td><tr><tr><td>S-BERT (bl)</td><td>0.977</td><tr><tr><td>S-BERT (db)</td><td>0.966</td><tr><tr><td>S-BERT (rb)</td><td>0.98</td><tr><tr><td>S-BERT (rl)</td><td>0.989</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>64.594</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T11sts</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A man is cutting an onion.
+
+(<span class="amr-frame" tok-id="c">c/cut-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="o">o/onion</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A man cuts an onion.
+
+(<span class="amr-frame" tok-id="c">c/cut-01</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG1</span> (<span class="amr-node" tok-id="o">o/onion</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Similarity Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.985</td><tr><tr><td>BLEU</td><td>0.14</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.461</td><tr><tr><td>S-BERT (bl)</td><td>0.986</td><tr><tr><td>S-BERT (db)</td><td>0.976</td><tr><tr><td>S-BERT (rb)</td><td>0.982</td><tr><tr><td>S-BERT (rl)</td><td>0.988</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>49.838</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T136sts</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A woman plays the flute.
+
+(<span class="amr-frame" tok-id="p">p/play-11</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w">w/woman</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="f">f/flute</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A woman is playing the flute.
+
+(<span class="amr-frame" tok-id="p">p/play-11</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="w">w/woman</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="f">f/flute</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Similarity Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.98</td><tr><tr><td>BLEU</td><td>0.137</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.88</td><tr><tr><td>S-BERT (bl)</td><td>0.992</td><tr><tr><td>S-BERT (db)</td><td>0.988</td><tr><tr><td>S-BERT (rb)</td><td>0.995</td><tr><tr><td>S-BERT (rl)</td><td>0.984</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>64.243</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T140sts</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A man plays a guitar.
+
+(<span class="amr-frame" tok-id="p">p/play-11</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="g">g/guitar</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A man is playing a guitar.
+
+(<span class="amr-frame" tok-id="p">p/play-11</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-node" tok-id="g">g/guitar</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Similarity Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.971</td><tr><tr><td>BLEU</td><td>0.137</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.88</td><tr><tr><td>S-BERT (bl)</td><td>0.99</td><tr><tr><td>S-BERT (db)</td><td>0.981</td><tr><tr><td>S-BERT (rb)</td><td>0.993</td><tr><tr><td>S-BERT (rl)</td><td>0.988</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>59.279</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T160sts</h4>AMR 1:
+<div class="amr-container">
+<pre>
+A man plays a trumpet.
+
+(<span class="amr-frame" tok-id="p">p/play-11</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-frame" tok-id="t">t/trumpet-01</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A man is playing the trumpet.
+
+(<span class="amr-frame" tok-id="p">p/play-11</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="m">m/man</span>)
+    <span class="amr-edge" tok-id="1-1.2">:ARG2</span> (<span class="amr-frame" tok-id="t">t/trumpet-01</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Similarity Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.98</td><tr><tr><td>BLEU</td><td>0.137</td><tr><tr><td>MF Score</td><td>0.0</td><tr><tr><td>MF Score (Form)</td><td>0.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.88</td><tr><tr><td>S-BERT (bl)</td><td>0.995</td><tr><tr><td>S-BERT (db)</td><td>0.984</td><tr><tr><td>S-BERT (rb)</td><td>0.992</td><tr><tr><td>S-BERT (rl)</td><td>0.99</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>65.034</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<h4>T427sts</h4>AMR 1:
+<div class="amr-container">
+<pre>
+a dog jumps into the water.
+
+(<span class="amr-frame" tok-id="j">j/jump-03</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="d">d/dog</span>)
+    <span class="amr-edge" tok-id="1-1.2">:destination</span> (<span class="amr-node" tok-id="w">w/water</span>))</pre>
+</div>
+
+AMR 2:
+<div class="amr-container">
+<pre>
+A dog is jumping into the water.
+
+(<span class="amr-frame" tok-id="j">j/jump-03</span>
+    <span class="amr-edge" tok-id="1-1.1">:ARG0</span> (<span class="amr-node" tok-id="d">d/dog</span>)
+    <span class="amr-edge" tok-id="1-1.2">:destination</span> (<span class="amr-node" tok-id="w">w/water</span>))</pre>
+</div><br><h4>Scores:</h4>
+Semantic Similarity Score: 5.0 (1.0)<br><br>
+<table style="width:20%"  border="1"><tr><td>BERT Score</td><td>0.984</td><tr><tr><td>BLEU</td><td>0.243</td><tr><tr><td>MF Score</td><td>1.0</td><tr><tr><td>MF Score (Form)</td><td>1.0</td><tr><tr><td>MF Score (Meaning)</td><td>1.0</td><tr><tr><td>Meteor</td><td>0.414</td><tr><tr><td>S-BERT (bl)</td><td>0.987</td><tr><tr><td>S-BERT (db)</td><td>0.964</td><tr><tr><td>S-BERT (rb)</td><td>0.985</td><tr><tr><td>S-BERT (rl)</td><td>0.987</td><tr><tr><td>S2match</td><td>1.0</td><tr><tr><td>Smatch</td><td>1.0</td><tr><tr><td>chrF++</td><td>69.056</td><tr></table></p>
+<hr style="width:50%;text-align:left;margin-left:0">
+<hr>
+</body>
+</html>
