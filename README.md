@@ -14,17 +14,12 @@ Its main objectives are:
 
 ## Installation of Requirements
 
-Note that there are two requirement files in this repository, x and y.
-If you only wish to run the testsuite or add a new metric, you just need to install x by typing
+If you only wish to run the testsuite or add a new metric, you should not have to install any specific requirements.
+
+If you wish to add new test cases that have not yet been evaluated by the metrics used in the testsuite, you will have to install `requirements.txt` with the following command:
 
 ```
 pip install -r requirements.txt
-```
-
-If you wish to add new test cases that have not yet been evaluated by the metrics used in the testsuite, you will have to install y with the following command:
-
-```
-pip install -r requirements_add.txt
 ```
 
 Furthermore, you will need to clone the `MFScore` repository and download `Meteor Version 1.5`. Please follow the instructions and install their requirements as well. Both repositories have to be located in the parent directory of the testsuite.
