@@ -15,11 +15,13 @@ Its main objectives are:
 ## Installation of Requirements
 
 Note that there are two requirement files in this repository, `requirements.txt` and `requirements_add.txt`.
-If you only wish to run the testsuite or add a new metric, you just need to install x by typing
+If you only wish to run the testsuite or add a new metric, you just need to install `requirements.txt` by typing.
 
 ```
 pip install -r requirements.txt
 ```
+
+You also have to install the [`amr-utils`](https://github.com/ablodge/amr-utils) package.
 
 If you wish to add new test cases that have not yet been evaluated by the metrics used in the testsuite, you will have to install y with the following command:
 
@@ -27,7 +29,7 @@ If you wish to add new test cases that have not yet been evaluated by the metric
 pip install -r requirements_add.txt
 ```
 
-Furthermore, you will need to clone the `MFScore` repository and download `Meteor Version 1.5`. Please follow the instructions and install their requirements as well. Both repositories have to be located in the parent directory of the testsuite.
+Furthermore, you will need to clone the [`MFScore`](https://github.com/Heidelberg-NLP/MFscore) repository and download [`Meteor Version 1.5`](https://www.cs.cmu.edu/~alavie/METEOR/). Please follow the instructions and install their requirements as well. Both repositories have to be located in the parent directory of the testsuite.
 
 Furthermore, you will need to download the 300 dimensional GloVe word embeddings in order to be able to test with S2match and MF score. They have to be located in a directory `vectors` in the parent directory as well.
 
