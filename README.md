@@ -35,7 +35,7 @@ Furthermore, you will need to download the 300 dimensional GloVe word embeddings
 
 ## Running the Testsuite
 
-If you just want to run the testsuite with the avaliable metrics, you can simply go into the directory `scsripts` and execute the testsuite in the terminal by running the command:
+If you just want to run the testsuite with the avaliable metrics, you can simply go into the directory `scripts` and execute the testsuite in the terminal by running the command:
 
 ```
 python3 test_suite.py -m
