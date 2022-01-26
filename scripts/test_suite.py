@@ -119,8 +119,7 @@ if __name__ == "__main__":
 
 	m_lines = read_file("../metrics.txt")
 	wanted = [line.strip() for line in m_lines if line and not line.startswith("#")]
-	# print(wanted)
-	# exit()
+	
 	y_lines = read_file("../my_metrics.txt")
 	your_wanted = [line.strip() for line in y_lines if line and not line.startswith("#")]
 
@@ -129,7 +128,6 @@ if __name__ == "__main__":
 	test_cases = read_json("../data/ids_test_cases.json")
 	vals = read_json("../data/content_test_cases.json")
 	def_metric_dict = read_json("../data/metric_scores.json")
-	# your_scores = read_json("/home/laura/ba_thesis/metric_scores_LCG.json")
 
 	try:
 		if sys.argv[1] == '-m':
