@@ -4,7 +4,6 @@
 """
 This script computes smatch score between two AMRs.
 For detailed description of smatch, see http://www.isi.edu/natural-language/amr/smatch-13.pdf
-
 """
 try:
     import amr_py3 as amr
@@ -51,7 +50,6 @@ def get_amr_line(input_f):
     Read the file containing AMRs. AMRs are separated by a blank line.
     Each call of get_amr_line() returns the next available AMR (in one-line form).
     Note: this function does not verify if the AMR is valid
-
     """
     cur_amr = []
     has_content = False
@@ -88,7 +86,6 @@ def load_vecs(fp):
 def build_arg_parser():
     """
     Build an argument parser using argparse. Use it when python version is 2.7 or later.
-
     """
     parser = argparse.ArgumentParser(description="Smatch calculator -- arguments")
     parser.add_argument('-f', nargs=2, required=True, type=argparse.FileType('r'),
@@ -162,7 +159,6 @@ def get_best_match(instance1, attribute1, relation1,
     Returns:
         best_match: the node mapping that results in the highest triple matching number
         best_match_num: the highest graded triple matching number
-
     """
     # Compute candidate pool - all possible node match candidates.
     # In the hill-climbing, we only consider candidate in this pool to save computing time.
@@ -201,7 +197,7 @@ def get_best_match(instance1, attribute1, relation1,
             if verbose:
                 log_helper.debug( "Gain after the hill-climbing", gain)
             # hill-climbing until there will be no gain for new node mapping
-            if gain <= 0:
+            if gain <= 0.0000000001:
                 break
             # otherwise update match_num and mapping
             match_num += gain
@@ -325,7 +321,6 @@ def compute_pool(instance1, attribute1, relation1,
     """
     compute all possible node mapping candidates and their weights (the graded triple matching number gain resulting from
     mapping one node in AMR 1 to another node in AMR2)
-
     Arguments:
         instance1: instance triples of AMR 1
         attribute1: attribute triples of AMR 1 (attribute name, node name, attribute value)
@@ -343,8 +338,6 @@ def compute_pool(instance1, attribute1, relation1,
                    is a node pair. The value is another dictionary. key {-1} is triple match resulting from this node
                    pair alone (instance triples and attribute triples), and other keys are node pairs that can result
                    in relation triple match together with the first node pair.
-
-
     """
     candidate_mapping = []
     weight_dict = {}
@@ -481,7 +474,6 @@ def smart_init_mapping(candidate_mapping, instance1, instance2):
         instance2: instance triples of AMR 2
     Returns:
         initialized node mapping between two AMRs
-
     """
     random.seed()
     matched_dict = {}
@@ -529,7 +521,6 @@ def random_init_mapping(candidate_mapping):
         candidate_mapping: candidate_mapping: candidate node match list
     Returns:
         randomly-generated node mapping between two AMRs
-
     """
     # if needed, a fixed seed could be passed here to generate same random (to help debugging)
     random.seed()
@@ -566,7 +557,6 @@ def compute_match(mapping, weight_dict):
     Returns:
     matching triple number
     Complexity: O(m*n) , m is the node number of AMR 1, n is the node number of AMR 2
-
     """
     # If this mapping has been investigated before, retrieve the value instead of re-computing.
     if verbose:
@@ -622,7 +612,6 @@ def move_gain(mapping, node_id, old_id, new_id, weight_dict, match_num):
         match_num: the original triple matching number
     Returns:
         the triple match gain number (might be negative)
-
     """
     # new node mapping after moving
     new_mapping = (node_id, new_id)
@@ -669,7 +658,6 @@ def swap_gain(mapping, node_id1, mapping_id1, node_id2, mapping_id2, weight_dict
     match_num: the original matching triple number
     Returns:
     the gain number (might be negative)
-
     """
     new_mapping_list = mapping[:]
     # Before swapping, node_id1 maps to mapping_id1, and node_id2 maps to mapping_id2
@@ -733,7 +721,6 @@ def get_best_gain(mapping, candidate_mappings, weight_dict, instance_len, cur_ma
     cur_match_num: current triple match number
     Returns:
     the best gain we can get via swap/move operation
-
     """
     largest_gain = 0
     # True: using swap; False: using move
@@ -833,7 +820,6 @@ def print_alignment(mapping, instance1, instance2):
         match: current node mapping list
         instance1: nodes of AMR 1
         instance2: nodes of AMR 2
-
     """
     result = []
     for i, m in enumerate(mapping):
@@ -892,7 +878,6 @@ def get_sim_fun(string):
 def main(arguments):
     """
     Main function of smatch score calculation
-
     """
     global verbose
     global iteration_num
@@ -917,7 +902,7 @@ def main(arguments):
     # sentence number
     sent_num = 1
     # Read amr pairs from two files
-    vectors = load_vecs(arguments.vectors)
+    # vectors = load_vecs(arguments.vectors)
     simfun = get_sim_fun(arguments.similarityfunction)
     while True:
         cur_amr1 = get_amr_line(args.f[0])
@@ -1053,7 +1038,7 @@ def compute_s2match_from_two_lists(list1, list2
     total_gold_num = 0
     # sentence number
     sent_num = 1
-    vectors = load_vecs(vectorpath)
+    # vectors = load_vecs(vectorpath)
     for l1, l2 in zip(list1,list2): 
         lst_amr1, dic_amr1 = l1
         lst_amr2, dic_amr2 = l2

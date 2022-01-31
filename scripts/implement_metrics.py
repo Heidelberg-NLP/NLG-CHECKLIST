@@ -10,6 +10,8 @@ from scipy import spatial
 
 bertscore = load_metric("bertscore")
 
+vectors = load_vecs("vectors/glove.6B.100d.txt")
+
 
 def compute_bleu(pairs):
 	# pairs = [sents1, sents2]
@@ -60,7 +62,7 @@ def compute_smatch(pairs, path, s2=False):
 		tmp1, tmp2 = make_tmp([["".join(sent)], ["".join(pairs[1][i])]], nl="\n")
 		if s2:
 			try:
-				smatch_score = subprocess.check_output(["python3", path, "-f", tmp1, tmp2, "-vectors", "vectors/glove.6B.100d.txt"])
+				smatch_score = subprocess.check_output(["python3", path, "-f", tmp1, tmp2, "-cutoff", "0.9", "-diffsense", "0.95"])
 			except Exception as e:
 				print(e)
 				print(sent)
