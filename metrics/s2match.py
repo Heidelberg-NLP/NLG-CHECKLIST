@@ -902,7 +902,7 @@ def main(arguments):
     # sentence number
     sent_num = 1
     # Read amr pairs from two files
-    # vectors = load_vecs(arguments.vectors)
+    vectors = load_vecs(arguments.vectors)
     simfun = get_sim_fun(arguments.similarityfunction)
     while True:
         cur_amr1 = get_amr_line(args.f[0])
@@ -1038,7 +1038,7 @@ def compute_s2match_from_two_lists(list1, list2
     total_gold_num = 0
     # sentence number
     sent_num = 1
-    # vectors = load_vecs(vectorpath)
+    vectors = load_vecs(vectorpath)
     for l1, l2 in zip(list1,list2): 
         lst_amr1, dic_amr1 = l1
         lst_amr2, dic_amr2 = l2

@@ -5986,7 +5986,7 @@
         "            :op2 (xv3 / out-06\n",
         "                  :source xv5\n",
         "                        :part-of xv4))\n",
-        "      :ARG0 (xv1 / child))\n"
+        "      :ARG0 (xv6 / child))\n"
       ],
       [
         "# ::id 169\n",
@@ -6000,7 +6000,7 @@
         "            :op2 (xv3 / out-06\n",
         "                  :source xv5\n",
         "                        :part-of xv4))\n",
-        "      :ARG0 (xv1 / child))\n"
+        "      :ARG0 (xv6 / child))\n"
       ]
     ]
   ],
