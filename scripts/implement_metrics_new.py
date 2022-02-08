@@ -59,7 +59,6 @@ def compute_smatch(pairs, path, s2=False):
 
 	tmp1, tmp2 = make_tmp([["".join(sent) for sent in pairs[0]], ["".join(pairs[1][i]) for i, sent in enumerate(pairs[0])]], nl="\n")
 	if s2:
-<<<<<<< HEAD
 		try:
 			smatch_score = subprocess.check_output(["python3", path, "-f", tmp1, tmp2, "-cutoff", "0.9", "-diffsense", "0.95", "-vectors", "vectors/glove.6B.300d.txt", "--ms"]).decode('ascii')
 		except Exception as e:
@@ -73,36 +72,14 @@ def compute_smatch(pairs, path, s2=False):
 			print(e)
 			# print(sent)
 			smatch_score = "nan"
-	print(smatch_score)
-	print(type(smatch_score))
 	smatch_list = smatch_score.split('\n')
-	print(smatch_list)
 
 	for score in smatch_list:
 		try:
 			smatchs.append(float(score.split()[3].strip()))
 		except IndexError:
 			smatchs.append(score)
-=======
-		try:
-			smatch_score = subprocess.check_output(["python3", path, "-f", tmp1, tmp2, "-cutoff", "0.9", "-diffsense", "0.95", "--ms"])
-		except Exception as e:
-			print(e)
-			print(sent)
-			smatch_score = "nan"
-	else:
-		try:
-			smatch_score = subprocess.check_output(["python3", path, "-f", tmp1, tmp2, "--ms"])
-		except Exception as e:
-			print(e)
-			print(sent)
-			smatch_score = "nan"
-	print(smatch_score)
-	try:
-		smatchs.append(float(smatch_score.split()[3].strip()))
-	except IndexError:
-		smatchs.append(smatch_score)
->>>>>>> fa38649987ef779d20b0dc8aaabeb3c96c79bdfe
+
 	os.unlink(tmp1)
 	os.unlink(tmp2)
 
@@ -216,7 +193,6 @@ if __name__ == "__main__":
 				sents = [[val_file[idx][1][0] for idx in ids], [val_file[idx][1][1] for idx in ids]]
 				amrs = [[val_file[idx][2][0] for idx in ids], [val_file[idx][2][1] for idx in ids]]
 				# add sys
-<<<<<<< HEAD
 				all_amrs[0].extend(amrs[0])
 				all_amrs[1].extend(amrs[1])
 				all_ids.extend(ids)
@@ -265,50 +241,4 @@ if __name__ == "__main__":
 		metric_dict[idx]["Smatch"] = smatchs[i]
 
 	convert_to_json(metric_dict, "metric_scores_sm.json")
-=======
-				all_sents[0].extend(sents[0])
-				all_sents[1].extend(sents[1])
-				all_amrs[0].extend(amrs[0])
-				all_amrs[1].extend(amrs[1])
-				all_ids.extend(ids)
-				mf_scores = compute_mf_score(sents, "MFscore/mfscore_for_genSent_vs_refSent.sh")
-				mf_scores_md = compute_mf_score(sents, "MFscore/mfscore_for_genSent_vs_refSent.sh", beta="md")
-				mf_scores_fd = compute_mf_score(sents, "MFscore/mfscore_for_genSent_vs_refSent.sh", beta="fd")
-				mf_scores_mean = compute_mf_score(sents, "MFscore/mfscore_for_genSent_vs_refSent.sh", beta="mean")
-				mf_scores_form = compute_mf_score(sents, "MFscore/mfscore_for_genSent_vs_refSent.sh", beta="form")
-				bleus = compute_bleu(sents)
-				chrfs = compute_chrf(sents, "amr-devsuite/metrics/chrF++.py")
-				meteors = compute_meteor(sents, "meteor-1.5/meteor-1.5.jar")
-				sberts_rl = compute_sbert(sents, "stsb-roberta-large")
-				sberts_rb = compute_sbert(sents, "stsb-roberta-base-v2")
-				sberts_mpnet = compute_sbert(sents, "sstsb-mpnet-base-v2")
-				sberts_bl = compute_sbert(sents, "stsb-bert-large")
-				sberts_db = compute_sbert(sents, "stsb-distilbert-base")
-				# s2matchs = compute_smatch(amrs, "amr-devsuite/metrics/smatch/s2match.py", s2=True)
-				# smatchs = compute_smatch(amrs, "amr-devsuite/metrics/smatch/smatch.py")
-				bert_scores = compute_bert_score(sents)["f1"]		
-				for i, idx in enumerate(ids):
-					metric_dict[idx] = {}
-					metric_dict[idx]["MF Score"] = mf_scores[i]
-					metric_dict[idx]["MF Score (M double)"] = mf_scores_md[i]
-					metric_dict[idx]["MF Score (F double)"] = mf_scores_fd[i]
-					metric_dict[idx]["MF Score (Meaning)"] = mf_scores_mean[i]
-					metric_dict[idx]["MF Score (Form)"] = mf_scores_form[i]
-					metric_dict[idx]["BLEU"] = bleus[i]
-					metric_dict[idx]["chrF++"] = chrfs[i]
-					metric_dict[idx]["Meteor"] = meteors[i]
-					metric_dict[idx]["S-BERT (roberta-large)"] = sberts_rl[i]
-					metric_dict[idx]["S-BERT (roberta-base)"] = sberts_rb[i]
-					metric_dict[idx]["S-BERT (mpnet-base)"] = sberts_mpnet[i]
-					metric_dict[idx]["S-BERT (bert-large)"] = sberts_bl[i]
-					metric_dict[idx]["S-BERT (distilbert-base)"] = sberts_db[i]
-					# metric_dict[idx]["S2match"] = s2matchs[i]
-					# metric_dict[idx]["Smatch"] = smatchs[i]
-					metric_dict[idx]["BERT Score"] = bert_scores[i]
-
-	compute_smatch(all_amrs, "amr-devsuite/metrics/smatch/s2match.py", s2=True)
-		
-	convert_to_json(metric_dict, "metric_scores.json")
->>>>>>> fa38649987ef779d20b0dc8aaabeb3c96c79bdfe
-
 
