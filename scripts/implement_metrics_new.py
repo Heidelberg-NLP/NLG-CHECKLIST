@@ -19,7 +19,7 @@ def compute_bleu(pairs):
 		bleus.append(float(sentence_bleu([sent.split()], pairs[1][i].split(), smoothing_function=smoothie)))
 		# print('BLEU score -> {}'.format(sentence_bleu([sent.split()], pairs[1][i].split(), smoothing_function=smoothie)))
 
-	# print("BLEU computed")
+	print("BLEU computed")
 
 	return bleus
 
@@ -33,7 +33,7 @@ def compute_chrf(pairs, path):
 	os.unlink(tmp1)
 	os.unlink(tmp2)
 
-	# print("chrF++ computed")
+	print("chrF++ computed")
 
 	return chrfs
 
@@ -48,7 +48,7 @@ def compute_meteor(pairs, path):
 	os.unlink(tmp1)
 	os.unlink(tmp2)
 
-	# print("Meteor computed")
+	print("Meteor computed")
 
 	return meteors
 
@@ -83,30 +83,6 @@ def compute_smatch(pairs, path, s2=False):
 	os.unlink(tmp1)
 	os.unlink(tmp2)
 
-	# for i, sent in enumerate(pairs[0]):
-		# tmp1, tmp2 = make_tmp([["".join(sent)], ["".join(pairs[1][i])]], nl="\n")
-		# if s2:
-			# try:
-				# smatch_score = subprocess.check_output(["python3", path, "-f", tmp1, tmp2, "-cutoff", "0.9", "-diffsense", "--ms"])
-			# except Exception as e:
-				# print(e)
-				# print(sent)
-				# smatch_score = "nan"
-		# else:
-			# try:
-				# smatch_score = subprocess.check_output(["python3", path, "-f", tmp1, tmp2, "--ms"])
-			# except Exception as e:
-				# print(e)
-				# print(sent)
-				# smatch_score = "nan"
-		# try:
-			# smatchs.append(float(smatch_score.split()[3].strip()))
-		# except IndexError:
-			# smatchs.append(smatch_score)
-		# os.unlink(tmp1)
-		# os.unlink(tmp2)
-
-	# print("Smatch computed")
 
 	return smatchs
 
@@ -137,7 +113,7 @@ def compute_mf_score(pairs, path, beta="harm", amr=False):
 		elif beta == "form":
 			mf_scores.append(float(mf_line[4]))
 
-	# print("MF Score with beta={} computed".format(beta))
+	print("MF Score with beta={} computed".format(beta))
 
 	return mf_scores
 
@@ -159,7 +135,7 @@ def compute_sbert(pairs, model):
 	    # print("{} \t\t {} \t\t Score: {:.4f}".format(pairs[0][i], pairs[1][i], cosine_scores[i][i]))
 	    sberts.append(cosine_scores[i][i].item())
 
-	# print("SBERT computed")
+	print("SBERT computed")
 
 	return sberts
 
@@ -168,7 +144,7 @@ def compute_bert_score(pairs):
 
 	bertscores = bertscore.compute(predictions=pairs[0], references=pairs[1], lang="en")
 
-	# print("BERTScore computed")
+	print("BERTScore computed")
 
 	return bertscores
 
@@ -178,12 +154,13 @@ def compute_bert_score(pairs):
 
 if __name__ == "__main__":
 
-	# metric_dict = {}
-	metric_dict = read_json("amr-devsuite/data/metric_scores.json")
+	metric_dict = {}
+	# metric_dict = read_json("amr-devsuite/data/metric_scores.json")
 	id_file = read_json(sys.argv[1])
 	val_file = read_json(sys.argv[2])
-
-	all_sents, all_amrs, all_ids = [[], []], [[], []], []
+	print('read jsons')
+	with open('outfile2.txt', 'w') as o:
+		o.write('read jsons')
 
 	all_sents, all_amrs, all_ids = [[], []], [[], []], []
 
@@ -193,52 +170,61 @@ if __name__ == "__main__":
 				sents = [[val_file[idx][1][0] for idx in ids], [val_file[idx][1][1] for idx in ids]]
 				amrs = [[val_file[idx][2][0] for idx in ids], [val_file[idx][2][1] for idx in ids]]
 				# add sys
+				all_sents[0].extend(sents[0])
+				all_sents[1].extend(sents[1])
 				all_amrs[0].extend(amrs[0])
 				all_amrs[1].extend(amrs[1])
 				all_ids.extend(ids)
-				#mf_scores = compute_mf_score(sents, "MFscore/mfscore_for_genSent_vs_refSent.sh")
-				#mf_scores_md = compute_mf_score(sents, "MFscore/mfscore_for_genSent_vs_refSent.sh", beta="md")
-				#mf_scores_fd = compute_mf_score(sents, "MFscore/mfscore_for_genSent_vs_refSent.sh", beta="fd")
-				#mf_scores_mean = compute_mf_score(sents, "MFscore/mfscore_for_genSent_vs_refSent.sh", beta="mean")
-				#mf_scores_form = compute_mf_score(sents, "MFscore/mfscore_for_genSent_vs_refSent.sh", beta="form")
-				#bleus = compute_bleu(sents)
-				#chrfs = compute_chrf(sents, "amr-devsuite/metrics/chrF++.py")
-				#meteors = compute_meteor(sents, "meteor-1.5/meteor-1.5.jar")
-				#sberts_rl = compute_sbert(sents, "stsb-roberta-large")
-				#sberts_rb = compute_sbert(sents, "stsb-roberta-base-v2")
-				#sberts_mpnet = compute_sbert(sents, "sstsb-mpnet-base-v2")
-				#sberts_bl = compute_sbert(sents, "stsb-bert-large")
-				#sberts_db = compute_sbert(sents, "stsb-distilbert-base")
 				# s2matchs = compute_smatch(amrs, "amr-devsuite/metrics/smatch/s2match.py", s2=True)
 				# smatchs = compute_smatch(amrs, "amr-devsuite/metrics/smatch/smatch.py")
-				#bert_scores = compute_bert_score(sents)["f1"]
-				#for i, idx in enumerate(ids):
-					#metric_dict[idx] = {}
-					#metric_dict[idx]["MF Score"] = mf_scores[i]
-					#metric_dict[idx]["MF Score (M double)"] = mf_scores_md[i]
-					#metric_dict[idx]["MF Score (F double)"] = mf_scores_fd[i]
-					#metric_dict[idx]["MF Score (Meaning)"] = mf_scores_mean[i]
-					#metric_dict[idx]["MF Score (Form)"] = mf_scores_form[i]
-					#metric_dict[idx]["BLEU"] = bleus[i]
-					#metric_dict[idx]["chrF++"] = chrfs[i]
-					#metric_dict[idx]["Meteor"] = meteors[i]
-					#metric_dict[idx]["S-BERT (roberta-large)"] = sberts_rl[i]
-					#metric_dict[idx]["S-BERT (roberta-base)"] = sberts_rb[i]
-					#metric_dict[idx]["S-BERT (mpnet-base)"] = sberts_mpnet[i]
-					#metric_dict[idx]["S-BERT (bert-large)"] = sberts_bl[i]
-					#metric_dict[idx]["S-BERT (distilbert-base)"] = sberts_db[i]
+				# for i, idx in enumerate(ids):
 					# metric_dict[idx]["S2match"] = s2matchs[i]
 					# metric_dict[idx]["Smatch"] = smatchs[i]
-					#metric_dict[idx]["BERT Score"] = bert_scores[i]
-
-
-
+	with open('outfile2.txt', 'w') as o:
+		o.write('sents, amrs and ids obtained, starting evaluation')
+	print('sents, amrs and ids obtained, starting evaluation')
+	bleus = compute_bleu(all_sents)
+	chrfs = compute_chrf(all_sents, "amr-devsuite/metrics/chrF++.py")
+	meteors = compute_meteor(all_sents, "meteor-1.5/meteor-1.5.jar")
+	with open('outfile2.txt', 'w') as o:
+		o.write('done with text overlapping metrics')
+	# mf_scores = compute_mf_score(all_sents, "MFscore/mfscore_for_genSent_vs_refSent.sh")
+	# mf_scores_md = compute_mf_score(all_sents, "MFscore/mfscore_for_genSent_vs_refSent.sh", beta="md")
+	# mf_scores_fd = compute_mf_score(all_sents, "MFscore/mfscore_for_genSent_vs_refSent.sh", beta="fd")
+	# mf_scores_mean = compute_mf_score(all_sents, "MFscore/mfscore_for_genSent_vs_refSent.sh", beta="mean")
+	# mf_scores_form = compute_mf_score(all_sents, "MFscore/mfscore_for_genSent_vs_refSent.sh", beta="form")
+	with open('outfile2.txt', 'w') as o:
+		o.write('done with MF score')
 	s2matchs = compute_smatch(all_amrs, "amr-devsuite/metrics/s2match.py", s2=True)
 	smatchs = compute_smatch(all_amrs, "amr-devsuite/metrics/smatch.py")
+	with open('outfile2.txt', 'w') as o:
+		o.write('done with Smatch and S2match')
+	sberts_rl = compute_sbert(all_sents, "stsb-roberta-large")
+	sberts_rb = compute_sbert(all_sents, "stsb-roberta-base-v2")
+	sberts_bl = compute_sbert(all_sents, "stsb-bert-large")
+	sberts_db = compute_sbert(all_sents, "stsb-distilbert-base")
+	bert_scores = compute_bert_score(all_sents)["f1"]
+	print('metrics computed')
+	with open('outfile2.txt', 'w') as o:
+		o.write('done with SBERTs and BLEUScore')
 
 	for i, idx in enumerate(all_ids):
+		metric_dict[idx] = {}
+		metric_dict[idx]["BLEU"] = bleus[i]
+		metric_dict[idx]["chrF++"] = chrfs[i]
+		metric_dict[idx]["Meteor"] = meteors[i]
+		# metric_dict[idx]["MF Score"] = mf_scores[i]
+		# metric_dict[idx]["MF Score (M double)"] = mf_scores_md[i]
+		# metric_dict[idx]["MF Score (F double)"] = mf_scores_fd[i]
+		# metric_dict[idx]["MF Score (Meaning)"] = mf_scores_mean[i]
+		# metric_dict[idx]["MF Score (Form)"] = mf_scores_form[i]
 		metric_dict[idx]["S2match"] = s2matchs[i]
 		metric_dict[idx]["Smatch"] = smatchs[i]
+		metric_dict[idx]["S-BERT (roberta-large)"] = sberts_rl[i]
+		metric_dict[idx]["S-BERT (roberta-base)"] = sberts_rb[i]
+		metric_dict[idx]["S-BERT (bert-large)"] = sberts_bl[i]
+		metric_dict[idx]["S-BERT (distilbert-base)"] = sberts_db[i]
+		metric_dict[idx]["BERT Score"] = bert_scores[i]
 
-	convert_to_json(metric_dict, "metric_scores_sm.json")
+	convert_to_json(metric_dict, "metric_scores_control.json")
 
