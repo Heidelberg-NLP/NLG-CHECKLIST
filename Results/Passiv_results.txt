@@ -22,46 +22,46 @@ Average Semantic Relatedness: 4.915 (0.979)
 
 \begin{tabular}{lr}
 \hline
- Metric             &   Average Score \\
+ Metric                 &   Average Score \\
 \hline
- Ann. Score         &        4.91538  \\
- BERT Score         &        0.93984  \\
- BLEU               &        0.101027 \\
- MF Score (Meaning) &        0.2271   \\
- Meteor             &        0.347462 \\
- MoverScore bi      &        0.415203 \\
- MoverScore uni     &        0.415203 \\
- S2match            &        0.996385 \\
- Smatch             &        0.996385 \\
- chrF++ Norm        &        0.434931 \\
+ Ann. Score             &      4.91538    \\
+ BERT Score             &      0.93984    \\
+ BLEU                   &      0.101027   \\
+ MF Score (Meaning)     &      0.2271     \\
+ Meteor                 &      0.347462   \\
+ MoverScore uni         &      0.415203   \\
+ S2match                &      0.996385   \\
+ Smatch                 &      0.996385   \\
+ Weisfelder Leman Score &      0.00440657 \\
+ chrF++ Norm            &      0.434931   \\
 \hline
 \end{tabular}
 
 Correlation Matrix (Overall):
 -----------------------------
-+--------------------+--------------+--------------+---------+---------------+----------+----------------------+-----------------+------------------+-----------+----------+
-|                    |   Ann. Score |   BERT Score |    BLEU |   chrF++ Norm |   Meteor |   MF Score (Meaning) |   MoverScore bi |   MoverScore uni |   S2match |   Smatch |
-+====================+==============+==============+=========+===============+==========+======================+=================+==================+===========+==========+
-| Ann. Score         |        1     |       -0.104 |  -0.083 |        -0.122 |   -0.079 |                  nan |          -0.013 |           -0.013 |     0.027 |    0.027 |
-+--------------------+--------------+--------------+---------+---------------+----------+----------------------+-----------------+------------------+-----------+----------+
-| BERT Score         |       -0.104 |        1     |   0.559 |         0.565 |    0.225 |                  nan |           0.566 |            0.566 |    -0.181 |   -0.181 |
-+--------------------+--------------+--------------+---------+---------------+----------+----------------------+-----------------+------------------+-----------+----------+
-| BLEU               |       -0.083 |        0.559 |   1     |         0.859 |    0.372 |                  nan |           0.795 |            0.795 |    -0.164 |   -0.164 |
-+--------------------+--------------+--------------+---------+---------------+----------+----------------------+-----------------+------------------+-----------+----------+
-| chrF++ Norm        |       -0.122 |        0.565 |   0.859 |         1     |    0.314 |                  nan |           0.823 |            0.823 |    -0.192 |   -0.192 |
-+--------------------+--------------+--------------+---------+---------------+----------+----------------------+-----------------+------------------+-----------+----------+
-| Meteor             |       -0.079 |        0.225 |   0.372 |         0.314 |    1     |                  nan |           0.388 |            0.388 |    -0.098 |   -0.098 |
-+--------------------+--------------+--------------+---------+---------------+----------+----------------------+-----------------+------------------+-----------+----------+
-| MF Score (Meaning) |      nan     |      nan     | nan     |       nan     |  nan     |                  nan |         nan     |          nan     |   nan     |  nan     |
-+--------------------+--------------+--------------+---------+---------------+----------+----------------------+-----------------+------------------+-----------+----------+
-| MoverScore bi      |       -0.013 |        0.566 |   0.795 |         0.823 |    0.388 |                  nan |           1     |            1     |    -0.213 |   -0.213 |
-+--------------------+--------------+--------------+---------+---------------+----------+----------------------+-----------------+------------------+-----------+----------+
-| MoverScore uni     |       -0.013 |        0.566 |   0.795 |         0.823 |    0.388 |                  nan |           1     |            1     |    -0.213 |   -0.213 |
-+--------------------+--------------+--------------+---------+---------------+----------+----------------------+-----------------+------------------+-----------+----------+
-| S2match            |        0.027 |       -0.181 |  -0.164 |        -0.192 |   -0.098 |                  nan |          -0.213 |           -0.213 |     1     |    1     |
-+--------------------+--------------+--------------+---------+---------------+----------+----------------------+-----------------+------------------+-----------+----------+
-| Smatch             |        0.027 |       -0.181 |  -0.164 |        -0.192 |   -0.098 |                  nan |          -0.213 |           -0.213 |     1     |    1     |
-+--------------------+--------------+--------------+---------+---------------+----------+----------------------+-----------------+------------------+-----------+----------+
++------------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+--------------------------+
+|                        |   Ann. Score |   BERT Score |    BLEU |   chrF++ Norm |   Meteor |   MF Score (Meaning) |   MoverScore uni |   S2match |   Smatch |   Weisfelder Leman Score |
++========================+==============+==============+=========+===============+==========+======================+==================+===========+==========+==========================+
+| Ann. Score             |        1     |       -0.104 |  -0.083 |        -0.122 |   -0.079 |                  nan |           -0.013 |     0.027 |    0.027 |                   -0.027 |
++------------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+--------------------------+
+| BERT Score             |       -0.104 |        1     |   0.559 |         0.565 |    0.225 |                  nan |            0.566 |    -0.181 |   -0.181 |                    0.181 |
++------------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+--------------------------+
+| BLEU                   |       -0.083 |        0.559 |   1     |         0.859 |    0.372 |                  nan |            0.795 |    -0.164 |   -0.164 |                    0.164 |
++------------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+--------------------------+
+| chrF++ Norm            |       -0.122 |        0.565 |   0.859 |         1     |    0.314 |                  nan |            0.823 |    -0.192 |   -0.192 |                    0.192 |
++------------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+--------------------------+
+| Meteor                 |       -0.079 |        0.225 |   0.372 |         0.314 |    1     |                  nan |            0.388 |    -0.098 |   -0.098 |                    0.098 |
++------------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+--------------------------+
+| MF Score (Meaning)     |      nan     |      nan     | nan     |       nan     |  nan     |                  nan |          nan     |   nan     |  nan     |                  nan     |
++------------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+--------------------------+
+| MoverScore uni         |       -0.013 |        0.566 |   0.795 |         0.823 |    0.388 |                  nan |            1     |    -0.213 |   -0.213 |                    0.213 |
++------------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+--------------------------+
+| S2match                |        0.027 |       -0.181 |  -0.164 |        -0.192 |   -0.098 |                  nan |           -0.213 |     1     |    1     |                   -1     |
++------------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+--------------------------+
+| Smatch                 |        0.027 |       -0.181 |  -0.164 |        -0.192 |   -0.098 |                  nan |           -0.213 |     1     |    1     |                   -1     |
++------------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+--------------------------+
+| Weisfelder Leman Score |       -0.027 |        0.181 |   0.164 |         0.192 |    0.098 |                  nan |            0.213 |    -1     |   -1     |                    1     |
++------------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+--------------------------+
 
 ===================================================================================================================================
 
@@ -86,14 +86,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.93
 BLEU                           ---  0.035
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.404
-MoverScore bi                  ---  0.291
 MoverScore uni                 ---  0.291
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.297
 
 ---------------------------------------------------------------------------------------------------
@@ -113,14 +114,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.932
 BLEU                           ---  0.068
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.413
-MoverScore bi                  ---  0.396
 MoverScore uni                 ---  0.396
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.359
 
 ---------------------------------------------------------------------------------------------------
@@ -141,14 +143,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.8 (0.95)
 
+Ann. Score                     ---  4.8
 BERT Score                     ---  0.947
 BLEU                           ---  0.075
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.363
-MoverScore bi                  ---  0.463
 MoverScore uni                 ---  0.463
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.513
 
 ---------------------------------------------------------------------------------------------------
@@ -167,14 +170,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.927
 BLEU                           ---  0.04
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.327
-MoverScore bi                  ---  0.442
 MoverScore uni                 ---  0.442
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.39
 
 ---------------------------------------------------------------------------------------------------
@@ -194,14 +198,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.947
 BLEU                           ---  0.078
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.38
-MoverScore bi                  ---  0.485
 MoverScore uni                 ---  0.485
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.515
 
 ---------------------------------------------------------------------------------------------------
@@ -220,14 +225,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.877
 BLEU                           ---  0.032
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.357
-MoverScore bi                  ---  0.345
 MoverScore uni                 ---  0.345
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.36
 
 ---------------------------------------------------------------------------------------------------
@@ -247,14 +253,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.925
 BLEU                           ---  0.032
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.382
-MoverScore bi                  ---  0.322
 MoverScore uni                 ---  0.322
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.397
 
 ---------------------------------------------------------------------------------------------------
@@ -273,14 +280,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.7 (0.925)
 
+Ann. Score                     ---  4.7
 BERT Score                     ---  0.919
 BLEU                           ---  0.036
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.299
-MoverScore bi                  ---  0.3
 MoverScore uni                 ---  0.3
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.302
 
 ---------------------------------------------------------------------------------------------------
@@ -299,14 +307,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.939
 BLEU                           ---  0.043
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.331
-MoverScore bi                  ---  0.355
 MoverScore uni                 ---  0.355
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.387
 
 ---------------------------------------------------------------------------------------------------
@@ -326,14 +335,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.917
 BLEU                           ---  0.146
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.276
-MoverScore bi                  ---  0.444
 MoverScore uni                 ---  0.444
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.484
 
 ---------------------------------------------------------------------------------------------------
@@ -352,14 +362,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.948
 BLEU                           ---  0.035
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.327
-MoverScore bi                  ---  0.402
 MoverScore uni                 ---  0.402
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.366
 
 ---------------------------------------------------------------------------------------------------
@@ -378,14 +389,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.946
 BLEU                           ---  0.04
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.404
-MoverScore bi                  ---  0.469
 MoverScore uni                 ---  0.469
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.358
 
 ---------------------------------------------------------------------------------------------------
@@ -404,14 +416,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.931
 BLEU                           ---  0.043
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.268
-MoverScore bi                  ---  0.372
 MoverScore uni                 ---  0.372
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.454
 
 ---------------------------------------------------------------------------------------------------
@@ -430,14 +443,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.943
 BLEU                           ---  0.04
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.404
-MoverScore bi                  ---  0.354
 MoverScore uni                 ---  0.354
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.344
 
 ---------------------------------------------------------------------------------------------------
@@ -458,14 +472,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.961
 BLEU                           ---  0.148
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.38
-MoverScore bi                  ---  0.595
 MoverScore uni                 ---  0.595
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.539
 
 ---------------------------------------------------------------------------------------------------
@@ -486,14 +501,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.951
 BLEU                           ---  0.264
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.403
-MoverScore bi                  ---  0.461
 MoverScore uni                 ---  0.461
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.533
 
 ---------------------------------------------------------------------------------------------------
@@ -512,14 +528,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.933
 BLEU                           ---  0.04
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.284
-MoverScore bi                  ---  0.328
 MoverScore uni                 ---  0.328
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.302
 
 ---------------------------------------------------------------------------------------------------
@@ -538,14 +555,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.943
 BLEU                           ---  0.043
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.268
-MoverScore bi                  ---  0.382
 MoverScore uni                 ---  0.382
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.423
 
 ---------------------------------------------------------------------------------------------------
@@ -564,14 +582,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.939
 BLEU                           ---  0.04
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.327
-MoverScore bi                  ---  0.362
 MoverScore uni                 ---  0.362
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.362
 
 ---------------------------------------------------------------------------------------------------
@@ -590,14 +609,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.95
 BLEU                           ---  0.04
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.327
-MoverScore bi                  ---  0.392
 MoverScore uni                 ---  0.392
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.399
 
 ---------------------------------------------------------------------------------------------------
@@ -616,14 +636,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.928
 BLEU                           ---  0.038
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.268
-MoverScore bi                  ---  0.435
 MoverScore uni                 ---  0.435
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.441
 
 ---------------------------------------------------------------------------------------------------
@@ -642,14 +663,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.937
 BLEU                           ---  0.038
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.268
-MoverScore bi                  ---  0.357
 MoverScore uni                 ---  0.357
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.413
 
 ---------------------------------------------------------------------------------------------------
@@ -668,14 +690,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.8 (0.95)
 
+Ann. Score                     ---  4.8
 BERT Score                     ---  0.95
 BLEU                           ---  0.04
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.404
-MoverScore bi                  ---  0.376
 MoverScore uni                 ---  0.376
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.46
 
 ---------------------------------------------------------------------------------------------------
@@ -695,14 +718,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.8 (0.95)
 
+Ann. Score                     ---  4.8
 BERT Score                     ---  0.95
 BLEU                           ---  0.248
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.435
-MoverScore bi                  ---  0.436
 MoverScore uni                 ---  0.436
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.597
 
 ---------------------------------------------------------------------------------------------------
@@ -722,14 +746,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.8 (0.95)
 
+Ann. Score                     ---  4.8
 BERT Score                     ---  0.953
 BLEU                           ---  0.275
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.485
-MoverScore bi                  ---  0.551
 MoverScore uni                 ---  0.551
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.58
 
 ---------------------------------------------------------------------------------------------------
@@ -749,14 +774,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.93
 BLEU                           ---  0.146
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.311
-MoverScore bi                  ---  0.5
 MoverScore uni                 ---  0.5
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.539
 
 ---------------------------------------------------------------------------------------------------
@@ -777,14 +803,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.8 (0.95)
 
+Ann. Score                     ---  4.8
 BERT Score                     ---  0.947
 BLEU                           ---  0.07
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.363
-MoverScore bi                  ---  0.48
 MoverScore uni                 ---  0.48
 S2match                        ---  0.9
 Smatch                         ---  0.9
+Weisfelder Leman Score         ---  0.059
 chrF++ Norm                    ---  0.498
 
 ---------------------------------------------------------------------------------------------------
@@ -804,14 +831,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.5 (0.875)
 
+Ann. Score                     ---  4.5
 BERT Score                     ---  0.962
 BLEU                           ---  0.138
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.328
-MoverScore bi                  ---  0.502
 MoverScore uni                 ---  0.502
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.527
 
 ---------------------------------------------------------------------------------------------------
@@ -830,14 +858,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.938
 BLEU                           ---  0.043
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.313
-MoverScore bi                  ---  0.352
 MoverScore uni                 ---  0.352
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.329
 
 ---------------------------------------------------------------------------------------------------
@@ -861,14 +890,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.8 (0.95)
 
+Ann. Score                     ---  4.8
 BERT Score                     ---  0.95
 BLEU                           ---  0.238
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.458
-MoverScore bi                  ---  0.55
 MoverScore uni                 ---  0.55
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.524
 
 ---------------------------------------------------------------------------------------------------
@@ -888,14 +918,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.951
 BLEU                           ---  0.078
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.311
-MoverScore bi                  ---  0.485
 MoverScore uni                 ---  0.485
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.557
 
 ---------------------------------------------------------------------------------------------------
@@ -915,14 +946,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.8 (0.95)
 
+Ann. Score                     ---  4.8
 BERT Score                     ---  0.949
 BLEU                           ---  0.138
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.328
-MoverScore bi                  ---  0.497
 MoverScore uni                 ---  0.497
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.536
 
 ---------------------------------------------------------------------------------------------------
@@ -941,14 +973,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.944
 BLEU                           ---  0.038
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.268
-MoverScore bi                  ---  0.317
 MoverScore uni                 ---  0.317
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.373
 
 ---------------------------------------------------------------------------------------------------
@@ -967,14 +1000,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.942
 BLEU                           ---  0.038
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.268
-MoverScore bi                  ---  0.339
 MoverScore uni                 ---  0.339
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.35
 
 ---------------------------------------------------------------------------------------------------
@@ -993,14 +1027,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.905
 BLEU                           ---  0.032
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.304
-MoverScore bi                  ---  0.306
 MoverScore uni                 ---  0.306
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.342
 
 ---------------------------------------------------------------------------------------------------
@@ -1019,14 +1054,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.8 (0.95)
 
+Ann. Score                     ---  4.8
 BERT Score                     ---  0.954
 BLEU                           ---  0.043
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.268
-MoverScore bi                  ---  0.366
 MoverScore uni                 ---  0.366
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.466
 
 ---------------------------------------------------------------------------------------------------
@@ -1045,14 +1081,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.945
 BLEU                           ---  0.038
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.182
-MoverScore bi                  ---  0.305
 MoverScore uni                 ---  0.305
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.339
 
 ---------------------------------------------------------------------------------------------------
@@ -1071,14 +1108,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.902
 BLEU                           ---  0.032
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.357
-MoverScore bi                  ---  0.318
 MoverScore uni                 ---  0.318
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.319
 
 ---------------------------------------------------------------------------------------------------
@@ -1098,14 +1136,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.963
 BLEU                           ---  0.148
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.38
-MoverScore bi                  ---  0.598
 MoverScore uni                 ---  0.598
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.443
 
 ---------------------------------------------------------------------------------------------------
@@ -1124,14 +1163,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.914
 BLEU                           ---  0.036
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.299
-MoverScore bi                  ---  0.365
 MoverScore uni                 ---  0.365
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.345
 
 ---------------------------------------------------------------------------------------------------
@@ -1150,14 +1190,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.8 (0.95)
 
+Ann. Score                     ---  4.8
 BERT Score                     ---  0.945
 BLEU                           ---  0.04
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.225
-MoverScore bi                  ---  0.329
 MoverScore uni                 ---  0.329
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.356
 
 ---------------------------------------------------------------------------------------------------
@@ -1176,14 +1217,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.942
 BLEU                           ---  0.043
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.268
-MoverScore bi                  ---  0.45
 MoverScore uni                 ---  0.45
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.479
 
 ---------------------------------------------------------------------------------------------------
@@ -1202,14 +1244,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.917
 BLEU                           ---  0.036
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.299
-MoverScore bi                  ---  0.227
 MoverScore uni                 ---  0.227
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.329
 
 ---------------------------------------------------------------------------------------------------
@@ -1228,14 +1271,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.8 (0.95)
 
+Ann. Score                     ---  4.8
 BERT Score                     ---  0.94
 BLEU                           ---  0.029
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.339
-MoverScore bi                  ---  0.239
 MoverScore uni                 ---  0.239
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.29
 
 ---------------------------------------------------------------------------------------------------
@@ -1254,14 +1298,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.945
 BLEU                           ---  0.04
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.404
-MoverScore bi                  ---  0.347
 MoverScore uni                 ---  0.347
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.34
 
 ---------------------------------------------------------------------------------------------------
@@ -1280,14 +1325,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.944
 BLEU                           ---  0.035
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.327
-MoverScore bi                  ---  0.408
 MoverScore uni                 ---  0.408
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.339
 
 ---------------------------------------------------------------------------------------------------
@@ -1307,14 +1353,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.951
 BLEU                           ---  0.165
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.468
-MoverScore bi                  ---  0.563
 MoverScore uni                 ---  0.563
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.59
 
 ---------------------------------------------------------------------------------------------------
@@ -1335,14 +1382,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.938
 BLEU                           ---  0.284
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.361
-MoverScore bi                  ---  0.404
 MoverScore uni                 ---  0.404
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.55
 
 ---------------------------------------------------------------------------------------------------
@@ -1361,14 +1409,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.8 (0.95)
 
+Ann. Score                     ---  4.8
 BERT Score                     ---  0.933
 BLEU                           ---  0.043
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.331
-MoverScore bi                  ---  0.339
 MoverScore uni                 ---  0.339
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.355
 
 ---------------------------------------------------------------------------------------------------
@@ -1389,14 +1438,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.91
 BLEU                           ---  0.138
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.413
-MoverScore bi                  ---  0.421
 MoverScore uni                 ---  0.421
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.451
 
 ---------------------------------------------------------------------------------------------------
@@ -1419,14 +1469,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.971
 BLEU                           ---  0.407
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.393
-MoverScore bi                  ---  0.637
 MoverScore uni                 ---  0.637
 S2match                        ---  0.818
 Smatch                         ---  0.818
+Weisfelder Leman Score         ---  0.285
 chrF++ Norm                    ---  0.67
 
 ---------------------------------------------------------------------------------------------------
@@ -1445,14 +1496,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.902
 BLEU                           ---  0.036
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.382
-MoverScore bi                  ---  0.307
 MoverScore uni                 ---  0.307
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.276
 
 ---------------------------------------------------------------------------------------------------
@@ -1471,14 +1523,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.8 (0.95)
 
+Ann. Score                     ---  4.8
 BERT Score                     ---  0.943
 BLEU                           ---  0.04
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.327
-MoverScore bi                  ---  0.399
 MoverScore uni                 ---  0.399
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.362
 
 ---------------------------------------------------------------------------------------------------
@@ -1498,14 +1551,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.928
 BLEU                           ---  0.146
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.311
-MoverScore bi                  ---  0.511
 MoverScore uni                 ---  0.511
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.505
 
 ---------------------------------------------------------------------------------------------------
@@ -1525,14 +1579,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.932
 BLEU                           ---  0.035
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.327
-MoverScore bi                  ---  0.375
 MoverScore uni                 ---  0.375
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.306
 
 ---------------------------------------------------------------------------------------------------
@@ -1551,14 +1606,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.95
 BLEU                           ---  0.043
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.268
-MoverScore bi                  ---  0.472
 MoverScore uni                 ---  0.472
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.416
 
 ---------------------------------------------------------------------------------------------------
@@ -1577,14 +1633,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.946
 BLEU                           ---  0.043
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.268
-MoverScore bi                  ---  0.356
 MoverScore uni                 ---  0.356
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.371
 
 ---------------------------------------------------------------------------------------------------
@@ -1603,14 +1660,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.937
 BLEU                           ---  0.04
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.327
-MoverScore bi                  ---  0.394
 MoverScore uni                 ---  0.394
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.263
 
 ---------------------------------------------------------------------------------------------------
@@ -1629,14 +1687,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.944
 BLEU                           ---  0.043
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.331
-MoverScore bi                  ---  0.355
 MoverScore uni                 ---  0.355
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.355
 
 ---------------------------------------------------------------------------------------------------
@@ -1656,14 +1715,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.937
 BLEU                           ---  0.073
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.367
-MoverScore bi                  ---  0.459
 MoverScore uni                 ---  0.459
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.431
 
 ---------------------------------------------------------------------------------------------------
@@ -1684,14 +1744,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.8 (0.95)
 
+Ann. Score                     ---  4.8
 BERT Score                     ---  0.95
 BLEU                           ---  0.138
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.38
-MoverScore bi                  ---  0.454
 MoverScore uni                 ---  0.454
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.493
 
 ---------------------------------------------------------------------------------------------------
@@ -1712,14 +1773,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.934
 BLEU                           ---  0.04
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.327
-MoverScore bi                  ---  0.456
 MoverScore uni                 ---  0.456
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.473
 
 ---------------------------------------------------------------------------------------------------
@@ -1738,14 +1800,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.951
 BLEU                           ---  0.04
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.327
-MoverScore bi                  ---  0.236
 MoverScore uni                 ---  0.236
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.385
 
 ---------------------------------------------------------------------------------------------------
@@ -1769,14 +1832,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.96
 BLEU                           ---  0.185
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.417
-MoverScore bi                  ---  0.527
 MoverScore uni                 ---  0.527
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.542
 
 ---------------------------------------------------------------------------------------------------
@@ -1795,14 +1859,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.943
 BLEU                           ---  0.035
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.327
-MoverScore bi                  ---  0.372
 MoverScore uni                 ---  0.372
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.319
 
 ---------------------------------------------------------------------------------------------------
@@ -1821,14 +1886,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.945
 BLEU                           ---  0.043
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.268
-MoverScore bi                  ---  0.392
 MoverScore uni                 ---  0.392
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.349
 
 ---------------------------------------------------------------------------------------------------
@@ -1847,14 +1913,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.912
 BLEU                           ---  0.031
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.392
-MoverScore bi                  ---  0.305
 MoverScore uni                 ---  0.305
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.287
 
 ---------------------------------------------------------------------------------------------------
@@ -1874,14 +1941,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.7 (0.925)
 
+Ann. Score                     ---  4.7
 BERT Score                     ---  0.925
 BLEU                           ---  0.138
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.398
-MoverScore bi                  ---  0.411
 MoverScore uni                 ---  0.411
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.477
 
 ---------------------------------------------------------------------------------------------------
@@ -1901,14 +1969,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.959
 BLEU                           ---  0.079
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.27
-MoverScore bi                  ---  0.424
 MoverScore uni                 ---  0.424
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.488
 
 ---------------------------------------------------------------------------------------------------
@@ -1928,14 +1997,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.937
 BLEU                           ---  0.035
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.404
-MoverScore bi                  ---  0.36
 MoverScore uni                 ---  0.36
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.322
 
 ---------------------------------------------------------------------------------------------------
@@ -1960,14 +2030,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.6 (0.9)
 
+Ann. Score                     ---  4.6
 BERT Score                     ---  0.96
 BLEU                           ---  0.346
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.438
-MoverScore bi                  ---  0.615
 MoverScore uni                 ---  0.615
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.684
 
 ---------------------------------------------------------------------------------------------------
@@ -1991,14 +2062,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.944
 BLEU                           ---  0.345
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.377
-MoverScore bi                  ---  0.462
 MoverScore uni                 ---  0.462
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.653
 
 ---------------------------------------------------------------------------------------------------
@@ -2017,14 +2089,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.939
 BLEU                           ---  0.04
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.404
-MoverScore bi                  ---  0.368
 MoverScore uni                 ---  0.368
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.328
 
 ---------------------------------------------------------------------------------------------------
@@ -2052,14 +2125,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.944
 BLEU                           ---  0.49
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.493
-MoverScore bi                  ---  0.555
 MoverScore uni                 ---  0.555
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.734
 
 ---------------------------------------------------------------------------------------------------
@@ -2092,14 +2166,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.954
 BLEU                           ---  0.499
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.533
-MoverScore bi                  ---  0.589
 MoverScore uni                 ---  0.589
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.778
 
 ---------------------------------------------------------------------------------------------------
@@ -2119,14 +2194,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.96
 BLEU                           ---  0.083
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.363
-MoverScore bi                  ---  0.483
 MoverScore uni                 ---  0.483
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.466
 
 ---------------------------------------------------------------------------------------------------
@@ -2151,14 +2227,15 @@ Scores:
 -------
 Semantic Relatedness Score:     5.0 (1.0)
 
+Ann. Score                     ---  5.0
 BERT Score                     ---  0.964
 BLEU                           ---  0.26
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.416
-MoverScore bi                  ---  0.595
 MoverScore uni                 ---  0.595
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.606
 
 ---------------------------------------------------------------------------------------------------
@@ -2178,14 +2255,15 @@ Scores:
 -------
 Semantic Relatedness Score:     4.9 (0.975)
 
+Ann. Score                     ---  4.9
 BERT Score                     ---  0.954
 BLEU                           ---  0.075
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.309
-MoverScore bi                  ---  0.392
 MoverScore uni                 ---  0.392
 S2match                        ---  1.0
 Smatch                         ---  1.0
+Weisfelder Leman Score         ---  -0.0
 chrF++ Norm                    ---  0.443
 
 ---------------------------------------------------------------------------------------------------

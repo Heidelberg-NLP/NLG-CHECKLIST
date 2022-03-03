@@ -40,12 +40,14 @@ def read_amrs(file):
     return amrs
 
 
-def make_tmp(pairs, nl=""):
+def make_tmp(pairs, nl="", tmp_name="temp123"):
     with tempfile.NamedTemporaryFile(delete=False, mode="w") as tmp:
+        tmp.name = tmp_name
         tmp1 = tmp.name
         for line in pairs[0]:
             tmp.write(line+nl)
     with tempfile.NamedTemporaryFile(delete=False, mode="w") as tmp:
+        tmp.name = tmp_name + "_2"
         tmp2 = tmp.name
         for line in pairs[1]:
             tmp.write(line+nl)

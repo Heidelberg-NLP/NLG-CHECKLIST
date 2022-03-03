@@ -3,6 +3,8 @@ import numpy as np
 import pandas as pd
 from tabulate import tabulate
 from basics import *
+from standard import *
+
 
 def create_table_nums(id_dict):
 
@@ -53,13 +55,16 @@ def create_table_scores(metrics, scores):
 	return tabulate(rows, columns, tablefmt="latex")
 
 
-def create_table_average(phens, av_scores):
+def create_table_average(phens, av_scores, ss):
 	columns = ["Metric"] + phens
 	# id_dict = read_json(id_dict)
 	rows, row = [], []
 	for metric in sorted(av_scores.keys()):
 		row.append(metric)
-		row.extend(['{} ± {}'.format(av[0], av[1]) for av in av_scores[metric]])
+		if metric == "Ann. Score":
+			row.extend(['{}'.format(norm(av[0], ss)) for av in av_scores[metric]])
+		else:
+			row.extend(['{} ± {}'.format(av[0], av[1]) for av in av_scores[metric]])
 		rows.append(row)
 		row = []
 
@@ -112,9 +117,10 @@ def define_ranking(metrics, value_dict):
 	score_dict = {}
 	val_dict = value_dict.copy()
 	value_dict.pop('Ann. Score', None)
+	metrics.remove('Ann. Score')
 
 	for metric in metrics:
-		score = 0
+		count, score = 0, 0
 		for i, value in enumerate(value_dict[metric]):
 			for j, val in enumerate(value_dict[metric]):
 				if val_dict['Ann. Score'][i] == val_dict['Ann. Score'][j] and value == val:
@@ -123,17 +129,24 @@ def define_ranking(metrics, value_dict):
 					score += 1
 				elif val_dict['Ann. Score'][i] > val_dict['Ann. Score'][j] and value > val:
 					score += 1
+				count += 1
 
-		score_dict[metric] = score
+		score_dict[metric] = round(score / count, 3)
 
 	return score_dict
 
 
-def create_ranking_table(phenomena, rank_list):
+def create_ranking_table(phenomena, metrics, rank_list):
 
+	metrics.remove('Ann. Score')
 	df = pd.DataFrame()
-
+	df['Metrics'] = sorted(metrics)
 	for i, phen in enumerate(phenomena):
-		df[phen] = sorted(rank_list[i].items(), key=lambda x:x[1], reverse=True)
+		# df[phen] = rank_list[i]
+		column = []
+		for j, metric in enumerate(metrics):
+			column.append(rank_list[i][metric])
+		#df[phen] = sorted(rank_list[i].items(), key=lambda x:x[1], reverse=True)
+		df[phen] = column
 
-	return tabulate(df, headers=keys, tablefmt='latex')
+	return tabulate(df, headers=phenomena, tablefmt='latex')

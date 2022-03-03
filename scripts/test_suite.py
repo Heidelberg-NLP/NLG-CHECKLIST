@@ -135,6 +135,7 @@ if __name__ == "__main__":
 	all_average_sick, av_columns_sick = {}, []
 	all_average, av_columns = {}, []
 	corr_hj_sick, corr_hj = {}, {}
+	rank_list_sick, rank_list = [], []
 	for phenomenon in sorted(test_cases.keys()):
 		# if phenomenon != "Multiple Phenomena":
 		pp = ["-" for i in range(len(phenomenon) + 10)]
@@ -203,16 +204,12 @@ if __name__ == "__main__":
 				phen_file += '</table>\n<h2>Correlation Matrix (Overall):</h2>\n'
 				phen_file += matrix.to_html()
 				phen_file += '\n<br><hr>\n'
-				rank_list = []
 				for phen in sorted(sub_phens.keys()) :
 					if len(sub_phens.keys()) > 1:
 						phen_ids = [idx for idx in sub_phens[phen]]
 						all_used_ids[ss].extend(phen_ids)
 						corr_phen, av_phen = compute_av_scores(phen_ids, wanted, your_wanted, metric_dict)
 						matrix_phen = frame(corr_phen)
-						# ranking
-						ranking_dict = define_ranking(wanted + your_wanted, corr_phen):
-						rank_list.append(ranking_dict)
 						# create_table_subnums(test_cases, phenomenon, ss)
 						phen_file += '<h2>{}</h2>\n<h3>Average Scores:</h3>'.format(phen)
 						phen_file += '<h4>Average Semantic {}:   {} ({})</h4>'.format(s, round(float(av_phen["Ann. Score"][0]), 3), round(float(norm(av_phen["Ann. Score"][0], ss)), 3))
@@ -252,6 +249,8 @@ if __name__ == "__main__":
 						else:
 							all_average_sick[met] = [(round(float(average[met.strip()][0]), 3), round(float(average[met.strip()][1]), 2))]
 
+					ranking_dict_sick = define_ranking(wanted + your_wanted, correlation)
+					rank_list_sick.append(ranking_dict_sick)
 					unstack = matrix.unstack()
 					for k,v in unstack["Ann. Score"].items():
 						try:
@@ -268,6 +267,8 @@ if __name__ == "__main__":
 						else:
 							all_average[met] = [(round(float(average[met.strip()][0]), 3), round(float(average[met.strip()][1]), 2))]
 
+					ranking_dict = define_ranking(wanted + your_wanted, correlation)
+					rank_list.append(ranking_dict)
 					unstack = matrix.unstack()
 					for k,v in unstack["Ann. Score"].items():
 						try:
@@ -294,16 +295,12 @@ if __name__ == "__main__":
 				phen_file.append(tabulate(matrix, headers='keys', tablefmt='grid'))
 				# phen_file.append(matrix.to_string())
 				phen_file.append("\n\n===================================================================================================================================\n\n")
-				rank_list = []
 				for phen in sorted(sub_phens.keys()):
 					phen_ids = [idx for idx in sub_phens[phen]]
 					all_used_ids[ss].extend(phen_ids)
 					if len(sub_phens.keys()) > 1:
 						corr_phen, av_phen = compute_av_scores(phen_ids, wanted, your_wanted, metric_dict, ss)
 						matrix_phen = frame(corr_phen)
-						# ranking
-						ranking_dict = define_ranking(wanted + your_wanted, corr_phen):
-						rank_list.append(ranking_dict)
 						pp = ["-" for i in range(len(phen) + 6)]
 						phen_file.append("{}\n   {}\n{}\n\n".format("".join(pp), phen, "".join(pp)))
 						phen_file.append("Average Scores:\n---------------\n".format(phen))
@@ -325,15 +322,29 @@ if __name__ == "__main__":
 							phen_file.extend(print_testcase(vals[idx][1], vals[idx][2], vals[idx][0], {k:v for k,v in metric_dict[idx].items() if k in wanted or k in your_wanted}, False, rel))							
 					phen_file.append("\n\n------------------------------------------------------\n\n")
 				write_file("../Results/{}_results.txt".format(phenomenon), phen_file)
+				
 
-	print(create_table_average(av_columns_sick, all_average_sick))
-	print(create_table_average(av_columns, all_average))
+	print(create_table_average(av_columns_sick, all_average_sick, "sick"))
+	print(create_table_average(av_columns, all_average, "sts"))
 
 	all_corr_sick, all_av_sick = compute_av_scores(all_used_ids["sick"], wanted, your_wanted, metric_dict, "sick")
 	all_matrix_sick = frame(all_corr_sick)
 
 	all_corr_sts, all_av_sts = compute_av_scores(all_used_ids["sts"], wanted, your_wanted, metric_dict, "sts")
 	all_matrix_sts = frame(all_corr_sts)	
+
+	ranking_dict = define_ranking(wanted + your_wanted, all_corr_sts)
+	rank_list.append(ranking_dict)
+
+	ranking_dict_sick = define_ranking(wanted + your_wanted, all_corr_sick)
+	rank_list_sick.append(ranking_dict_sick)
+
+	sorted(av_columns_sick)
+	av_columns_sick.append('Overall')
+	sorted(av_columns)
+	av_columns.append('Overall')
+	print(create_ranking_table(av_columns_sick, wanted + your_wanted, rank_list_sick))
+	print(create_ranking_table(av_columns, wanted + your_wanted, rank_list))
 
 	print("-----------------\n     OVERALL\n-----------------\n\n")
 	print("SICK Data Set\n=============\n")

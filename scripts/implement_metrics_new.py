@@ -18,7 +18,7 @@ def compute_bleu(pairs):
 	bleus = []
 	smoothie = SmoothingFunction().method4
 	for i, sent in enumerate(pairs[0]):
-		bleus.append(float(sentence_bleu([sent.split()], pairs[1][i].split(), smoothing_function=smoothie)))
+		bleus.append((float(sentence_bleu([sent.split()], pairs[1][i].split(), smoothing_function=smoothie)) + float(sentence_bleu([pairs[1][i].split()], sent.split(), smoothing_function=smoothie))) / 2)
 		# print('BLEU score -> {}'.format(sentence_bleu([sent.split()], pairs[1][i].split(), smoothing_function=smoothie)))
 
 	print("BLEU computed")
@@ -89,12 +89,12 @@ def compute_smatch(pairs, path, s2=False):
 	return smatchs
 
 
-def compute_mf_score(pairs, path, beta="harm", amr=False):
+def compute_mf_score_sent(pairs, path, beta="harm"):
 
-	mf_scores = []
+	mf_scores_sent = []
 
 	for i, sent in enumerate(pairs[0]):
-		tmp1, tmp2 = make_tmp([[sent], [pairs[1][i]]], nl="\n")
+		tmp1, tmp2 = make_tmp([[sent], [pairs[1][i]]], nl="\n", tmp_name="all_amrs")
 
 		process = subprocess.Popen([path, tmp1, tmp2],
                          	stdout=subprocess.PIPE,
@@ -105,19 +105,55 @@ def compute_mf_score(pairs, path, beta="harm", amr=False):
 
 		mf_line = [line.split()[1] for line in lines if line.startswith("---->")]
 		if beta == "harm":
-			mf_scores.append(float(mf_line[0]))
+			mf_scores_sent.append(float(mf_line[0]))
 		elif beta == "md":
-			mf_scores.append(float(mf_line[1]))
+			mf_scores_sent.append(float(mf_line[1]))
 		elif beta == "fd":
-			mf_scores.append(float(mf_line[2]))
+			mf_scores_sent.append(float(mf_line[2]))
 		elif beta == "mean":
-			mf_scores.append(float(mf_line[3]))
+			mf_scores_sent.append(float(mf_line[3]))
 		elif beta == "form":
-			mf_scores.append(float(mf_line[4]))
+			mf_scores_sent.append(float(mf_line[4]))
 
 	print("MF Score with beta={} computed".format(beta))
 
-	return mf_scores
+	return mf_scores_sent
+
+
+def compute_mf_score_amr(pairs_sents, pairs_amrs, path, beta="harm"):
+
+	mf_scores_amr = []
+
+	all_sents = pairs_sents[0].extend(pairs_sents[1])
+	all_amrs = pairs_amrs[1].extend(pairs_amrs[0])
+
+	for i, sent in enumerate(all_sents):
+		tmp1, tmp2 = make_tmp([[sent], [all_amrs[i]]], nl="\n", tmp_name="all_amrs")
+
+		process = subprocess.Popen([path, tmp1, tmp2],
+                         	stdout=subprocess.PIPE,
+                         	stderr=subprocess.STDOUT)
+		returncode = process.wait()
+		with open("MFscore/evaluation-reports/report.txt", "r") as r:
+			lines = r.readlines()
+
+		mf_line = [line.split()[1] for line in lines if line.startswith("---->")]
+		if beta == "harm":
+			mf_scores_amr.append(float(mf_line[0]))
+		elif beta == "md":
+			mf_scores_amr.append(float(mf_line[1]))
+		elif beta == "fd":
+			mf_scores_amr.append(float(mf_line[2]))
+		elif beta == "mean":
+			mf_scores_amr.append(float(mf_line[3]))
+		elif beta == "form":
+			mf_scores_amr.append(float(mf_line[4]))
+
+	print("MF Score with beta={} computed".format(beta))
+	half = len(mf_scores_amr) / 2
+	mf_scores_amr_normed = [(mf_score+mf_scores_amr[half:][j])/2 for j, mf_score in enumerate(mf_scores_amr[:half])]
+
+	return mf_scores_amr_normed
 
 
 def compute_sbert(pairs, model):
@@ -145,6 +181,7 @@ def compute_sbert(pairs, model):
 def compute_bert_score(pairs):
 
 	bertscores = bertscore.compute(predictions=pairs[0], references=pairs[1], lang="en")
+	bertscores = bertscore.compute(predictions=pairs[1], references=pairs[0], lang="en")
 
 	print("BERTScore computed")
 
@@ -161,6 +198,22 @@ def compute_mover_score(pairs, ngram):
 	return mover_scores
 
 
+def compute_wasserstein_weisfelder_leman(pairs, path):
+
+	mf_scores = []
+
+	tmp1, tmp2 = make_tmp([["".join(sent) for sent in pairs[0]], ["".join(pairs[1][i]) for i, sent in enumerate(pairs[0])]], nl="\n")
+
+	wl_scores = subprocess.check_output(['python3', path, '-a', tmp1, '-b', tmp2], encoding="utf-8")
+
+	wls = [float(line.strip()) + 1 for line in wl_scores.split("\n") if line.strip()]
+	# print(meteor_score)
+	os.unlink(tmp1)
+	os.unlink(tmp2)
+
+	return wls
+
+
 def compute_weisfelder_leman(pairs, path):
 
 	mf_scores = []
@@ -169,7 +222,7 @@ def compute_weisfelder_leman(pairs, path):
 
 	wl_scores = subprocess.check_output(['python3', path, '-a', tmp1, '-b', tmp2], encoding="utf-8")
 
-	wls = [float(line.strip()) * -1 for line in wl_scores.split("\n") if line.strip()]
+	wls = [float(line.strip()) + 1 for line in wl_scores.split("\n") if line.strip()]
 	# print(meteor_score)
 	os.unlink(tmp1)
 	os.unlink(tmp2)
@@ -182,9 +235,9 @@ def compute_weisfelder_leman(pairs, path):
 
 if __name__ == "__main__":
 
-	# metric_dict = {}
-	with open("amr-devsuite/data/metric_scores_030322.json", "r") as j:
-		metric_dict = json.load(j)
+	metric_dict = {}
+	# with open("amr-devsuite/data/metric_scores_030322.json", "r") as j:
+		# metric_dict = json.load(j)
 
 	# metric_dict = read_json("metric_scores_030122.json")
 	id_file = read_json(sys.argv[1])
@@ -209,57 +262,57 @@ if __name__ == "__main__":
 	with open('outfile2.txt', 'w') as o:
 		o.write('sents, amrs and ids obtained, starting evaluation')
 	print('sents, amrs and ids obtained, starting evaluation')
-	#bleus = compute_bleu(all_sents)
-	#chrfs = compute_chrf(all_sents, "amr-devsuite/metrics/chrF++.py")
-	#meteors = compute_meteor(all_sents, "meteor-1.5/meteor-1.5.jar")
+	bleus = compute_bleu(all_sents)
+	chrfs = compute_chrf(all_sents, "amr-devsuite/metrics/chrF++.py")
+	meteors = compute_meteor(all_sents, "meteor-1.5/meteor-1.5.jar")
 	with open('outfile2.txt', 'w') as o:
 		o.write('done with text overlapping metrics')
-	# mf_scores = compute_mf_score(all_sents, "MFscore/mfscore_for_genSent_vs_refSent.sh")
-	# mf_scores_md = compute_mf_score(all_sents, "MFscore/mfscore_for_genSent_vs_refSent.sh", beta="md")
-	# mf_scores_fd = compute_mf_score(all_sents, "MFscore/mfscore_for_genSent_vs_refSent.sh", beta="fd")
-	# mf_scores_mean = compute_mf_score(all_sents, "MFscore/mfscore_for_genSent_vs_refSent.sh", beta="mean")
-	# mf_scores_form = compute_mf_score(all_sents, "MFscore/mfscore_for_genSent_vs_refSent.sh", beta="form")
+	mf_scores_sent_mean = compute_mf_score_sent(all_sents, "MFscore/mfscore_for_genSent_vs_refSent.sh", beta="mean")
+	mf_scores_amr_mean = compute_mf_score_amr(all_sents, all_amrs, "MFscore/mfscore_for_genSent_vs_refAMR.sh", beta="mean")
 	with open('outfile2.txt', 'w') as o:
 		o.write('done with MF score')
-	#s2matchs = compute_smatch(all_amrs, "amr-devsuite/metrics/s2match.py", s2=True)
-	#smatchs = compute_smatch(all_amrs, "amr-devsuite/metrics/smatch.py")
+	s2matchs = compute_smatch(all_amrs, "amr-devsuite/metrics/s2match.py", s2=True)
+	smatchs = compute_smatch(all_amrs, "amr-devsuite/metrics/smatch.py")
 	with open('outfile2.txt', 'w') as o:
 		o.write('done with Smatch and S2match')
 	#sberts_rl = compute_sbert(all_sents, "stsb-roberta-large")
 	#sberts_rb = compute_sbert(all_sents, "stsb-roberta-base-v2")
 	#sberts_bl = compute_sbert(all_sents, "stsb-bert-large")
 	#sberts_db = compute_sbert(all_sents, "stsb-distilbert-base")
-	#bert_scores = compute_bert_score(all_sents)["f1"]
+	bert_scores = compute_bert_score(all_sents)["f1"]
 	print('metrics computed')
 	with open('outfile2.txt', 'w') as o:
 		o.write('done with SBERTs and BLEUScore')
 
-	# mover_scores_uni = compute_mover_score(all_sents, 1)
+	mover_scores_uni = compute_mover_score(all_sents, 1)
 	# mover_scores_bi = compute_mover_score(all_sents, 2)
 
-	weisfelder_score = compute_weisfelder_leman(all_amrs, 'weisfeiler-leman-amr-metrics/src/main_wlk_wasser.py')
+	wasser_weisfelder_score = compute_wasserstein_weisfelder_leman(all_amrs, 'weisfeiler-leman-amr-metrics/src/main_wlk_wasser.py')
+	weisfelder_score = compute_weisfelder_leman(all_amrs, 'weisfeiler-leman-amr-metrics/src/main_wlk.py')
 
 
 	for i, idx in enumerate(all_ids):
-		# metric_dict[idx] = {}
-		# metric_dict[idx]["BLEU"] = bleus[i]
-		# metric_dict[idx]["chrF++"] = chrfs[i]
-		# metric_dict[idx]["Meteor"] = meteors[i]
+		metric_dict[idx] = {}
+		metric_dict[idx]["BLEU"] = bleus[i]
+		metric_dict[idx]["chrF++"] = chrfs[i]
+		metric_dict[idx]["Meteor"] = meteors[i]
 		# metric_dict[idx]["MF Score"] = mf_scores[i]
 		# metric_dict[idx]["MF Score (M double)"] = mf_scores_md[i]
 		# metric_dict[idx]["MF Score (F double)"] = mf_scores_fd[i]
-		# metric_dict[idx]["MF Score (Meaning)"] = mf_scores_mean[i]
+		metric_dict[idx]["MF Score Sent"] = mf_scores_sent_mean[i]
+		metric_dict[idx]["MF Score AMR"] = mf_scores_amr_mean[i]
 		# metric_dict[idx]["MF Score (Form)"] = mf_scores_form[i]
-		# metric_dict[idx]["S2match"] = s2matchs[i]
-		# metric_dict[idx]["Smatch"] = smatchs[i]
+		metric_dict[idx]["S2match"] = s2matchs[i]
+		metric_dict[idx]["Smatch"] = smatchs[i]
 		# metric_dict[idx]["S-BERT (roberta-large)"] = sberts_rl[i]
 		# metric_dict[idx]["S-BERT (roberta-base)"] = sberts_rb[i]
 		# metric_dict[idx]["S-BERT (bert-large)"] = sberts_bl[i]
 		# metric_dict[idx]["S-BERT (distilbert-base)"] = sberts_db[i]
-		# metric_dict[idx]["BERT Score"] = bert_scores[i]
-		# metric_dict[idx]["MoverScore uni"] = mover_scores_uni[i]
+		metric_dict[idx]["BERT Score"] = bert_scores[i]
+		metric_dict[idx]["MoverScore"] = mover_scores_uni[i]
 		# metric_dict[idx]["MoverScore bi"] = mover_scores_bi[i]
-		metric_dict[idx]["Weisfelder Leman Score"] = weisfelder_score[i]
+		metric_dict[idx]["WLK"] = weisfelder_score[i]
+		metric_dict[idx]["WWLK"] = wasser_weisfelder_score[i]
 
 	convert_to_json(metric_dict, "metric_scores_wl.json")
 
