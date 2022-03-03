@@ -94,7 +94,7 @@ def compute_mf_score_sent(pairs, path, beta="harm"):
 	mf_scores_sent = []
 
 	for i, sent in enumerate(pairs[0]):
-		tmp1, tmp2 = make_tmp([[sent], [pairs[1][i]]], nl="\n", tmp_name="all_amrs")
+		tmp1, tmp2 = make_tmp([[sent], [pairs[1][i]]], nl="\n", prefix="all_amrs")
 
 		process = subprocess.Popen([path, tmp1, tmp2],
                          	stdout=subprocess.PIPE,
@@ -128,7 +128,7 @@ def compute_mf_score_amr(pairs_sents, pairs_amrs, path, beta="harm"):
 	all_amrs = pairs_amrs[1].extend(pairs_amrs[0])
 
 	for i, sent in enumerate(all_sents):
-		tmp1, tmp2 = make_tmp([[sent], [all_amrs[i]]], nl="\n", tmp_name="all_amrs")
+		tmp1, tmp2 = make_tmp([[sent], [all_amrs[i]]], nl="\n", prefix="all_amrs")
 
 		process = subprocess.Popen([path, tmp1, tmp2],
                          	stdout=subprocess.PIPE,
@@ -235,9 +235,9 @@ def compute_weisfelder_leman(pairs, path):
 
 if __name__ == "__main__":
 
-	metric_dict = {}
-	# with open("amr-devsuite/data/metric_scores_030322.json", "r") as j:
-		# metric_dict = json.load(j)
+	# metric_dict = {}
+	with open("amr-devsuite/data/metric_scores_030322.json", "r") as j:
+		metric_dict = json.load(j)
 
 	# metric_dict = read_json("metric_scores_030122.json")
 	id_file = read_json(sys.argv[1])
@@ -294,8 +294,8 @@ if __name__ == "__main__":
 	for i, idx in enumerate(all_ids):
 		metric_dict[idx] = {}
 		metric_dict[idx]["BLEU"] = bleus[i]
-		metric_dict[idx]["chrF++"] = chrfs[i]
-		metric_dict[idx]["Meteor"] = meteors[i]
+		# metric_dict[idx]["chrF++"] = chrfs[i]
+		# metric_dict[idx]["Meteor"] = meteors[i]
 		# metric_dict[idx]["MF Score"] = mf_scores[i]
 		# metric_dict[idx]["MF Score (M double)"] = mf_scores_md[i]
 		# metric_dict[idx]["MF Score (F double)"] = mf_scores_fd[i]
@@ -308,8 +308,8 @@ if __name__ == "__main__":
 		# metric_dict[idx]["S-BERT (roberta-base)"] = sberts_rb[i]
 		# metric_dict[idx]["S-BERT (bert-large)"] = sberts_bl[i]
 		# metric_dict[idx]["S-BERT (distilbert-base)"] = sberts_db[i]
-		metric_dict[idx]["BERT Score"] = bert_scores[i]
-		metric_dict[idx]["MoverScore"] = mover_scores_uni[i]
+		# metric_dict[idx]["BERT Score"] = bert_scores[i]
+		# metric_dict[idx]["MoverScore"] = mover_scores_uni[i]
 		# metric_dict[idx]["MoverScore bi"] = mover_scores_bi[i]
 		metric_dict[idx]["WLK"] = weisfelder_score[i]
 		metric_dict[idx]["WWLK"] = wasser_weisfelder_score[i]
