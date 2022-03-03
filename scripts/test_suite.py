@@ -2,6 +2,7 @@ import json, sys, time, os
 import pandas as pd
 from basics import *
 from standard import *
+from evaluation import *
 from correlation import *
 import amr_diff
 from style import HTML_AMR
@@ -79,42 +80,6 @@ def write_html(amrs, h_score, metrics, sick=True):
 	return string
 
 
-def compute_av_scores(id_list, metrics, tested, metric_dict):
-
-	compute, average = {}, {}
-	wanted = metrics + tested
-
-	for idx in id_list:
-		# if not [v for k, v in metric_dict[idx].items() if k in wanted and np.isnan(v)]:
-		for key, value in metric_dict[idx].items():
-			if key in metrics or key == "Ann. Score" or key in tested:
-				try:
-					compute[key].append(value)
-				except KeyError:
-					compute[key] = [value]
-
-	for metric, scores in compute.items():
-		average[metric] = np.mean(np.array([score for score in scores if not isinstance(score, str) and not np.isnan(score)]))
-
-	return compute, average
-
-
-def norm(value, ss):
-	if ss == "sick":
-		return (value - 1) / (5 - 1)
-	else:
-		return value / 5
-
-
-def balance_len(vals):
-	if len(vals[0]) < len(vals[1]):
-		vals[0].extend(["\n\n"]*(len(vals[1]) - len(vals[0])))
-	elif len(vals[0]) > len(vals[1]):
-		vals[1].extend(["\n\n"]*(len(vals[0]) - len(vals[1])))
-
-	return vals
-
-
 if __name__ == "__main__":
 
 	m_lines = read_file("../metrics.txt")
@@ -127,7 +92,7 @@ if __name__ == "__main__":
 
 	test_cases = read_json("../data/ids_test_cases.json")
 	vals = read_json("../data/content_test_cases.json")
-	def_metric_dict = read_json("../data/metric_scores.json")
+	def_metric_dict = read_json("../data/metric_scores_030322.json")
 
 	try:
 		if sys.argv[1] == '-m':
@@ -188,12 +153,13 @@ if __name__ == "__main__":
 				if ss == "sick":
 					s = "Relatedness"
 					rel = True
+					# make this function?
 					av_columns_sick.append(phenomenon)
 					for met in both:
 						if met in all_average_sick:
-							all_average_sick[met].append(round(float(average[met.strip()]), 3))
+							all_average_sick[met].append((round(float(average[met.strip()][0]), 3), round(float(average[met.strip()][1]), 2)))
 						else:
-							all_average_sick[met] = [round(float(average[met.strip()]), 3)]
+							all_average_sick[met] = [(round(float(average[met.strip()][0]), 3), round(float(average[met.strip()][1]), 2))]
 
 					unstack = matrix.unstack()
 					for k,v in unstack["Ann. Score"].items():
@@ -207,9 +173,9 @@ if __name__ == "__main__":
 					av_columns.append(phenomenon)
 					for met in both:
 						if met in all_average:
-							all_average[met].append(round(float(average[met.strip()]), 3))
+							all_average[met].append((round(float(average[met.strip()][0]), 3), round(float(average[met.strip()][1]), 2)))
 						else:
-							all_average[met] = [round(float(average[met.strip()]), 3)]
+							all_average[met] = [(round(float(average[met.strip()][0]), 3), round(float(average[met.strip()][1]), 2))]
 
 					unstack = matrix.unstack()
 					for k,v in unstack["Ann. Score"].items():
@@ -226,35 +192,36 @@ if __name__ == "__main__":
 				phen_file += '<table style="width:15%">'
 				for col in columns:
 					phen_file += '<tr><td>{}</td><td>{} ({})</td><tr>'.format(col[0], col[1], col[2])
-				phen_file += '</table>\n'
-				phen_file += "<br>"
-				phen_file += '<h2>Average Scores (Overall):</h2>'
-				phen_file += '<h3>Average Semantic {}: {} ({})</h3>'.format(s, round(float(average["Ann. Score"]), 3), round(float(norm(average["Ann. Score"], ss)), 3))
+				phen_file += '</table>\n<br><h2>Average Scores (Overall):</h2>'
+				phen_file += '<h3>Average Semantic {}: {} ({})</h3>'.format(s, round(float(average["Ann. Score"][0]), 3), round(float(norm(average["Ann. Score"][0], ss)), 3))
 				for met in your_wanted:
-					phen_file += '<h3>Tested Score ({}): {}</h3>'.format(met, round(float(average[met]), 3))
+					phen_file += '<h3>Tested Score ({}): {}</h3>'.format(met, round(float(average[met][0]), 3))
 				phen_file += '<table style="width:20%"  border="1">'
 				for metric in sorted(average.keys()):
 					if metric in wanted:
-						phen_file += '<tr><td>{}</td><td>{}</td><tr>'.format(metric, round(float(average[metric]), 3))
-				phen_file += '</table>\n'
-				phen_file += '<h2>Correlation Matrix (Overall):</h2>\n'
+						phen_file += '<tr><td>{}</td><td>{}</td><tr>'.format(metric, round(float(average[metric][0]), 3))
+				phen_file += '</table>\n<h2>Correlation Matrix (Overall):</h2>\n'
 				phen_file += matrix.to_html()
 				phen_file += '\n<br><hr>\n'
+				rank_list = []
 				for phen in sorted(sub_phens.keys()) :
 					if len(sub_phens.keys()) > 1:
 						phen_ids = [idx for idx in sub_phens[phen]]
 						all_used_ids[ss].extend(phen_ids)
 						corr_phen, av_phen = compute_av_scores(phen_ids, wanted, your_wanted, metric_dict)
 						matrix_phen = frame(corr_phen)
+						# ranking
+						ranking_dict = define_ranking(wanted + your_wanted, corr_phen):
+						rank_list.append(ranking_dict)
 						# create_table_subnums(test_cases, phenomenon, ss)
 						phen_file += '<h2>{}</h2>\n<h3>Average Scores:</h3>'.format(phen)
-						phen_file += '<h4>Average Semantic {}:   {} ({})</h4>'.format(s, round(float(av_phen["Ann. Score"]), 3), round(float(norm(av_phen["Ann. Score"], ss)), 3))
+						phen_file += '<h4>Average Semantic {}:   {} ({})</h4>'.format(s, round(float(av_phen["Ann. Score"][0]), 3), round(float(norm(av_phen["Ann. Score"][0], ss)), 3))
 						for met in your_wanted:
-							phen_file += '<h3>Tested Score ({}): {}</h3>'.format(met, round(float(av_phen[met]), 3))
+							phen_file += '<h3>Tested Score ({}): {}</h3>'.format(met, round(float(av_phen[met][0]), 3))
 						phen_file += '<table style="width:20%"  border="1">'
 						for metric in sorted(av_phen.keys()):
 							if metric in wanted:
-								phen_file += '<tr><td>{}</td><td>{}</td><tr>\n'.format(metric, round(float(av_phen[metric]), 3))
+								phen_file += '<tr><td>{}</td><td>{}</td><tr>\n'.format(metric, round(float(av_phen[metric][0]), 3))
 						phen_file += '</table>\n'
 						phen_file += '<h3>Correlation Matrix:</h3>'
 						phen_file += matrix_phen.to_html()
@@ -263,22 +230,7 @@ if __name__ == "__main__":
 						phen_file += '<h4>{}</h4>'.format(idx)
 						phen_file += write_html(vals[idx][2], vals[idx][0], {k:v for k,v in metric_dict[idx].items() if k in wanted or k in your_wanted}, rel)
 					phen_file += '<hr>\n'
-				# print("{} Data\n=========\n".format(ss.upper()))
-				# print("Semantic {} Statistics:\n--------------------------------".format(s))
-				# print("\nMean: {:>20}".format(str(round(compute_mean(total), 2))))
-				# print("Median: {:>18}".format(str(round(compute_median(total), 2))))
-				# print("Standard deviation: {:>6}".format(str(round(compute_stan_deviation(total), 2))))
-				# print("Standard error: {:>10}\n\n".format(str(round(compute_stan_error(total), 2))))
-				# print("Average Scores:\n---------------\n")
-				# print("Average Semantic {}: {} ({})\n".format(s, round(float(average["Ann. Score"]), 3), round(float(norm(average["Ann. Score"], ss)), 3)))
-				# for metric in sorted(average.keys()):
-					# if metric in wanted:
-						# print("{0:15} --   {1}".format(metric, round(float(average[metric]), 3)))
-				# print(create_table_scores(sorted(average.keys()), [average[metric] for metric in sorted(average.keys())]))
-				# print("\n\nCorrelation Matrix:\n-------------------\n")
-				# print(tabulate(matrix, headers='keys', tablefmt='grid'))
-				# print(matrix.to_string())
-				# print("\n")
+
 			phen_file  += '</body>\n</html>\n'
 			with open("../Results_HTML/{}.html".format(phenomenon), 'w+', encoding='utf8') as f:
 				f.write(phen_file)
@@ -287,7 +239,7 @@ if __name__ == "__main__":
 			phen_file = ["{}\n     {}\n{}\n\n".format("".join(php), phenomenon, "".join(php))]
 			for ss, sub_phens in test_cases[phenomenon].items():
 				all_ids = [idx for k,v in sub_phens.items() for idx in v]
-				correlation, average = compute_av_scores(all_ids, wanted, your_wanted, metric_dict)
+				correlation, average = compute_av_scores(all_ids, wanted, your_wanted, metric_dict, ss)
 				matrix = frame(correlation)
 				both = wanted + your_wanted
 				if ss == "sick":
@@ -296,9 +248,9 @@ if __name__ == "__main__":
 					av_columns_sick.append(phenomenon)
 					for met in both:
 						if met in all_average_sick:
-							all_average_sick[met].append(round(float(average[met.strip()]), 3))
+							all_average_sick[met].append((round(float(average[met.strip()][0]), 3), round(float(average[met.strip()][1]), 2)))
 						else:
-							all_average_sick[met] = [round(float(average[met.strip()]), 3)]
+							all_average_sick[met] = [(round(float(average[met.strip()][0]), 3), round(float(average[met.strip()][1]), 2))]
 
 					unstack = matrix.unstack()
 					for k,v in unstack["Ann. Score"].items():
@@ -312,9 +264,9 @@ if __name__ == "__main__":
 					av_columns.append(phenomenon)
 					for met in both:
 						if met in all_average:
-							all_average[met].append(round(float(average[met.strip()]), 3))
+							all_average[met].append((round(float(average[met.strip()][0]), 3), round(float(average[met.strip()][1]), 2)))
 						else:
-							all_average[met] = [round(float(average[met.strip()]), 3)]
+							all_average[met] = [(round(float(average[met.strip()][0]), 3), round(float(average[met.strip()][1]), 2))]
 
 					unstack = matrix.unstack()
 					for k,v in unstack["Ann. Score"].items():
@@ -333,45 +285,33 @@ if __name__ == "__main__":
 				phen_file.append("\nStandard deviation: {:>6} ({})".format(str(round(compute_stan_deviation(total), 2)), str(round(compute_stan_deviation(normed), 2))))
 				phen_file.append("\nStandard error: {:>10} ({})\n\n\n".format(str(round(compute_stan_error(total), 2)), str(round(compute_stan_error(normed), 2))))
 				phen_file.append("Average Scores (Overall):\n-------------------------\n")
-				phen_file.append("Average Semantic {}: {} ({})\n\n".format(s, round(float(average["Ann. Score"]), 3), round(float(norm(average["Ann. Score"], ss)), 3)))
+				phen_file.append("Average Semantic {}: {} ({})\n\n".format(s, round(float(average["Ann. Score"][0]), 3), round(float(norm(average["Ann. Score"][0], ss)), 3)))
 				for met in your_wanted:
-					phen_file.append("Tested Score ({}): {}\n\n".format(met, round(float(average[met.strip()]), 3)))
+					phen_file.append("Tested Score ({}): {}\n\n".format(met, round(float(average[met.strip()][0]), 3)))
 				# phen_file.extend(["{0:15} ---  {1}\n".format(metric, round(float(average[metric]), 3)) for metric in sorted(average.keys()) if metric in wanted])
-				phen_file.extend([create_table_scores(sorted(average.keys()), [average[metric] for metric in sorted(average.keys())])])
+				phen_file.extend([create_table_scores(sorted(average.keys()), [average[metric][0] for metric in sorted(average.keys())])])
 				phen_file.append("\n\nCorrelation Matrix (Overall):\n-----------------------------\n")
 				phen_file.append(tabulate(matrix, headers='keys', tablefmt='grid'))
 				# phen_file.append(matrix.to_string())
 				phen_file.append("\n\n===================================================================================================================================\n\n")
-				# print("{} Data\n=========\n".format(ss.upper()))
-				# print("Semantic {} Statistics:\n--------------------------------".format(s))
-				# print("\nMean: {:>20}".format(str(round(compute_mean(total), 2))))
-				# print("Median: {:>18}".format(str(round(compute_median(total), 2))))
-				# print("Standard deviation: {:>6}".format(str(round(compute_stan_deviation(total), 2))))
-				# print("Standard error: {:>10}\n\n".format(str(round(compute_stan_error(total), 2))))
-				# print("Average Scores:\n---------------\n")
-				# print("Average Semantic {}: {} ({})\n".format(s, round(float(average["Ann. Score"]), 3), round(float(norm(average["Ann. Score"], ss)), 3)))
-				# for metric in sorted(average.keys()):
-					# if metric in wanted:
-						# print("{0:15} ---  {1}".format(metric, round(float(average[metric]), 3)))	
-				# print(create_table_scores(sorted(average.keys()), [average[metric] for metric in sorted(average.keys())]))			
-				# print("\n\nCorrelation Matrix:\n-------------------\n")
-				# print(tabulate(matrix, headers='keys', tablefmt='grid'))
-				# print(matrix.to_string())
-				# print("\n")
+				rank_list = []
 				for phen in sorted(sub_phens.keys()):
 					phen_ids = [idx for idx in sub_phens[phen]]
 					all_used_ids[ss].extend(phen_ids)
 					if len(sub_phens.keys()) > 1:
-						corr_phen, av_phen = compute_av_scores(phen_ids, wanted, your_wanted, metric_dict)
+						corr_phen, av_phen = compute_av_scores(phen_ids, wanted, your_wanted, metric_dict, ss)
 						matrix_phen = frame(corr_phen)
+						# ranking
+						ranking_dict = define_ranking(wanted + your_wanted, corr_phen):
+						rank_list.append(ranking_dict)
 						pp = ["-" for i in range(len(phen) + 6)]
 						phen_file.append("{}\n   {}\n{}\n\n".format("".join(pp), phen, "".join(pp)))
 						phen_file.append("Average Scores:\n---------------\n".format(phen))
-						phen_file.append("Average Semantic {}: {} ({})\n\n".format(s, round(float(av_phen["Ann. Score"]), 3), round(float(norm(av_phen["Ann. Score"], ss)), 3)))
+						phen_file.append("Average Semantic {}: {} ({})\n\n".format(s, round(float(av_phen["Ann. Score"][0]), 3), round(float(norm(av_phen["Ann. Score"][0], ss)), 3)))
 						for met in your_wanted:
-							phen_file.append("Tested Score ({}): {}\n\n".format(met, round(float(av_phen[met]), 3)))
+							phen_file.append("Tested Score ({}): {}\n\n".format(met, round(float(av_phen[met][0]), 3)))
 						# phen_file.extend(["{0:15} ---  {1}\n".format(metric, round(float(av_phen[metric]), 3)) for metric in sorted(av_phen.keys()) if metric in wanted])
-						phen_file.extend([create_table_scores(sorted(av_phen.keys()), [av_phen[metric] for metric in sorted(av_phen.keys())])])
+						phen_file.extend([create_table_scores(sorted(av_phen.keys()), [av_phen[metric][0] for metric in sorted(av_phen.keys())])])
 						phen_file.append("\n\nCorrelation Matrix:\n-------------------\n")
 						phen_file.append(tabulate(matrix_phen, headers='keys', tablefmt='grid'))
 						# phen_file.append(matrix_phen.to_string())
@@ -386,13 +326,13 @@ if __name__ == "__main__":
 					phen_file.append("\n\n------------------------------------------------------\n\n")
 				write_file("../Results/{}_results.txt".format(phenomenon), phen_file)
 
-	# print(create_table_average(av_columns_sick, all_average_sick))
-	# print(create_table_average(av_columns, all_average))
+	print(create_table_average(av_columns_sick, all_average_sick))
+	print(create_table_average(av_columns, all_average))
 
-	all_corr_sick, all_av_sick = compute_av_scores(all_used_ids["sick"], wanted, your_wanted, metric_dict)
+	all_corr_sick, all_av_sick = compute_av_scores(all_used_ids["sick"], wanted, your_wanted, metric_dict, "sick")
 	all_matrix_sick = frame(all_corr_sick)
 
-	all_corr_sts, all_av_sts = compute_av_scores(all_used_ids["sts"], wanted, your_wanted, metric_dict)
+	all_corr_sts, all_av_sts = compute_av_scores(all_used_ids["sts"], wanted, your_wanted, metric_dict, "sts")
 	all_matrix_sts = frame(all_corr_sts)	
 
 	print("-----------------\n     OVERALL\n-----------------\n\n")

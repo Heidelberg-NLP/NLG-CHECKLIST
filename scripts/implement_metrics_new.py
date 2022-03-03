@@ -80,7 +80,7 @@ def compute_smatch(pairs, path, s2=False):
 		try:
 			smatchs.append(float(score.split()[3].strip()))
 		except IndexError:
-			smatchs.append(score)
+			smatchs.append(float(score))
 
 	os.unlink(tmp1)
 	os.unlink(tmp2)
@@ -160,6 +160,22 @@ def compute_mover_score(pairs, ngram):
 
 	return mover_scores
 
+
+def compute_weisfelder_leman(pairs, path):
+
+	mf_scores = []
+
+	tmp1, tmp2 = make_tmp([["".join(sent) for sent in pairs[0]], ["".join(pairs[1][i]) for i, sent in enumerate(pairs[0])]], nl="\n")
+
+	wl_scores = subprocess.check_output([path, '-a', tmp1, '-b', tmp2], encoding="utf-8")
+
+	wls = [float(line.strip()) for line in wl_scores.split("\n")]
+	# print(meteor_score)
+	os.unlink(tmp1)
+	os.unlink(tmp2)
+
+	return wls
+
 # -----------------------------------------------------------------------------------------------------------
 
 
@@ -167,7 +183,10 @@ def compute_mover_score(pairs, ngram):
 if __name__ == "__main__":
 
 	# metric_dict = {}
-	metric_dict = read_json("metric_scores_030122.json")
+	with open("metric_scores_030322.json", "r") as j:
+		metric_dict = json.load(j)
+
+	# metric_dict = read_json("metric_scores_030122.json")
 	id_file = read_json(sys.argv[1])
 	val_file = read_json(sys.argv[2])
 	print('read jsons')
@@ -187,11 +206,6 @@ if __name__ == "__main__":
 				all_amrs[0].extend(amrs[0])
 				all_amrs[1].extend(amrs[1])
 				all_ids.extend(ids)
-				# s2matchs = compute_smatch(amrs, "amr-devsuite/metrics/smatch/s2match.py", s2=True)
-				# smatchs = compute_smatch(amrs, "amr-devsuite/metrics/smatch/smatch.py")
-				# for i, idx in enumerate(ids):
-					# metric_dict[idx]["S2match"] = s2matchs[i]
-					# metric_dict[idx]["Smatch"] = smatchs[i]
 	with open('outfile2.txt', 'w') as o:
 		o.write('sents, amrs and ids obtained, starting evaluation')
 	print('sents, amrs and ids obtained, starting evaluation')
@@ -220,8 +234,11 @@ if __name__ == "__main__":
 	with open('outfile2.txt', 'w') as o:
 		o.write('done with SBERTs and BLEUScore')
 
-	mover_scores_uni = compute_mover_score(all_sents, 1)
-	mover_scores_bi = compute_mover_score(all_sents, 2)
+	# mover_scores_uni = compute_mover_score(all_sents, 1)
+	# mover_scores_bi = compute_mover_score(all_sents, 2)
+
+	weisfelder_score = compute_weisfelder_leman(all_amrs, 'weisfeiler-leman-amr-metrics/src')
+
 
 	for i, idx in enumerate(all_ids):
 		# metric_dict[idx] = {}
@@ -240,8 +257,9 @@ if __name__ == "__main__":
 		# metric_dict[idx]["S-BERT (bert-large)"] = sberts_bl[i]
 		# metric_dict[idx]["S-BERT (distilbert-base)"] = sberts_db[i]
 		# metric_dict[idx]["BERT Score"] = bert_scores[i]
-		metric_dict[idx]["MoverScore uni"] = mover_scores_uni[i]
-		metric_dict[idx]["MoverScore bi"] = mover_scores_bi[i]
+		# metric_dict[idx]["MoverScore uni"] = mover_scores_uni[i]
+		# metric_dict[idx]["MoverScore bi"] = mover_scores_bi[i]
+		metric_dict[idx]["Weisfelder Leman Score"] = weisfelder_score[i]
 
-	convert_to_json(metric_dict, "metric_scores_ms.json")
+	convert_to_json(metric_dict, "metric_scores_wl.json")
 

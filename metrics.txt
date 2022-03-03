@@ -1,13 +1,9 @@
 BERT Score
 BLEU
-chrF++
+chrF++ Norm
 Meteor
-MF Score
 MF Score (Meaning)
-MF Score (Form)
-S-BERT (rl)
-S-BERT (rb)
-S-BERT (bl)
-S-BERT (db)
+MoverScore uni
+MoverScore bi
 S2match
 Smatch
