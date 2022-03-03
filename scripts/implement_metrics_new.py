@@ -3,7 +3,7 @@ from nltk.translate.bleu_score import sentence_bleu
 from nltk.translate.bleu_score import SmoothingFunction
 from datasets import load_metric
 from sentence_transformers import SentenceTransformer, util
-from moverscore_v2 import get_idf_dict, word_mover_score
+# from moverscore_v2 import get_idf_dict, word_mover_score
 from collections import defaultdict
 from correlation import *
 from basics import *
@@ -167,9 +167,9 @@ def compute_weisfelder_leman(pairs, path):
 
 	tmp1, tmp2 = make_tmp([["".join(sent) for sent in pairs[0]], ["".join(pairs[1][i]) for i, sent in enumerate(pairs[0])]], nl="\n")
 
-	wl_scores = subprocess.check_output([path, '-a', tmp1, '-b', tmp2], encoding="utf-8")
+	wl_scores = subprocess.check_output(['python3', path, '-a', tmp1, '-b', tmp2], encoding="utf-8")
 
-	wls = [float(line.strip()) for line in wl_scores.split("\n")]
+	wls = [float(line.strip()) * -1 for line in wl_scores.split("\n") if line.strip()]
 	# print(meteor_score)
 	os.unlink(tmp1)
 	os.unlink(tmp2)
@@ -183,7 +183,7 @@ def compute_weisfelder_leman(pairs, path):
 if __name__ == "__main__":
 
 	# metric_dict = {}
-	with open("metric_scores_030322.json", "r") as j:
+	with open("amr-devsuite/data/metric_scores_030322.json", "r") as j:
 		metric_dict = json.load(j)
 
 	# metric_dict = read_json("metric_scores_030122.json")
@@ -237,7 +237,7 @@ if __name__ == "__main__":
 	# mover_scores_uni = compute_mover_score(all_sents, 1)
 	# mover_scores_bi = compute_mover_score(all_sents, 2)
 
-	weisfelder_score = compute_weisfelder_leman(all_amrs, 'weisfeiler-leman-amr-metrics/src')
+	weisfelder_score = compute_weisfelder_leman(all_amrs, 'weisfeiler-leman-amr-metrics/src/main_wlk_wasser.py')
 
 
 	for i, idx in enumerate(all_ids):
