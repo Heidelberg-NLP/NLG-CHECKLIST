@@ -56,7 +56,7 @@ def create_table_scores(metrics, scores):
 
 
 def create_table_average(phens, av_scores, ss):
-	columns = ["Metric"] + phens
+	columns = phens
 	# id_dict = read_json(id_dict)
 	rows, row = [], []
 	for metric in sorted(av_scores.keys()):
@@ -121,8 +121,10 @@ def define_ranking(metrics, value_dict):
 
 	for metric in metrics:
 		count, score = 0, 0
+		# normalize this!
 		for i, value in enumerate(value_dict[metric]):
 			for j, val in enumerate(value_dict[metric]):
+				# if val_dict['Ann. Score'][i] == val_dict['Ann. Score'][j] and abs(value - val) < 0.05:
 				if val_dict['Ann. Score'][i] == val_dict['Ann. Score'][j] and value == val:
 					score += 1
 				elif val_dict['Ann. Score'][i] < val_dict['Ann. Score'][j] and value < val:
@@ -140,7 +142,7 @@ def create_ranking_table(phenomena, metrics, rank_list):
 
 	metrics.remove('Ann. Score')
 	df = pd.DataFrame()
-	df['Metrics'] = sorted(metrics)
+	df['Metrics'] = metrics
 	for i, phen in enumerate(phenomena):
 		# df[phen] = rank_list[i]
 		column = []
@@ -148,5 +150,6 @@ def create_ranking_table(phenomena, metrics, rank_list):
 			column.append(rank_list[i][metric])
 		#df[phen] = sorted(rank_list[i].items(), key=lambda x:x[1], reverse=True)
 		df[phen] = column
+
 
 	return tabulate(df, headers=phenomena, tablefmt='latex')
