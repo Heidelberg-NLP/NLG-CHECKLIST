@@ -22115,7 +22115,7 @@
       "# ::snt The biker is doing stunts.\n",
       "(xv0 / stunt-01\n",
       "      :ARG0 (xv2 / person\n",
-      "            :ARG0-of (xv2 / bike-01)))\n"
+      "            :ARG0-of (xv1 / bike-01)))\n"
     ]
   ],
   "D313sick": [
@@ -22135,7 +22135,7 @@
       "(xv0 / stand-01\n",
       "      :ARG1-of (xv4 / near-02\n",
       "           :ARG2 (xv2 / flag))\n",
-      "      :ARG1 (xv4 / man)\n",
+      "      :ARG1 (xv5 / man)\n",
       "      :ARG2 (xv1 / boat)\n",
       "      :location (xv3 / in-front-of\n",
       "           :op1 (xv6 / sunset)))\n"
