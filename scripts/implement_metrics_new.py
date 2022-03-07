@@ -348,5 +348,5 @@ if __name__ == "__main__":
 		# metric_dict[idx]["WLK"] = weisfelder_score[i]
 		# metric_dict[idx]["WWLK"] = wasser_weisfelder_score[i]
 
-	convert_to_json(metric_dict, "amr-devsuite/data/metric_scores_030722.json")
+	convert_to_json(metric_dict, "amr-devsuite/data/metric_scores_mf.json")
 
