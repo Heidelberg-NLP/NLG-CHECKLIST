@@ -58,7 +58,9 @@ def compute_meteor(pairs, path):
 def compute_smatch(pairs, path, s2=False):
 
 	first_inp = pairs[0]
+	print(len(first_inp))
 	sec_inp = pairs[1]
+	print(len(sec_inp))
 
 	smatchs = []
 
@@ -80,10 +82,11 @@ def compute_smatch(pairs, path, s2=False):
 	smatch_list = smatch_score.split('\n')
 
 	for score in smatch_list:
-		try:
-			smatchs.append(float(score.split()[3].strip()))
-		except IndexError:
-			smatchs.append(float(score))
+		if score:
+			try:
+				smatchs.append(float(score.split()[3].strip()))
+			except IndexError:
+				smatchs.append(float(score))
 
 	os.unlink(tmp1)
 	os.unlink(tmp2)
@@ -266,7 +269,7 @@ if __name__ == "__main__":
 	id_file = read_json(sys.argv[1])
 	val_file = read_json(sys.argv[2])
 
-	parse_file = read_json("amr-devsuite/data/pairs_amrs.json")
+	parse_file = read_json("amr-devsuite/data/parsed_amrs.json")
 	print('read jsons')
 	with open('outfile2.txt', 'w') as o:
 		o.write('read jsons')
