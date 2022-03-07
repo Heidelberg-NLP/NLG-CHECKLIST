@@ -30,8 +30,15 @@ def compute_stan_error(values):
 
 
 def norm_deviation(values, golds, ss):
-	dev_sum = sum([abs(values[i] - norm(gold, ss)) for i, gold in enumerate(golds)])
+	# dev_sum = sum([abs(values[i] - norm(gold, ss)) for i, gold in enumerate(golds)])
 
+	# return dev_sum / len(values)
+
+	values = (values - np.mean(values)) / np.std(values)
+	golds = [norm(gold, ss) for gold in golds]
+	golds = (golds - np.mean(golds)) / np.std(golds)
+	dev_sum = sum([abs(values[i] - gold) for i, gold in enumerate(golds)])
+	
 	return dev_sum / len(values)
 
 

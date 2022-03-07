@@ -7,4 +7,5 @@ MF Score (Meaning)
 MoverScore uni
 S2match
 Smatch
-Weisfelder Leman Score
+WLK
+WWLK

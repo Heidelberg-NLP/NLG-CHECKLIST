@@ -65,22 +65,24 @@ def compute_smatch(pairs, path, s2=False):
 			smatch_score = subprocess.check_output(["python3", path, "-f", tmp1, tmp2, "-cutoff", "0.9", "-diffsense", "0.95", "-vectors", "vectors/glove.6B.300d.txt", "--ms"]).decode('ascii')
 		except Exception as e:
 			print(e)
-			# print(sent)
+			print(sent)
 			smatch_score = "nan"
 	else:
 		try:
 			smatch_score = subprocess.check_output(["python3", path, "-f", tmp1, tmp2, "--ms"]).decode('ascii')
 		except Exception as e:
 			print(e)
-			# print(sent)
+			print(sent)
 			smatch_score = "nan"
 	smatch_list = smatch_score.split('\n')
 
 	for score in smatch_list:
-		try:
-			smatchs.append(float(score.split()[3].strip()))
-		except IndexError:
-			smatchs.append(float(score))
+		if score:
+			try:
+				print(score)
+				smatchs.append(float(score.split()[3].strip()))
+			except IndexError:
+				smatchs.append(float(score))
 
 	os.unlink(tmp1)
 	os.unlink(tmp2)
@@ -89,17 +91,24 @@ def compute_smatch(pairs, path, s2=False):
 	return smatchs
 
 
-def compute_mf_score_sent(pairs, path, beta="harm"):
+def compute_mf_score_sent(pairs, path, ids, beta="harm"):
 
 	mf_scores_sent = []
 
 	for i, sent in enumerate(pairs[0]):
-		tmp1, tmp2 = make_tmp([[sent], [pairs[1][i]]], nl="\n", prefix="all_amrs")
+		# tmp1, tmp2 = make_tmp([[sent], [pairs[1][i]]], nl="\n", prefix="all_amrs")
+		with open('MFscore/src/tmp/all_amrs{}.txt'.format(i), 'w') as tmp1:
+        		tmp1.write(sent+"\n")
+		with open('MFscore/src/tmp/all_amrs{}_2.txt'.format(i), 'w') as tmp2:
+			for line in [pairs[1][i]]:
+				tmp2.write(line+"\n")
 
-		process = subprocess.Popen([path, tmp1, tmp2],
-                         	stdout=subprocess.PIPE,
-                         	stderr=subprocess.STDOUT)
+		process = subprocess.Popen([path, 'MFscore/src/tmp/all_amrs{}.txt'.format(i), 'MFscore/src/tmp/all_amrs{}_2.txt'.format(i)], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 		returncode = process.wait()
+
+		os.remove('MFscore/src/tmp/all_amrs{}.txt'.format(i))
+		os.remove('MFscore/src/tmp/all_amrs{}_2.txt'.format(i))
+
 		with open("MFscore/evaluation-reports/report.txt", "r") as r:
 			lines = r.readlines()
 
@@ -120,20 +129,33 @@ def compute_mf_score_sent(pairs, path, beta="harm"):
 	return mf_scores_sent
 
 
-def compute_mf_score_amr(pairs_sents, pairs_amrs, path, beta="harm"):
+def compute_mf_score_amr(pairs_sents, pairs_amrs, path, ids, beta="harm"):
 
 	mf_scores_amr = []
 
-	all_sents = pairs_sents[0].extend(pairs_sents[1])
-	all_amrs = pairs_amrs[1].extend(pairs_amrs[0])
+	all_sents = pairs_sents[0]
+	all_sents.extend(pairs_sents[1])
+	all_amrs = pairs_amrs[1]
+	all_amrs.extend(pairs_amrs[0])
 
 	for i, sent in enumerate(all_sents):
-		tmp1, tmp2 = make_tmp([[sent], [all_amrs[i]]], nl="\n", prefix="all_amrs")
+		with open('MFscore/src/tmp/all_amrs{}.txt'.format(i), 'w') as tmp1:
+			tmp1.write(sent+"\n")
+		with open('MFscore/src/tmp/all_amrs{}_2.txt'.format(i), 'w') as tmp2:
+			# print(all_amrs[i])
+			for line in all_amrs[i]:
+				tmp2.write(line+"\n")
 
-		process = subprocess.Popen([path, tmp1, tmp2],
-                         	stdout=subprocess.PIPE,
-                         	stderr=subprocess.STDOUT)
+		process = subprocess.Popen([path, 'MFscore/src/tmp/all_amrs{}.txt'.format(ids[i]), 'MFscore/src/tmp/all_amrs{}_2.txt'.format(ids[i])], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 		returncode = process.wait()
+
+		os.remove('MFscore/src/tmp/all_amrs{}.txt'.format(i))
+		os.remove('MFscore/src/tmp/all_amrs{}_2.txt'.format(i))
+
+		# process = subprocess.Popen([path, tmp1, tmp2],
+                         	# stdout=subprocess.PIPE,
+                         	# stderr=subprocess.STDOUT)
+		# returncode = process.wait()
 		with open("MFscore/evaluation-reports/report.txt", "r") as r:
 			lines = r.readlines()
 
@@ -263,28 +285,29 @@ if __name__ == "__main__":
 		o.write('sents, amrs and ids obtained, starting evaluation')
 	print('sents, amrs and ids obtained, starting evaluation')
 	bleus = compute_bleu(all_sents)
-	chrfs = compute_chrf(all_sents, "amr-devsuite/metrics/chrF++.py")
-	meteors = compute_meteor(all_sents, "meteor-1.5/meteor-1.5.jar")
+	# chrfs = compute_chrf(all_sents, "amr-devsuite/metrics/chrF++.py")
+	# meteors = compute_meteor(all_sents, "meteor-1.5/meteor-1.5.jar")
 	with open('outfile2.txt', 'w') as o:
 		o.write('done with text overlapping metrics')
-	mf_scores_sent_mean = compute_mf_score_sent(all_sents, "MFscore/mfscore_for_genSent_vs_refSent.sh", beta="mean")
-	mf_scores_amr_mean = compute_mf_score_amr(all_sents, all_amrs, "MFscore/mfscore_for_genSent_vs_refAMR.sh", beta="mean")
+	# mf_scores_sent_mean = compute_mf_score_sent(all_sents, "MFscore/mfscore_for_genSent_vs_refSent.sh", all_ids, beta="mean")
+	# mf_scores_amr_mean = compute_mf_score_amr(all_sents, all_amrs, "MFscore/mfscore_for_genSent_vs_refAMR.sh", all_ids, beta="mean")
+	# mf_scores_sent_mean = compute_mf_score_sent(all_sents, "MFscore/mfscore_for_genSent_vs_refSent.sh", all_ids, beta="mean")
 	with open('outfile2.txt', 'w') as o:
 		o.write('done with MF score')
 	s2matchs = compute_smatch(all_amrs, "amr-devsuite/metrics/s2match.py", s2=True)
 	smatchs = compute_smatch(all_amrs, "amr-devsuite/metrics/smatch.py")
 	with open('outfile2.txt', 'w') as o:
 		o.write('done with Smatch and S2match')
-	#sberts_rl = compute_sbert(all_sents, "stsb-roberta-large")
-	#sberts_rb = compute_sbert(all_sents, "stsb-roberta-base-v2")
-	#sberts_bl = compute_sbert(all_sents, "stsb-bert-large")
-	#sberts_db = compute_sbert(all_sents, "stsb-distilbert-base")
-	bert_scores = compute_bert_score(all_sents)["f1"]
+	# sberts_rl = compute_sbert(all_sents, "stsb-roberta-large")
+	# sberts_rb = compute_sbert(all_sents, "stsb-roberta-base-v2")
+	# sberts_bl = compute_sbert(all_sents, "stsb-bert-large")
+	# sberts_db = compute_sbert(all_sents, "stsb-distilbert-base")
+	# bert_scores = compute_bert_score(all_sents)["f1"]
 	print('metrics computed')
 	with open('outfile2.txt', 'w') as o:
 		o.write('done with SBERTs and BLEUScore')
 
-	mover_scores_uni = compute_mover_score(all_sents, 1)
+	# mover_scores_uni = compute_mover_score(all_sents, 1)
 	# mover_scores_bi = compute_mover_score(all_sents, 2)
 
 	wasser_weisfelder_score = compute_wasserstein_weisfelder_leman(all_amrs, 'weisfeiler-leman-amr-metrics/src/main_wlk_wasser.py')
@@ -299,8 +322,8 @@ if __name__ == "__main__":
 		# metric_dict[idx]["MF Score"] = mf_scores[i]
 		# metric_dict[idx]["MF Score (M double)"] = mf_scores_md[i]
 		# metric_dict[idx]["MF Score (F double)"] = mf_scores_fd[i]
-		metric_dict[idx]["MF Score Sent"] = mf_scores_sent_mean[i]
-		metric_dict[idx]["MF Score AMR"] = mf_scores_amr_mean[i]
+		# metric_dict[idx]["MF Score Sent"] = mf_scores_sent_mean[i]
+		# metric_dict[idx]["MF Score AMR"] = mf_scores_amr_mean[i]
 		# metric_dict[idx]["MF Score (Form)"] = mf_scores_form[i]
 		metric_dict[idx]["S2match"] = s2matchs[i]
 		metric_dict[idx]["Smatch"] = smatchs[i]

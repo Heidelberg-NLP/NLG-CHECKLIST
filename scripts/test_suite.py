@@ -92,7 +92,7 @@ if __name__ == "__main__":
 
 	test_cases = read_json("../data/ids_test_cases.json")
 	vals = read_json("../data/content_test_cases.json")
-	def_metric_dict = read_json("../data/metric_scores_030322.json")
+	def_metric_dict = read_json("../data/metric_scores_030722.json")
 
 	try:
 		if sys.argv[1] == '-m':
@@ -350,10 +350,10 @@ if __name__ == "__main__":
 	print("SICK Data Set\n=============\n")
 	print("Correlation Matrix:\n-------------------")
 	print(tabulate(all_matrix_sick, headers='keys', tablefmt='grid'))
-	# si = all_matrix_sick.unstack()
-	# for k,v in si["Ann. Score"].items():
-		# corr_hj_sick[k].append(v)
-	# print(create_cor_table(corr_hj_sick, av_columns_sick + ["Overall"]))
+	si = all_matrix_sick.unstack()
+	for k,v in si["Ann. Score"].items():
+		corr_hj_sick[k].append(v)
+	print(create_cor_table(corr_hj_sick, av_columns_sick + ["Overall"]))
 	for met in your_wanted:
 		so = si[met].sort_values(kind="quicksort", ascending=False)
 		print("\n\nOverall Correlation with Tested Score ({}):\n".format(met))
@@ -361,10 +361,10 @@ if __name__ == "__main__":
 	print("\n\nSTS Data Set\n============\n")
 	print("Correlation Matrix:\n-------------------")
 	print(tabulate(all_matrix_sts, headers='keys', tablefmt='grid'))
-	# st = all_matrix_sts.unstack()
-	# for k,v in st["Ann. Score"].items():
-		# corr_hj[k].append(v)
-	# print(create_cor_table(corr_hj, av_columns + ["Overall"]))
+	st = all_matrix_sts.unstack()
+	for k,v in st["Ann. Score"].items():
+		corr_hj[k].append(v)
+	print(create_cor_table(corr_hj, av_columns + ["Overall"]))
 	for met in your_wanted:
 		so = st[met].sort_values(kind="quicksort", ascending=False)
 		print("\n\nOverall Correlation with Tested Score ({}):\n".format(met))
