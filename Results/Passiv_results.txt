@@ -20,14 +20,6 @@ Average Scores (Overall):
 -------------------------
 Average Semantic Relatedness: 4.915 (0.979)
 
-Tested Score (Glove LCG): 0.948
-
-Tested Score (Glove LCG (Star)): 0.929
-
-Tested Score (LCG): 0.938
-
-Tested Score (LCG (Star)): 0.937
-
 \begin{tabular}{lr}
 \hline
  Metric             &   Average Score \\
@@ -35,10 +27,6 @@ Tested Score (LCG (Star)): 0.937
  Ann. Score         &        4.91538  \\
  BERT Score         &        0.93984  \\
  BLEU               &        0.101071 \\
- Glove LCG          &        0.948362 \\
- Glove LCG (Star)   &        0.92917  \\
- LCG                &        0.938344 \\
- LCG (Star)         &        0.936944 \\
  MF Score (Meaning) &        0.2271   \\
  Meteor             &        0.347462 \\
  MoverScore uni     &        0.415203 \\
@@ -52,39 +40,31 @@ Tested Score (LCG (Star)): 0.937
 
 Correlation Matrix (Overall):
 -----------------------------
-+--------------------+--------------+--------------+---------+---------------+-------------+--------------------+---------+--------------+----------+----------------------+------------------+-----------+----------+---------+---------+
-|                    |   Ann. Score |   BERT Score |    BLEU |   chrF++ Norm |   Glove LCG |   Glove LCG (Star) |     LCG |   LCG (Star) |   Meteor |   MF Score (Meaning) |   MoverScore uni |   S2match |   Smatch |     WLK |    WWLK |
-+====================+==============+==============+=========+===============+=============+====================+=========+==============+==========+======================+==================+===========+==========+=========+=========+
-| Ann. Score         |        1     |       -0.104 |  -0.08  |        -0.122 |      -0.101 |             -0.083 |  -0.067 |       -0.038 |   -0.079 |                  nan |           -0.013 |     0.027 |    0.027 |   0.027 |   0.027 |
-+--------------------+--------------+--------------+---------+---------------+-------------+--------------------+---------+--------------+----------+----------------------+------------------+-----------+----------+---------+---------+
-| BERT Score         |       -0.104 |        1     |   0.554 |         0.565 |       0.211 |              0.194 |   0.1   |        0.153 |    0.225 |                  nan |            0.566 |    -0.181 |   -0.181 |  -0.181 |  -0.181 |
-+--------------------+--------------+--------------+---------+---------------+-------------+--------------------+---------+--------------+----------+----------------------+------------------+-----------+----------+---------+---------+
-| BLEU               |       -0.08  |        0.554 |   1     |         0.849 |       0.227 |              0.35  |  -0.003 |        0.12  |    0.469 |                  nan |            0.817 |    -0.166 |   -0.166 |  -0.166 |  -0.166 |
-+--------------------+--------------+--------------+---------+---------------+-------------+--------------------+---------+--------------+----------+----------------------+------------------+-----------+----------+---------+---------+
-| chrF++ Norm        |       -0.122 |        0.565 |   0.849 |         1     |       0.332 |              0.418 |   0.008 |        0.14  |    0.314 |                  nan |            0.823 |    -0.192 |   -0.192 |  -0.192 |  -0.192 |
-+--------------------+--------------+--------------+---------+---------------+-------------+--------------------+---------+--------------+----------+----------------------+------------------+-----------+----------+---------+---------+
-| Glove LCG          |       -0.101 |        0.211 |   0.227 |         0.332 |       1     |              0.947 |   0.086 |        0.072 |   -0.04  |                  nan |            0.394 |     0.126 |    0.126 |   0.126 |   0.126 |
-+--------------------+--------------+--------------+---------+---------------+-------------+--------------------+---------+--------------+----------+----------------------+------------------+-----------+----------+---------+---------+
-| Glove LCG (Star)   |       -0.083 |        0.194 |   0.35  |         0.418 |       0.947 |              1     |   0.057 |        0.076 |    0.066 |                  nan |            0.467 |     0.053 |    0.053 |   0.053 |   0.053 |
-+--------------------+--------------+--------------+---------+---------------+-------------+--------------------+---------+--------------+----------+----------------------+------------------+-----------+----------+---------+---------+
-| LCG                |       -0.067 |        0.1   |  -0.003 |         0.008 |       0.086 |              0.057 |   1     |        0.814 |    0.141 |                  nan |           -0.077 |     0.122 |    0.122 |   0.122 |   0.122 |
-+--------------------+--------------+--------------+---------+---------------+-------------+--------------------+---------+--------------+----------+----------------------+------------------+-----------+----------+---------+---------+
-| LCG (Star)         |       -0.038 |        0.153 |   0.12  |         0.14  |       0.072 |              0.076 |   0.814 |        1     |    0.211 |                  nan |            0.127 |    -0.141 |   -0.141 |  -0.141 |  -0.141 |
-+--------------------+--------------+--------------+---------+---------------+-------------+--------------------+---------+--------------+----------+----------------------+------------------+-----------+----------+---------+---------+
-| Meteor             |       -0.079 |        0.225 |   0.469 |         0.314 |      -0.04  |              0.066 |   0.141 |        0.211 |    1     |                  nan |            0.388 |    -0.098 |   -0.098 |  -0.098 |  -0.098 |
-+--------------------+--------------+--------------+---------+---------------+-------------+--------------------+---------+--------------+----------+----------------------+------------------+-----------+----------+---------+---------+
-| MF Score (Meaning) |      nan     |      nan     | nan     |       nan     |     nan     |            nan     | nan     |      nan     |  nan     |                  nan |          nan     |   nan     |  nan     | nan     | nan     |
-+--------------------+--------------+--------------+---------+---------------+-------------+--------------------+---------+--------------+----------+----------------------+------------------+-----------+----------+---------+---------+
-| MoverScore uni     |       -0.013 |        0.566 |   0.817 |         0.823 |       0.394 |              0.467 |  -0.077 |        0.127 |    0.388 |                  nan |            1     |    -0.213 |   -0.213 |  -0.213 |  -0.213 |
-+--------------------+--------------+--------------+---------+---------------+-------------+--------------------+---------+--------------+----------+----------------------+------------------+-----------+----------+---------+---------+
-| S2match            |        0.027 |       -0.181 |  -0.166 |        -0.192 |       0.126 |              0.053 |   0.122 |       -0.141 |   -0.098 |                  nan |           -0.213 |     1     |    1     |   1     |   1     |
-+--------------------+--------------+--------------+---------+---------------+-------------+--------------------+---------+--------------+----------+----------------------+------------------+-----------+----------+---------+---------+
-| Smatch             |        0.027 |       -0.181 |  -0.166 |        -0.192 |       0.126 |              0.053 |   0.122 |       -0.141 |   -0.098 |                  nan |           -0.213 |     1     |    1     |   1     |   1     |
-+--------------------+--------------+--------------+---------+---------------+-------------+--------------------+---------+--------------+----------+----------------------+------------------+-----------+----------+---------+---------+
-| WLK                |        0.027 |       -0.181 |  -0.166 |        -0.192 |       0.126 |              0.053 |   0.122 |       -0.141 |   -0.098 |                  nan |           -0.213 |     1     |    1     |   1     |   1     |
-+--------------------+--------------+--------------+---------+---------------+-------------+--------------------+---------+--------------+----------+----------------------+------------------+-----------+----------+---------+---------+
-| WWLK               |        0.027 |       -0.181 |  -0.166 |        -0.192 |       0.126 |              0.053 |   0.122 |       -0.141 |   -0.098 |                  nan |           -0.213 |     1     |    1     |   1     |   1     |
-+--------------------+--------------+--------------+---------+---------------+-------------+--------------------+---------+--------------+----------+----------------------+------------------+-----------+----------+---------+---------+
++--------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+---------+---------+
+|                    |   Ann. Score |   BERT Score |    BLEU |   chrF++ Norm |   Meteor |   MF Score (Meaning) |   MoverScore uni |   S2match |   Smatch |     WLK |    WWLK |
++====================+==============+==============+=========+===============+==========+======================+==================+===========+==========+=========+=========+
+| Ann. Score         |        1     |       -0.104 |  -0.08  |        -0.122 |   -0.079 |                  nan |           -0.013 |     0.027 |    0.027 |   0.027 |   0.027 |
++--------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+---------+---------+
+| BERT Score         |       -0.104 |        1     |   0.554 |         0.565 |    0.225 |                  nan |            0.566 |    -0.181 |   -0.181 |  -0.181 |  -0.181 |
++--------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+---------+---------+
+| BLEU               |       -0.08  |        0.554 |   1     |         0.849 |    0.469 |                  nan |            0.817 |    -0.166 |   -0.166 |  -0.166 |  -0.166 |
++--------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+---------+---------+
+| chrF++ Norm        |       -0.122 |        0.565 |   0.849 |         1     |    0.314 |                  nan |            0.823 |    -0.192 |   -0.192 |  -0.192 |  -0.192 |
++--------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+---------+---------+
+| Meteor             |       -0.079 |        0.225 |   0.469 |         0.314 |    1     |                  nan |            0.388 |    -0.098 |   -0.098 |  -0.098 |  -0.098 |
++--------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+---------+---------+
+| MF Score (Meaning) |      nan     |      nan     | nan     |       nan     |  nan     |                  nan |          nan     |   nan     |  nan     | nan     | nan     |
++--------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+---------+---------+
+| MoverScore uni     |       -0.013 |        0.566 |   0.817 |         0.823 |    0.388 |                  nan |            1     |    -0.213 |   -0.213 |  -0.213 |  -0.213 |
++--------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+---------+---------+
+| S2match            |        0.027 |       -0.181 |  -0.166 |        -0.192 |   -0.098 |                  nan |           -0.213 |     1     |    1     |   1     |   1     |
++--------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+---------+---------+
+| Smatch             |        0.027 |       -0.181 |  -0.166 |        -0.192 |   -0.098 |                  nan |           -0.213 |     1     |    1     |   1     |   1     |
++--------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+---------+---------+
+| WLK                |        0.027 |       -0.181 |  -0.166 |        -0.192 |   -0.098 |                  nan |           -0.213 |     1     |    1     |   1     |   1     |
++--------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+---------+---------+
+| WWLK               |        0.027 |       -0.181 |  -0.166 |        -0.192 |   -0.098 |                  nan |           -0.213 |     1     |    1     |   1     |   1     |
++--------------------+--------------+--------------+---------+---------------+----------+----------------------+------------------+-----------+----------+---------+---------+
 
 ===================================================================================================================================
 
@@ -112,10 +92,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.93
 BLEU                           ---  0.037
-Glove LCG                      ---  0.882
-Glove LCG (Star)               ---  0.823
-LCG                            ---  0.961
-LCG (Star)                     ---  0.949
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.404
 MoverScore uni                 ---  0.291
@@ -145,10 +121,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.932
 BLEU                           ---  0.069
-Glove LCG                      ---  0.961
-Glove LCG (Star)               ---  0.984
-LCG                            ---  0.991
-LCG (Star)                     ---  0.986
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.413
 MoverScore uni                 ---  0.396
@@ -179,10 +151,6 @@ Semantic Relatedness Score:     4.8 (0.95)
 Ann. Score                     ---  4.8
 BERT Score                     ---  0.947
 BLEU                           ---  0.074
-Glove LCG                      ---  0.994
-Glove LCG (Star)               ---  0.996
-LCG                            ---  0.918
-LCG (Star)                     ---  0.921
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.363
 MoverScore uni                 ---  0.463
@@ -211,10 +179,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.927
 BLEU                           ---  0.042
-Glove LCG                      ---  0.928
-Glove LCG (Star)               ---  0.892
-LCG                            ---  0.947
-LCG (Star)                     ---  0.939
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.327
 MoverScore uni                 ---  0.442
@@ -244,10 +208,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.947
 BLEU                           ---  0.077
-Glove LCG                      ---  0.955
-Glove LCG (Star)               ---  0.94
-LCG                            ---  0.969
-LCG (Star)                     ---  0.966
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.38
 MoverScore uni                 ---  0.485
@@ -276,10 +236,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.877
 BLEU                           ---  0.031
-Glove LCG                      ---  0.901
-Glove LCG (Star)               ---  0.859
-LCG                            ---  0.967
-LCG (Star)                     ---  0.965
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.357
 MoverScore uni                 ---  0.345
@@ -309,10 +265,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.925
 BLEU                           ---  0.033
-Glove LCG                      ---  0.961
-Glove LCG (Star)               ---  0.962
-LCG                            ---  0.983
-LCG (Star)                     ---  0.976
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.382
 MoverScore uni                 ---  0.322
@@ -341,10 +293,6 @@ Semantic Relatedness Score:     4.7 (0.925)
 Ann. Score                     ---  4.7
 BERT Score                     ---  0.919
 BLEU                           ---  0.037
-Glove LCG                      ---  0.878
-Glove LCG (Star)               ---  0.814
-LCG                            ---  0.728
-LCG (Star)                     ---  0.717
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.299
 MoverScore uni                 ---  0.3
@@ -373,10 +321,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.939
 BLEU                           ---  0.042
-Glove LCG                      ---  0.875
-Glove LCG (Star)               ---  0.812
-LCG                            ---  0.952
-LCG (Star)                     ---  0.948
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.331
 MoverScore uni                 ---  0.355
@@ -406,10 +350,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.917
 BLEU                           ---  0.146
-Glove LCG                      ---  0.97
-Glove LCG (Star)               ---  0.979
-LCG                            ---  0.972
-LCG (Star)                     ---  0.996
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.276
 MoverScore uni                 ---  0.444
@@ -438,10 +378,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.948
 BLEU                           ---  0.037
-Glove LCG                      ---  0.981
-Glove LCG (Star)               ---  0.972
-LCG                            ---  0.912
-LCG (Star)                     ---  0.943
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.327
 MoverScore uni                 ---  0.402
@@ -470,10 +406,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.946
 BLEU                           ---  0.042
-Glove LCG                      ---  0.959
-Glove LCG (Star)               ---  0.939
-LCG                            ---  0.944
-LCG (Star)                     ---  0.938
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.404
 MoverScore uni                 ---  0.469
@@ -502,10 +434,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.931
 BLEU                           ---  0.042
-Glove LCG                      ---  0.97
-Glove LCG (Star)               ---  0.955
-LCG                            ---  0.975
-LCG (Star)                     ---  0.952
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.268
 MoverScore uni                 ---  0.372
@@ -534,10 +462,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.943
 BLEU                           ---  0.042
-Glove LCG                      ---  0.891
-Glove LCG (Star)               ---  0.837
-LCG                            ---  0.998
-LCG (Star)                     ---  0.98
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.404
 MoverScore uni                 ---  0.354
@@ -568,10 +492,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.961
 BLEU                           ---  0.148
-Glove LCG                      ---  nan
-Glove LCG (Star)               ---  nan
-LCG                            ---  0.941
-LCG (Star)                     ---  0.95
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.38
 MoverScore uni                 ---  0.595
@@ -602,10 +522,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.951
 BLEU                           ---  0.262
-Glove LCG                      ---  0.984
-Glove LCG (Star)               ---  0.979
-LCG                            ---  0.979
-LCG (Star)                     ---  0.978
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.403
 MoverScore uni                 ---  0.461
@@ -634,10 +550,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.933
 BLEU                           ---  0.039
-Glove LCG                      ---  0.94
-Glove LCG (Star)               ---  0.911
-LCG                            ---  0.988
-LCG (Star)                     ---  0.992
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.284
 MoverScore uni                 ---  0.328
@@ -666,10 +578,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.943
 BLEU                           ---  0.042
-Glove LCG                      ---  0.907
-Glove LCG (Star)               ---  0.861
-LCG                            ---  0.948
-LCG (Star)                     ---  0.952
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.268
 MoverScore uni                 ---  0.382
@@ -698,10 +606,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.939
 BLEU                           ---  0.042
-Glove LCG                      ---  0.909
-Glove LCG (Star)               ---  0.863
-LCG                            ---  0.946
-LCG (Star)                     ---  0.953
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.327
 MoverScore uni                 ---  0.362
@@ -730,10 +634,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.95
 BLEU                           ---  0.042
-Glove LCG                      ---  0.962
-Glove LCG (Star)               ---  0.943
-LCG                            ---  0.994
-LCG (Star)                     ---  0.986
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.327
 MoverScore uni                 ---  0.392
@@ -762,10 +662,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.928
 BLEU                           ---  0.037
-Glove LCG                      ---  0.989
-Glove LCG (Star)               ---  0.983
-LCG                            ---  0.992
-LCG (Star)                     ---  0.983
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.268
 MoverScore uni                 ---  0.435
@@ -794,10 +690,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.937
 BLEU                           ---  0.037
-Glove LCG                      ---  0.974
-Glove LCG (Star)               ---  0.961
-LCG                            ---  0.998
-LCG (Star)                     ---  0.967
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.268
 MoverScore uni                 ---  0.357
@@ -826,10 +718,6 @@ Semantic Relatedness Score:     4.8 (0.95)
 Ann. Score                     ---  4.8
 BERT Score                     ---  0.95
 BLEU                           ---  0.042
-Glove LCG                      ---  0.904
-Glove LCG (Star)               ---  0.856
-LCG                            ---  0.997
-LCG (Star)                     ---  0.992
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.404
 MoverScore uni                 ---  0.376
@@ -859,10 +747,6 @@ Semantic Relatedness Score:     4.8 (0.95)
 Ann. Score                     ---  4.8
 BERT Score                     ---  0.95
 BLEU                           ---  0.25
-Glove LCG                      ---  0.995
-Glove LCG (Star)               ---  0.994
-LCG                            ---  0.994
-LCG (Star)                     ---  0.991
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.435
 MoverScore uni                 ---  0.436
@@ -892,10 +776,6 @@ Semantic Relatedness Score:     4.8 (0.95)
 Ann. Score                     ---  4.8
 BERT Score                     ---  0.953
 BLEU                           ---  0.272
-Glove LCG                      ---  0.99
-Glove LCG (Star)               ---  0.987
-LCG                            ---  0.975
-LCG (Star)                     ---  0.989
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.485
 MoverScore uni                 ---  0.551
@@ -925,10 +805,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.93
 BLEU                           ---  0.146
-Glove LCG                      ---  0.997
-Glove LCG (Star)               ---  0.999
-LCG                            ---  0.893
-LCG (Star)                     ---  0.905
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.311
 MoverScore uni                 ---  0.5
@@ -959,10 +835,6 @@ Semantic Relatedness Score:     4.8 (0.95)
 Ann. Score                     ---  4.8
 BERT Score                     ---  0.947
 BLEU                           ---  0.071
-Glove LCG                      ---  0.958
-Glove LCG (Star)               ---  0.966
-LCG                            ---  0.896
-LCG (Star)                     ---  0.968
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.363
 MoverScore uni                 ---  0.48
@@ -992,10 +864,6 @@ Semantic Relatedness Score:     4.5 (0.875)
 Ann. Score                     ---  4.5
 BERT Score                     ---  0.962
 BLEU                           ---  0.138
-Glove LCG                      ---  0.951
-Glove LCG (Star)               ---  0.935
-LCG                            ---  0.945
-LCG (Star)                     ---  0.934
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.328
 MoverScore uni                 ---  0.502
@@ -1024,10 +892,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.938
 BLEU                           ---  0.042
-Glove LCG                      ---  0.986
-Glove LCG (Star)               ---  0.979
-LCG                            ---  0.959
-LCG (Star)                     ---  0.933
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.313
 MoverScore uni                 ---  0.352
@@ -1061,10 +925,6 @@ Semantic Relatedness Score:     4.8 (0.95)
 Ann. Score                     ---  4.8
 BERT Score                     ---  0.95
 BLEU                           ---  0.236
-Glove LCG                      ---  0.991
-Glove LCG (Star)               ---  0.995
-LCG                            ---  0.935
-LCG (Star)                     ---  0.985
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.458
 MoverScore uni                 ---  0.55
@@ -1094,10 +954,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.951
 BLEU                           ---  0.077
-Glove LCG                      ---  0.915
-Glove LCG (Star)               ---  0.887
-LCG                            ---  0.895
-LCG (Star)                     ---  0.93
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.311
 MoverScore uni                 ---  0.485
@@ -1127,10 +983,6 @@ Semantic Relatedness Score:     4.8 (0.95)
 Ann. Score                     ---  4.8
 BERT Score                     ---  0.949
 BLEU                           ---  0.138
-Glove LCG                      ---  0.934
-Glove LCG (Star)               ---  0.912
-LCG                            ---  0.956
-LCG (Star)                     ---  0.992
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.328
 MoverScore uni                 ---  0.497
@@ -1159,10 +1011,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.944
 BLEU                           ---  0.037
-Glove LCG                      ---  0.97
-Glove LCG (Star)               ---  0.955
-LCG                            ---  0.701
-LCG (Star)                     ---  0.713
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.268
 MoverScore uni                 ---  0.317
@@ -1191,10 +1039,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.942
 BLEU                           ---  0.037
-Glove LCG                      ---  0.987
-Glove LCG (Star)               ---  0.98
-LCG                            ---  0.704
-LCG (Star)                     ---  0.728
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.268
 MoverScore uni                 ---  0.339
@@ -1223,10 +1067,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.905
 BLEU                           ---  0.031
-Glove LCG                      ---  0.927
-Glove LCG (Star)               ---  0.909
-LCG                            ---  0.993
-LCG (Star)                     ---  0.991
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.304
 MoverScore uni                 ---  0.306
@@ -1255,10 +1095,6 @@ Semantic Relatedness Score:     4.8 (0.95)
 Ann. Score                     ---  4.8
 BERT Score                     ---  0.954
 BLEU                           ---  0.042
-Glove LCG                      ---  0.907
-Glove LCG (Star)               ---  0.86
-LCG                            ---  0.972
-LCG (Star)                     ---  0.96
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.268
 MoverScore uni                 ---  0.366
@@ -1287,10 +1123,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.945
 BLEU                           ---  0.037
-Glove LCG                      ---  0.984
-Glove LCG (Star)               ---  0.976
-LCG                            ---  0.982
-LCG (Star)                     ---  0.987
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.182
 MoverScore uni                 ---  0.305
@@ -1319,10 +1151,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.902
 BLEU                           ---  0.031
-Glove LCG                      ---  0.942
-Glove LCG (Star)               ---  0.901
-LCG                            ---  0.97
-LCG (Star)                     ---  0.956
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.357
 MoverScore uni                 ---  0.318
@@ -1352,10 +1180,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.963
 BLEU                           ---  0.148
-Glove LCG                      ---  0.98
-Glove LCG (Star)               ---  0.973
-LCG                            ---  0.995
-LCG (Star)                     ---  0.989
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.38
 MoverScore uni                 ---  0.598
@@ -1384,10 +1208,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.914
 BLEU                           ---  0.037
-Glove LCG                      ---  0.908
-Glove LCG (Star)               ---  0.859
-LCG                            ---  0.888
-LCG (Star)                     ---  0.888
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.299
 MoverScore uni                 ---  0.365
@@ -1416,10 +1236,6 @@ Semantic Relatedness Score:     4.8 (0.95)
 Ann. Score                     ---  4.8
 BERT Score                     ---  0.945
 BLEU                           ---  0.039
-Glove LCG                      ---  0.97
-Glove LCG (Star)               ---  0.955
-LCG                            ---  0.984
-LCG (Star)                     ---  0.98
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.225
 MoverScore uni                 ---  0.329
@@ -1448,10 +1264,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.942
 BLEU                           ---  0.042
-Glove LCG                      ---  0.992
-Glove LCG (Star)               ---  0.987
-LCG                            ---  0.935
-LCG (Star)                     ---  0.935
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.268
 MoverScore uni                 ---  0.45
@@ -1480,10 +1292,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.917
 BLEU                           ---  0.037
-Glove LCG                      ---  0.86
-Glove LCG (Star)               ---  0.805
-LCG                            ---  0.92
-LCG (Star)                     ---  0.896
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.299
 MoverScore uni                 ---  0.227
@@ -1512,10 +1320,6 @@ Semantic Relatedness Score:     4.8 (0.95)
 Ann. Score                     ---  4.8
 BERT Score                     ---  0.94
 BLEU                           ---  0.028
-Glove LCG                      ---  0.986
-Glove LCG (Star)               ---  0.966
-LCG                            ---  0.935
-LCG (Star)                     ---  0.912
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.339
 MoverScore uni                 ---  0.239
@@ -1544,10 +1348,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.945
 BLEU                           ---  0.042
-Glove LCG                      ---  0.813
-Glove LCG (Star)               ---  0.719
-LCG                            ---  0.981
-LCG (Star)                     ---  0.967
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.404
 MoverScore uni                 ---  0.347
@@ -1576,10 +1376,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.944
 BLEU                           ---  0.037
-Glove LCG                      ---  0.993
-Glove LCG (Star)               ---  0.99
-LCG                            ---  0.959
-LCG (Star)                     ---  0.972
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.327
 MoverScore uni                 ---  0.408
@@ -1609,10 +1405,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.951
 BLEU                           ---  0.165
-Glove LCG                      ---  0.961
-Glove LCG (Star)               ---  0.948
-LCG                            ---  0.961
-LCG (Star)                     ---  0.974
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.468
 MoverScore uni                 ---  0.563
@@ -1643,10 +1435,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.938
 BLEU                           ---  0.282
-Glove LCG                      ---  0.932
-Glove LCG (Star)               ---  0.909
-LCG                            ---  0.959
-LCG (Star)                     ---  0.971
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.361
 MoverScore uni                 ---  0.404
@@ -1675,10 +1463,6 @@ Semantic Relatedness Score:     4.8 (0.95)
 Ann. Score                     ---  4.8
 BERT Score                     ---  0.933
 BLEU                           ---  0.042
-Glove LCG                      ---  0.882
-Glove LCG (Star)               ---  0.823
-LCG                            ---  0.964
-LCG (Star)                     ---  0.954
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.331
 MoverScore uni                 ---  0.339
@@ -1709,10 +1493,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.91
 BLEU                           ---  0.138
-Glove LCG                      ---  0.943
-Glove LCG (Star)               ---  0.935
-LCG                            ---  0.937
-LCG (Star)                     ---  0.923
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.413
 MoverScore uni                 ---  0.421
@@ -1745,10 +1525,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.971
 BLEU                           ---  0.409
-Glove LCG                      ---  0.889
-Glove LCG (Star)               ---  0.866
-LCG                            ---  0.953
-LCG (Star)                     ---  0.99
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.393
 MoverScore uni                 ---  0.637
@@ -1777,10 +1553,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.902
 BLEU                           ---  0.037
-Glove LCG                      ---  0.977
-Glove LCG (Star)               ---  0.983
-LCG                            ---  0.957
-LCG (Star)                     ---  0.966
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.382
 MoverScore uni                 ---  0.307
@@ -1809,10 +1581,6 @@ Semantic Relatedness Score:     4.8 (0.95)
 Ann. Score                     ---  4.8
 BERT Score                     ---  0.943
 BLEU                           ---  0.042
-Glove LCG                      ---  0.907
-Glove LCG (Star)               ---  0.861
-LCG                            ---  0.948
-LCG (Star)                     ---  0.952
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.327
 MoverScore uni                 ---  0.399
@@ -1842,10 +1610,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.928
 BLEU                           ---  0.146
-Glove LCG                      ---  0.989
-Glove LCG (Star)               ---  0.99
-LCG                            ---  0.719
-LCG (Star)                     ---  0.753
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.311
 MoverScore uni                 ---  0.511
@@ -1875,10 +1639,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.932
 BLEU                           ---  0.037
-Glove LCG                      ---  0.941
-Glove LCG (Star)               ---  0.951
-LCG                            ---  0.957
-LCG (Star)                     ---  0.937
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.327
 MoverScore uni                 ---  0.375
@@ -1907,10 +1667,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.95
 BLEU                           ---  0.042
-Glove LCG                      ---  0.988
-Glove LCG (Star)               ---  0.982
-LCG                            ---  0.927
-LCG (Star)                     ---  0.923
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.268
 MoverScore uni                 ---  0.472
@@ -1939,10 +1695,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.946
 BLEU                           ---  0.042
-Glove LCG                      ---  0.987
-Glove LCG (Star)               ---  0.98
-LCG                            ---  0.985
-LCG (Star)                     ---  0.984
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.268
 MoverScore uni                 ---  0.356
@@ -1971,10 +1723,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.937
 BLEU                           ---  0.042
-Glove LCG                      ---  0.966
-Glove LCG (Star)               ---  0.949
-LCG                            ---  0.95
-LCG (Star)                     ---  0.937
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.327
 MoverScore uni                 ---  0.394
@@ -2003,10 +1751,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.944
 BLEU                           ---  0.042
-Glove LCG                      ---  0.887
-Glove LCG (Star)               ---  0.83
-LCG                            ---  0.854
-LCG (Star)                     ---  0.871
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.331
 MoverScore uni                 ---  0.355
@@ -2036,10 +1780,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.937
 BLEU                           ---  0.074
-Glove LCG                      ---  0.975
-Glove LCG (Star)               ---  0.966
-LCG                            ---  0.752
-LCG (Star)                     ---  0.784
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.367
 MoverScore uni                 ---  0.459
@@ -2070,10 +1810,6 @@ Semantic Relatedness Score:     4.8 (0.95)
 Ann. Score                     ---  4.8
 BERT Score                     ---  0.95
 BLEU                           ---  0.138
-Glove LCG                      ---  0.985
-Glove LCG (Star)               ---  0.98
-LCG                            ---  0.954
-LCG (Star)                     ---  0.915
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.38
 MoverScore uni                 ---  0.454
@@ -2104,10 +1840,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.934
 BLEU                           ---  0.042
-Glove LCG                      ---  0.99
-Glove LCG (Star)               ---  0.972
-LCG                            ---  0.989
-LCG (Star)                     ---  0.996
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.327
 MoverScore uni                 ---  0.456
@@ -2136,10 +1868,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.951
 BLEU                           ---  0.042
-Glove LCG                      ---  0.973
-Glove LCG (Star)               ---  0.959
-LCG                            ---  0.97
-LCG (Star)                     ---  0.945
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.327
 MoverScore uni                 ---  0.236
@@ -2173,10 +1901,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.96
 BLEU                           ---  0.185
-Glove LCG                      ---  0.896
-Glove LCG (Star)               ---  0.87
-LCG                            ---  0.679
-LCG (Star)                     ---  0.642
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.417
 MoverScore uni                 ---  0.527
@@ -2205,10 +1929,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.943
 BLEU                           ---  0.037
-Glove LCG                      ---  0.974
-Glove LCG (Star)               ---  0.961
-LCG                            ---  0.945
-LCG (Star)                     ---  0.934
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.327
 MoverScore uni                 ---  0.372
@@ -2237,10 +1957,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.945
 BLEU                           ---  0.042
-Glove LCG                      ---  0.943
-Glove LCG (Star)               ---  0.914
-LCG                            ---  0.976
-LCG (Star)                     ---  0.979
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.268
 MoverScore uni                 ---  0.392
@@ -2269,10 +1985,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.912
 BLEU                           ---  0.031
-Glove LCG                      ---  0.915
-Glove LCG (Star)               ---  0.89
-LCG                            ---  0.923
-LCG (Star)                     ---  0.896
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.392
 MoverScore uni                 ---  0.305
@@ -2302,10 +2014,6 @@ Semantic Relatedness Score:     4.7 (0.925)
 Ann. Score                     ---  4.7
 BERT Score                     ---  0.925
 BLEU                           ---  0.138
-Glove LCG                      ---  0.98
-Glove LCG (Star)               ---  0.992
-LCG                            ---  0.953
-LCG (Star)                     ---  0.942
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.398
 MoverScore uni                 ---  0.411
@@ -2335,10 +2043,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.959
 BLEU                           ---  0.078
-Glove LCG                      ---  0.983
-Glove LCG (Star)               ---  0.978
-LCG                            ---  0.964
-LCG (Star)                     ---  0.956
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.27
 MoverScore uni                 ---  0.424
@@ -2368,10 +2072,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.937
 BLEU                           ---  0.037
-Glove LCG                      ---  0.919
-Glove LCG (Star)               ---  0.864
-LCG                            ---  0.99
-LCG (Star)                     ---  0.999
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.404
 MoverScore uni                 ---  0.36
@@ -2406,10 +2106,6 @@ Semantic Relatedness Score:     4.6 (0.9)
 Ann. Score                     ---  4.6
 BERT Score                     ---  0.96
 BLEU                           ---  0.347
-Glove LCG                      ---  0.989
-Glove LCG (Star)               ---  0.987
-LCG                            ---  0.989
-LCG (Star)                     ---  0.979
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.438
 MoverScore uni                 ---  0.615
@@ -2443,10 +2139,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.944
 BLEU                           ---  0.347
-Glove LCG                      ---  0.925
-Glove LCG (Star)               ---  0.972
-LCG                            ---  0.827
-LCG (Star)                     ---  0.798
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.377
 MoverScore uni                 ---  0.462
@@ -2475,10 +2167,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.939
 BLEU                           ---  0.042
-Glove LCG                      ---  0.846
-Glove LCG (Star)               ---  0.768
-LCG                            ---  0.97
-LCG (Star)                     ---  0.98
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.404
 MoverScore uni                 ---  0.368
@@ -2516,10 +2204,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.944
 BLEU                           ---  0.492
-Glove LCG                      ---  0.993
-Glove LCG (Star)               ---  0.996
-LCG                            ---  0.996
-LCG (Star)                     ---  0.984
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.493
 MoverScore uni                 ---  0.555
@@ -2562,10 +2246,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.954
 BLEU                           ---  0.5
-Glove LCG                      ---  0.981
-Glove LCG (Star)               ---  0.993
-LCG                            ---  0.971
-LCG (Star)                     ---  0.962
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.533
 MoverScore uni                 ---  0.589
@@ -2595,10 +2275,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.96
 BLEU                           ---  0.082
-Glove LCG                      ---  0.992
-Glove LCG (Star)               ---  0.989
-LCG                            ---  0.961
-LCG (Star)                     ---  0.919
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.363
 MoverScore uni                 ---  0.483
@@ -2633,10 +2309,6 @@ Semantic Relatedness Score:     5.0 (1.0)
 Ann. Score                     ---  5.0
 BERT Score                     ---  0.964
 BLEU                           ---  0.262
-Glove LCG                      ---  0.979
-Glove LCG (Star)               ---  0.974
-LCG                            ---  0.977
-LCG (Star)                     ---  0.996
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.416
 MoverScore uni                 ---  0.595
@@ -2666,10 +2338,6 @@ Semantic Relatedness Score:     4.9 (0.975)
 Ann. Score                     ---  4.9
 BERT Score                     ---  0.954
 BLEU                           ---  0.075
-Glove LCG                      ---  0.928
-Glove LCG (Star)               ---  0.904
-LCG                            ---  0.969
-LCG (Star)                     ---  0.914
 MF Score (Meaning)             ---  0.227
 Meteor                         ---  0.309
 MoverScore uni                 ---  0.392
