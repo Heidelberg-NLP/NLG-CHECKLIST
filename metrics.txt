@@ -3,7 +3,8 @@ BERT Score
 BLEU
 chrF++ Norm
 Meteor
-MF Score (Meaning)
+MF Score Sent
+MF Score AMR
 MoverScore uni
 S2match
 Smatch

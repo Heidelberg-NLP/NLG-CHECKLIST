@@ -62,7 +62,8 @@ def create_table_average(phens, av_scores, ss):
 	for metric in sorted(av_scores.keys()):
 		row.append(metric)
 		if metric == "Ann. Score":
-			row.extend(['{}'.format(norm(av[0], ss)) for av in av_scores[metric]])
+			# row.extend(['{}'.format(norm(av[0], ss)) for av in av_scores[metric]])
+			row.extend(['{}'.format(av[0], ss) for av in av_scores[metric]])
 		else:
 			row.extend(['{} ± {}'.format(av[0], av[1]) for av in av_scores[metric]])
 		rows.append(row)
@@ -114,28 +115,37 @@ def create_table_comps(id_dict, val_dict, s_value):
 
 def define_ranking(metrics, value_dict):
 
-	score_dict = {}
-	val_dict = value_dict.copy()
-	value_dict.pop('Ann. Score', None)
-	metrics.remove('Ann. Score')
+    score_dict = {}
+    val_dict = value_dict.copy()
+    value_dict.pop('Ann. Score', None)
+    metrics.remove('Ann. Score')
 
-	for metric in metrics:
-		count, score = 0, 0
-		# normalize this!
-		for i, value in enumerate(value_dict[metric]):
-			for j, val in enumerate(value_dict[metric]):
-				# if val_dict['Ann. Score'][i] == val_dict['Ann. Score'][j] and abs(value - val) < 0.05:
-				if val_dict['Ann. Score'][i] == val_dict['Ann. Score'][j] and value == val:
-					score += 1
-				elif val_dict['Ann. Score'][i] < val_dict['Ann. Score'][j] and value < val:
-					score += 1
-				elif val_dict['Ann. Score'][i] > val_dict['Ann. Score'][j] and value > val:
-					score += 1
-				count += 1
+    for metric in metrics:
+        count, score = 0, 0
+        threshold = None
+        deltas = []
 
-		score_dict[metric] = round(score / count, 3)
+        for i, value in enumerate(value_dict[metric]):
+            for j, val in enumerate(value_dict[metric]):
+                # if val_dict['Ann. Score'][i] == val_dict['Ann. Score'][j] and abs(value - val) < 0.05:
+                deltas.append(abs(value - val))
+        
+        threshold = np.percentile(deltas, 5)    
 
-	return score_dict
+        for i, value in enumerate(value_dict[metric]):
+            for j, val in enumerate(value_dict[metric]):
+                # if val_dict['Ann. Score'][i] == val_dict['Ann. Score'][j] and abs(value - val) < 0.05:
+                if val_dict['Ann. Score'][i] == val_dict['Ann. Score'][j] and abs(value - val) <= threshold:
+                    score += 1
+                elif val_dict['Ann. Score'][i] < val_dict['Ann. Score'][j] and value < val and abs(value-val) > threshold:
+                    score += 1
+                elif val_dict['Ann. Score'][i] > val_dict['Ann. Score'][j] and value > val and abs(value-val) > threshold:
+                    score += 1
+                count += 1
+
+        score_dict[metric] = round(score / count, 3)
+
+    return score_dict
 
 
 def create_ranking_table(phenomena, metrics, rank_list):

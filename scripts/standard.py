@@ -40,9 +40,9 @@ def norm_deviation(values, golds, ss):
 	return dev_sum / len(values)
 
 
-def compute_av_scores(id_list, metrics, tested, metric_dict, stand_dict, ss):
+def compute_av_scores(id_list, metrics, tested, metric_dict, ss):
 
-	compute, compute_stand, average = {}, {}, {}
+	compute, average = {}, {}
 	wanted = metrics + tested
 
 	for idx in id_list:
@@ -51,13 +51,11 @@ def compute_av_scores(id_list, metrics, tested, metric_dict, stand_dict, ss):
 			if key in metrics or key == "Ann. Score" or key in tested:
 				try:
 					compute[key].append(value)
-					compute_stand[key].append(stand_dict[idx][key])
 				except KeyError:
 					compute[key] = [value]
-					compute_stand[key] = [stand_dict[idx][key]]
 
 	for metric, scores in compute.items():
-		average[metric] = (np.mean(np.array([score for score in scores if not isinstance(score, str) and not np.isnan(score)])), norm_deviation(compute_stand[metric], [score for score in compute_stand["Ann. Score"] if not isinstance(score, str) and not np.isnan(score)], ss))
+		average[metric] = (np.mean(np.array([score for score in scores if not isinstance(score, str) and not np.isnan(score)])), norm_deviation(scores, [score for score in compute["Ann. Score"] if not isinstance(score, str) and not np.isnan(score)], ss))
 
 	return compute, average
 

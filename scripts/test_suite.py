@@ -7,6 +7,7 @@ from evaluation import *
 from correlation import *
 import amr_diff
 from style import HTML_AMR
+from collections import defaultdict
 
 
 def print_testcase(sents, amrs, h_score, metrics, expl, sick=True):
@@ -93,7 +94,9 @@ if __name__ == "__main__":
 
 	test_cases = read_json("../data/ids_test_cases.json")
 	vals = read_json("../data/content_test_cases.json")
-	def_metric_dict = read_json("../data/metric_scores_030722.json")
+	def_metric_dict = read_json("../data/metric_scores_final.json")
+
+	both = wanted + your_wanted
 
 	try:
 		if sys.argv[1] == '-m':
@@ -121,26 +124,34 @@ if __name__ == "__main__":
 		for k,v in your_scores.items():
 			for met in v:
 				metric_dict[k][met] = your_scores[k][met]
+	
+	metric_f = defaultdict(list)
+	ks = []
+	for k in list(sorted(metric_dict)):
+		ks.append(k)
+		for met in metric_dict[k]:
+			if met in both:
+				metric_f[met].append(metric_dict[k][met])
 
-	stand_dict, compute = {}, {}
-	for idx in metric_dict.keys():
-		for key, value in metric_dict[idx].items():
-			try:
-				compute[key].append(value)
-			except KeyError:
-				compute[key] = [value]
-	for k, v in compute.items():
-		if k == 'Ann. Score':
-			if idx.endswith('sick'):
-				v = [norm(score, 'sick') for score in v]
-			else:
-				v = [norm(score, 'sts') for score in v]
-		compute[k] = (v - np.mean(v)) / np.std(v)
+	stdize = lambda x: (np.array(x) - np.mean(x)) / np.std(x)
+	minmax = lambda x: (np.array(x) - np.min(x)) / (np.max(x) - np.min(x))
+	for met in metric_f:
+		if met == "Ann. Score":
+			print(metric_f[met])
+		try:
+			scores_stdized = stdize(metric_f[met])
+		except TypeError:
+			print(met)
+			print(metric_f[met])
+		scores_stdized_mi_ma = stdize(metric_f[met])
 
-	for i, idx in enumerate(metric_dict.keys()):
-		stand_dict[idx] = {}
-		for k, v in compute.items():
-			stand_dict[idx][k] = v[i]
+		# if met == "Ann. Score":
+			# print(scores_stdized)
+			# print(scores_stdized_mi_ma)
+			# print(scores_stdized == scores_stdized_mi_ma)
+		#asd
+		for i in range(len(metric_f[met])):
+			metric_dict[ks[i]][met] = scores_stdized[i]
 
 
 	print("\n------------------------------------------\nOVERVIEW\n------------------------------------------\n\n")
@@ -169,9 +180,8 @@ if __name__ == "__main__":
 				for ss, sub_phens in test_cases[phenomenon].items():
 					phen_file += '<h2>{} Data Set</h2>\n'.format(ss.upper())
 					all_ids = [idx for k,v in sub_phens.items() for idx in v]
-					correlation, average = compute_av_scores(all_ids, wanted, your_wanted, metric_dict, stand_dict, ss)
-					matrix = frame(correlation)		
-					both = wanted + your_wanted	
+					correlation, average = compute_av_scores(all_ids, wanted, your_wanted, metric_dict, ss)
+					matrix = frame(correlation)
 					if ss == "sick":
 						s = "Relatedness"
 						rel = True
@@ -229,7 +239,7 @@ if __name__ == "__main__":
 						if len(sub_phens.keys()) > 1:
 							phen_ids = [idx for idx in sub_phens[phen]]
 							all_used_ids[ss].extend(phen_ids)
-							corr_phen, av_phen = compute_av_scores(phen_ids, wanted, your_wanted, metric_dict, stand_dict, ss)
+							corr_phen, av_phen = compute_av_scores(phen_ids, wanted, your_wanted, metric_dict, ss)
 							matrix_phen = frame(corr_phen)
 							phen_file += '<h2>{}</h2>\n<h3>Average Scores:</h3>'.format(phen)
 							phen_file += '<h4>Average Semantic {}:   {} ({})</h4>'.format(s, round(float(av_phen["Ann. Score"][0]), 3), round(float(norm(av_phen["Ann. Score"][0], ss)), 3))
@@ -253,10 +263,10 @@ if __name__ == "__main__":
 					f.write(phen_file)
 			else:
 				php = ["-" for i in range(len(phenomenon) + 10)]
-				phen_file = ["{}\n     {}\n{}\n\n".format("".join(php), phenomenon, "".join(php))]
+				phen_file = ["{}\n	 {}\n{}\n\n".format("".join(php), phenomenon, "".join(php))]
 				for ss, sub_phens in test_cases[phenomenon].items():
 					all_ids = [idx for k,v in sub_phens.items() for idx in v]
-					correlation, average = compute_av_scores(all_ids, wanted, your_wanted, metric_dict, stand_dict, ss)
+					correlation, average = compute_av_scores(all_ids, wanted, your_wanted, metric_dict, ss)
 					matrix = frame(correlation)
 					both = wanted + your_wanted
 					if ss == "sick":
@@ -317,7 +327,7 @@ if __name__ == "__main__":
 						phen_ids = [idx for idx in sub_phens[phen]]
 						all_used_ids[ss].extend(phen_ids)
 						if len(sub_phens.keys()) > 1:
-							corr_phen, av_phen = compute_av_scores(phen_ids, wanted, your_wanted, metric_dict, stand_dict, ss)
+							corr_phen, av_phen = compute_av_scores(phen_ids, wanted, your_wanted, metric_dict, ss)
 							matrix_phen = frame(corr_phen)
 							pp = ["-" for i in range(len(phen) + 6)]
 							phen_file.append("{}\n   {}\n{}\n\n".format("".join(pp), phen, "".join(pp)))
@@ -339,11 +349,15 @@ if __name__ == "__main__":
 					write_file("../Results/{}_results.txt".format(phenomenon), phen_file)
 			
 
-	all_corr_sick, all_av_sick = compute_av_scores(all_used_ids["sick"], wanted, your_wanted, metric_dict, stand_dict, "sick")
+	all_corr_sick, all_av_sick = compute_av_scores(all_used_ids["sick"], wanted, your_wanted, metric_dict, "sick")
 	all_matrix_sick = frame(all_corr_sick)
 
-	all_corr_sts, all_av_sts = compute_av_scores(all_used_ids["sts"], wanted, your_wanted, metric_dict, stand_dict, "sts")
+	all_corr_sts, all_av_sts = compute_av_scores(all_used_ids["sts"], wanted, your_wanted, metric_dict, "sts")
 	all_matrix_sts = frame(all_corr_sts)	
+
+	for met in both:
+		all_average_sick[met].append((round(float(all_av_sick[met.strip()][0]), 3), round(float(all_av_sick[met.strip()][1]), 2)))
+		all_average[met].append((round(float(all_av_sts[met.strip()][0]), 3), round(float(all_av_sts[met.strip()][1]), 2)))
 
 	ranking_dict = define_ranking(wanted + your_wanted, all_corr_sts)
 	rank_list.append(ranking_dict)
@@ -351,7 +365,12 @@ if __name__ == "__main__":
 	ranking_dict_sick = define_ranking(wanted + your_wanted, all_corr_sick)
 	rank_list_sick.append(ranking_dict_sick)
 
-	print("-----------------\n     OVERALL\n-----------------\n\n")
+	sorted(av_columns_sick)
+	av_columns_sick.append('Overall')
+	sorted(av_columns)
+	av_columns.append('Overall')
+
+	print("-----------------\n	 OVERALL\n-----------------\n\n")
 	print("SICK Data Set\n=============\n")
 	print("Ranking Table:\n-------------------")
 	print(create_ranking_table(av_columns_sick, wanted + your_wanted, rank_list_sick))
