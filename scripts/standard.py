@@ -31,17 +31,18 @@ def compute_stan_error(values):
 
 def norm_deviation(values, golds, ss):
 
-	values = (values - np.mean(values)) / np.std(values)
-	golds = [norm(gold, ss) for gold in golds]
-	golds = (golds - np.mean(golds)) / np.std(golds)
+	# print(golds)
+	# golds = [norm(gold, ss) for gold in golds]
+	# print(golds)
+	# print('-----------------------------------------')
 	dev_sum = sum([abs(values[i] - gold) for i, gold in enumerate(golds)])
 	
 	return dev_sum / len(values)
 
 
-def compute_av_scores(id_list, metrics, tested, metric_dict, ss):
+def compute_av_scores(id_list, metrics, tested, metric_dict, stand_dict, ss):
 
-	compute, average = {}, {}
+	compute, compute_stand, average = {}, {}, {}
 	wanted = metrics + tested
 
 	for idx in id_list:
@@ -50,11 +51,13 @@ def compute_av_scores(id_list, metrics, tested, metric_dict, ss):
 			if key in metrics or key == "Ann. Score" or key in tested:
 				try:
 					compute[key].append(value)
+					compute_stand[key].append(stand_dict[idx][key])
 				except KeyError:
 					compute[key] = [value]
+					compute_stand[key] = [stand_dict[idx][key]]
 
 	for metric, scores in compute.items():
-		average[metric] = (np.mean(np.array([score for score in scores if not isinstance(score, str) and not np.isnan(score)])), norm_deviation(scores, [score for score in compute["Ann. Score"] if not isinstance(score, str) and not np.isnan(score)], ss))
+		average[metric] = (np.mean(np.array([score for score in scores if not isinstance(score, str) and not np.isnan(score)])), norm_deviation(compute_stand[metric], [score for score in compute_stand["Ann. Score"] if not isinstance(score, str) and not np.isnan(score)], ss))
 
 	return compute, average
 
