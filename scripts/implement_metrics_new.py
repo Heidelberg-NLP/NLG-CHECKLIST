@@ -262,7 +262,7 @@ def compute_weisfelder_leman(pairs, path):
 if __name__ == "__main__":
 
 	# metric_dict = {}
-	with open("amr-devsuite/data/metric_scores_030722.json", "r") as j:
+	with open("amr-devsuite/data/metric_scores_final.json", "r") as j:
 		metric_dict = json.load(j)
 
 	# metric_dict = read_json("metric_scores_030122.json")
@@ -321,16 +321,20 @@ if __name__ == "__main__":
 	# mover_scores_bi = compute_mover_score(all_sents, 2)
 
 	# wasser_weisfelder_score = compute_wasserstein_weisfelder_leman(all_amrs, 'weisfeiler-leman-amr-metrics/src/main_wlk_wasser.py')
+	wasser_weisfelder_score_parse = compute_wasserstein_weisfelder_leman(all_parsed, 'weisfeiler-leman-amr-metrics/src/main_wlk_wasser.py')
+	wasser_weisfelder_score_parseg1 = compute_wasserstein_weisfelder_leman([all_parsed[0], all_amrs[1]], 'weisfeiler-leman-amr-metrics/src/main_wlk_wasser.py')
+	wasser_weisfelder_score_parseg2 = compute_wasserstein_weisfelder_leman([all_parsed[1], all_amrs[0]], 'weisfeiler-leman-amr-metrics/src/main_wlk_wasser.py')
+	wasser_weisfelder_score_parseg = [(wwlk + wasser_weisfelder_score_parseg2[i])/2 for i, wwlk in enumerate(wasser_weisfelder_score_parseg1)]
 	# weisfelder_score = compute_weisfelder_leman(all_amrs, 'weisfeiler-leman-amr-metrics/src/main_wlk.py')
 
 
 	for i, idx in enumerate(all_ids):
-		metric_dict[idx] = {}
+		# metric_dict[idx] = {}
 		# metric_dict[idx]["BLEU"] = bleus[i]
 		# metric_dict[idx]["chrF++"] = chrfs[i]
 		# metric_dict[idx]["Meteor"] = meteors[i]
-		metric_dict[idx]["MF Score Sent"] = mf_scores_sent[i]
-		metric_dict[idx]["MF Score AMR"] = mf_scores_amr[i]
+		# metric_dict[idx]["MF Score Sent"] = mf_scores_sent[i]
+		# metric_dict[idx]["MF Score AMR"] = mf_scores_amr[i]
 		# metric_dict[idx]["MF Score (M double)"] = mf_scores_md[i]
 		# metric_dict[idx]["MF Score (F double)"] = mf_scores_fd[i]
 		# metric_dict[idx]["MF Score Sent"] = mf_scores_sent_mean[i]
@@ -347,6 +351,8 @@ if __name__ == "__main__":
 		# metric_dict[idx]["MoverScore bi"] = mover_scores_bi[i]
 		# metric_dict[idx]["WLK"] = weisfelder_score[i]
 		# metric_dict[idx]["WWLK"] = wasser_weisfelder_score[i]
+		metric_dict[idx]["WWLK Sent"] = wasser_weisfelder_score_parse[i]
+		metric_dict[idx]["WWLK AMR"] = wasser_weisfelder_score_parseg[i]
 
-	convert_to_json(metric_dict, "amr-devsuite/data/metric_scores_mf.json")
+	convert_to_json(metric_dict, "amr-devsuite/data/metric_scores_wwlk.json")
 

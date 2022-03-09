@@ -94,7 +94,8 @@ if __name__ == "__main__":
 
 	test_cases = read_json("../data/ids_test_cases.json")
 	vals = read_json("../data/content_test_cases.json")
-	def_metric_dict = read_json("../data/metric_scores_final.json")
+	# def_metric_dict = read_json("../data/metric_scores_final.json")
+	def_metric_dict = read_json("../data/metric_scores_merged.json")
 
 	both = wanted + your_wanted
 
@@ -136,14 +137,14 @@ if __name__ == "__main__":
 	stdize = lambda x: (np.array(x) - np.mean(x)) / np.std(x)
 	minmax = lambda x: (np.array(x) - np.min(x)) / (np.max(x) - np.min(x))
 	for met in metric_f:
-		if met == "Ann. Score":
-			print(metric_f[met])
+		# if met == "Ann. Score":
+		# 	print(metric_f[met])
 		try:
-			scores_stdized = stdize(metric_f[met])
+			scores_stdized = minmax(stdize(metric_f[met]))
 		except TypeError:
 			print(met)
 			print(metric_f[met])
-		scores_stdized_mi_ma = stdize(metric_f[met])
+		# scores_stdized_mi_ma = stdize(metric_f[met])
 
 		# if met == "Ann. Score":
 			# print(scores_stdized)
@@ -381,7 +382,7 @@ if __name__ == "__main__":
 	si = all_matrix_sick.unstack()
 	for k,v in si["Ann. Score"].items():
 		corr_hj_sick[k].append(v)
-	print(create_cor_table(corr_hj_sick, av_columns_sick + ["Overall"]))
+	print(create_cor_table(corr_hj_sick, av_columns_sick))
 	for met in your_wanted:
 		so = si[met].sort_values(kind="quicksort", ascending=False)
 		print("\n\nOverall Correlation with Tested Score ({}):\n".format(met))
@@ -396,7 +397,7 @@ if __name__ == "__main__":
 	st = all_matrix_sts.unstack()
 	for k,v in st["Ann. Score"].items():
 		corr_hj[k].append(v)
-	print(create_cor_table(corr_hj, av_columns + ["Overall"]))
+	print(create_cor_table(corr_hj, av_columns))
 	for met in your_wanted:
 		so = st[met].sort_values(kind="quicksort", ascending=False)
 		print("\n\nOverall Correlation with Tested Score ({}):\n".format(met))

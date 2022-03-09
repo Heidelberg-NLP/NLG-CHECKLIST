@@ -1,5 +1,5 @@
 {
-  "Hyponym": {
+  "Hyponymy": {
     "sts": {
       "Noun": [
         "D20sts",
@@ -279,7 +279,7 @@
       ]
     }
   },
-  "Antonym": {
+  "Antonymy": {
     "sick": {
       "Adjective": [
         "D17sick",
@@ -450,9 +450,9 @@
       ]
     }
   },
-  "Passiv": {
+  "Passive": {
     "sick": {
-      "Passiv with Agens": [
+      "Passive with Agens": [
         "D94sick",
         "D132sick",
         "D176sick",

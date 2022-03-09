@@ -1,12 +1,12 @@
-Glove LCG
+GraCo (G)
 #GV LCG (BP: S)
 #GV LCG (BP: AMR)
-Glove LCG (Star)
+GraCo (G,r)
 #GV LCG (Star, BPS)
 #GV LCG (Star, BPAMR)
-LCG
+GraCo
 # LCG (BP: S)
 # LCG (BP: AMR)
-LCG (Star)
+GraCo (r)
 # LCG (Star, BPS)
 # LCG (Star, BPAMR)

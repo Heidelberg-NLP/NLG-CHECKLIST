@@ -1,12 +1,10 @@
 Ann. Score
 BERT Score
 BLEU
-chrF++ Norm
+chrF++
 Meteor
-MF Score Sent
-MF Score AMR
-MoverScore uni
 S2match
 Smatch
+MF Score
 WLK
 WWLK

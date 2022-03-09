@@ -53,24 +53,6 @@
     "BERT Score": 0.9412919282913208,
     "Ann. Score": 4.3
   },
-  "D384sick": {
-    "MF Score": 0.9523859410193285,
-    "MF Score (M double)": 0.9259334704935732,
-    "MF Score (F double)": 0.9803942714174791,
-    "MF Score (Meaning)": 0.9091,
-    "MF Score (Form)": 1.0,
-    "BLEU": 0.7387545516282132,
-    "chrF++": 86.388,
-    "Meteor": 0.5582555563704784,
-    "S-BERT (rl)": 0.8063288927078247,
-    "S-BERT (rb)": 0.7040607333183289,
-    "S-BERT (bl)": 0.6688663959503174,
-    "S-BERT (db)": 0.5669882893562317,
-    "S2match": 0.7742,
-    "Smatch": 0.7742,
-    "BERT Score": 0.9700417518615723,
-    "Ann. Score": 3.7
-  },
   "T1869sick": {
     "MF Score": 0.0,
     "MF Score (M double)": 0.0,
@@ -124,24 +106,6 @@
     "Smatch": 0.8125,
     "BERT Score": 0.9508076310157776,
     "Ann. Score": 4.4
-  },
-  "D314sick": {
-    "MF Score": 0.8000239995200095,
-    "MF Score (M double)": 0.714316326311955,
-    "MF Score (F double)": 0.9091033053343515,
-    "MF Score (Meaning)": 0.6667,
-    "MF Score (Form)": 1.0,
-    "BLEU": 0.5653524104700701,
-    "chrF++": 64.353,
-    "Meteor": 0.531391221448336,
-    "S-BERT (rl)": 0.8732371926307678,
-    "S-BERT (rb)": 0.8903321027755737,
-    "S-BERT (bl)": 0.877668023109436,
-    "S-BERT (db)": 0.9161562919616699,
-    "S2match": 0.8,
-    "Smatch": 0.8,
-    "BERT Score": 0.9624110460281372,
-    "Ann. Score": 4.1
   },
   "D110sick": {
     "MF Score": 0.0,
@@ -845,24 +809,6 @@
     "BERT Score": 0.9528464674949646,
     "Ann. Score": 4.3
   },
-  "T806sick": {
-    "MF Score": 0.7769828166085734,
-    "MF Score (M double)": 0.6852846633443358,
-    "MF Score (F double)": 0.8970123122105501,
-    "MF Score (Meaning)": 0.6353,
-    "MF Score (Form)": 1.0,
-    "BLEU": 0.12475235543331888,
-    "chrF++": 29.6244,
-    "Meteor": 0.15385621601538493,
-    "S-BERT (rl)": 0.46582677960395813,
-    "S-BERT (rb)": 0.7341532111167908,
-    "S-BERT (bl)": 0.49668240547180176,
-    "S-BERT (db)": 0.6015258431434631,
-    "S2match": 0.6824,
-    "Smatch": 0.6364,
-    "BERT Score": 0.9181948304176331,
-    "Ann. Score": 4.4
-  },
   "T855sick": {
     "MF Score": 0.0,
     "MF Score (M double)": 0.0,
@@ -897,24 +843,6 @@
     "S2match": 0.8175,
     "Smatch": 0.7143,
     "BERT Score": 0.8949512243270874,
-    "Ann. Score": 4.4
-  },
-  "T1380sick": {
-    "MF Score": 0.0,
-    "MF Score (M double)": 0.0,
-    "MF Score (F double)": 0.0,
-    "MF Score (Meaning)": 0.6757,
-    "MF Score (Form)": 0.0,
-    "BLEU": 0.12867201458772706,
-    "chrF++": 33.2109,
-    "Meteor": 0.373353068164618,
-    "S-BERT (rl)": 0.931771993637085,
-    "S-BERT (rb)": 0.8590894937515259,
-    "S-BERT (bl)": 0.8502568006515503,
-    "S-BERT (db)": 0.785964846611023,
-    "S2match": 0.6567,
-    "Smatch": 0.4444,
-    "BERT Score": 0.910515308380127,
     "Ann. Score": 4.4
   },
   "T1459sick": {
@@ -970,24 +898,6 @@
     "Smatch": 0.65,
     "BERT Score": 0.9601022005081177,
     "Ann. Score": 4.0
-  },
-  "T4133sick": {
-    "MF Score": 0.7500781201174926,
-    "MF Score (M double)": 0.6522684289471967,
-    "MF Score (F double)": 0.8823961886836842,
-    "MF Score (Meaning)": 0.6001,
-    "MF Score (Form)": 1.0,
-    "BLEU": 0.2029192573644279,
-    "chrF++": 50.0861,
-    "Meteor": 0.4457380746539356,
-    "S-BERT (rl)": 0.5179013013839722,
-    "S-BERT (rb)": 0.6445279121398926,
-    "S-BERT (bl)": 0.5945717692375183,
-    "S-BERT (db)": 0.6210375428199768,
-    "S2match": 0.5001,
-    "Smatch": 0.4,
-    "BERT Score": 0.9751117825508118,
-    "Ann. Score": 3.8
   },
   "D199sick": {
     "MF Score": 0.967741935483871,
@@ -1061,24 +971,6 @@
     "BERT Score": 0.9676538705825806,
     "Ann. Score": 5.0
   },
-  "T221sick": {
-    "MF Score": 0.9189189189189189,
-    "MF Score (M double)": 0.8762886597938145,
-    "MF Score (F double)": 0.9659090909090908,
-    "MF Score (Meaning)": 0.85,
-    "MF Score (Form)": 1.0,
-    "BLEU": 0.6930977286178778,
-    "chrF++": 84.3798,
-    "Meteor": 0.448533764613123,
-    "S-BERT (rl)": 0.8136551380157471,
-    "S-BERT (rb)": 0.9063262343406677,
-    "S-BERT (bl)": 0.844931960105896,
-    "S-BERT (db)": 0.8709374666213989,
-    "S2match": 0.7692,
-    "Smatch": 0.7692,
-    "BERT Score": 0.9764134883880615,
-    "Ann. Score": 4.5
-  },
   "T213sick": {
     "MF Score": 0.8502443230813452,
     "MF Score (M double)": 0.7801455849773185,
@@ -1115,24 +1007,6 @@
     "BERT Score": 0.9624772667884827,
     "Ann. Score": 4.9
   },
-  "T309sick": {
-    "MF Score": 0.9523859410193285,
-    "MF Score (M double)": 0.9259334704935732,
-    "MF Score (F double)": 0.9803942714174791,
-    "MF Score (Meaning)": 0.9091,
-    "MF Score (Form)": 1.0,
-    "BLEU": 0.5797215869131431,
-    "chrF++": 68.4454,
-    "Meteor": 0.5056441613799296,
-    "S-BERT (rl)": 0.956835150718689,
-    "S-BERT (rb)": 0.9766602516174316,
-    "S-BERT (bl)": 0.971609354019165,
-    "S-BERT (db)": 0.9666731357574463,
-    "S2match": 0.9091,
-    "Smatch": 0.9091,
-    "BERT Score": 0.967771589756012,
-    "Ann. Score": 4.9
-  },
   "T315sick": {
     "MF Score": 0.0,
     "MF Score (M double)": 0.0,
@@ -1150,24 +1024,6 @@
     "Smatch": 1.0,
     "BERT Score": 0.9662066102027893,
     "Ann. Score": 4.9
-  },
-  "T329sick": {
-    "MF Score": 0.0,
-    "MF Score (M double)": 0.0,
-    "MF Score (F double)": 0.0,
-    "MF Score (Meaning)": 0.7692,
-    "MF Score (Form)": 0.0,
-    "BLEU": 0.2596535889340338,
-    "chrF++": 74.8565,
-    "Meteor": 0.3730169857813222,
-    "S-BERT (rl)": 0.9772260785102844,
-    "S-BERT (rb)": 0.976179838180542,
-    "S-BERT (bl)": 0.9762709140777588,
-    "S-BERT (db)": 0.9751983284950256,
-    "S2match": 0.8148,
-    "Smatch": 0.8148,
-    "BERT Score": 0.9568590521812439,
-    "Ann. Score": 5.0
   },
   "T424sick": {
     "MF Score": 0.9197947610045908,
