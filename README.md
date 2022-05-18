@@ -29,8 +29,6 @@ If you wish to add new test cases that have not yet been evaluated by the metric
 pip install -r requirements_add.txt
 ```
 
-Furthermore, you will need to clone the [`MFScore`](https://github.com/Heidelberg-NLP/MFscore) repository and download [`Meteor Version 1.5`](https://www.cs.cmu.edu/~alavie/METEOR/). Please follow the instructions and install their requirements as well. Both repositories have to be located in the parent directory of the testsuite.
-
 Furthermore, you will need to download the 300 dimensional GloVe word embeddings in order to be able to test with S2match and MF score. They have to be located in a directory `vectors` in the parent directory as well.
 
 ## Running the Testsuite
@@ -41,9 +39,9 @@ If you just want to run the testsuite with the avaliable metrics, you can simply
 python3 test_suite.py -m
 ```
 
-You will get a short overview of the testsuite and the overall results on the console. The results of the testsuite for each phenomenon will be written into text files in the directory ```Results``` or, if you choose to output HTML files, ```Results_HTML```. You can do so by simply adding the flag ```-html``` at the end of your command.
+You will get a short overview of the testsuite and the overall results on the console. The results of the testsuite for each phenomenon will be written into text files in the directory ```Results```.
 
-In order to give you an impression of the testsuite's output, the directories ```Results``` and ```Results_HTML``` already contain the testsuite's results with the metrics listed below.
+In order to give you an impression of the testsuite's output, the directory ```Results``` already contains the testsuite's results with the metrics listed below.
 
 Note, that you can decide which metrics you want to include in your run of the testsuite by commenting the ones you don't want to consider with a '#'.
 
@@ -65,18 +63,14 @@ The data present in the testsuite was sampled from the following data sets:
 
 ## Metrics
 
-The follwing metrics are employed in the testsuite are the following:
+The metrics that are employed in the testsuite are the following:
 
 - BERT Score
 - BLEU 
 - chrF++
 - Meteor
-- MF Score
-- MF Score (&beta;=0)
-- MF Score (&beta;=&infin;)
-- S-BERT (roberta-large)
-- S-BERT (roberta-base)
-- S-BERT (bert-large)
-- S-BERT (distilbert-base)
 - S2match
 - Smatch
+- WLK
+- WWLK
+- GraCo (four variants)
