@@ -22186,7 +22186,7 @@
       "            :ARG1-of (xv2 / black-05))\n",
       "      :ARG1 (xv3 / ball\n",
       "            :mod (xv6 / hay))\n",
-      "      :ARG4 (xv4 / ball\n",
+      "      :d ARG4 (xv4 / ball\n",
       "            :mod (xv1 / another)\n",
       "            :mod (xv7 / hay)))\n"
     ]

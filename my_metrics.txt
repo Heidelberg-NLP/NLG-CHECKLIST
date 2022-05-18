@@ -1,7 +1,7 @@
 GraCo (G)
 #GV LCG (BP: S)
 #GV LCG (BP: AMR)
-GraCo (G,r)
+GraCo (r,G)
 #GV LCG (Star, BPS)
 #GV LCG (Star, BPAMR)
 GraCo

@@ -14,12 +14,10 @@ bertscore = load_metric("bertscore")
 
 
 def compute_bleu(pairs):
-	# pairs = [sents1, sents2]
 	bleus = []
 	smoothie = SmoothingFunction().method4
 	for i, sent in enumerate(pairs[0]):
 		bleus.append((float(sentence_bleu([sent.split()], pairs[1][i].split(), smoothing_function=smoothie)) + float(sentence_bleu([pairs[1][i].split()], sent.split(), smoothing_function=smoothie))) / 2)
-		# print('BLEU score -> {}'.format(sentence_bleu([sent.split()], pairs[1][i].split(), smoothing_function=smoothie)))
 
 	print("BLEU computed")
 
@@ -46,7 +44,6 @@ def compute_meteor(pairs, path):
 
 	meteor_score = subprocess.check_output(["java", "-Xmx2G", "-jar",  path, tmp1, tmp2, "-l", "en", "-norm"], encoding="utf-8")
 	meteors = [float(line.split()[3].strip()) for line in meteor_score.split("\n") if line.startswith("Segment")]
-	# print(meteor_score)
 	os.unlink(tmp1)
 	os.unlink(tmp2)
 
@@ -70,15 +67,12 @@ def compute_smatch(pairs, path, s2=False):
 			smatch_score = subprocess.check_output(["python3", path, "-f", tmp1, tmp2, "-cutoff", "0.9", "-diffsense", "0.95", "-vectors", "vectors/glove.6B.300d.txt", "--ms"]).decode('ascii')
 		except Exception as e:
 			print(e)
-			# print(sent)
 			smatch_score = "nan"
 	else:
 		try:
 			smatch_score = subprocess.check_output(["python3", path, "-f", tmp1, tmp2, "--ms"]).decode('ascii')
 		except Exception as e:
 			print(e)
-			# print(sent)
-			smatch_score = "nan"
 	smatch_list = smatch_score.split('\n')
 
 	for score in smatch_list:
@@ -91,117 +85,7 @@ def compute_smatch(pairs, path, s2=False):
 	os.unlink(tmp1)
 	os.unlink(tmp2)
 
-
 	return smatchs
-
-
-def compute_mf_score_sent(pairs, path, ids, beta="harm"):
-
-	mf_scores_sent = []
-
-	for i, sent in enumerate(pairs[0]):
-		# tmp1, tmp2 = make_tmp([[sent], [pairs[1][i]]], nl="\n", prefix="all_amrs")
-		with open('MFscore/src/tmp/all_amrs{}.txt'.format(i), 'w') as tmp1:
-        		tmp1.write(sent+"\n")
-		with open('MFscore/src/tmp/all_amrs{}_2.txt'.format(i), 'w') as tmp2:
-			for line in [pairs[1][i]]:
-				tmp2.write(line+"\n")
-
-		process = subprocess.Popen([path, 'MFscore/src/tmp/all_amrs{}.txt'.format(i), 'MFscore/src/tmp/all_amrs{}_2.txt'.format(i)], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-		returncode = process.wait()
-
-		os.remove('MFscore/src/tmp/all_amrs{}.txt'.format(i))
-		os.remove('MFscore/src/tmp/all_amrs{}_2.txt'.format(i))
-
-		with open("MFscore/evaluation-reports/report.txt", "r") as r:
-			lines = r.readlines()
-
-		mf_line = [line.split()[1] for line in lines if line.startswith("---->")]
-		if beta == "harm":
-			mf_scores_sent.append(float(mf_line[0]))
-		elif beta == "md":
-			mf_scores_sent.append(float(mf_line[1]))
-		elif beta == "fd":
-			mf_scores_sent.append(float(mf_line[2]))
-		elif beta == "mean":
-			mf_scores_sent.append(float(mf_line[3]))
-		elif beta == "form":
-			mf_scores_sent.append(float(mf_line[4]))
-
-	print("MF Score with beta={} computed".format(beta))
-
-	return mf_scores_sent
-
-
-def compute_mf_score_amr(pairs_sents, pairs_amrs, path, ids, beta="harm"):
-
-	mf_scores_amr = []
-
-	all_sents = pairs_sents[0]
-	all_sents.extend(pairs_sents[1])
-	all_amrs = pairs_amrs[1]
-	all_amrs.extend(pairs_amrs[0])
-
-	for i, sent in enumerate(all_sents):
-		with open('MFscore/src/tmp/all_amrs{}.txt'.format(i), 'w') as tmp1:
-			tmp1.write(sent+"\n")
-		with open('MFscore/src/tmp/all_amrs{}_2.txt'.format(i), 'w') as tmp2:
-			# print(all_amrs[i])
-			for line in all_amrs[i]:
-				tmp2.write(line+"\n")
-
-		process = subprocess.Popen([path, 'MFscore/src/tmp/all_amrs{}.txt'.format(ids[i]), 'MFscore/src/tmp/all_amrs{}_2.txt'.format(ids[i])], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-		returncode = process.wait()
-
-		os.remove('MFscore/src/tmp/all_amrs{}.txt'.format(i))
-		os.remove('MFscore/src/tmp/all_amrs{}_2.txt'.format(i))
-
-		# process = subprocess.Popen([path, tmp1, tmp2],
-                         	# stdout=subprocess.PIPE,
-                         	# stderr=subprocess.STDOUT)
-		# returncode = process.wait()
-		with open("MFscore/evaluation-reports/report.txt", "r") as r:
-			lines = r.readlines()
-
-		mf_line = [line.split()[1] for line in lines if line.startswith("---->")]
-		if beta == "harm":
-			mf_scores_amr.append(float(mf_line[0]))
-		elif beta == "md":
-			mf_scores_amr.append(float(mf_line[1]))
-		elif beta == "fd":
-			mf_scores_amr.append(float(mf_line[2]))
-		elif beta == "mean":
-			mf_scores_amr.append(float(mf_line[3]))
-		elif beta == "form":
-			mf_scores_amr.append(float(mf_line[4]))
-
-	print("MF Score with beta={} computed".format(beta))
-	half = len(mf_scores_amr) / 2
-	mf_scores_amr_normed = [(mf_score+mf_scores_amr[half:][j])/2 for j, mf_score in enumerate(mf_scores_amr[:half])]
-
-	return mf_scores_amr_normed
-
-
-def compute_sbert(pairs, model):
-
-	model = SentenceTransformer(model)
-	sberts = []
-
-	#Compute embedding for both lists
-	embeddings1 = model.encode(pairs[0], convert_to_tensor=True)
-	embeddings2 = model.encode(pairs[1], convert_to_tensor=True)
-
-	#Compute cosine-similarits
-	cosine_scores = util.pytorch_cos_sim(embeddings1, embeddings2)
-
-	#Output the pairs with their score
-	for i in range(len(pairs[0])):
-	    # print("{} \t\t {} \t\t Score: {:.4f}".format(pairs[0][i], pairs[1][i], cosine_scores[i][i]))
-	    sberts.append(cosine_scores[i][i].item())
-
-	print("SBERT computed")
-
-	return sberts
 
 
 def compute_bert_score(pairs):
@@ -214,16 +98,6 @@ def compute_bert_score(pairs):
 	return bertscores
 
 
-def compute_mover_score(pairs, ngram):
-
-	idf_dict_hyp = get_idf_dict(pairs[0]) # idf_dict_hyp = defaultdict(lambda: 1.)
-	idf_dict_ref = get_idf_dict(pairs[1]) # idf_dict_ref = defaultdict(lambda: 1.)
-
-	mover_scores = word_mover_score(pairs[1], pairs[0], idf_dict_ref, idf_dict_hyp, stop_words=[], n_gram=ngram, remove_subwords=False)
-
-	return mover_scores
-
-
 def compute_wasserstein_weisfelder_leman(pairs, path):
 
 	mf_scores = []
@@ -233,7 +107,6 @@ def compute_wasserstein_weisfelder_leman(pairs, path):
 	wl_scores = subprocess.check_output(['python3', path, '-a', tmp1, '-b', tmp2], encoding="utf-8")
 
 	wls = [float(line.strip()) + 1 for line in wl_scores.split("\n") if line.strip()]
-	# print(meteor_score)
 	os.unlink(tmp1)
 	os.unlink(tmp2)
 
@@ -249,7 +122,6 @@ def compute_weisfelder_leman(pairs, path):
 	wl_scores = subprocess.check_output(['python3', path, '-a', tmp1, '-b', tmp2], encoding="utf-8")
 
 	wls = [float(line.strip()) + 1 for line in wl_scores.split("\n") if line.strip()]
-	# print(meteor_score)
 	os.unlink(tmp1)
 	os.unlink(tmp2)
 
@@ -333,22 +205,9 @@ if __name__ == "__main__":
 		# metric_dict[idx]["BLEU"] = bleus[i]
 		# metric_dict[idx]["chrF++"] = chrfs[i]
 		# metric_dict[idx]["Meteor"] = meteors[i]
-		# metric_dict[idx]["MF Score Sent"] = mf_scores_sent[i]
-		# metric_dict[idx]["MF Score AMR"] = mf_scores_amr[i]
-		# metric_dict[idx]["MF Score (M double)"] = mf_scores_md[i]
-		# metric_dict[idx]["MF Score (F double)"] = mf_scores_fd[i]
-		# metric_dict[idx]["MF Score Sent"] = mf_scores_sent_mean[i]
-		# metric_dict[idx]["MF Score AMR"] = mf_scores_amr_mean[i]
-		# metric_dict[idx]["MF Score (Form)"] = mf_scores_form[i]
 		# metric_dict[idx]["S2match"] = s2matchs[i]
 		# metric_dict[idx]["Smatch"] = smatchs[i]
-		# metric_dict[idx]["S-BERT (roberta-large)"] = sberts_rl[i]
-		# metric_dict[idx]["S-BERT (roberta-base)"] = sberts_rb[i]
-		# metric_dict[idx]["S-BERT (bert-large)"] = sberts_bl[i]
-		# metric_dict[idx]["S-BERT (distilbert-base)"] = sberts_db[i]
 		# metric_dict[idx]["BERT Score"] = bert_scores[i]
-		# metric_dict[idx]["MoverScore"] = mover_scores_uni[i]
-		# metric_dict[idx]["MoverScore bi"] = mover_scores_bi[i]
 		# metric_dict[idx]["WLK"] = weisfelder_score[i]
 		# metric_dict[idx]["WWLK"] = wasser_weisfelder_score[i]
 		metric_dict[idx]["WWLK Sent"] = wasser_weisfelder_score_parse[i]

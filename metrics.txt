@@ -5,6 +5,5 @@ chrF++
 Meteor
 S2match
 Smatch
-MF Score
 WLK
 WWLK

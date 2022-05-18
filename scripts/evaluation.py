@@ -1,7 +1,8 @@
 import math, sys, os
 import numpy as np
 import pandas as pd 
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
+import matplotlib.lines as ls
 from tabulate import tabulate
 from basics import *
 from standard import *
@@ -95,6 +96,11 @@ def create_cor_table(corr_dict, cols):
 		# rows.append(row)
 		# row = []
 
+	print(df.columns)
+	print(df)
+
+	# df = df[['Metric', 'Article', 'Passive', 'Partial Synonymy', 'Hyponymy', 'Co-Hyponymy', 'Antonymy', 'Negation', 'Subordinate Clauses', 'Semantic Roles', 'Omission', 'Overall']]
+	print(df)
 	plot_correlation(df)
 	
 	return tabulate(df, headers=cols, tablefmt="grid")
@@ -188,7 +194,11 @@ def plot_correlation(corr_matrix):
 
 	fig=plt.figure()
 	ax=fig.add_subplot(111)
-
+	# ax.set_color_cycle([cm(1.*i/14) for i in range(14)])
+	colors = ['black', '#1f77b4', '#ff7f0e', '#d62728', 'gold', 'gold', 'limegreen', 'limegreen', '#8c564b', '#9467bd', '#9467bd', '#17becf', '#17becf']
+	markers = ['', '', '', '', '', 'o', '', 'v', '', '', 's', '', 'P']
+	print(colors)
+	ax.set_prop_cycle('color', colors)
 	df = pd.DataFrame()
 	mets = [phen_dict[met] if met in phen_dict else met for met in list(corr_matrix.columns)[1:]]
 	df['Metric'] = mets
@@ -196,8 +206,9 @@ def plot_correlation(corr_matrix):
 		col = list(corr_matrix.loc[i])[1:]
 		df[metric] = col
 	df = df[df['Metric'] != 'Aspect']
-	for x in df.columns[1:]:
-		ax.plot(range(len(df['Metric'])),df[x], label=x)
+	# markers = ls.Line2D.markers.keys()
+	for x, m in zip(df.columns[1:], markers):
+		ax.plot(range(len(df['Metric'])), df[x], marker=m, label=x)
 		ax.set_xticks(range(len(df['Metric'])))
 		ax.set_xticklabels(df['Metric'])
 	# Shrink current axis by 20%

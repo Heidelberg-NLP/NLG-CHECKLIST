@@ -58,27 +58,8 @@ def compute_glove_lcg(pairs, vectors, al_path, bp=False, bp_amr=False, filtered=
 				conn_dict1, conn1 = compute_connectivity(vecs1, aligned_token1[i])
 				conn_dict2, conn2 = compute_connectivity(vecs2, aligned_token2[i])
 
-			# print(sent)
-			# print(conn_dict1)
-			# print("\nconnectivity: {}".format(conn1))
-			# print("------------------------")
-			# print(pairs[1][i])
-			# print(conn_dict2)
-			# print("\nconnectivity: {}".format(conn2))
-			# print("\n\n")
 			conn_scores.append(1 - math.sqrt((conn1 - conn2)**2))
 			conn_dicts.append([conn_dict1, conn_dict2])
-
-	if bp:
-		res = [brevity_penalty(sents[0][i].split(), sents[1][i].split())*conn if isinstance(conn, float) else conn for i, conn in enumerate(conn_scores)]
-		print(res)
-		return res
-
-	if bp_amr:
-		print(conn_dicts)
-		res = [brevity_penalty_amr(aligned_token1[i], aligned_token2[i])*conn if isinstance(conn, float) else conn for i, conn in enumerate(conn_scores)]
-		print(res)
-		return res
 
 	return conn_scores
 
@@ -129,28 +110,8 @@ def compute_bert_lcg(sents, pairs, model, al_path, bp=False, bp_amr=False, filte
 				conn_dict1, conn1 = compute_connectivity([emb.detach().numpy() for emb in embeddings1], aligned_order1)
 				conn_dict2, conn2 = compute_connectivity([emb.detach().numpy() for emb in embeddings2], aligned_order2)
 
-			# print(sent)
-			# print(conn_dict1)
-			# print("\nconnectivity: {}".format(conn1))
-			# print("------------------------")
-			# print(sents[1][i])
-			# print(conn_dict2)
-			# print("\nconnectivity: {}".format(conn2))
-			# print("\n\n")
-			# print("sqrt:\n{}".format(1 - math.sqrt((conn1 - conn2)**2)))
 			conn_scores.append(1 - math.sqrt((conn1 - conn2)**2))
 			conn_dicts.append([conn_dict1, conn_dict2])
-
-	print(conn_scores)
-	if bp:
-		res = [brevity_penalty(sents[0][i].split(), sents[1][i].split())*conn if isinstance(conn, float) else conn for i, conn in enumerate(conn_scores)]
-		print(res)
-		return res
-
-	if bp_amr:
-		res = [brevity_penalty_amr(aligned_token1[i], aligned_token2[i])*conn if isinstance(conn, float) else conn for i, conn in enumerate(conn_scores)]
-		print(res)
-		return res
 
 	return conn_scores
 
@@ -290,12 +251,6 @@ def compute_connectivity(embeddings, token):
 						if token[j] != token[i]:
 							conn_dict[token[j]] = (compute_cosine(embedding, emb), token[i])
 					
-# 
-					# else:
-						# print("token i not in conn_dict")
-						# if token[j] != token[i]:
-							# print("token j != token i")
-							# conn_dict[token[j]] = (compute_cosine(embedding, emb), token[i])
 	conn = np.mean(np.array([sim[0] for k, sim in conn_dict.items()]))
 
 	return conn_dict, conn
@@ -326,33 +281,6 @@ def compute_star_connectivity(embeddings, token, stars):
 def compute_cosine(vector1, vector2):
 
 	return 1 - spatial.distance.cosine(vector1, vector2)
-
-
-def brevity_penalty(ref, out):
-
-	if len(ref) == len(out):
-		return 1
-	else:
-		if len(ref) < len(out):
-			return math.exp(1 - (len(out) / len(ref)))
-		else:
-			return math.exp(1 - (len(ref) / len(out)))
-
-
-def brevity_penalty_amr(ref_list, out_list):
-
-	ref = len(ref_list)
-	out = len(out_list)
-
-	if ref == out:
-		return 1
-	elif ref == 0 or out == 0:
-		return 0
-	else:
-		if ref < out:
-			return math.exp(1 - (out / ref))
-		else:
-			return math.exp(1 - (ref / out))
 
 
 if __name__ == "__main__":
