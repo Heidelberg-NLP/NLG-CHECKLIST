@@ -1,7 +1,5 @@
 # A Testsuite for AMR Evaluation Metrics
 
-:warning: This repository is currently under construction, there might be some issues when trying to run the scripts!
-
 This testsuite aims at giving developers the opportunity to compare evaluation metrics to both human judgement and some commonly used
 NLG or STS metrics, regarding specific linguistic phenomena. 
 
