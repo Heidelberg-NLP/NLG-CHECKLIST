@@ -24,7 +24,6 @@ def frame(metric_dict, save_png=False):
     """
     # f = ["age", "gender", "born\nregion", "lang\nregion", "score"]
     #print(metric_dict)
-    
     for k, v in metric_dict.items():
     #    print(len(v))
         keys = list(metric_dict.keys())

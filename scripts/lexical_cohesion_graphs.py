@@ -287,22 +287,8 @@ if __name__ == "__main__":
 	metric_dict = {}
 	id_file = read_json(sys.argv[1]) 
 	val_file = read_json(sys.argv[2]) 
-	# for root, dirs, files in os.walk("./amr-devsuite/Phens_GitHub/"):
-		# print(root)
-		# print(dirs)
-		# for subdir in dirs:
-			# print(subdir)
-			# if subdir in subs:
-				# for subroot, subdirs, subfiles in os.walk(root + subdir):
-					# for file in subfiles:
-						# print(file)
-						# if file.endswith("_ids.json"):
-							# id_file = read_json(root + subdir + "/" + file)
-							# val_file = read_json(root + subdir + "/" + file[:-8] + "values.json")
 	all_sents, all_amrs, all_ids = [[], []], [[], []], []
 	for phen, ss in id_file.items():
-		# ???
-		print(phen)
 		for s_value, sub_phens in ss.items():
 			for sub_phen, ids in sub_phens.items():
 				sents = [[val_file[idx][1][0] for idx in ids], [val_file[idx][1][1] for idx in ids]]
@@ -313,39 +299,15 @@ if __name__ == "__main__":
 				all_amrs[0].extend(amrs[0])
 				all_amrs[1].extend(amrs[1])
 				all_ids.extend(ids)
-	lcg_gloves = compute_glove_lcg(all_amrs, "vectors/glove.6B.300d.txt", "/home/students/zeidler/ba/aligned")	
-	lcg_gloves_filter = compute_glove_lcg(all_amrs, "vectors/glove.6B.300d.txt", "/home/students/zeidler/ba/aligned", filtered=True)	
-	# lcg_gloves_bp = compute_glove_lcg(amrs, "vectors/glove.6B.300d.txt", "/home/students/zeidler/ba/aligned", bp=True)	
-	# lcg_gloves_bpamr = compute_glove_lcg(amrs, "vectors/glove.6B.300d.txt", "/home/students/zeidler/ba/aligned", bp_amr=True)
-	lcg_gloves_star = compute_glove_lcg(all_amrs, "vectors/glove.6B.300d.txt", "/home/students/zeidler/ba/aligned", star=True)
-	lcg_gloves_starf = compute_glove_lcg(all_amrs, "vectors/glove.6B.300d.txt", "/home/students/zeidler/ba/aligned", star=True, filtered=True)
-	# lcg_gloves_starbp = compute_glove_lcg(amrs, "vectors/glove.6B.300d.txt", "/home/students/zeidler/ba/aligned", star=True, bp=True)
-	# lcg_gloves_starbpamr = compute_glove_lcg(amrs, "vectors/glove.6B.300d.txt", "/home/students/zeidler/ba/aligned", star=True, bp_amr=True)
-	lcgs = compute_bert_lcg(all_sents, all_amrs, 'bert-large-uncased',"/home/students/zeidler/ba/aligned")
-	lcgs_filter = compute_bert_lcg(all_sents, all_amrs, 'bert-large-uncased',"/home/students/zeidler/ba/aligned", filtered=True)
-	# lcgs_bp = compute_bert_lcg(sents, amrs, 'bert-large-uncased',"/home/students/zeidler/ba/aligned", bp=True)
-	# lcgs_bpamr = compute_bert_lcg(sents, amrs, 'bert-large-uncased',"/home/students/zeidler/ba/aligned", bp_amr=True)					
-	lcgs_star = compute_bert_lcg(all_sents, all_amrs, 'bert-large-uncased',"/home/students/zeidler/ba/aligned", star=True)					
-	lcgs_starf = compute_bert_lcg(all_sents, all_amrs, 'bert-large-uncased',"/home/students/zeidler/ba/aligned", star=True, filtered=True)					
-	# lcgs_starbp = compute_bert_lcg(sents, amrs, 'bert-large-uncased',"/home/students/zeidler/ba/aligned", star=True, bp=True)					
-	# lcgs_starbpamr = compute_bert_lcg(sents, amrs, 'bert-large-uncased',"/home/students/zeidler/ba/aligned", star=True, bp_amr=True)					
+	graco_glove = compute_glove_lcg(all_amrs, "vectors/glove.6B.300d.txt", "/home/students/zeidler/ba/aligned")	
+	graco_glove_red = compute_glove_lcg(all_amrs, "vectors/glove.6B.300d.txt", "/home/students/zeidler/ba/aligned", star=True)
+	graco = compute_bert_lcg(all_sents, all_amrs, 'bert-large-uncased',"/home/students/zeidler/ba/aligned")
+	graco_red = compute_bert_lcg(all_sents, all_amrs, 'bert-large-uncased',"/home/students/zeidler/ba/aligned", star=True)					
 	for i, idx in enumerate(all_ids):
 		metric_dict[idx] = {}
-		metric_dict[idx]["Glove LCG"] = lcg_gloves[i]
-		metric_dict[idx]["Glove LCG (Filter)"] = lcg_gloves_filter[i]
-		# metric_dict[idx]["Glove LCG (BP: Sentence)"] = lcg_gloves_bp[i]
-		# metric_dict[idx]["Glove LCG (BP: AMR)"] = lcg_gloves_bpamr[i]
-		metric_dict[idx]["Glove LCG (Star)"] = lcg_gloves_star[i]
-		metric_dict[idx]["Glove LCG (StarF)"] = lcg_gloves_starf[i]
-		# metric_dict[idx]["Glove LCG (Star, BPS)"] = lcg_gloves_starbp[i]
-		# metric_dict[idx]["Glove LCG (Star, BPAMR)"] = lcg_gloves_starbpamr[i]
-		metric_dict[idx]["LCG"] = lcgs[i]
-		metric_dict[idx]["LCG (Filter)"] = lcgs_filter[i]
-		# metric_dict[idx]["LCG (BP: Sentence)"] = lcgs_bp[i]
-		# metric_dict[idx]["LCG (BP: AMR)"] = lcgs_bpamr[i]
-		metric_dict[idx]["LCG (Star)"] = lcgs_star[i]
-		metric_dict[idx]["LCG (StarF)"] = lcgs_starf[i]
-		# metric_dict[idx]["LCG (Star, BPS)"] = lcgs_starbp[i]
-		# metric_dict[idx]["LCG (Star, BPAMR)"] = lcgs_starbpamr[i]
+		metric_dict[idx]["Graco (G)"] = graco_glove[i]
+		metric_dict[idx]["Graco (r, G)"] = graco_glove_red[i]
+		metric_dict[idx]["Graco"] = graco[i]
+		metric_dict[idx]["Graco (r)"] = graco_red[i]
 
 	convert_to_json(metric_dict, "metric_scores_LCG.json")

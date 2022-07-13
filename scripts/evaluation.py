@@ -17,10 +17,8 @@ def create_table_nums(id_dict):
 		row.append(phen)
 		for s_value in ["sick", "sts"]:
 			try:
-				for sub_phen in sorted(id_dict[phen][s_value].keys()):
-					count += len(id_dict[phen][s_value][sub_phen])
+				count = len(id_dict[phen][s_value])
 				row.append(count)
-				count = 0
 			except KeyError:
 				row.append(0)
 		rows.append(row)
@@ -91,16 +89,7 @@ def create_cor_table(corr_dict, cols):
 				col_vals = [v[i]]
 				# df[col] = [v[i]]	
 		df[col] = col_vals
-	# for k, v in corr_dict.items():
-		# row = [k] + v
-		# rows.append(row)
-		# row = []
 
-	print(df.columns)
-	print(df)
-
-	# df = df[['Metric', 'Article', 'Passive', 'Partial Synonymy', 'Hyponymy', 'Co-Hyponymy', 'Antonymy', 'Negation', 'Subordinate Clauses', 'Semantic Roles', 'Omission', 'Overall']]
-	print(df)
 	plot_correlation(df)
 	
 	return tabulate(df, headers=cols, tablefmt="grid")
@@ -117,11 +106,9 @@ def create_table_comps(id_dict, val_dict, s_value):
 
 	rows, row = [], []
 	for phen in sorted(id_dict.keys()):
-		phen_ids = []
 		row.append(phen)
 		try:
-			for sub_phen in sorted(id_dict[phen][s_value].keys()):
-				phen_ids.extend(id_dict[phen][s_value][sub_phen])
+			phen_ids = id_dict[phen][s_value]
 			vals = [val_dict[idx][0] for idx in phen_ids]
 			row.append(round(compute_mean(np.array(vals)), 3))
 			row.append(round(compute_median(np.array(vals)), 3))
@@ -197,7 +184,6 @@ def plot_correlation(corr_matrix):
 	# ax.set_color_cycle([cm(1.*i/14) for i in range(14)])
 	colors = ['black', '#1f77b4', '#ff7f0e', '#d62728', 'gold', 'gold', 'limegreen', 'limegreen', '#8c564b', '#9467bd', '#9467bd', '#17becf', '#17becf']
 	markers = ['', '', '', '', '', 'o', '', 'v', '', '', 's', '', 'P']
-	print(colors)
 	ax.set_prop_cycle('color', colors)
 	df = pd.DataFrame()
 	mets = [phen_dict[met] if met in phen_dict else met for met in list(corr_matrix.columns)[1:]]
