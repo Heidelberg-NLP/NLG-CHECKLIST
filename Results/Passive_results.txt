@@ -20,14 +20,6 @@ Average Scores (Overall):
 -------------------------
 Average Semantic Relatedness: 0.976 (-0.006)
 
-Tested Score (GraCo (G)): 0.936
-
-Tested Score (GraCo (r,G)): 0.917
-
-Tested Score (GraCo): 0.938
-
-Tested Score (GraCo (r)): 0.937
-
 +-------------+-----------------+
 | Metric      |   Average Score |
 +=============+=================+

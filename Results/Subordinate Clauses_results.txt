@@ -20,14 +20,6 @@ Average Scores (Overall):
 -------------------------
 Average Semantic Relatedness: 0.963 (-0.009)
 
-Tested Score (GraCo (G)): 0.992
-
-Tested Score (GraCo (r,G)): 0.976
-
-Tested Score (GraCo): 0.946
-
-Tested Score (GraCo (r)): 0.933
-
 +-------------+-----------------+
 | Metric      |   Average Score |
 +=============+=================+
@@ -92,1143 +84,7 @@ Correlation Matrix (Overall):
 
 ===================================================================================================================================
 
---------------------
-   N.C. Expansion
---------------------
 
-Average Scores:
----------------
-Average Semantic Relatedness: 0.954 (-0.011)
-
-Tested Score (GraCo (G)): 0.984
-
-Tested Score (GraCo (r,G)): 0.951
-
-Tested Score (GraCo): 0.949
-
-Tested Score (GraCo (r)): 0.936
-
-+-------------+-----------------+
-| Metric      |   Average Score |
-+=============+=================+
-| Ann. Score  |        0.954497 |
-+-------------+-----------------+
-| BERT Score  |        0.831466 |
-+-------------+-----------------+
-| BLEU        |        0.627149 |
-+-------------+-----------------+
-| GraCo       |        0.948739 |
-+-------------+-----------------+
-| GraCo (G)   |        0.983685 |
-+-------------+-----------------+
-| GraCo (r)   |        0.935726 |
-+-------------+-----------------+
-| GraCo (r,G) |        0.950762 |
-+-------------+-----------------+
-| Meteor      |        0.411948 |
-+-------------+-----------------+
-| S2match     |        0.83921  |
-+-------------+-----------------+
-| Smatch      |        0.83921  |
-+-------------+-----------------+
-| WLK         |        0.805681 |
-+-------------+-----------------+
-| WWLK        |        0.817105 |
-+-------------+-----------------+
-| chrF++      |        0.760921 |
-+-------------+-----------------+
-
-Correlation Matrix:
--------------------
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-|             |   Ann. Score |   BERT Score |   BLEU |   chrF++ |   GraCo |   GraCo (G) |   GraCo (r) |   GraCo (r,G) |   Meteor |   S2match |   Smatch |    WLK |   WWLK |
-+=============+==============+==============+========+==========+=========+=============+=============+===============+==========+===========+==========+========+========+
-| Ann. Score  |        1     |        0.252 |  0.215 |    0.141 |   0.111 |      -0.231 |       0.199 |        -0.231 |    0.099 |    -0.119 |   -0.119 | -0.172 | -0.2   |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| BERT Score  |        0.252 |        1     |  0.663 |    0.526 |  -0.062 |       0.121 |       0.085 |         0.331 |    0.783 |     0.089 |    0.089 |  0.086 |  0.148 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| BLEU        |        0.215 |        0.663 |  1     |    0.757 |  -0.106 |      -0.024 |      -0.084 |         0.051 |    0.658 |     0.236 |    0.236 |  0.295 |  0.201 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| chrF++      |        0.141 |        0.526 |  0.757 |    1     |  -0.292 |      -0.085 |      -0.228 |         0.152 |    0.342 |     0.121 |    0.121 |  0.127 |  0.079 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| GraCo       |        0.111 |       -0.062 | -0.106 |   -0.292 |   1     |       0.391 |       0.805 |         0.073 |    0.224 |     0.257 |    0.257 |  0.197 |  0.116 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| GraCo (G)   |       -0.231 |        0.121 | -0.024 |   -0.085 |   0.391 |       1     |       0.329 |         0.68  |    0.327 |     0.586 |    0.586 |  0.539 |  0.585 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| GraCo (r)   |        0.199 |        0.085 | -0.084 |   -0.228 |   0.805 |       0.329 |       1     |         0.106 |    0.2   |     0.167 |    0.167 |  0.105 |  0.029 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| GraCo (r,G) |       -0.231 |        0.331 |  0.051 |    0.152 |   0.073 |       0.68  |       0.106 |         1     |    0.334 |     0.455 |    0.455 |  0.383 |  0.489 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| Meteor      |        0.099 |        0.783 |  0.658 |    0.342 |   0.224 |       0.327 |       0.2   |         0.334 |    1     |     0.422 |    0.422 |  0.411 |  0.429 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| S2match     |       -0.119 |        0.089 |  0.236 |    0.121 |   0.257 |       0.586 |       0.167 |         0.455 |    0.422 |     1     |    1     |  0.966 |  0.925 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| Smatch      |       -0.119 |        0.089 |  0.236 |    0.121 |   0.257 |       0.586 |       0.167 |         0.455 |    0.422 |     1     |    1     |  0.966 |  0.925 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| WLK         |       -0.172 |        0.086 |  0.295 |    0.127 |   0.197 |       0.539 |       0.105 |         0.383 |    0.411 |     0.966 |    0.966 |  1     |  0.935 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| WWLK        |       -0.2   |        0.148 |  0.201 |    0.079 |   0.116 |       0.585 |       0.029 |         0.489 |    0.429 |     0.925 |    0.925 |  0.935 |  1     |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-
-
-Scores for Individual Test Cases:
-=================================
-
-D39sick
----------
-
-A group of people is equipped with protective gear  A group of people is equipped with gear used for protection
-
-# ::id 39                                           # ::id 39
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / equip-01                                     (xv0 / equip-01
-      :ARG1 (xv1 / group                                  :ARG1 (xv1 / group
-            :consist-of (xv3 / person))                         :consist-of (xv3 / person
-      :ARG2 (xv2 / gear                                               :ARG1-of (xv4 / protect-01)))
-            :purpose (xv4 / protect-01)))                 :ARG2 (xv2 / gear
-                                                                :ARG1-of (xv5 / use-01
-                                                                      :ARG2 xv4)))
-
-Scores:
--------
-Semantic Relatedness Score:     5.0 (1.0)
-
-Ann. Score                     ---  1.0
-BERT Score                     ---  0.819
-BLEU                           ---  0.634
-GraCo                          ---  0.957
-GraCo (G)                      ---  0.979
-GraCo (r)                      ---  0.976
-GraCo (r,G)                    ---  0.907
-Meteor                         ---  0.341
-S2match                        ---  0.711
-Smatch                         ---  0.711
-WLK                            ---  0.625
-WWLK                           ---  0.591
-chrF++                         ---  0.781
-
----------------------------------------------------------------------------------------------------
-D140sick
----------
-
-A person is pouring oil for cooking into a pot      A person is pouring cooking oil into a pot
-
-# ::id 140                                          # ::id 140
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / pour-01                                      (xv0 / pour-01
-      :ARG0 (xv3 / person)                                :ARG0 (xv3 / person)
-      :ARG1 (xv2 / oil)                                   :ARG1 (xv2 / oil
-            :purpose (xv1 / cook-01)                            :ARG0-of (xv1 / cook-01))
-      :ARG3 (xv4 / pot))                                  :ARG3 (xv4 / pot))
-
-Scores:
--------
-Semantic Relatedness Score:     5.0 (1.0)
-
-Ann. Score                     ---  1.0
-BERT Score                     ---  0.835
-BLEU                           ---  0.434
-GraCo                          ---  0.998
-GraCo (G)                      ---  1.0
-GraCo (r)                      ---  0.998
-GraCo (r,G)                    ---  1.0
-Meteor                         ---  0.42
-S2match                        ---  0.867
-Smatch                         ---  0.867
-WLK                            ---  0.745
-WWLK                           ---  0.725
-chrF++                         ---  0.734
-
----------------------------------------------------------------------------------------------------
-D169sick
----------
-
-A child is running in and out of the                A child is running in and out of the ocean waves
-waves of the ocean                                  
-
-
-
-# ::id 169                                          # ::id 169
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / run-02                                       (xv0 / run-02
-      :direction (xv1 / and                               :direction (xv1 / and
-            :op1 (xv2 / in                                      :op1 (xv2 / in
-                  :destination (xv5 / wave                            :destination (xv5 / wave
-                        :part-of (xv4 / ocean)))                            :part-of (xv4 / ocean)))
-            :op2 (xv3 / out-06                                  :op2 (xv3 / out-06
-                  :source xv5                                         :source xv5
-                        :part-of xv4))                                      :part-of xv4))
-      :ARG0 (xv6 / child))                                :ARG0 (xv6 / child))
-
-Scores:
--------
-Semantic Relatedness Score:     4.9 (0.975)
-
-Ann. Score                     ---  0.971
-BERT Score                     ---  0.923
-BLEU                           ---  0.777
-GraCo                          ---  0.977
-GraCo (G)                      ---  1.0
-GraCo (r)                      ---  0.977
-GraCo (r,G)                    ---  1.0
-Meteor                         ---  0.47
-S2match                        ---  1.0
-Smatch                         ---  1.0
-WLK                            ---  1.0
-WWLK                           ---  1.0
-chrF++                         ---  0.826
-
----------------------------------------------------------------------------------------------------
-D175sick
----------
-
-A woman is riding a water scooter                   A woman is riding a scooter for water
-
-# ::id 175                                          # ::id 175
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / ride-01                                      (xv0 / ride-01
-      :ARG0 (xv2 / woman)                                 :ARG0 (xv2 / woman)
-      :ARG1 (xv1 / scooter                                :ARG1 (xv1 / scooter
-            :purpose (xv3 / water)))                            :purpose (xv3 / water)))
-
-Scores:
--------
-Semantic Relatedness Score:     4.1 (0.775)
-
-Ann. Score                     ---  0.743
-BERT Score                     ---  0.625
-BLEU                           ---  0.608
-GraCo                          ---  0.929
-GraCo (G)                      ---  1.0
-GraCo (r)                      ---  0.929
-GraCo (r,G)                    ---  1.0
-Meteor                         ---  0.398
-S2match                        ---  1.0
-Smatch                         ---  1.0
-WLK                            ---  1.0
-WWLK                           ---  1.0
-chrF++                         ---  0.759
-
----------------------------------------------------------------------------------------------------
-D334sick
----------
-
-Two teenage girls are wearing fancy dresses at an event  Two girls in their teens are wearing fancy dresses
-
-
-                                                  at an event
-
-# ::id 334                                          # ::id 334
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / wear-01                                      (xv0 / wear-01
-      :ARG0 (xv2 / girl                                   :ARG0 (xv3 / girl
-            :mod (xv5 / teenage)                                :quant 2
-            :quant 2)                                           :ARG1-of (xv6 / between
-      :ARG1 (xv1 / dress                                              :op1 (xv7 / temporal-quantity
-            :mod (xv4 / fancy-01))                                          :quant 13
-      :location (xv3 / event))                                              :unit (xv2 / year))
-                                                                      :op2 (xv8 / temporal-quantity
-                                                                            :quant 19
-                                                                            :unit xv2)))
-                                                          :ARG1 (xv1 / dress
-                                                                :mod (xv5 / fancy-01))
-                                                          :location (xv4 / event))
-
-Scores:
--------
-Semantic Relatedness Score:     4.8 (0.95)
-
-Ann. Score                     ---  0.943
-BERT Score                     ---  0.801
-BLEU                           ---  0.589
-GraCo                          ---  0.979
-GraCo (G)                      ---  0.978
-GraCo (r)                      ---  0.972
-GraCo (r,G)                    ---  0.888
-Meteor                         ---  0.338
-S2match                        ---  0.505
-Smatch                         ---  0.505
-WLK                            ---  0.521
-WWLK                           ---  0.315
-chrF++                         ---  0.75
-
----------------------------------------------------------------------------------------------------
-T437sick
----------
-
-A man with climbing equipment is hanging from a     A man with equipment used for climbing is hanging
-rock, which is vertical and white                   from a white, vertical rock.
-
-# ::id 437                                          # ::id 437
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / hang-01                                      (xv0 / hang-01
-      :ARG1 (xv1 / man                                    :ARG1 (xv1 / man
-            :ARG0-of (xv3 / have-03                             :ARG0-of (xv3 / have-03
-                  :ARG1 (xv6 / equipment                              :ARG1 (xv6 / equipment
-                        :purpose (xv7 / climb-01))))                          :ARG1-of (xv7 / use-01
-      :ARG2 (xv2 / rock                                                           :ARG2 (xv8 / climb-01)))))
-            :mod (xv4 / vertical)                         :ARG2 (xv2 / rock
-            :ARG1-of (xv5 / white-03)))                         :mod (xv4 / vertical)
-                                                                :ARG1-of (xv5 / white-03)))
-
-Scores:
--------
-Semantic Relatedness Score:     4.8 (0.95)
-
-Ann. Score                     ---  0.943
-BERT Score                     ---  0.665
-BLEU                           ---  0.278
-GraCo                          ---  0.964
-GraCo (G)                      ---  0.998
-GraCo (r)                      ---  0.997
-GraCo (r,G)                    ---  0.93
-Meteor                         ---  0.305
-S2match                        ---  0.843
-Smatch                         ---  0.843
-WLK                            ---  0.813
-WWLK                           ---  0.823
-chrF++                         ---  0.539
-
----------------------------------------------------------------------------------------------------
-D374sick
----------
-
-A man in a white shirt and sunglasses and           A man in a white shirt and sunglasses and
-a man in a black shirt and sunglasses are sitting at a table with four bottles of beer  a man in a black shirt and sunglasses are sitting at a table with four beer bottles
-
-# ::id 374                                          # ::id 374
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / sit-01                                       (xv0 / sit-01
-      :ARG1 (xv1 / and                                    :ARG1 (xv1 / and
-            :op1 (xv9 / man                                     :op1 (xv9 / man
-                  :ARG0-of (xv7 / wear-01                             :ARG0-of (xv7 / wear-01
-                        :ARG1 (xv2 / and                                    :ARG1 (xv2 / and
-                              :op1 (xv6 / shirt                                   :op1 (xv6 / shirt
-                                    :ARG1-of (xv14 / white-03))                                      :ARG1-of (xv14 / white-03))
-                              :op2 (xv11 / sunglass))))                                :op2 (xv11 / sunglass))))
-            :op2 (xv10 / man                                    :op2 (xv10 / man
-                  :ARG0-of (xv8 / wear-01                             :ARG0-of (xv8 / wear-01
-                        :ARG1 (xv5 / and                                    :ARG1 (xv5 / and
-                              :op1 (xv16 / shirt                                  :op1 (xv16 / shirt
-                                    :ARG1-of (xv17 / black-04))                                      :ARG1-of (xv17 / black-04))
-                              :op2 (xv15 / sunglass)))))                                :op2 (xv15 / sunglass)))))
-      :ARG1 (xv12 / table)                                :ARG1 (xv12 / table)
-      :accompanier (xv3 / beer                            :accompanier (xv3 / beer
-            :quant (xv13 / volume-quantity                      :quant (xv13 / volume-quantity
-                  :quant 4                                            :quant 4
-                  :unit (xv4 / bottle))))                             :unit (xv4 / bottle))))
-
-Scores:
--------
-Semantic Relatedness Score:     4.9 (0.975)
-
-Ann. Score                     ---  0.971
-BERT Score                     ---  0.967
-BLEU                           ---  0.959
-GraCo                          ---  0.977
-GraCo (G)                      ---  1.0
-GraCo (r)                      ---  0.977
-GraCo (r,G)                    ---  1.0
-Meteor                         ---  0.563
-S2match                        ---  1.0
-Smatch                         ---  1.0
-WLK                            ---  1.0
-WWLK                           ---  1.0
-chrF++                         ---  0.966
-
----------------------------------------------------------------------------------------------------
-T349sick
----------
-
-One man is doing a trick with a bicycle in midair   One man is doing a bicycle trick in midair
-
-# ::id 349                                          # ::id 349
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / do-02                                        (xv0 / do-02
-      :ARG0 (xv2 / man                                    :ARG0 (xv2 / man
-            :quant 1)                                           :quant 1)
-      :ARG1 (xv1 / trick)                                 :ARG1 (xv1 / trick
-      :instrument (xv4 / bicycle)                               :mod (xv4 / bicycle))
-      :manner (xv3 / midair))                             :location (xv3 / midair))
-
-Scores:
--------
-Semantic Relatedness Score:     4.8 (0.95)
-
-Ann. Score                     ---  0.943
-BERT Score                     ---  0.882
-BLEU                           ---  0.483
-GraCo                          ---  0.945
-GraCo (G)                      ---  1.0
-GraCo (r)                      ---  0.945
-GraCo (r,G)                    ---  1.0
-Meteor                         ---  0.415
-S2match                        ---  0.757
-Smatch                         ---  0.757
-WLK                            ---  0.677
-WWLK                           ---  0.887
-chrF++                         ---  0.669
-
----------------------------------------------------------------------------------------------------
-T1102sick
----------
-
-A man is putting garlic on some slices of bread     A man is putting garlic on some bread slices
-
-# ::id 1102                                         # ::id 1102
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / put-01                                       (xv0 / put-01
-      :ARG0 (xv3 / man)                                   :ARG0 (xv3 / man)
-      :ARG1 (xv2 / garlic)                                :ARG1 (xv2 / garlic)
-      :ARG2 (xv4 / slice                                  :ARG2 (xv4 / slice
-            :quant (xv5 / some)                                 :quant (xv5 / some)
-            :consist-of (xv1 / bread)))                         :consist-of (xv1 / bread)))
-
-Scores:
--------
-Semantic Relatedness Score:     5.0 (1.0)
-
-Ann. Score                     ---  1.0
-BERT Score                     ---  0.929
-BLEU                           ---  0.731
-GraCo                          ---  0.99
-GraCo (G)                      ---  1.0
-GraCo (r)                      ---  0.99
-GraCo (r,G)                    ---  1.0
-Meteor                         ---  0.453
-S2match                        ---  1.0
-Smatch                         ---  1.0
-WLK                            ---  1.0
-WWLK                           ---  1.0
-chrF++                         ---  0.794
-
----------------------------------------------------------------------------------------------------
-T1682sick
----------
-
-A man is standing on the top of a                   A man is standing on a roof top and
-roof and playing a violin                           playing a violin
-
-# ::id 1682                                         # ::id 1682
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / and                                          (xv0 / and
-      :op1 (xv1 / stand-01                                :op1 (xv1 / stand-01
-            :ARG1 (xv3 / man)                                   :ARG1 (xv3 / man)
-            :ARG2 (xv4 / top                                    :ARG2 (xv4 / top
-                  :part-of (xv6 / roof)))                             :part-of (xv6 / roof)))
-      :op2 (xv2 / play-11                                 :op2 (xv2 / play-11
-            :ARG0 xv3                                           :ARG0 xv3
-            :ARG1 (xv5 / violin)))                              :ARG1 (xv5 / violin)))
-
-Scores:
--------
-Semantic Relatedness Score:     4.7 (0.925)
-
-Ann. Score                     ---  0.914
-BERT Score                     ---  0.847
-BLEU                           ---  0.529
-GraCo                          ---  0.963
-GraCo (G)                      ---  1.0
-GraCo (r)                      ---  0.963
-GraCo (r,G)                    ---  1.0
-Meteor                         ---  0.45
-S2match                        ---  1.0
-Smatch                         ---  1.0
-WLK                            ---  1.0
-WWLK                           ---  1.0
-chrF++                         ---  0.716
-
----------------------------------------------------------------------------------------------------
-T1831sick
----------
-
-A woman is collecting tap water in a mug            A woman is collecting the water from a tap
-
-
-                                                  in a mug
-
-# ::id 1831                                         # ::id 1831
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / collect-01                                   (xv0 / collect-01
-      :ARG0 (xv2 / woman)                                 :ARG0 (xv2 / woman)
-      :ARG1 (xv1 / water                                  :ARG1 (xv1 / water
-            :source (xv4 / tap-03))                             :source (xv4 / tap-03))
-      :ARG2 (xv3 / mug-00))                               :ARG2 (xv3 / mug-00))
-
-Scores:
--------
-Semantic Relatedness Score:     4.8 (0.95)
-
-Ann. Score                     ---  0.943
-BERT Score                     ---  0.694
-BLEU                           ---  0.349
-GraCo                          ---  0.992
-GraCo (G)                      ---  1.0
-GraCo (r)                      ---  0.992
-GraCo (r,G)                    ---  1.0
-Meteor                         ---  0.357
-S2match                        ---  1.0
-Smatch                         ---  1.0
-WLK                            ---  1.0
-WWLK                           ---  1.0
-chrF++                         ---  0.722
-
----------------------------------------------------------------------------------------------------
-T1887sick
----------
-
-A woman is scrubbing a zucchini with a brush for vegetables  A woman is scrubbing a zucchini with a vegetable brush
-
-# ::id 1887                                         # ::id 1887
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / scrub-01                                     (xv0 / scrub-01
-      :ARG0 (xv3 / woman)                                 :ARG0 (xv3 / woman)
-      :ARG1 (xv4 / zucchini)                              :ARG1 (xv4 / zucchini)
-      :instrument (xv1 / brush                            :instrument (xv1 / brush
-            :purpose (xv2 / vegetable)))                        :purpose (xv2 / vegetable)))
-
-Scores:
--------
-Semantic Relatedness Score:     4.8 (0.95)
-
-Ann. Score                     ---  0.943
-BERT Score                     ---  0.82
-BLEU                           ---  0.749
-GraCo                          ---  0.963
-GraCo (G)                      ---  1.0
-GraCo (r)                      ---  0.844
-GraCo (r,G)                    ---  0.989
-Meteor                         ---  0.436
-S2match                        ---  1.0
-Smatch                         ---  1.0
-WLK                            ---  1.0
-WWLK                           ---  1.0
-chrF++                         ---  0.796
-
----------------------------------------------------------------------------------------------------
-T2448sick
----------
-
-A big cat is opening a drawer made of               A big cat is opening a plastic drawer with
-plastic with its paws and is jumping inside         its paws and is jumping inside
-
-# ::id 2448                                         # ::id 2448
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / and                                          (xv0 / and
-      :op1 (xv1 / open-01                                 :op1 (xv1 / open-01
-            :ARG0 (xv4 / cat                                    :ARG0 (xv4 / cat
-                  :mod (xv8 / big)                                    :mod (xv8 / big)
-                  :part (xv5 / paw-01))                               :part (xv5 / paw-01))
-            :ARG1 (xv3 / drawer                                 :ARG1 (xv3 / drawer
-                  :ARG1-of (xv7 / make-01                             :consist-of (xv7 / plastic))
-                        :ARG2 (xv9 / plastic)))                 :instrument xv5)
-            :instrument xv5)                              :op2 (xv2 / jump-03
-      :op2 (xv2 / jump-03                                       :ARG0 xv4
-            :ARG0 xv4                                           :direction (xv6 / inside)))
-            :destination (xv6 / inside)))           
-
-Scores:
--------
-Semantic Relatedness Score:     4.9 (0.975)
-
-Ann. Score                     ---  0.971
-BERT Score                     ---  0.898
-BLEU                           ---  0.697
-GraCo                          ---  0.92
-GraCo (G)                      ---  0.967
-GraCo (r)                      ---  0.929
-GraCo (r,G)                    ---  0.944
-Meteor                         ---  0.47
-S2match                        ---  0.809
-Smatch                         ---  0.809
-WLK                            ---  0.748
-WWLK                           ---  0.829
-chrF++                         ---  0.786
-
----------------------------------------------------------------------------------------------------
-T3583sick
----------
-
-A young child is running down a gravel road         A young child is running down a road made
-that is covered with dead leaves                    of gravel that is covered with dead leaves
-
-# ::id 3583                                         # ::id 3583
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / run-down-11                                  (xv0 / run-down-11
-      :ARG0 (xv2 / child                                  :ARG0 (xv2 / child
-            :mod (xv4 / young))                                 :mod (xv4 / young))
-      :ARG1 (xv1 / road                                   :ARG1 (xv1 / road
-            :consist-of (xv3 / gravel)                          :ARG1-of (xv5 / make-01
-            :ARG1-of (xv6 / cover-02                                  :ARG2 (xv3 / gravel))
-                  :ARG2 (xv7 / leaf                             :ARG1-of (xv6 / cover-02
-                        :ARG1-of (xv5 / die-01)))))                    :ARG2 (xv7 / leaf
-                                                                            :ARG1-of (xv8 / die-01)))))
-
-Scores:
--------
-Semantic Relatedness Score:     4.8 (0.95)
-
-Ann. Score                     ---  0.943
-BERT Score                     ---  0.883
-BLEU                           ---  0.697
-GraCo                          ---  0.754
-GraCo (G)                      ---  0.989
-GraCo (r)                      ---  0.756
-GraCo (r,G)                    ---  0.97
-Meteor                         ---  0.423
-S2match                        ---  0.843
-Smatch                         ---  0.843
-WLK                            ---  0.806
-WWLK                           ---  0.839
-chrF++                         ---  0.861
-
----------------------------------------------------------------------------------------------------
-T3608sick
----------
-
-One man is climbing a rock wall and another         One man is climbing a wall made of rock
-man is holding a rope                               and another man is holding a rope
-
-# ::id 3608                                         # ::id 3608
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / and                                          (xv0 / and
-      :op1 (xv2 / climb-01                                :op1 (xv2 / climb-01
-            :ARG0 (xv4 / man                                    :ARG0 (xv4 / man
-                  :quant 1)                                           :quant 1)
-            :ARG1 (xv8 / wall                                   :ARG1 (xv9 / wall
-                  :consist-of (xv7 / rock)))                          :ARG1-of (xv6 / make-01
-      :op2 (xv3 / hold-01                                                   :ARG2 (xv8 / rock))))
-            :ARG0 (xv5 / man                              :op2 (xv3 / hold-01
-                  :mod (xv1 / another))                         :ARG0 (xv5 / man
-            :ARG1 (xv6 / rope)))                                      :mod (xv1 / another))
-                                                                :ARG1 (xv7 / rope)))
-
-Scores:
--------
-Semantic Relatedness Score:     4.9 (0.975)
-
-Ann. Score                     ---  0.971
-BERT Score                     ---  0.892
-BLEU                           ---  0.669
-GraCo                          ---  0.865
-GraCo (G)                      ---  0.976
-GraCo (r)                      ---  0.864
-GraCo (r,G)                    ---  0.957
-Meteor                         ---  0.411
-S2match                        ---  0.867
-Smatch                         ---  0.867
-WLK                            ---  0.85
-WWLK                           ---  0.87
-chrF++                         ---  0.835
-
----------------------------------------------------------------------------------------------------
-T4564sick
----------
-
-A man by a brick wall is wearing a                  A man by a wall made of bricks is
-mask around his mouth and a hair net                wearing a mask around his mouth and a hair net
-
-# ::id 4564                                         # ::id 4564
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / wear-01                                      (xv0 / wear-01
-      :ARG0 (xv5 / man                                    :ARG0 (xv5 / man
-            :location (xv9 / wall                               :part (xv7 / mouth)
-                  :consist-of (xv3 / brick))                    :location (xv10 / wall
-            :part (xv7 / mouth))                                      :ARG1-of (xv8 / make-01
-      :ARG1 (xv1 / and                                                      :ARG2 (xv3 / brick))))
-            :op1 (xv6 / mask                              :ARG1 (xv1 / and
-                  :location (xv2 / around                       :op1 (xv6 / mask
-                        :op1 xv7))                                    :location (xv2 / around
-            :op2 (xv8 / net                                                 :op1 xv7))
-                  :mod (xv4 / hair))))                          :op2 (xv9 / net
-                                                                      :mod (xv4 / hair))))
-
-Scores:
--------
-Semantic Relatedness Score:     4.8 (0.95)
-
-Ann. Score                     ---  0.943
-BERT Score                     ---  0.865
-BLEU                           ---  0.732
-GraCo                          ---  0.997
-GraCo (G)                      ---  0.995
-GraCo (r)                      ---  0.998
-GraCo (r,G)                    ---  0.938
-Meteor                         ---  0.43
-S2match                        ---  0.879
-Smatch                         ---  0.879
-WLK                            ---  0.856
-WWLK                           ---  0.852
-chrF++                         ---  0.837
-
----------------------------------------------------------------------------------------------------
-T195sick
----------
-
-A person who plays soccer is kicking a ball         A soccer player is kicking a ball into the goal
-into the goal                                       
-
-
-
-# ::id 195                                          # ::id 195
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / kick-01                                      (xv0 / kick-01
-      :ARG0 (xv2 / person                                 :ARG0 (xv2 / person
-            :ARG0-of (xv4 / play-01                             :ARG0-of (xv4 / play-01
-                  :ARG1 (xv5 / soccer)))                              :ARG1 (xv5 / soccer)))
-      :ARG1 (xv1 / ball)                                  :ARG1 (xv1 / ball)
-      :destination (xv3 / goal))                          :destination (xv3 / goal))
-
-Scores:
--------
-Semantic Relatedness Score:     4.9 (0.975)
-
-Ann. Score                     ---  0.971
-BERT Score                     ---  0.696
-BLEU                           ---  0.589
-GraCo                          ---  0.941
-GraCo (G)                      ---  0.91
-GraCo (r)                      ---  0.927
-GraCo (r,G)                    ---  0.856
-Meteor                         ---  0.352
-S2match                        ---  1.0
-Smatch                         ---  1.0
-WLK                            ---  1.0
-WWLK                           ---  1.0
-chrF++                         ---  0.663
-
----------------------------------------------------------------------------------------------------
-T1093sick
----------
-
-The woman is cracking two eggs into a bowl          The woman is cracking two eggs into a glass bowl
-made of glass                                       
-
-
-
-# ::id 1093                                         # ::id 1093
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / crack-02                                     (xv0 / crack-02
-      :ARG0 (xv5 / woman)                                 :ARG0 (xv4 / woman)
-      :ARG1 (xv2 / egg                                    :ARG1 (xv2 / egg
-            :quant 2)                                           :quant 2)
-      :ARG2 (xv1 / bowl                                   :ARG2 (xv1 / bowl
-            :ARG1-of (xv4 / make-01                             :consist-of (xv3 / glass)))
-                  :ARG2 (xv3 / glass))))            
-
-Scores:
--------
-Semantic Relatedness Score:     5.0 (1.0)
-
-Ann. Score                     ---  1.0
-BERT Score                     ---  0.875
-BLEU                           ---  0.695
-GraCo                          ---  0.948
-GraCo (G)                      ---  0.993
-GraCo (r)                      ---  0.953
-GraCo (r,G)                    ---  0.82
-Meteor                         ---  0.451
-S2match                        ---  0.777
-Smatch                         ---  0.777
-WLK                            ---  0.752
-WWLK                           ---  0.767
-chrF++                         ---  0.742
-
----------------------------------------------------------------------------------------------------
-T1300sick
----------
-
-A man is playing a flute made of bamboo             A man is playing a bamboo flute
-
-# ::id 1300                                         # ::id 1300
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / play-11                                      (xv0 / play-11
-      :ARG0 (xv2 / man)                                   :ARG0 (xv2 / man)
-      :ARG1 (xv1 / flute                                  :ARG1 (xv1 / flute
-            :ARG1-of (xv3 / make-01                             :consist-of (xv3 / bamboo)))
-                  :ARG2 (xv4 / bamboo))))           
-
-Scores:
--------
-Semantic Relatedness Score:     4.9 (0.975)
-
-Ann. Score                     ---  0.971
-BERT Score                     ---  0.829
-BLEU                           ---  0.526
-GraCo                          ---  0.996
-GraCo (G)                      ---  0.969
-GraCo (r)                      ---  0.995
-GraCo (r,G)                    ---  0.953
-Meteor                         ---  0.406
-S2match                        ---  0.704
-Smatch                         ---  0.704
-WLK                            ---  0.632
-WWLK                           ---  0.687
-chrF++                         ---  0.598
-
----------------------------------------------------------------------------------------------------
-T1389sick
----------
-
-A person is pouring oil made with olives into       A person is pouring olive oil into a pot
-a pot on the stove                                  on the stove
-
-# ::id 1389                                         # ::id 1389
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / pour-01                                      (xv0 / pour-01
-      :ARG0 (xv2 / person)                                :ARG0 (xv2 / person)
-      :ARG1 (xv1 / oil                                    :ARG1 (xv1 / oil
-            :ARG1-of (xv4 / make-01                             :source (xv4 / olive))
-                  :ARG2 (xv6 / olive)))                   :ARG3 (xv3 / pot
-      :ARG3 (xv3 / pot                                          :location (xv5 / stove)))
-            :location (xv5 / stove)))               
-
-Scores:
--------
-Semantic Relatedness Score:     4.9 (0.975)
-
-Ann. Score                     ---  0.971
-BERT Score                     ---  0.774
-BLEU                           ---  0.583
-GraCo                          ---  0.967
-GraCo (G)                      ---  0.994
-GraCo (r)                      ---  0.842
-GraCo (r,G)                    ---  0.944
-Meteor                         ---  0.388
-S2match                        ---  0.795
-Smatch                         ---  0.795
-WLK                            ---  0.752
-WWLK                           ---  0.767
-chrF++                         ---  0.681
-
----------------------------------------------------------------------------------------------------
-T1512sick
----------
-
-The puppy is playing with a plastic container       The puppy is playing with a container made of plastic
-
-# ::id 1512                                         # ::id 1512
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / play-01                                      (xv0 / play-01
-      :ARG0 (xv2 / puppy)                                 :ARG0 (xv3 / puppy)
-      :ARG2 (xv1 / container                              :ARG2 (xv1 / container
-            :consist-of (xv3 / plastic)))                       :ARG1-of (xv2 / make-01
-                                                                      :ARG2 (xv4 / plastic))))
-
-Scores:
--------
-Semantic Relatedness Score:     5.0 (1.0)
-
-Ann. Score                     ---  1.0
-BERT Score                     ---  0.803
-BLEU                           ---  0.599
-GraCo                          ---  0.939
-GraCo (G)                      ---  0.935
-GraCo (r)                      ---  0.936
-GraCo (r,G)                    ---  0.853
-Meteor                         ---  0.34
-S2match                        ---  0.704
-Smatch                         ---  0.704
-WLK                            ---  0.632
-WWLK                           ---  0.662
-chrF++                         ---  0.816
-
----------------------------------------------------------------------------------------------------
-T1562sick
----------
-
-A woman is using a pencil for eyes and              A woman is using an eye pencil and is
-is applying eye liner to her eyelid                 applying eye liner to her eyelid
-
-# ::id 1562                                         # ::id 1562
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / and                                          (xv0 / and
-      :op1 (xv1 / use-01                                  :op1 (xv1 / use-01
-            :ARG0 (xv4 / woman                                  :ARG0 (xv4 / woman
-                  :part (xv7 / eyelid))                               :part (xv6 / eyelid))
-            :ARG1 (xv3 / pencil)                                :ARG1 (xv3 / pencil
-                  :mod (xv5 / eye))                                   :mod (xv7 / eye)))
-      :op2 (xv2 / apply-02                                :op2 (xv2 / apply-02
-            :ARG0 xv4                                           :ARG0 xv4
-            :ARG1 (xv6 / liner                                  :ARG1 (xv5 / liner
-                  :location (xv8 / eye))                              :location (xv8 / eye))
-            :ARG2 xv7))                                         :ARG2 xv6))
-
-Scores:
--------
-Semantic Relatedness Score:     4.9 (0.975)
-
-Ann. Score                     ---  0.971
-BERT Score                     ---  0.828
-BLEU                           ---  0.656
-GraCo                          ---  0.983
-GraCo (G)                      ---  0.986
-GraCo (r)                      ---  0.951
-GraCo (r,G)                    ---  0.901
-Meteor                         ---  0.441
-S2match                        ---  0.933
-Smatch                         ---  0.933
-WLK                            ---  0.876
-WWLK                           ---  0.948
-chrF++                         ---  0.782
-
----------------------------------------------------------------------------------------------------
-T1621sick
----------
-
-A kitten is playing with a blue rope toy            A kitten is playing with a toy made of blue rope
-
-# ::id 1621                                         # ::id 1621
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / play-01                                      (xv0 / play-01
-      :ARG0 (xv1 / kitten)                                :ARG0 (xv1 / kitten)
-      :ARG2 (xv2 / toy                                    :ARG2 (xv2 / toy
-            :mod (xv4 / blue)                                   :ARG1-of (xv3 / make-01
-            :consist-of (xv3 / rope)))                                :ARG2 (xv4 / rope
-                                                                            :consist-of (xv5 / blue)))))
-
-Scores:
--------
-Semantic Relatedness Score:     4.8 (0.95)
-
-Ann. Score                     ---  0.943
-BERT Score                     ---  0.831
-BLEU                           ---  0.575
-GraCo                          ---  0.905
-GraCo (G)                      ---  0.965
-GraCo (r)                      ---  0.878
-GraCo (r,G)                    ---  0.979
-Meteor                         ---  0.366
-S2match                        ---  0.636
-Smatch                         ---  0.636
-WLK                            ---  0.567
-WWLK                           ---  0.679
-chrF++                         ---  0.807
-
----------------------------------------------------------------------------------------------------
-T1960sick
----------
-
-The boy is riding a bike on the top                 The boy is riding a bike on the top
-of a fence made of metal                            of a metal fence
-
-# ::id 1960                                         # ::id 1960
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / ride-01                                      (xv0 / ride-01
-      :ARG0 (xv2 / boy)                                   :ARG0 (xv2 / boy)
-      :ARG1 (xv1 / bike)                                  :ARG1 (xv1 / bike)
-      :location (xv3 / top                                :location (xv3 / top
-            :part-of (xv4 / fence                               :part-of (xv4 / fence
-                  :ARG1-of (xv5 / make-01                             :consist-of (xv5 / metal))))
-                        :ARG2 (xv6 / metal)))))     
-
-Scores:
--------
-Semantic Relatedness Score:     4.9 (0.975)
-
-Ann. Score                     ---  0.971
-BERT Score                     ---  0.893
-BLEU                           ---  0.782
-GraCo                          ---  0.978
-GraCo (G)                      ---  0.983
-GraCo (r)                      ---  0.999
-GraCo (r,G)                    ---  0.965
-Meteor                         ---  0.482
-S2match                        ---  0.795
-Smatch                         ---  0.795
-WLK                            ---  0.752
-WWLK                           ---  0.751
-chrF++                         ---  0.759
-
----------------------------------------------------------------------------------------------------
-T3026sick
----------
-
-The crowd is watching two cars designed for racing  The crowd is watching two racing cars that are
-that are leaving the starting line                  leaving the starting line
-
-# ::id 3026                                         # ::id 3026
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / watch-01                                     (xv0 / watch-01
-      :ARG0 (xv2 / crowd)                                 :ARG0 (xv2 / crowd)
-      :ARG1 (xv1 / car                                    :ARG1 (xv1 / car
-            :quant 2                                            :quant 2
-            :ARG1-of (xv3 / design-01                           :ARG0-of (xv3 / leave-11
-                  :ARG3 (xv5 / race-02))                              :ARG1 (xv5 / line
-            :ARG0-of (xv4 / leave-11                                        :mod (xv6 / start-01)))
-                  :ARG1 (xv6 / line                             :ARG0-of (xv4 / race-02)))
-                        :mod (xv7 / start-01)))))   
-
-Scores:
--------
-Semantic Relatedness Score:     4.7 (0.925)
-
-Ann. Score                     ---  0.914
-BERT Score                     ---  0.856
-BLEU                           ---  0.636
-GraCo                          ---  0.983
-GraCo (G)                      ---  0.984
-GraCo (r)                      ---  0.96
-GraCo (r,G)                    ---  0.924
-Meteor                         ---  0.453
-S2match                        ---  0.833
-Smatch                         ---  0.833
-WLK                            ---  0.799
-WWLK                           ---  0.761
-chrF++                         ---  0.741
-
----------------------------------------------------------------------------------------------------
-T4410sick
----------
-
-A boy is playing a game with wooden blocks          A boy is playing a game with blocks made of wood
-
-# ::id 4410                                         # ::id 4410
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / play-01                                      (xv0 / play-01
-      :ARG0 (xv2 / boy)                                   :ARG0 (xv2 / boy)
-      :ARG1 (xv1 / game)                                  :ARG1 (xv1 / game)
-      :ARG2 (xv3 / block                                  :ARG2 (xv3 / block
-            :mod (xv4 / wooden)))                               :ARG1-of (xv4 / make-01
-                                                                      :ARG2 (xv5 / wood))))
-
-Scores:
--------
-Semantic Relatedness Score:     4.8 (0.95)
-
-Ann. Score                     ---  0.943
-BERT Score                     ---  0.84
-BLEU                           ---  0.634
-GraCo                          ---  0.898
-GraCo (G)                      ---  0.988
-GraCo (r)                      ---  0.833
-GraCo (r,G)                    ---  0.957
-Meteor                         ---  0.352
-S2match                        ---  0.636
-Smatch                         ---  0.636
-WLK                            ---  0.603
-WWLK                           ---  0.591
-chrF++                         ---  0.752
-
----------------------------------------------------------------------------------------------------
-T3489sick
----------
-
-A young boy covered in grass is jumping near        A young boy covered in grass is jumping near
-a wooden fence                                      a fence made of wood
-
-# ::id 3489                                         # ::id 3489
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / jump-03                                      (xv0 / jump-03
-      :ARG0 (xv1 / boy                                    :ARG0 (xv1 / boy
-            :mod (xv7 / young)                                  :mod (xv8 / young)
-            :ARG1-of (xv2 / cover-02                            :ARG1-of (xv2 / cover-02
-                  :ARG0 (xv4 / grass)))                               :ARG0 (xv4 / grass)))
-      :ARG2 (xv5 / near-02                                :ARG2 (xv6 / near-02
-            :ARG2 (xv3 / fence                                  :ARG2 (xv3 / fence
-                  :mod (xv6 / wooden))))                              :ARG1-of (xv5 / make-01
-                                                                            :ARG2 (xv7 / wood)))))
-
-Scores:
--------
-Semantic Relatedness Score:     4.9 (0.975)
-
-Ann. Score                     ---  0.971
-BERT Score                     ---  0.878
-BLEU                           ---  0.742
-GraCo                          ---  0.908
-GraCo (G)                      ---  0.969
-GraCo (r)                      ---  0.883
-GraCo (r,G)                    ---  0.994
-Meteor                         ---  0.41
-S2match                        ---  0.765
-Smatch                         ---  0.765
-WLK                            ---  0.75
-WWLK                           ---  0.717
-chrF++                         ---  0.835
-
----------------------------------------------------------------------------------------------------
-
-
-------------------------------------------------------
-
-----------------------------
-   Simple Relative Clause
-----------------------------
-
-Average Scores:
----------------
-Average Semantic Relatedness: 0.969 (-0.008)
-
-Tested Score (GraCo (G)): 0.998
-
-Tested Score (GraCo (r,G)): 0.993
-
-Tested Score (GraCo): 0.945
-
-Tested Score (GraCo (r)): 0.931
-
-+-------------+-----------------+
-| Metric      |   Average Score |
-+=============+=================+
-| Ann. Score  |        0.968707 |
-+-------------+-----------------+
-| BERT Score  |        0.751871 |
-+-------------+-----------------+
-| BLEU        |        0.548269 |
-+-------------+-----------------+
-| GraCo       |        0.945023 |
-+-------------+-----------------+
-| GraCo (G)   |        0.997673 |
-+-------------+-----------------+
-| GraCo (r)   |        0.930503 |
-+-------------+-----------------+
-| GraCo (r,G) |        0.992684 |
-+-------------+-----------------+
-| Meteor      |        0.405064 |
-+-------------+-----------------+
-| S2match     |        0.966254 |
-+-------------+-----------------+
-| Smatch      |        0.966254 |
-+-------------+-----------------+
-| WLK         |        0.954061 |
-+-------------+-----------------+
-| WWLK        |        0.964556 |
-+-------------+-----------------+
-| chrF++      |        0.715843 |
-+-------------+-----------------+
-
-Correlation Matrix:
--------------------
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-|             |   Ann. Score |   BERT Score |   BLEU |   chrF++ |   GraCo |   GraCo (G) |   GraCo (r) |   GraCo (r,G) |   Meteor |   S2match |   Smatch |    WLK |   WWLK |
-+=============+==============+==============+========+==========+=========+=============+=============+===============+==========+===========+==========+========+========+
-| Ann. Score  |        1     |       -0.13  | -0.267 |   -0.206 |   0.381 |       0.277 |       0.45  |         0.26  |   -0.088 |     0.236 |    0.236 |  0.236 |  0.232 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| BERT Score  |       -0.13  |        1     |  0.671 |    0.586 |   0.123 |      -0.392 |      -0.021 |        -0.413 |    0.533 |    -0.326 |   -0.326 | -0.323 | -0.327 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| BLEU        |       -0.267 |        0.671 |  1     |    0.701 |  -0.028 |      -0.332 |      -0.163 |        -0.352 |    0.649 |    -0.267 |   -0.267 | -0.265 | -0.268 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| chrF++      |       -0.206 |        0.586 |  0.701 |    1     |  -0.037 |      -0.332 |      -0.168 |        -0.354 |    0.172 |    -0.189 |   -0.189 | -0.176 | -0.191 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| GraCo       |        0.381 |        0.123 | -0.028 |   -0.037 |   1     |       0.109 |       0.866 |         0.099 |   -0.001 |     0.046 |    0.046 |  0.055 |  0.039 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| GraCo (G)   |        0.277 |       -0.392 | -0.332 |   -0.332 |   0.109 |       1     |       0.537 |         0.988 |   -0.141 |     0.795 |    0.795 |  0.798 |  0.793 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| GraCo (r)   |        0.45  |       -0.021 | -0.163 |   -0.168 |   0.866 |       0.537 |       1     |         0.529 |   -0.056 |     0.401 |    0.401 |  0.407 |  0.397 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| GraCo (r,G) |        0.26  |       -0.413 | -0.352 |   -0.354 |   0.099 |       0.988 |       0.529 |         1     |   -0.126 |     0.819 |    0.819 |  0.812 |  0.82  |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| Meteor      |       -0.088 |        0.533 |  0.649 |    0.172 |  -0.001 |      -0.141 |      -0.056 |        -0.126 |    1     |    -0.079 |   -0.079 | -0.099 | -0.071 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| S2match     |        0.236 |       -0.326 | -0.267 |   -0.189 |   0.046 |       0.795 |       0.401 |         0.819 |   -0.079 |     1     |    1     |  0.996 |  0.999 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| Smatch      |        0.236 |       -0.326 | -0.267 |   -0.189 |   0.046 |       0.795 |       0.401 |         0.819 |   -0.079 |     1     |    1     |  0.996 |  0.999 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| WLK         |        0.236 |       -0.323 | -0.265 |   -0.176 |   0.055 |       0.798 |       0.407 |         0.812 |   -0.099 |     0.996 |    0.996 |  1     |  0.994 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| WWLK        |        0.232 |       -0.327 | -0.268 |   -0.191 |   0.039 |       0.793 |       0.397 |         0.82  |   -0.071 |     0.999 |    0.999 |  0.994 |  1     |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
 
 
 Scores for Individual Test Cases:
@@ -2721,6 +1577,980 @@ Smatch                         ---  1.0
 WLK                            ---  1.0
 WWLK                           ---  1.0
 chrF++                         ---  0.737
+
+---------------------------------------------------------------------------------------------------
+D39sick
+---------
+
+A group of people is equipped with protective gear  A group of people is equipped with gear used for protection
+
+# ::id 39                                           # ::id 39
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / equip-01                                     (xv0 / equip-01
+      :ARG1 (xv1 / group                                  :ARG1 (xv1 / group
+            :consist-of (xv3 / person))                         :consist-of (xv3 / person
+      :ARG2 (xv2 / gear                                               :ARG1-of (xv4 / protect-01)))
+            :purpose (xv4 / protect-01)))                 :ARG2 (xv2 / gear
+                                                                :ARG1-of (xv5 / use-01
+                                                                      :ARG2 xv4)))
+
+Scores:
+-------
+Semantic Relatedness Score:     5.0 (1.0)
+
+Ann. Score                     ---  1.0
+BERT Score                     ---  0.819
+BLEU                           ---  0.634
+GraCo                          ---  0.957
+GraCo (G)                      ---  0.979
+GraCo (r)                      ---  0.976
+GraCo (r,G)                    ---  0.907
+Meteor                         ---  0.341
+S2match                        ---  0.711
+Smatch                         ---  0.711
+WLK                            ---  0.625
+WWLK                           ---  0.591
+chrF++                         ---  0.781
+
+---------------------------------------------------------------------------------------------------
+D140sick
+---------
+
+A person is pouring oil for cooking into a pot      A person is pouring cooking oil into a pot
+
+# ::id 140                                          # ::id 140
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / pour-01                                      (xv0 / pour-01
+      :ARG0 (xv3 / person)                                :ARG0 (xv3 / person)
+      :ARG1 (xv2 / oil)                                   :ARG1 (xv2 / oil
+            :purpose (xv1 / cook-01)                            :ARG0-of (xv1 / cook-01))
+      :ARG3 (xv4 / pot))                                  :ARG3 (xv4 / pot))
+
+Scores:
+-------
+Semantic Relatedness Score:     5.0 (1.0)
+
+Ann. Score                     ---  1.0
+BERT Score                     ---  0.835
+BLEU                           ---  0.434
+GraCo                          ---  0.998
+GraCo (G)                      ---  1.0
+GraCo (r)                      ---  0.998
+GraCo (r,G)                    ---  1.0
+Meteor                         ---  0.42
+S2match                        ---  0.867
+Smatch                         ---  0.867
+WLK                            ---  0.745
+WWLK                           ---  0.725
+chrF++                         ---  0.734
+
+---------------------------------------------------------------------------------------------------
+D169sick
+---------
+
+A child is running in and out of the                A child is running in and out of the ocean waves
+waves of the ocean                                  
+
+
+
+# ::id 169                                          # ::id 169
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / run-02                                       (xv0 / run-02
+      :direction (xv1 / and                               :direction (xv1 / and
+            :op1 (xv2 / in                                      :op1 (xv2 / in
+                  :destination (xv5 / wave                            :destination (xv5 / wave
+                        :part-of (xv4 / ocean)))                            :part-of (xv4 / ocean)))
+            :op2 (xv3 / out-06                                  :op2 (xv3 / out-06
+                  :source xv5                                         :source xv5
+                        :part-of xv4))                                      :part-of xv4))
+      :ARG0 (xv6 / child))                                :ARG0 (xv6 / child))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.9 (0.975)
+
+Ann. Score                     ---  0.971
+BERT Score                     ---  0.923
+BLEU                           ---  0.777
+GraCo                          ---  0.977
+GraCo (G)                      ---  1.0
+GraCo (r)                      ---  0.977
+GraCo (r,G)                    ---  1.0
+Meteor                         ---  0.47
+S2match                        ---  1.0
+Smatch                         ---  1.0
+WLK                            ---  1.0
+WWLK                           ---  1.0
+chrF++                         ---  0.826
+
+---------------------------------------------------------------------------------------------------
+D175sick
+---------
+
+A woman is riding a water scooter                   A woman is riding a scooter for water
+
+# ::id 175                                          # ::id 175
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / ride-01                                      (xv0 / ride-01
+      :ARG0 (xv2 / woman)                                 :ARG0 (xv2 / woman)
+      :ARG1 (xv1 / scooter                                :ARG1 (xv1 / scooter
+            :purpose (xv3 / water)))                            :purpose (xv3 / water)))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.1 (0.775)
+
+Ann. Score                     ---  0.743
+BERT Score                     ---  0.625
+BLEU                           ---  0.608
+GraCo                          ---  0.929
+GraCo (G)                      ---  1.0
+GraCo (r)                      ---  0.929
+GraCo (r,G)                    ---  1.0
+Meteor                         ---  0.398
+S2match                        ---  1.0
+Smatch                         ---  1.0
+WLK                            ---  1.0
+WWLK                           ---  1.0
+chrF++                         ---  0.759
+
+---------------------------------------------------------------------------------------------------
+D334sick
+---------
+
+Two teenage girls are wearing fancy dresses at an event  Two girls in their teens are wearing fancy dresses
+
+
+                                                  at an event
+
+# ::id 334                                          # ::id 334
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / wear-01                                      (xv0 / wear-01
+      :ARG0 (xv2 / girl                                   :ARG0 (xv3 / girl
+            :mod (xv5 / teenage)                                :quant 2
+            :quant 2)                                           :ARG1-of (xv6 / between
+      :ARG1 (xv1 / dress                                              :op1 (xv7 / temporal-quantity
+            :mod (xv4 / fancy-01))                                          :quant 13
+      :location (xv3 / event))                                              :unit (xv2 / year))
+                                                                      :op2 (xv8 / temporal-quantity
+                                                                            :quant 19
+                                                                            :unit xv2)))
+                                                          :ARG1 (xv1 / dress
+                                                                :mod (xv5 / fancy-01))
+                                                          :location (xv4 / event))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.8 (0.95)
+
+Ann. Score                     ---  0.943
+BERT Score                     ---  0.801
+BLEU                           ---  0.589
+GraCo                          ---  0.979
+GraCo (G)                      ---  0.978
+GraCo (r)                      ---  0.972
+GraCo (r,G)                    ---  0.888
+Meteor                         ---  0.338
+S2match                        ---  0.505
+Smatch                         ---  0.505
+WLK                            ---  0.521
+WWLK                           ---  0.315
+chrF++                         ---  0.75
+
+---------------------------------------------------------------------------------------------------
+T437sick
+---------
+
+A man with climbing equipment is hanging from a     A man with equipment used for climbing is hanging
+rock, which is vertical and white                   from a white, vertical rock.
+
+# ::id 437                                          # ::id 437
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / hang-01                                      (xv0 / hang-01
+      :ARG1 (xv1 / man                                    :ARG1 (xv1 / man
+            :ARG0-of (xv3 / have-03                             :ARG0-of (xv3 / have-03
+                  :ARG1 (xv6 / equipment                              :ARG1 (xv6 / equipment
+                        :purpose (xv7 / climb-01))))                          :ARG1-of (xv7 / use-01
+      :ARG2 (xv2 / rock                                                           :ARG2 (xv8 / climb-01)))))
+            :mod (xv4 / vertical)                         :ARG2 (xv2 / rock
+            :ARG1-of (xv5 / white-03)))                         :mod (xv4 / vertical)
+                                                                :ARG1-of (xv5 / white-03)))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.8 (0.95)
+
+Ann. Score                     ---  0.943
+BERT Score                     ---  0.665
+BLEU                           ---  0.278
+GraCo                          ---  0.964
+GraCo (G)                      ---  0.998
+GraCo (r)                      ---  0.997
+GraCo (r,G)                    ---  0.93
+Meteor                         ---  0.305
+S2match                        ---  0.843
+Smatch                         ---  0.843
+WLK                            ---  0.813
+WWLK                           ---  0.823
+chrF++                         ---  0.539
+
+---------------------------------------------------------------------------------------------------
+D374sick
+---------
+
+A man in a white shirt and sunglasses and           A man in a white shirt and sunglasses and
+a man in a black shirt and sunglasses are sitting at a table with four bottles of beer  a man in a black shirt and sunglasses are sitting at a table with four beer bottles
+
+# ::id 374                                          # ::id 374
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / sit-01                                       (xv0 / sit-01
+      :ARG1 (xv1 / and                                    :ARG1 (xv1 / and
+            :op1 (xv9 / man                                     :op1 (xv9 / man
+                  :ARG0-of (xv7 / wear-01                             :ARG0-of (xv7 / wear-01
+                        :ARG1 (xv2 / and                                    :ARG1 (xv2 / and
+                              :op1 (xv6 / shirt                                   :op1 (xv6 / shirt
+                                    :ARG1-of (xv14 / white-03))                                      :ARG1-of (xv14 / white-03))
+                              :op2 (xv11 / sunglass))))                                :op2 (xv11 / sunglass))))
+            :op2 (xv10 / man                                    :op2 (xv10 / man
+                  :ARG0-of (xv8 / wear-01                             :ARG0-of (xv8 / wear-01
+                        :ARG1 (xv5 / and                                    :ARG1 (xv5 / and
+                              :op1 (xv16 / shirt                                  :op1 (xv16 / shirt
+                                    :ARG1-of (xv17 / black-04))                                      :ARG1-of (xv17 / black-04))
+                              :op2 (xv15 / sunglass)))))                                :op2 (xv15 / sunglass)))))
+      :ARG1 (xv12 / table)                                :ARG1 (xv12 / table)
+      :accompanier (xv3 / beer                            :accompanier (xv3 / beer
+            :quant (xv13 / volume-quantity                      :quant (xv13 / volume-quantity
+                  :quant 4                                            :quant 4
+                  :unit (xv4 / bottle))))                             :unit (xv4 / bottle))))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.9 (0.975)
+
+Ann. Score                     ---  0.971
+BERT Score                     ---  0.967
+BLEU                           ---  0.959
+GraCo                          ---  0.977
+GraCo (G)                      ---  1.0
+GraCo (r)                      ---  0.977
+GraCo (r,G)                    ---  1.0
+Meteor                         ---  0.563
+S2match                        ---  1.0
+Smatch                         ---  1.0
+WLK                            ---  1.0
+WWLK                           ---  1.0
+chrF++                         ---  0.966
+
+---------------------------------------------------------------------------------------------------
+T349sick
+---------
+
+One man is doing a trick with a bicycle in midair   One man is doing a bicycle trick in midair
+
+# ::id 349                                          # ::id 349
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / do-02                                        (xv0 / do-02
+      :ARG0 (xv2 / man                                    :ARG0 (xv2 / man
+            :quant 1)                                           :quant 1)
+      :ARG1 (xv1 / trick)                                 :ARG1 (xv1 / trick
+      :instrument (xv4 / bicycle)                               :mod (xv4 / bicycle))
+      :manner (xv3 / midair))                             :location (xv3 / midair))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.8 (0.95)
+
+Ann. Score                     ---  0.943
+BERT Score                     ---  0.882
+BLEU                           ---  0.483
+GraCo                          ---  0.945
+GraCo (G)                      ---  1.0
+GraCo (r)                      ---  0.945
+GraCo (r,G)                    ---  1.0
+Meteor                         ---  0.415
+S2match                        ---  0.757
+Smatch                         ---  0.757
+WLK                            ---  0.677
+WWLK                           ---  0.887
+chrF++                         ---  0.669
+
+---------------------------------------------------------------------------------------------------
+T1102sick
+---------
+
+A man is putting garlic on some slices of bread     A man is putting garlic on some bread slices
+
+# ::id 1102                                         # ::id 1102
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / put-01                                       (xv0 / put-01
+      :ARG0 (xv3 / man)                                   :ARG0 (xv3 / man)
+      :ARG1 (xv2 / garlic)                                :ARG1 (xv2 / garlic)
+      :ARG2 (xv4 / slice                                  :ARG2 (xv4 / slice
+            :quant (xv5 / some)                                 :quant (xv5 / some)
+            :consist-of (xv1 / bread)))                         :consist-of (xv1 / bread)))
+
+Scores:
+-------
+Semantic Relatedness Score:     5.0 (1.0)
+
+Ann. Score                     ---  1.0
+BERT Score                     ---  0.929
+BLEU                           ---  0.731
+GraCo                          ---  0.99
+GraCo (G)                      ---  1.0
+GraCo (r)                      ---  0.99
+GraCo (r,G)                    ---  1.0
+Meteor                         ---  0.453
+S2match                        ---  1.0
+Smatch                         ---  1.0
+WLK                            ---  1.0
+WWLK                           ---  1.0
+chrF++                         ---  0.794
+
+---------------------------------------------------------------------------------------------------
+T1682sick
+---------
+
+A man is standing on the top of a                   A man is standing on a roof top and
+roof and playing a violin                           playing a violin
+
+# ::id 1682                                         # ::id 1682
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / and                                          (xv0 / and
+      :op1 (xv1 / stand-01                                :op1 (xv1 / stand-01
+            :ARG1 (xv3 / man)                                   :ARG1 (xv3 / man)
+            :ARG2 (xv4 / top                                    :ARG2 (xv4 / top
+                  :part-of (xv6 / roof)))                             :part-of (xv6 / roof)))
+      :op2 (xv2 / play-11                                 :op2 (xv2 / play-11
+            :ARG0 xv3                                           :ARG0 xv3
+            :ARG1 (xv5 / violin)))                              :ARG1 (xv5 / violin)))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.7 (0.925)
+
+Ann. Score                     ---  0.914
+BERT Score                     ---  0.847
+BLEU                           ---  0.529
+GraCo                          ---  0.963
+GraCo (G)                      ---  1.0
+GraCo (r)                      ---  0.963
+GraCo (r,G)                    ---  1.0
+Meteor                         ---  0.45
+S2match                        ---  1.0
+Smatch                         ---  1.0
+WLK                            ---  1.0
+WWLK                           ---  1.0
+chrF++                         ---  0.716
+
+---------------------------------------------------------------------------------------------------
+T1831sick
+---------
+
+A woman is collecting tap water in a mug            A woman is collecting the water from a tap
+
+
+                                                  in a mug
+
+# ::id 1831                                         # ::id 1831
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / collect-01                                   (xv0 / collect-01
+      :ARG0 (xv2 / woman)                                 :ARG0 (xv2 / woman)
+      :ARG1 (xv1 / water                                  :ARG1 (xv1 / water
+            :source (xv4 / tap-03))                             :source (xv4 / tap-03))
+      :ARG2 (xv3 / mug-00))                               :ARG2 (xv3 / mug-00))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.8 (0.95)
+
+Ann. Score                     ---  0.943
+BERT Score                     ---  0.694
+BLEU                           ---  0.349
+GraCo                          ---  0.992
+GraCo (G)                      ---  1.0
+GraCo (r)                      ---  0.992
+GraCo (r,G)                    ---  1.0
+Meteor                         ---  0.357
+S2match                        ---  1.0
+Smatch                         ---  1.0
+WLK                            ---  1.0
+WWLK                           ---  1.0
+chrF++                         ---  0.722
+
+---------------------------------------------------------------------------------------------------
+T1887sick
+---------
+
+A woman is scrubbing a zucchini with a brush for vegetables  A woman is scrubbing a zucchini with a vegetable brush
+
+# ::id 1887                                         # ::id 1887
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / scrub-01                                     (xv0 / scrub-01
+      :ARG0 (xv3 / woman)                                 :ARG0 (xv3 / woman)
+      :ARG1 (xv4 / zucchini)                              :ARG1 (xv4 / zucchini)
+      :instrument (xv1 / brush                            :instrument (xv1 / brush
+            :purpose (xv2 / vegetable)))                        :purpose (xv2 / vegetable)))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.8 (0.95)
+
+Ann. Score                     ---  0.943
+BERT Score                     ---  0.82
+BLEU                           ---  0.749
+GraCo                          ---  0.963
+GraCo (G)                      ---  1.0
+GraCo (r)                      ---  0.844
+GraCo (r,G)                    ---  0.989
+Meteor                         ---  0.436
+S2match                        ---  1.0
+Smatch                         ---  1.0
+WLK                            ---  1.0
+WWLK                           ---  1.0
+chrF++                         ---  0.796
+
+---------------------------------------------------------------------------------------------------
+T2448sick
+---------
+
+A big cat is opening a drawer made of               A big cat is opening a plastic drawer with
+plastic with its paws and is jumping inside         its paws and is jumping inside
+
+# ::id 2448                                         # ::id 2448
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / and                                          (xv0 / and
+      :op1 (xv1 / open-01                                 :op1 (xv1 / open-01
+            :ARG0 (xv4 / cat                                    :ARG0 (xv4 / cat
+                  :mod (xv8 / big)                                    :mod (xv8 / big)
+                  :part (xv5 / paw-01))                               :part (xv5 / paw-01))
+            :ARG1 (xv3 / drawer                                 :ARG1 (xv3 / drawer
+                  :ARG1-of (xv7 / make-01                             :consist-of (xv7 / plastic))
+                        :ARG2 (xv9 / plastic)))                 :instrument xv5)
+            :instrument xv5)                              :op2 (xv2 / jump-03
+      :op2 (xv2 / jump-03                                       :ARG0 xv4
+            :ARG0 xv4                                           :direction (xv6 / inside)))
+            :destination (xv6 / inside)))           
+
+Scores:
+-------
+Semantic Relatedness Score:     4.9 (0.975)
+
+Ann. Score                     ---  0.971
+BERT Score                     ---  0.898
+BLEU                           ---  0.697
+GraCo                          ---  0.92
+GraCo (G)                      ---  0.967
+GraCo (r)                      ---  0.929
+GraCo (r,G)                    ---  0.944
+Meteor                         ---  0.47
+S2match                        ---  0.809
+Smatch                         ---  0.809
+WLK                            ---  0.748
+WWLK                           ---  0.829
+chrF++                         ---  0.786
+
+---------------------------------------------------------------------------------------------------
+T3583sick
+---------
+
+A young child is running down a gravel road         A young child is running down a road made
+that is covered with dead leaves                    of gravel that is covered with dead leaves
+
+# ::id 3583                                         # ::id 3583
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / run-down-11                                  (xv0 / run-down-11
+      :ARG0 (xv2 / child                                  :ARG0 (xv2 / child
+            :mod (xv4 / young))                                 :mod (xv4 / young))
+      :ARG1 (xv1 / road                                   :ARG1 (xv1 / road
+            :consist-of (xv3 / gravel)                          :ARG1-of (xv5 / make-01
+            :ARG1-of (xv6 / cover-02                                  :ARG2 (xv3 / gravel))
+                  :ARG2 (xv7 / leaf                             :ARG1-of (xv6 / cover-02
+                        :ARG1-of (xv5 / die-01)))))                    :ARG2 (xv7 / leaf
+                                                                            :ARG1-of (xv8 / die-01)))))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.8 (0.95)
+
+Ann. Score                     ---  0.943
+BERT Score                     ---  0.883
+BLEU                           ---  0.697
+GraCo                          ---  0.754
+GraCo (G)                      ---  0.989
+GraCo (r)                      ---  0.756
+GraCo (r,G)                    ---  0.97
+Meteor                         ---  0.423
+S2match                        ---  0.843
+Smatch                         ---  0.843
+WLK                            ---  0.806
+WWLK                           ---  0.839
+chrF++                         ---  0.861
+
+---------------------------------------------------------------------------------------------------
+T3608sick
+---------
+
+One man is climbing a rock wall and another         One man is climbing a wall made of rock
+man is holding a rope                               and another man is holding a rope
+
+# ::id 3608                                         # ::id 3608
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / and                                          (xv0 / and
+      :op1 (xv2 / climb-01                                :op1 (xv2 / climb-01
+            :ARG0 (xv4 / man                                    :ARG0 (xv4 / man
+                  :quant 1)                                           :quant 1)
+            :ARG1 (xv8 / wall                                   :ARG1 (xv9 / wall
+                  :consist-of (xv7 / rock)))                          :ARG1-of (xv6 / make-01
+      :op2 (xv3 / hold-01                                                   :ARG2 (xv8 / rock))))
+            :ARG0 (xv5 / man                              :op2 (xv3 / hold-01
+                  :mod (xv1 / another))                         :ARG0 (xv5 / man
+            :ARG1 (xv6 / rope)))                                      :mod (xv1 / another))
+                                                                :ARG1 (xv7 / rope)))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.9 (0.975)
+
+Ann. Score                     ---  0.971
+BERT Score                     ---  0.892
+BLEU                           ---  0.669
+GraCo                          ---  0.865
+GraCo (G)                      ---  0.976
+GraCo (r)                      ---  0.864
+GraCo (r,G)                    ---  0.957
+Meteor                         ---  0.411
+S2match                        ---  0.867
+Smatch                         ---  0.867
+WLK                            ---  0.85
+WWLK                           ---  0.87
+chrF++                         ---  0.835
+
+---------------------------------------------------------------------------------------------------
+T4564sick
+---------
+
+A man by a brick wall is wearing a                  A man by a wall made of bricks is
+mask around his mouth and a hair net                wearing a mask around his mouth and a hair net
+
+# ::id 4564                                         # ::id 4564
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / wear-01                                      (xv0 / wear-01
+      :ARG0 (xv5 / man                                    :ARG0 (xv5 / man
+            :location (xv9 / wall                               :part (xv7 / mouth)
+                  :consist-of (xv3 / brick))                    :location (xv10 / wall
+            :part (xv7 / mouth))                                      :ARG1-of (xv8 / make-01
+      :ARG1 (xv1 / and                                                      :ARG2 (xv3 / brick))))
+            :op1 (xv6 / mask                              :ARG1 (xv1 / and
+                  :location (xv2 / around                       :op1 (xv6 / mask
+                        :op1 xv7))                                    :location (xv2 / around
+            :op2 (xv8 / net                                                 :op1 xv7))
+                  :mod (xv4 / hair))))                          :op2 (xv9 / net
+                                                                      :mod (xv4 / hair))))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.8 (0.95)
+
+Ann. Score                     ---  0.943
+BERT Score                     ---  0.865
+BLEU                           ---  0.732
+GraCo                          ---  0.997
+GraCo (G)                      ---  0.995
+GraCo (r)                      ---  0.998
+GraCo (r,G)                    ---  0.938
+Meteor                         ---  0.43
+S2match                        ---  0.879
+Smatch                         ---  0.879
+WLK                            ---  0.856
+WWLK                           ---  0.852
+chrF++                         ---  0.837
+
+---------------------------------------------------------------------------------------------------
+T195sick
+---------
+
+A person who plays soccer is kicking a ball         A soccer player is kicking a ball into the goal
+into the goal                                       
+
+
+
+# ::id 195                                          # ::id 195
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / kick-01                                      (xv0 / kick-01
+      :ARG0 (xv2 / person                                 :ARG0 (xv2 / person
+            :ARG0-of (xv4 / play-01                             :ARG0-of (xv4 / play-01
+                  :ARG1 (xv5 / soccer)))                              :ARG1 (xv5 / soccer)))
+      :ARG1 (xv1 / ball)                                  :ARG1 (xv1 / ball)
+      :destination (xv3 / goal))                          :destination (xv3 / goal))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.9 (0.975)
+
+Ann. Score                     ---  0.971
+BERT Score                     ---  0.696
+BLEU                           ---  0.589
+GraCo                          ---  0.941
+GraCo (G)                      ---  0.91
+GraCo (r)                      ---  0.927
+GraCo (r,G)                    ---  0.856
+Meteor                         ---  0.352
+S2match                        ---  1.0
+Smatch                         ---  1.0
+WLK                            ---  1.0
+WWLK                           ---  1.0
+chrF++                         ---  0.663
+
+---------------------------------------------------------------------------------------------------
+T1093sick
+---------
+
+The woman is cracking two eggs into a bowl          The woman is cracking two eggs into a glass bowl
+made of glass                                       
+
+
+
+# ::id 1093                                         # ::id 1093
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / crack-02                                     (xv0 / crack-02
+      :ARG0 (xv5 / woman)                                 :ARG0 (xv4 / woman)
+      :ARG1 (xv2 / egg                                    :ARG1 (xv2 / egg
+            :quant 2)                                           :quant 2)
+      :ARG2 (xv1 / bowl                                   :ARG2 (xv1 / bowl
+            :ARG1-of (xv4 / make-01                             :consist-of (xv3 / glass)))
+                  :ARG2 (xv3 / glass))))            
+
+Scores:
+-------
+Semantic Relatedness Score:     5.0 (1.0)
+
+Ann. Score                     ---  1.0
+BERT Score                     ---  0.875
+BLEU                           ---  0.695
+GraCo                          ---  0.948
+GraCo (G)                      ---  0.993
+GraCo (r)                      ---  0.953
+GraCo (r,G)                    ---  0.82
+Meteor                         ---  0.451
+S2match                        ---  0.777
+Smatch                         ---  0.777
+WLK                            ---  0.752
+WWLK                           ---  0.767
+chrF++                         ---  0.742
+
+---------------------------------------------------------------------------------------------------
+T1300sick
+---------
+
+A man is playing a flute made of bamboo             A man is playing a bamboo flute
+
+# ::id 1300                                         # ::id 1300
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / play-11                                      (xv0 / play-11
+      :ARG0 (xv2 / man)                                   :ARG0 (xv2 / man)
+      :ARG1 (xv1 / flute                                  :ARG1 (xv1 / flute
+            :ARG1-of (xv3 / make-01                             :consist-of (xv3 / bamboo)))
+                  :ARG2 (xv4 / bamboo))))           
+
+Scores:
+-------
+Semantic Relatedness Score:     4.9 (0.975)
+
+Ann. Score                     ---  0.971
+BERT Score                     ---  0.829
+BLEU                           ---  0.526
+GraCo                          ---  0.996
+GraCo (G)                      ---  0.969
+GraCo (r)                      ---  0.995
+GraCo (r,G)                    ---  0.953
+Meteor                         ---  0.406
+S2match                        ---  0.704
+Smatch                         ---  0.704
+WLK                            ---  0.632
+WWLK                           ---  0.687
+chrF++                         ---  0.598
+
+---------------------------------------------------------------------------------------------------
+T1389sick
+---------
+
+A person is pouring oil made with olives into       A person is pouring olive oil into a pot
+a pot on the stove                                  on the stove
+
+# ::id 1389                                         # ::id 1389
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / pour-01                                      (xv0 / pour-01
+      :ARG0 (xv2 / person)                                :ARG0 (xv2 / person)
+      :ARG1 (xv1 / oil                                    :ARG1 (xv1 / oil
+            :ARG1-of (xv4 / make-01                             :source (xv4 / olive))
+                  :ARG2 (xv6 / olive)))                   :ARG3 (xv3 / pot
+      :ARG3 (xv3 / pot                                          :location (xv5 / stove)))
+            :location (xv5 / stove)))               
+
+Scores:
+-------
+Semantic Relatedness Score:     4.9 (0.975)
+
+Ann. Score                     ---  0.971
+BERT Score                     ---  0.774
+BLEU                           ---  0.583
+GraCo                          ---  0.967
+GraCo (G)                      ---  0.994
+GraCo (r)                      ---  0.842
+GraCo (r,G)                    ---  0.944
+Meteor                         ---  0.388
+S2match                        ---  0.795
+Smatch                         ---  0.795
+WLK                            ---  0.752
+WWLK                           ---  0.767
+chrF++                         ---  0.681
+
+---------------------------------------------------------------------------------------------------
+T1512sick
+---------
+
+The puppy is playing with a plastic container       The puppy is playing with a container made of plastic
+
+# ::id 1512                                         # ::id 1512
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / play-01                                      (xv0 / play-01
+      :ARG0 (xv2 / puppy)                                 :ARG0 (xv3 / puppy)
+      :ARG2 (xv1 / container                              :ARG2 (xv1 / container
+            :consist-of (xv3 / plastic)))                       :ARG1-of (xv2 / make-01
+                                                                      :ARG2 (xv4 / plastic))))
+
+Scores:
+-------
+Semantic Relatedness Score:     5.0 (1.0)
+
+Ann. Score                     ---  1.0
+BERT Score                     ---  0.803
+BLEU                           ---  0.599
+GraCo                          ---  0.939
+GraCo (G)                      ---  0.935
+GraCo (r)                      ---  0.936
+GraCo (r,G)                    ---  0.853
+Meteor                         ---  0.34
+S2match                        ---  0.704
+Smatch                         ---  0.704
+WLK                            ---  0.632
+WWLK                           ---  0.662
+chrF++                         ---  0.816
+
+---------------------------------------------------------------------------------------------------
+T1562sick
+---------
+
+A woman is using a pencil for eyes and              A woman is using an eye pencil and is
+is applying eye liner to her eyelid                 applying eye liner to her eyelid
+
+# ::id 1562                                         # ::id 1562
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / and                                          (xv0 / and
+      :op1 (xv1 / use-01                                  :op1 (xv1 / use-01
+            :ARG0 (xv4 / woman                                  :ARG0 (xv4 / woman
+                  :part (xv7 / eyelid))                               :part (xv6 / eyelid))
+            :ARG1 (xv3 / pencil)                                :ARG1 (xv3 / pencil
+                  :mod (xv5 / eye))                                   :mod (xv7 / eye)))
+      :op2 (xv2 / apply-02                                :op2 (xv2 / apply-02
+            :ARG0 xv4                                           :ARG0 xv4
+            :ARG1 (xv6 / liner                                  :ARG1 (xv5 / liner
+                  :location (xv8 / eye))                              :location (xv8 / eye))
+            :ARG2 xv7))                                         :ARG2 xv6))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.9 (0.975)
+
+Ann. Score                     ---  0.971
+BERT Score                     ---  0.828
+BLEU                           ---  0.656
+GraCo                          ---  0.983
+GraCo (G)                      ---  0.986
+GraCo (r)                      ---  0.951
+GraCo (r,G)                    ---  0.901
+Meteor                         ---  0.441
+S2match                        ---  0.933
+Smatch                         ---  0.933
+WLK                            ---  0.876
+WWLK                           ---  0.948
+chrF++                         ---  0.782
+
+---------------------------------------------------------------------------------------------------
+T1621sick
+---------
+
+A kitten is playing with a blue rope toy            A kitten is playing with a toy made of blue rope
+
+# ::id 1621                                         # ::id 1621
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / play-01                                      (xv0 / play-01
+      :ARG0 (xv1 / kitten)                                :ARG0 (xv1 / kitten)
+      :ARG2 (xv2 / toy                                    :ARG2 (xv2 / toy
+            :mod (xv4 / blue)                                   :ARG1-of (xv3 / make-01
+            :consist-of (xv3 / rope)))                                :ARG2 (xv4 / rope
+                                                                            :consist-of (xv5 / blue)))))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.8 (0.95)
+
+Ann. Score                     ---  0.943
+BERT Score                     ---  0.831
+BLEU                           ---  0.575
+GraCo                          ---  0.905
+GraCo (G)                      ---  0.965
+GraCo (r)                      ---  0.878
+GraCo (r,G)                    ---  0.979
+Meteor                         ---  0.366
+S2match                        ---  0.636
+Smatch                         ---  0.636
+WLK                            ---  0.567
+WWLK                           ---  0.679
+chrF++                         ---  0.807
+
+---------------------------------------------------------------------------------------------------
+T1960sick
+---------
+
+The boy is riding a bike on the top                 The boy is riding a bike on the top
+of a fence made of metal                            of a metal fence
+
+# ::id 1960                                         # ::id 1960
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / ride-01                                      (xv0 / ride-01
+      :ARG0 (xv2 / boy)                                   :ARG0 (xv2 / boy)
+      :ARG1 (xv1 / bike)                                  :ARG1 (xv1 / bike)
+      :location (xv3 / top                                :location (xv3 / top
+            :part-of (xv4 / fence                               :part-of (xv4 / fence
+                  :ARG1-of (xv5 / make-01                             :consist-of (xv5 / metal))))
+                        :ARG2 (xv6 / metal)))))     
+
+Scores:
+-------
+Semantic Relatedness Score:     4.9 (0.975)
+
+Ann. Score                     ---  0.971
+BERT Score                     ---  0.893
+BLEU                           ---  0.782
+GraCo                          ---  0.978
+GraCo (G)                      ---  0.983
+GraCo (r)                      ---  0.999
+GraCo (r,G)                    ---  0.965
+Meteor                         ---  0.482
+S2match                        ---  0.795
+Smatch                         ---  0.795
+WLK                            ---  0.752
+WWLK                           ---  0.751
+chrF++                         ---  0.759
+
+---------------------------------------------------------------------------------------------------
+T3026sick
+---------
+
+The crowd is watching two cars designed for racing  The crowd is watching two racing cars that are
+that are leaving the starting line                  leaving the starting line
+
+# ::id 3026                                         # ::id 3026
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / watch-01                                     (xv0 / watch-01
+      :ARG0 (xv2 / crowd)                                 :ARG0 (xv2 / crowd)
+      :ARG1 (xv1 / car                                    :ARG1 (xv1 / car
+            :quant 2                                            :quant 2
+            :ARG1-of (xv3 / design-01                           :ARG0-of (xv3 / leave-11
+                  :ARG3 (xv5 / race-02))                              :ARG1 (xv5 / line
+            :ARG0-of (xv4 / leave-11                                        :mod (xv6 / start-01)))
+                  :ARG1 (xv6 / line                             :ARG0-of (xv4 / race-02)))
+                        :mod (xv7 / start-01)))))   
+
+Scores:
+-------
+Semantic Relatedness Score:     4.7 (0.925)
+
+Ann. Score                     ---  0.914
+BERT Score                     ---  0.856
+BLEU                           ---  0.636
+GraCo                          ---  0.983
+GraCo (G)                      ---  0.984
+GraCo (r)                      ---  0.96
+GraCo (r,G)                    ---  0.924
+Meteor                         ---  0.453
+S2match                        ---  0.833
+Smatch                         ---  0.833
+WLK                            ---  0.799
+WWLK                           ---  0.761
+chrF++                         ---  0.741
+
+---------------------------------------------------------------------------------------------------
+T4410sick
+---------
+
+A boy is playing a game with wooden blocks          A boy is playing a game with blocks made of wood
+
+# ::id 4410                                         # ::id 4410
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / play-01                                      (xv0 / play-01
+      :ARG0 (xv2 / boy)                                   :ARG0 (xv2 / boy)
+      :ARG1 (xv1 / game)                                  :ARG1 (xv1 / game)
+      :ARG2 (xv3 / block                                  :ARG2 (xv3 / block
+            :mod (xv4 / wooden)))                               :ARG1-of (xv4 / make-01
+                                                                      :ARG2 (xv5 / wood))))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.8 (0.95)
+
+Ann. Score                     ---  0.943
+BERT Score                     ---  0.84
+BLEU                           ---  0.634
+GraCo                          ---  0.898
+GraCo (G)                      ---  0.988
+GraCo (r)                      ---  0.833
+GraCo (r,G)                    ---  0.957
+Meteor                         ---  0.352
+S2match                        ---  0.636
+Smatch                         ---  0.636
+WLK                            ---  0.603
+WWLK                           ---  0.591
+chrF++                         ---  0.752
+
+---------------------------------------------------------------------------------------------------
+T3489sick
+---------
+
+A young boy covered in grass is jumping near        A young boy covered in grass is jumping near
+a wooden fence                                      a fence made of wood
+
+# ::id 3489                                         # ::id 3489
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / jump-03                                      (xv0 / jump-03
+      :ARG0 (xv1 / boy                                    :ARG0 (xv1 / boy
+            :mod (xv7 / young)                                  :mod (xv8 / young)
+            :ARG1-of (xv2 / cover-02                            :ARG1-of (xv2 / cover-02
+                  :ARG0 (xv4 / grass)))                               :ARG0 (xv4 / grass)))
+      :ARG2 (xv5 / near-02                                :ARG2 (xv6 / near-02
+            :ARG2 (xv3 / fence                                  :ARG2 (xv3 / fence
+                  :mod (xv6 / wooden))))                              :ARG1-of (xv5 / make-01
+                                                                            :ARG2 (xv7 / wood)))))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.9 (0.975)
+
+Ann. Score                     ---  0.971
+BERT Score                     ---  0.878
+BLEU                           ---  0.742
+GraCo                          ---  0.908
+GraCo (G)                      ---  0.969
+GraCo (r)                      ---  0.883
+GraCo (r,G)                    ---  0.994
+Meteor                         ---  0.41
+S2match                        ---  0.765
+Smatch                         ---  0.765
+WLK                            ---  0.75
+WWLK                           ---  0.717
+chrF++                         ---  0.835
 
 ---------------------------------------------------------------------------------------------------
 

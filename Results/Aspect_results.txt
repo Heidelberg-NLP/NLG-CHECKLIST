@@ -20,14 +20,6 @@ Average Scores (Overall):
 -------------------------
 Average Semantic Similarity: 1.0 (0.2)
 
-Tested Score (GraCo (G)): 0.859
-
-Tested Score (GraCo (r,G)): 0.839
-
-Tested Score (GraCo): 0.876
-
-Tested Score (GraCo (r)): 0.866
-
 +-------------+-----------------+
 | Metric      |   Average Score |
 +=============+=================+

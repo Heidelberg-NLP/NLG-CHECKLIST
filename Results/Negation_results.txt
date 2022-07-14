@@ -20,14 +20,6 @@ Average Scores (Overall):
 -------------------------
 Average Semantic Relatedness: 0.597 (-0.101)
 
-Tested Score (GraCo (G)): 0.974
-
-Tested Score (GraCo (r,G)): 0.924
-
-Tested Score (GraCo): 0.942
-
-Tested Score (GraCo (r)): 0.916
-
 +-------------+-----------------+
 | Metric      |   Average Score |
 +=============+=================+
@@ -92,707 +84,7 @@ Correlation Matrix (Overall):
 
 ===================================================================================================================================
 
--------------------------------------
-   Const. Negation in Coordination
--------------------------------------
 
-Average Scores:
----------------
-Average Semantic Relatedness: 0.585 (-0.104)
-
-Tested Score (GraCo (G)): 0.979
-
-Tested Score (GraCo (r,G)): 0.979
-
-Tested Score (GraCo): 0.948
-
-Tested Score (GraCo (r)): 0.886
-
-+-------------+-----------------+
-| Metric      |   Average Score |
-+=============+=================+
-| Ann. Score  |        0.584615 |
-+-------------+-----------------+
-| BERT Score  |        0.778149 |
-+-------------+-----------------+
-| BLEU        |        0.801237 |
-+-------------+-----------------+
-| GraCo       |        0.947958 |
-+-------------+-----------------+
-| GraCo (G)   |        0.97855  |
-+-------------+-----------------+
-| GraCo (r)   |        0.886142 |
-+-------------+-----------------+
-| GraCo (r,G) |        0.979465 |
-+-------------+-----------------+
-| Meteor      |        0.525545 |
-+-------------+-----------------+
-| S2match     |        0.954667 |
-+-------------+-----------------+
-| Smatch      |        0.954667 |
-+-------------+-----------------+
-| WLK         |        0.879938 |
-+-------------+-----------------+
-| WWLK        |        0.781437 |
-+-------------+-----------------+
-| chrF++      |        0.922086 |
-+-------------+-----------------+
-
-Correlation Matrix:
--------------------
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-|             |   Ann. Score |   BERT Score |   BLEU |   chrF++ |   GraCo |   GraCo (G) |   GraCo (r) |   GraCo (r,G) |   Meteor |   S2match |   Smatch |    WLK |   WWLK |
-+=============+==============+==============+========+==========+=========+=============+=============+===============+==========+===========+==========+========+========+
-| Ann. Score  |        1     |       -0.011 |  0.061 |   -0.185 |  -0.182 |      -0.29  |      -0.066 |        -0.295 |    0.174 |    -0.025 |   -0.025 | -0.068 |  0.019 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| BERT Score  |       -0.011 |        1     |  0.952 |    0.923 |  -0.11  |       0.56  |      -0.005 |         0.302 |    0.846 |     0.924 |    0.924 |  0.894 |  0.94  |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| BLEU        |        0.061 |        0.952 |  1     |    0.812 |  -0.209 |       0.525 |      -0.116 |         0.347 |    0.938 |     0.972 |    0.972 |  0.942 |  0.977 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| chrF++      |       -0.185 |        0.923 |  0.812 |    1     |  -0.044 |       0.604 |       0.044 |         0.319 |    0.659 |     0.811 |    0.811 |  0.773 |  0.824 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| GraCo       |       -0.182 |       -0.11  | -0.209 |   -0.044 |   1     |      -0.11  |       0.83  |         0.258 |   -0.33  |    -0.31  |   -0.31  | -0.388 | -0.258 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| GraCo (G)   |       -0.29  |        0.56  |  0.525 |    0.604 |  -0.11  |       1     |      -0.055 |         0.643 |    0.544 |     0.606 |    0.606 |  0.597 |  0.637 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| GraCo (r)   |       -0.066 |       -0.005 | -0.116 |    0.044 |   0.83  |      -0.055 |       1     |         0.242 |   -0.132 |    -0.205 |   -0.205 | -0.267 | -0.143 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| GraCo (r,G) |       -0.295 |        0.302 |  0.347 |    0.319 |   0.258 |       0.643 |       0.242 |         1     |    0.313 |     0.387 |    0.387 |  0.349 |  0.385 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| Meteor      |        0.174 |        0.846 |  0.938 |    0.659 |  -0.33  |       0.544 |      -0.132 |         0.313 |    1     |     0.921 |    0.921 |  0.902 |  0.934 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| S2match     |       -0.025 |        0.924 |  0.972 |    0.811 |  -0.31  |       0.606 |      -0.205 |         0.387 |    0.921 |     1     |    1     |  0.983 |  0.993 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| Smatch      |       -0.025 |        0.924 |  0.972 |    0.811 |  -0.31  |       0.606 |      -0.205 |         0.387 |    0.921 |     1     |    1     |  0.983 |  0.993 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| WLK         |       -0.068 |        0.894 |  0.942 |    0.773 |  -0.388 |       0.597 |      -0.267 |         0.349 |    0.902 |     0.983 |    0.983 |  1     |  0.971 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| WWLK        |        0.019 |        0.94  |  0.977 |    0.824 |  -0.258 |       0.637 |      -0.143 |         0.385 |    0.934 |     0.993 |    0.993 |  0.971 |  1     |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-
-
-Scores for Individual Test Cases:
-=================================
-
-D322sick
----------
-
-The woman in a red costume is leaning against       The woman in a red costume is not leaning
-a brick wall and playing an instrument              against a brick wall and is not playing an instrument
-
-# ::id 322                                          # ::id 322
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / and                                          (xv0 / and
-      :op1 (xv6 / lean-01                                 :op1 (xv5 / lean-01
-            :ARG1 (xv9 / woman                                  :ARG1 (xv8 / woman
-                  :ARG0-of (xv4 / have-03                             :ARG0-of (xv10 / have-03
-                        :ARG1 (xv3 / costume                                :ARG1 (xv3 / costume
-                              :ARG1-of (xv8 / red-02))))                                :ARG1-of (xv7 / red-02))))
-            :ARG2 (xv1 / against                                :ARG2 (xv1 / against
-                  :op1 (xv10 / wall                                   :op1 (xv9 / wall
-                        :mod (xv2 / brick))))                               :mod (xv2 / brick)))
-      :op2 (xv7 / play-11                                       :polarity -)
-            :ARG0 xv9                                     :op2 (xv6 / play-11
-            :ARG1 (xv5 / instrument)))                          :ARG0 xv8
-                                                                :ARG1 (xv4 / instrument)
-                                                                :polarity -))
-
-Scores:
--------
-Semantic Relatedness Score:     3.2 (0.55)
-
-Ann. Score                     ---  0.486
-BERT Score                     ---  0.675
-BLEU                           ---  0.67
-GraCo                          ---  0.902
-GraCo (G)                      ---  0.978
-GraCo (r)                      ---  0.831
-GraCo (r,G)                    ---  0.98
-Meteor                         ---  0.472
-S2match                        ---  0.944
-Smatch                         ---  0.944
-WLK                            ---  0.855
-WWLK                           ---  0.72
-chrF++                         ---  0.911
-
----------------------------------------------------------------------------------------------------
-D427sick
----------
-
-A man is not rock climbing and a city               A man is rock climbing and a city and
-and a bay are in the background                     a bay are in the background
-
-# ::id 427                                          # ::id 427
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / and                                          (xv0 / and
-      :op1 (xv1 / climb-01                                :op1 (xv1 / climb-01
-            :ARG1 (xv3 / man)                                   :ARG1 (xv3 / man)
-            :mod (xv4 / rock)                                   :mod (xv4 / rock))
-            :polarity -)                                  :op2 (xv2 / be-located-at-91
-      :op2 (xv2 / be-located-at-91                              :ARG1 (xv5 / and
-            :ARG1 (xv5 / and                                          :op1 (xv7 / city)
-                  :op1 (xv7 / city)                                   :op2 (xv8 / bay))
-                  :op2 (xv8 / bay))                             :ARG2 (xv6 / background)))
-            :ARG2 (xv6 / background)))              
-
-Scores:
--------
-Semantic Relatedness Score:     4.4 (0.85)
-
-Ann. Score                     ---  0.829
-BERT Score                     ---  0.822
-BLEU                           ---  0.871
-GraCo                          ---  0.963
-GraCo (G)                      ---  0.971
-GraCo (r)                      ---  0.843
-GraCo (r,G)                    ---  0.955
-Meteor                         ---  0.548
-S2match                        ---  0.964
-Smatch                         ---  0.964
-WLK                            ---  0.897
-WWLK                           ---  0.826
-chrF++                         ---  0.917
-
----------------------------------------------------------------------------------------------------
-T2431sick
----------
-
-A child is walking down the street and a            A child is walking down the street and a
-jeep is pulling up                                  jeep is not pulling up
-
-# ::id 2431                                         # ::id 2431
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / and                                          (xv0 / and
-      :op1 (xv1 / walk-01                                 :op1 (xv1 / walk-01
-            :ARG0 (xv3 / child)                                 :ARG0 (xv3 / child)
-            :ARG2 (xv4 / down                                   :ARG2 (xv4 / down
-                  :op1 (xv6 / street)))                               :op1 (xv6 / street)))
-      :op2 (xv2 / pull-up-07                              :op2 (xv2 / pull-up-07
-            :ARG1 (xv5 / jeep-01)))                             :ARG1 (xv5 / jeep-01)
-                                                                :polarity -))
-
-Scores:
--------
-Semantic Relatedness Score:     3.5 (0.625)
-
-Ann. Score                     ---  0.571
-BERT Score                     ---  0.825
-BLEU                           ---  0.865
-GraCo                          ---  0.988
-GraCo (G)                      ---  0.972
-GraCo (r)                      ---  0.929
-GraCo (r,G)                    ---  0.962
-Meteor                         ---  0.516
-S2match                        ---  0.955
-Smatch                         ---  0.955
-WLK                            ---  0.876
-WWLK                           ---  0.779
-chrF++                         ---  0.951
-
----------------------------------------------------------------------------------------------------
-T2893sick
----------
-
-The man is standing on a rocky mountain and         The man is not standing on a rocky mountain
-gray clouds are in the background                   and gray clouds are not in the background
-
-# ::id 2893                                         # ::id 2893
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / and                                          (xv0 / and
-      :op1 (xv1 / stand-01                                :op1 (xv1 / stand-01
-            :ARG1 (xv3 / man)                                   :ARG1 (xv4 / man)
-            :ARG2 (xv4 / mountain                               :ARG2 (xv5 / mountain
-                  :mod (xv7 / rocky)))                                :mod (xv8 / rocky))
-      :op2 (xv2 / be-located-at-91                              :polarity -)
-            :ARG1 (xv5 / cloud                            :op2 (xv3 / be-located-at-91
-                  :ARG1-of (xv8 / gray-02))                     :ARG1 (xv6 / cloud
-            :ARG2 (xv6 / background)))                                :ARG1-of (xv2 / gray-02))
-                                                                :ARG2 (xv7 / background)
-                                                                :polarity -))
-
-Scores:
--------
-Semantic Relatedness Score:     3.4 (0.6)
-
-Ann. Score                     ---  0.543
-BERT Score                     ---  0.644
-BLEU                           ---  0.686
-GraCo                          ---  0.993
-GraCo (G)                      ---  0.975
-GraCo (r)                      ---  0.911
-GraCo (r,G)                    ---  0.991
-Meteor                         ---  0.476
-S2match                        ---  0.929
-Smatch                         ---  0.929
-WLK                            ---  0.813
-WWLK                           ---  0.702
-chrF++                         ---  0.909
-
----------------------------------------------------------------------------------------------------
-T3064sick
----------
-
-The cheerleaders are not parading and are not wearing  The cheerleaders are parading and wearing black, pink and white uniforms
-black, pink and white uniforms                      
-
-
-
-# ::id 3064                                         # ::id 3064
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / and                                          (xv0 / and
-      :op1 (xv4 / parade-02                               :op1 (xv4 / parade-02
-            :ARG1 (xv5 / cheerleader)                           :ARG1 (xv5 / cheerleader))
-            :polarity -)                                  :op2 (xv3 / wear-01
-      :op2 (xv3 / wear-01                                       :ARG0 xv5
-            :ARG0 xv5                                           :ARG1 (xv1 / uniform
-            :ARG1 (xv1 / uniform                                      :ARG1-of (xv2 / black-04)
-                  :ARG1-of (xv2 / black-04)                           :ARG1-of (xv7 / white-03)
-                  :ARG1-of (xv7 / white-03)                           :ARG1-of (xv6 / pink-04))))
-                  :ARG1-of (xv6 / pink-04)))        
-                  :polarity -)                      
-
-Scores:
--------
-Semantic Relatedness Score:     3.4 (0.6)
-
-Ann. Score                     ---  0.543
-BERT Score                     ---  0.624
-BLEU                           ---  0.517
-GraCo                          ---  0.985
-GraCo (G)                      ---  0.967
-GraCo (r)                      ---  0.991
-GraCo (r,G)                    ---  0.965
-Meteor                         ---  0.478
-S2match                        ---  0.925
-Smatch                         ---  0.925
-WLK                            ---  0.82
-WWLK                           ---  0.645
-chrF++                         ---  0.787
-
----------------------------------------------------------------------------------------------------
-T3368sick
----------
-
-The man with brown hair is not wearing sunglasses   The man with brown hair is wearing sunglasses and
-and is not sitting at a table with cans of soda and other drinks  is sitting at a table with cans of soda and other drinks
-
-# ::id 3368                                         # ::id 3368
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / and                                          (xv0 / and
-      :op1 (xv1 / wear-01                                 :op1 (xv1 / wear-01
-            :ARG0 (xv10 / man                                   :ARG0 (xv10 / man
-                  :part (xv13 / hair                                  :part (xv13 / hair
-                        :mod (xv3 / brown))                                 :mod (xv3 / brown))
-                  :ARG0-of (xv12 / have-03                            :ARG0-of (xv12 / have-03
-                        :ARG1 (xv9 / sunglass)))                            :ARG1 (xv9 / sunglass))))
-            :polarity -)                                  :op2 (xv8 / sit-01
-      :op2 (xv8 / sit-01                                        :ARG1 xv10
-            :ARG1 xv10                                          :ARG2 (xv11 / table
-            :ARG2 (xv11 / table                                       :ARG0-of (xv14 / have-03
-                  :ARG0-of (xv14 / have-03                                  :ARG1 (xv2 / and
-                        :ARG1 (xv2 / and                                          :op1 (xv4 / can
-                              :op1 (xv4 / can                                           :mod (xv6 / soda))
-                                    :mod (xv6 / soda))                                :op2 (xv5 / drink
-                              :op2 (xv5 / drink                                         :mod (xv7 / other)))))))
-                                    :mod (xv7 / other)))))  
-            :polarity -))                           
-
-Scores:
--------
-Semantic Relatedness Score:     3.3 (0.575)
-
-Ann. Score                     ---  0.514
-BERT Score                     ---  0.777
-BLEU                           ---  0.802
-GraCo                          ---  0.98
-GraCo (G)                      ---  0.986
-GraCo (r)                      ---  0.901
-GraCo (r,G)                    ---  0.998
-Meteor                         ---  0.54
-S2match                        ---  0.959
-Smatch                         ---  0.959
-WLK                            ---  0.894
-WWLK                           ---  0.786
-chrF++                         ---  0.894
-
----------------------------------------------------------------------------------------------------
-T3682sick
----------
-
-The woman is wearing a red jacket and holding       The woman is not wearing a red jacket and
-a glass in front of the man in a white t-shirt      is not holding a glass in front of the man in a white t-shirt
-
-# ::id 3682                                         # ::id 3682
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / and                                          (xv0 / and
-      :op1 (xv1 / wear-01                                 :op1 (xv1 / wear-01
-            :ARG0 (xv5 / woman)                                 :ARG0 (xv7 / woman)
-            :ARG1 (xv4 / jacket                                 :ARG1 (xv6 / jacket
-                  :ARG1-of (xv8 / red-02)))                           :ARG1-of (xv10 / red-02))
-      :op2 (xv3 / hold-01                                       :polarity -)
-            :ARG0 xv5                                     :op2 (xv5 / hold-01
-            :ARG1 (xv6 / glass)                                 :ARG0 xv7
-            :location (xv7 / in-front-of                        :ARG1 (xv8 / glass)
-                  :op1 (xv9 / man                               :location (xv9 / in-front-of
-                        :location (xv10 / shirt                       :op1 (xv2 / man
-                              :ARG1-of (xv2 / white-03))))))                          :location (xv3 / shirt
-                                                                                  :ARG1-of (xv4 / white-03))))
-                                                                :polarity -))
-
-Scores:
--------
-Semantic Relatedness Score:     4.0 (0.75)
-
-Ann. Score                     ---  0.714
-BERT Score                     ---  0.779
-BLEU                           ---  0.751
-GraCo                          ---  0.989
-GraCo (G)                      ---  0.981
-GraCo (r)                      ---  0.932
-GraCo (r,G)                    ---  0.984
-Meteor                         ---  0.506
-S2match                        ---  0.944
-Smatch                         ---  0.944
-WLK                            ---  0.85
-WWLK                           ---  0.735
-chrF++                         ---  0.923
-
----------------------------------------------------------------------------------------------------
-T3691sick
----------
-
-The girl is not wearing a white shirt and           The girl is wearing a white shirt and a
-a pink skirt, and is not standing in front of a house  pink skirt, and is standing in front of a house
-
-# ::id 3691                                         # ::id 3691
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / and                                          (xv0 / and
-      :op1 (xv9 / wear-01                                 :op1 (xv9 / wear-01
-            :ARG0 (xv2 / girl)                                  :ARG0 (xv2 / girl)
-            :ARG1 (xv1 / and                                    :ARG1 (xv1 / and
-                  :op1 (xv7 / shirt                                   :op1 (xv7 / shirt
-                        :ARG1-of (xv10 / white-03))                          :ARG1-of (xv10 / white-03))
-                  :op2 (xv8 / skirt                                   :op2 (xv8 / skirt
-                        :ARG1-of (xv5 / pink-04)))                          :ARG1-of (xv5 / pink-04))))
-            :polarity -)                                  :op2 (xv6 / stand-01
-      :op2 (xv6 / stand-01                                      :ARG1 xv2
-            :ARG1 xv2                                           :ARG2 (xv4 / in-front-of
-            :ARG2 (xv4 / in-front-of                                  :op1 (xv3 / house))))
-                  :op1 (xv3 / house))               
-            :polarity -))                           
-
-Scores:
--------
-Semantic Relatedness Score:     4.2 (0.8)
-
-Ann. Score                     ---  0.771
-BERT Score                     ---  0.71
-BLEU                           ---  0.773
-GraCo                          ---  0.804
-GraCo (G)                      ---  0.977
-GraCo (r)                      ---  0.74
-GraCo (r,G)                    ---  0.958
-Meteor                         ---  0.535
-S2match                        ---  0.944
-Smatch                         ---  0.944
-WLK                            ---  0.855
-WWLK                           ---  0.735
-chrF++                         ---  0.867
-
----------------------------------------------------------------------------------------------------
-T3781sick
----------
-
-The blonde girl with the pink top is smiling        The blonde girl with the pink top is not
-and wearing funny glasses with a large nose attached  smiling and not wearing funny glasses with a large nose attached
-
-# ::id 3781                                         # ::id 3781
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / and                                          (xv0 / and
-      :op1 (xv10 / smile-01                               :op1 (xv10 / smile-01
-            :ARG0 (xv4 / girl                                   :ARG0 (xv4 / girl
-                  :mod (xv2 / blonde)                                 :mod (xv2 / blonde)
-                  :ARG0-of (xv6 / have-03                             :ARG0-of (xv6 / have-03
-                        :ARG1 (xv11 / top                                   :ARG1 (xv11 / top
-                              :ARG1-of (xv9 / pink-04)))))                                :ARG1-of (xv9 / pink-04))))
-      :op2 (xv12 / wear-01                                      :polarity -)
-            :ARG0 xv4                                     :op2 (xv12 / wear-01
-            :ARG1 (xv5 / glass                                  :ARG0 xv4
-                  :ARG1-of (xv1 / attach-01                     :ARG1 (xv5 / glass
-                        :ARG2 (xv8 / nose                             :ARG1-of (xv1 / attach-01
-                              :mod (xv7 / large)))                          :ARG2 (xv8 / nose
-                  :ARG1-of (xv3 / funny))))                                       :mod (xv7 / large)))
-                                                                      :ARG1-of (xv3 / funny)))
-                                                                :polarity -)
-
-Scores:
--------
-Semantic Relatedness Score:     3.3 (0.575)
-
-Ann. Score                     ---  0.514
-BERT Score                     ---  0.806
-BLEU                           ---  0.775
-GraCo                          ---  0.965
-GraCo (G)                      ---  0.979
-GraCo (r)                      ---  0.878
-GraCo (r,G)                    ---  0.973
-Meteor                         ---  0.503
-S2match                        ---  0.952
-Smatch                         ---  0.952
-WLK                            ---  0.883
-WWLK                           ---  0.772
-chrF++                         ---  0.935
-
----------------------------------------------------------------------------------------------------
-T4361sick
----------
-
-A child is not wearing a coat and is                A child is wearing a coat and is carrying
-carrying a red sled behind a child in a green and black coat  a red sled behind a child in a green and black coat
-
-# ::id 4361                                         # ::id 4361
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / and                                          (xv0 / and
-      :op1 (xv1 / wear-01                                 :op1 (xv1 / wear-01
-            :ARG0 (xv8 / child)                                 :ARG0 (xv7 / child)
-            :ARG1 (xv7 / coat)                                  :ARG1 (xv6 / coat))
-            :polarity -)                                  :op2 (xv5 / carry-01
-      :op2 (xv6 / carry-01                                      :ARG0 xv7
-            :ARG0 xv8                                           :ARG1 (xv8 / sled-01
-            :ARG1 (xv9 / sled-01                                      :ARG1-of (xv10 / red-02))
-                  :ARG1-of (xv11 / red-02))                     :location (xv9 / behind
-            :location (xv10 / behind                                  :op1 (xv11 / child
-                  :op1 (xv12 / child                                        :ARG1-of (xv12 / have-03
-                        :ARG1-of (xv2 / have-03                                   :ARG1 (xv2 / coat
-                              :ARG1 (xv3 / coat                                         :ARG1-of (xv3 / black-04)
-                                    :ARG1-of (xv4 / black-04)                                      :ARG1-of (xv4 / green-02)))))))
-                                    :ARG1-of (xv5 / green-02)))))))  
-
-Scores:
--------
-Semantic Relatedness Score:     3.8 (0.7)
-
-Ann. Score                     ---  0.657
-BERT Score                     ---  0.865
-BLEU                           ---  0.93
-GraCo                          ---  0.898
-GraCo (G)                      ---  0.981
-GraCo (r)                      ---  0.89
-GraCo (r,G)                    ---  1.0
-Meteor                         ---  0.58
-S2match                        ---  0.976
-Smatch                         ---  0.976
-WLK                            ---  0.93
-WWLK                           ---  0.873
-chrF++                         ---  0.952
-
----------------------------------------------------------------------------------------------------
-T4604sick
----------
-
-A group of people is walking down the street        A group of people is not walking down the
-and a person in a green hat is on the phone         street and a person in a green hat is on the phone
-
-# ::id 4604                                         # ::id 4604
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / and                                          (xv0 / and
-      :op1 (xv11 / walk-01                                :op1 (xv11 / walk-01
-            :ARG0 (xv3 / group                                  :ARG0 (xv3 / group
-                  :consist-of (xv9 / person))                         :consist-of (xv9 / person))
-            :ARG2 (xv2 / down                                   :ARG2 (xv2 / down
-                  :op1 (xv10 / street)))                              :op1 (xv10 / street))
-      :op2 (xv1 / be-located-at-91                              :polarity -)
-            :ARG1 (xv7 / person                           :op2 (xv1 / be-located-at-91
-                  :ARG0-of (xv5 / have-03                       :ARG1 (xv7 / person
-                        :ARG1 (xv6 / hat                              :ARG0-of (xv5 / have-03
-                              :ARG1-of (xv4 / green-02))))                          :ARG1 (xv6 / hat
-            :ARG2 (xv8 / phone)))                                                 :ARG1-of (xv4 / green-02))))
-                                                                :ARG2 (xv8 / phone)))
-
-Scores:
--------
-Semantic Relatedness Score:     3.2 (0.55)
-
-Ann. Score                     ---  0.486
-BERT Score                     ---  0.844
-BLEU                           ---  0.923
-GraCo                          ---  0.887
-GraCo (G)                      ---  0.987
-GraCo (r)                      ---  0.846
-GraCo (r,G)                    ---  0.973
-Meteor                         ---  0.561
-S2match                        ---  0.973
-Smatch                         ---  0.973
-WLK                            ---  0.922
-WWLK                           ---  0.867
-chrF++                         ---  0.979
-
----------------------------------------------------------------------------------------------------
-T4765sick
----------
-
-A young girl is playing on the edge of              A young girl is playing on the edge of
-a fountain and an older woman is watching her       a fountain and an older woman is not watching her
-
-# ::id 4765                                         # ::id 4765
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / and                                          (xv0 / and
-      :op1 (xv1 / play-01                                 :op1 (xv1 / play-01
-            :ARG0 (xv3 / girl                                   :ARG0 (xv4 / girl
-                  :mod (xv6 / young))                                 :mod (xv7 / young))
-            :location (xv4 / edge                               :location (xv5 / edge
-                  :part-of (xv7 / fountain)))                         :part-of (xv8 / fountain)))
-      :op2 (xv2 / watch-01                                :op2 (xv3 / watch-01
-            :ARG0 (xv5 / woman                                  :ARG0 (xv6 / woman
-                  :mod (xv8 / old                                     :mod (xv9 / old
-                        :degree (xv9 / more)))                              :degree (xv2 / more)))
-            :ARG1 xv3))                                         :ARG1 xv4
-                                                                :polarity -))
-
-Scores:
--------
-Semantic Relatedness Score:     2.8 (0.45)
-
-Ann. Score                     ---  0.371
-BERT Score                     ---  0.866
-BLEU                           ---  0.924
-GraCo                          ---  0.992
-GraCo (G)                      ---  0.981
-GraCo (r)                      ---  0.92
-GraCo (r,G)                    ---  0.997
-Meteor                         ---  0.551
-S2match                        ---  0.969
-Smatch                         ---  0.969
-WLK                            ---  0.911
-WWLK                           ---  0.834
-chrF++                         ---  0.976
-
----------------------------------------------------------------------------------------------------
-T4602sick
----------
-
-Four people are walking along a city sidewalk and   Four people are walking along a city sidewalk and
-the one in the green hat is talking on a cell phone  the one in the green hat is not talking on a cell phone
-
-# ::id 4602                                         # ::id 4602
-# ::humancorrect=True                               # ::humancorrect=True
-# ::humancorrect=True                               # ::humancorrect=True
-(xv0 / and                                          (xv0 / and
-      :op1 (xv12 / walk-01                                :op1 (xv12 / walk-01
-            :ARG0 (xv7 / person                                 :ARG0 (xv7 / person
-                  :quant 4)                                           :quant 4)
-            :ARG2 (xv1 / along                                  :ARG2 (xv1 / along
-                  :op1 (xv10 / sidewalk                               :op1 (xv10 / sidewalk
-                        :location (xv3 / city))))                           :location (xv3 / city))))
-      :op2 (xv11 / talk-01                                :op2 (xv11 / talk-01
-            :medium (xv8 / phone                                :medium (xv8 / phone
-                  :mod (xv2 / cell))                                  :mod (xv2 / cell))
-            :ARG0 (xv9 / person                                 :ARG0 (xv9 / person
-                  :ARG0-of (xv5 / have-03                             :ARG0-of (xv5 / have-03
-                        :ARG1 (xv6 / hat                                    :ARG1 (xv6 / hat
-                              :ARG1-of (xv4 / green-02))))))                                :ARG1-of (xv4 / green-02))))
-                                                                :polarity -))
-
-Scores:
--------
-Semantic Relatedness Score:     3.6 (0.65)
-
-Ann. Score                     ---  0.6
-BERT Score                     ---  0.878
-BLEU                           ---  0.93
-GraCo                          ---  0.978
-GraCo (G)                      ---  0.987
-GraCo (r)                      ---  0.907
-GraCo (r,G)                    ---  0.998
-Meteor                         ---  0.567
-S2match                        ---  0.976
-Smatch                         ---  0.976
-WLK                            ---  0.933
-WWLK                           ---  0.885
-chrF++                         ---  0.986
-
----------------------------------------------------------------------------------------------------
-
-
-------------------------------------------------------
-
----------------------
-   Matrix Negation
----------------------
-
-Average Scores:
----------------
-Average Semantic Relatedness: 0.598 (-0.1)
-
-Tested Score (GraCo (G)): 0.974
-
-Tested Score (GraCo (r,G)): 0.919
-
-Tested Score (GraCo): 0.942
-
-Tested Score (GraCo (r)): 0.919
-
-+-------------+-----------------+
-| Metric      |   Average Score |
-+=============+=================+
-| Ann. Score  |        0.598162 |
-+-------------+-----------------+
-| BERT Score  |        0.74597  |
-+-------------+-----------------+
-| BLEU        |        0.561702 |
-+-------------+-----------------+
-| GraCo       |        0.941659 |
-+-------------+-----------------+
-| GraCo (G)   |        0.973891 |
-+-------------+-----------------+
-| GraCo (r)   |        0.918565 |
-+-------------+-----------------+
-| GraCo (r,G) |        0.918677 |
-+-------------+-----------------+
-| Meteor      |        0.453957 |
-+-------------+-----------------+
-| S2match     |        0.917734 |
-+-------------+-----------------+
-| Smatch      |        0.917734 |
-+-------------+-----------------+
-| WLK         |        0.783015 |
-+-------------+-----------------+
-| WWLK        |        0.631105 |
-+-------------+-----------------+
-| chrF++      |        0.838631 |
-+-------------+-----------------+
-
-Correlation Matrix:
--------------------
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-|             |   Ann. Score |   BERT Score |   BLEU |   chrF++ |   GraCo |   GraCo (G) |   GraCo (r) |   GraCo (r,G) |   Meteor |   S2match |   Smatch |    WLK |   WWLK |
-+=============+==============+==============+========+==========+=========+=============+=============+===============+==========+===========+==========+========+========+
-| Ann. Score  |        1     |        0.06  | -0.054 |   -0.023 |  -0.086 |       0.002 |       0.002 |         0.04  |   -0.049 |     0.001 |    0.001 |  0.023 | -0.013 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| BERT Score  |        0.06  |        1     |  0.28  |    0.331 |   0.069 |       0.08  |       0.151 |        -0.238 |    0.244 |     0.325 |    0.325 |  0.354 |  0.305 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| BLEU        |       -0.054 |        0.28  |  1     |    0.817 |   0.04  |       0.173 |      -0.181 |         0.014 |    0.886 |     0.845 |    0.845 |  0.824 |  0.822 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| chrF++      |       -0.023 |        0.331 |  0.817 |    1     |   0.025 |       0.191 |      -0.149 |         0.073 |    0.66  |     0.727 |    0.727 |  0.708 |  0.712 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| GraCo       |       -0.086 |        0.069 |  0.04  |    0.025 |   1     |      -0.086 |       0.726 |        -0.119 |    0.027 |     0.011 |    0.011 |  0.001 |  0.007 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| GraCo (G)   |        0.002 |        0.08  |  0.173 |    0.191 |  -0.086 |       1     |      -0.106 |         0.18  |    0.182 |     0.319 |    0.319 |  0.308 |  0.243 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| GraCo (r)   |        0.002 |        0.151 | -0.181 |   -0.149 |   0.726 |      -0.106 |       1     |        -0.144 |   -0.22  |    -0.18  |   -0.18  | -0.159 | -0.195 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| GraCo (r,G) |        0.04  |       -0.238 |  0.014 |    0.073 |  -0.119 |       0.18  |      -0.144 |         1     |    0.025 |     0.029 |    0.029 |  0.031 |  0.036 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| Meteor      |       -0.049 |        0.244 |  0.886 |    0.66  |   0.027 |       0.182 |      -0.22  |         0.025 |    1     |     0.838 |    0.838 |  0.814 |  0.822 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| S2match     |        0.001 |        0.325 |  0.845 |    0.727 |   0.011 |       0.319 |      -0.18  |         0.029 |    0.838 |     1     |    1     |  0.989 |  0.969 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| Smatch      |        0.001 |        0.325 |  0.845 |    0.727 |   0.011 |       0.319 |      -0.18  |         0.029 |    0.838 |     1     |    1     |  0.989 |  0.969 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| WLK         |        0.023 |        0.354 |  0.824 |    0.708 |   0.001 |       0.308 |      -0.159 |         0.031 |    0.814 |     0.989 |    0.989 |  1     |  0.957 |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
-| WWLK        |       -0.013 |        0.305 |  0.822 |    0.712 |   0.007 |       0.243 |      -0.195 |         0.036 |    0.822 |     0.969 |    0.969 |  0.957 |  1     |
-+-------------+--------------+--------------+--------+----------+---------+-------------+-------------+---------------+----------+-----------+----------+--------+--------+
 
 
 Scores for Individual Test Cases:
@@ -5484,6 +4776,544 @@ Smatch                         ---  0.955
 WLK                            ---  0.868
 WWLK                           ---  0.773
 chrF++                         ---  0.907
+
+---------------------------------------------------------------------------------------------------
+D322sick
+---------
+
+The woman in a red costume is leaning against       The woman in a red costume is not leaning
+a brick wall and playing an instrument              against a brick wall and is not playing an instrument
+
+# ::id 322                                          # ::id 322
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / and                                          (xv0 / and
+      :op1 (xv6 / lean-01                                 :op1 (xv5 / lean-01
+            :ARG1 (xv9 / woman                                  :ARG1 (xv8 / woman
+                  :ARG0-of (xv4 / have-03                             :ARG0-of (xv10 / have-03
+                        :ARG1 (xv3 / costume                                :ARG1 (xv3 / costume
+                              :ARG1-of (xv8 / red-02))))                                :ARG1-of (xv7 / red-02))))
+            :ARG2 (xv1 / against                                :ARG2 (xv1 / against
+                  :op1 (xv10 / wall                                   :op1 (xv9 / wall
+                        :mod (xv2 / brick))))                               :mod (xv2 / brick)))
+      :op2 (xv7 / play-11                                       :polarity -)
+            :ARG0 xv9                                     :op2 (xv6 / play-11
+            :ARG1 (xv5 / instrument)))                          :ARG0 xv8
+                                                                :ARG1 (xv4 / instrument)
+                                                                :polarity -))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.2 (0.55)
+
+Ann. Score                     ---  0.486
+BERT Score                     ---  0.675
+BLEU                           ---  0.67
+GraCo                          ---  0.902
+GraCo (G)                      ---  0.978
+GraCo (r)                      ---  0.831
+GraCo (r,G)                    ---  0.98
+Meteor                         ---  0.472
+S2match                        ---  0.944
+Smatch                         ---  0.944
+WLK                            ---  0.855
+WWLK                           ---  0.72
+chrF++                         ---  0.911
+
+---------------------------------------------------------------------------------------------------
+D427sick
+---------
+
+A man is not rock climbing and a city               A man is rock climbing and a city and
+and a bay are in the background                     a bay are in the background
+
+# ::id 427                                          # ::id 427
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / and                                          (xv0 / and
+      :op1 (xv1 / climb-01                                :op1 (xv1 / climb-01
+            :ARG1 (xv3 / man)                                   :ARG1 (xv3 / man)
+            :mod (xv4 / rock)                                   :mod (xv4 / rock))
+            :polarity -)                                  :op2 (xv2 / be-located-at-91
+      :op2 (xv2 / be-located-at-91                              :ARG1 (xv5 / and
+            :ARG1 (xv5 / and                                          :op1 (xv7 / city)
+                  :op1 (xv7 / city)                                   :op2 (xv8 / bay))
+                  :op2 (xv8 / bay))                             :ARG2 (xv6 / background)))
+            :ARG2 (xv6 / background)))              
+
+Scores:
+-------
+Semantic Relatedness Score:     4.4 (0.85)
+
+Ann. Score                     ---  0.829
+BERT Score                     ---  0.822
+BLEU                           ---  0.871
+GraCo                          ---  0.963
+GraCo (G)                      ---  0.971
+GraCo (r)                      ---  0.843
+GraCo (r,G)                    ---  0.955
+Meteor                         ---  0.548
+S2match                        ---  0.964
+Smatch                         ---  0.964
+WLK                            ---  0.897
+WWLK                           ---  0.826
+chrF++                         ---  0.917
+
+---------------------------------------------------------------------------------------------------
+T2431sick
+---------
+
+A child is walking down the street and a            A child is walking down the street and a
+jeep is pulling up                                  jeep is not pulling up
+
+# ::id 2431                                         # ::id 2431
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / and                                          (xv0 / and
+      :op1 (xv1 / walk-01                                 :op1 (xv1 / walk-01
+            :ARG0 (xv3 / child)                                 :ARG0 (xv3 / child)
+            :ARG2 (xv4 / down                                   :ARG2 (xv4 / down
+                  :op1 (xv6 / street)))                               :op1 (xv6 / street)))
+      :op2 (xv2 / pull-up-07                              :op2 (xv2 / pull-up-07
+            :ARG1 (xv5 / jeep-01)))                             :ARG1 (xv5 / jeep-01)
+                                                                :polarity -))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.5 (0.625)
+
+Ann. Score                     ---  0.571
+BERT Score                     ---  0.825
+BLEU                           ---  0.865
+GraCo                          ---  0.988
+GraCo (G)                      ---  0.972
+GraCo (r)                      ---  0.929
+GraCo (r,G)                    ---  0.962
+Meteor                         ---  0.516
+S2match                        ---  0.955
+Smatch                         ---  0.955
+WLK                            ---  0.876
+WWLK                           ---  0.779
+chrF++                         ---  0.951
+
+---------------------------------------------------------------------------------------------------
+T2893sick
+---------
+
+The man is standing on a rocky mountain and         The man is not standing on a rocky mountain
+gray clouds are in the background                   and gray clouds are not in the background
+
+# ::id 2893                                         # ::id 2893
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / and                                          (xv0 / and
+      :op1 (xv1 / stand-01                                :op1 (xv1 / stand-01
+            :ARG1 (xv3 / man)                                   :ARG1 (xv4 / man)
+            :ARG2 (xv4 / mountain                               :ARG2 (xv5 / mountain
+                  :mod (xv7 / rocky)))                                :mod (xv8 / rocky))
+      :op2 (xv2 / be-located-at-91                              :polarity -)
+            :ARG1 (xv5 / cloud                            :op2 (xv3 / be-located-at-91
+                  :ARG1-of (xv8 / gray-02))                     :ARG1 (xv6 / cloud
+            :ARG2 (xv6 / background)))                                :ARG1-of (xv2 / gray-02))
+                                                                :ARG2 (xv7 / background)
+                                                                :polarity -))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.4 (0.6)
+
+Ann. Score                     ---  0.543
+BERT Score                     ---  0.644
+BLEU                           ---  0.686
+GraCo                          ---  0.993
+GraCo (G)                      ---  0.975
+GraCo (r)                      ---  0.911
+GraCo (r,G)                    ---  0.991
+Meteor                         ---  0.476
+S2match                        ---  0.929
+Smatch                         ---  0.929
+WLK                            ---  0.813
+WWLK                           ---  0.702
+chrF++                         ---  0.909
+
+---------------------------------------------------------------------------------------------------
+T3064sick
+---------
+
+The cheerleaders are not parading and are not wearing  The cheerleaders are parading and wearing black, pink and white uniforms
+black, pink and white uniforms                      
+
+
+
+# ::id 3064                                         # ::id 3064
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / and                                          (xv0 / and
+      :op1 (xv4 / parade-02                               :op1 (xv4 / parade-02
+            :ARG1 (xv5 / cheerleader)                           :ARG1 (xv5 / cheerleader))
+            :polarity -)                                  :op2 (xv3 / wear-01
+      :op2 (xv3 / wear-01                                       :ARG0 xv5
+            :ARG0 xv5                                           :ARG1 (xv1 / uniform
+            :ARG1 (xv1 / uniform                                      :ARG1-of (xv2 / black-04)
+                  :ARG1-of (xv2 / black-04)                           :ARG1-of (xv7 / white-03)
+                  :ARG1-of (xv7 / white-03)                           :ARG1-of (xv6 / pink-04))))
+                  :ARG1-of (xv6 / pink-04)))        
+                  :polarity -)                      
+
+Scores:
+-------
+Semantic Relatedness Score:     3.4 (0.6)
+
+Ann. Score                     ---  0.543
+BERT Score                     ---  0.624
+BLEU                           ---  0.517
+GraCo                          ---  0.985
+GraCo (G)                      ---  0.967
+GraCo (r)                      ---  0.991
+GraCo (r,G)                    ---  0.965
+Meteor                         ---  0.478
+S2match                        ---  0.925
+Smatch                         ---  0.925
+WLK                            ---  0.82
+WWLK                           ---  0.645
+chrF++                         ---  0.787
+
+---------------------------------------------------------------------------------------------------
+T3368sick
+---------
+
+The man with brown hair is not wearing sunglasses   The man with brown hair is wearing sunglasses and
+and is not sitting at a table with cans of soda and other drinks  is sitting at a table with cans of soda and other drinks
+
+# ::id 3368                                         # ::id 3368
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / and                                          (xv0 / and
+      :op1 (xv1 / wear-01                                 :op1 (xv1 / wear-01
+            :ARG0 (xv10 / man                                   :ARG0 (xv10 / man
+                  :part (xv13 / hair                                  :part (xv13 / hair
+                        :mod (xv3 / brown))                                 :mod (xv3 / brown))
+                  :ARG0-of (xv12 / have-03                            :ARG0-of (xv12 / have-03
+                        :ARG1 (xv9 / sunglass)))                            :ARG1 (xv9 / sunglass))))
+            :polarity -)                                  :op2 (xv8 / sit-01
+      :op2 (xv8 / sit-01                                        :ARG1 xv10
+            :ARG1 xv10                                          :ARG2 (xv11 / table
+            :ARG2 (xv11 / table                                       :ARG0-of (xv14 / have-03
+                  :ARG0-of (xv14 / have-03                                  :ARG1 (xv2 / and
+                        :ARG1 (xv2 / and                                          :op1 (xv4 / can
+                              :op1 (xv4 / can                                           :mod (xv6 / soda))
+                                    :mod (xv6 / soda))                                :op2 (xv5 / drink
+                              :op2 (xv5 / drink                                         :mod (xv7 / other)))))))
+                                    :mod (xv7 / other)))))  
+            :polarity -))                           
+
+Scores:
+-------
+Semantic Relatedness Score:     3.3 (0.575)
+
+Ann. Score                     ---  0.514
+BERT Score                     ---  0.777
+BLEU                           ---  0.802
+GraCo                          ---  0.98
+GraCo (G)                      ---  0.986
+GraCo (r)                      ---  0.901
+GraCo (r,G)                    ---  0.998
+Meteor                         ---  0.54
+S2match                        ---  0.959
+Smatch                         ---  0.959
+WLK                            ---  0.894
+WWLK                           ---  0.786
+chrF++                         ---  0.894
+
+---------------------------------------------------------------------------------------------------
+T3682sick
+---------
+
+The woman is wearing a red jacket and holding       The woman is not wearing a red jacket and
+a glass in front of the man in a white t-shirt      is not holding a glass in front of the man in a white t-shirt
+
+# ::id 3682                                         # ::id 3682
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / and                                          (xv0 / and
+      :op1 (xv1 / wear-01                                 :op1 (xv1 / wear-01
+            :ARG0 (xv5 / woman)                                 :ARG0 (xv7 / woman)
+            :ARG1 (xv4 / jacket                                 :ARG1 (xv6 / jacket
+                  :ARG1-of (xv8 / red-02)))                           :ARG1-of (xv10 / red-02))
+      :op2 (xv3 / hold-01                                       :polarity -)
+            :ARG0 xv5                                     :op2 (xv5 / hold-01
+            :ARG1 (xv6 / glass)                                 :ARG0 xv7
+            :location (xv7 / in-front-of                        :ARG1 (xv8 / glass)
+                  :op1 (xv9 / man                               :location (xv9 / in-front-of
+                        :location (xv10 / shirt                       :op1 (xv2 / man
+                              :ARG1-of (xv2 / white-03))))))                          :location (xv3 / shirt
+                                                                                  :ARG1-of (xv4 / white-03))))
+                                                                :polarity -))
+
+Scores:
+-------
+Semantic Relatedness Score:     4.0 (0.75)
+
+Ann. Score                     ---  0.714
+BERT Score                     ---  0.779
+BLEU                           ---  0.751
+GraCo                          ---  0.989
+GraCo (G)                      ---  0.981
+GraCo (r)                      ---  0.932
+GraCo (r,G)                    ---  0.984
+Meteor                         ---  0.506
+S2match                        ---  0.944
+Smatch                         ---  0.944
+WLK                            ---  0.85
+WWLK                           ---  0.735
+chrF++                         ---  0.923
+
+---------------------------------------------------------------------------------------------------
+T3691sick
+---------
+
+The girl is not wearing a white shirt and           The girl is wearing a white shirt and a
+a pink skirt, and is not standing in front of a house  pink skirt, and is standing in front of a house
+
+# ::id 3691                                         # ::id 3691
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / and                                          (xv0 / and
+      :op1 (xv9 / wear-01                                 :op1 (xv9 / wear-01
+            :ARG0 (xv2 / girl)                                  :ARG0 (xv2 / girl)
+            :ARG1 (xv1 / and                                    :ARG1 (xv1 / and
+                  :op1 (xv7 / shirt                                   :op1 (xv7 / shirt
+                        :ARG1-of (xv10 / white-03))                          :ARG1-of (xv10 / white-03))
+                  :op2 (xv8 / skirt                                   :op2 (xv8 / skirt
+                        :ARG1-of (xv5 / pink-04)))                          :ARG1-of (xv5 / pink-04))))
+            :polarity -)                                  :op2 (xv6 / stand-01
+      :op2 (xv6 / stand-01                                      :ARG1 xv2
+            :ARG1 xv2                                           :ARG2 (xv4 / in-front-of
+            :ARG2 (xv4 / in-front-of                                  :op1 (xv3 / house))))
+                  :op1 (xv3 / house))               
+            :polarity -))                           
+
+Scores:
+-------
+Semantic Relatedness Score:     4.2 (0.8)
+
+Ann. Score                     ---  0.771
+BERT Score                     ---  0.71
+BLEU                           ---  0.773
+GraCo                          ---  0.804
+GraCo (G)                      ---  0.977
+GraCo (r)                      ---  0.74
+GraCo (r,G)                    ---  0.958
+Meteor                         ---  0.535
+S2match                        ---  0.944
+Smatch                         ---  0.944
+WLK                            ---  0.855
+WWLK                           ---  0.735
+chrF++                         ---  0.867
+
+---------------------------------------------------------------------------------------------------
+T3781sick
+---------
+
+The blonde girl with the pink top is smiling        The blonde girl with the pink top is not
+and wearing funny glasses with a large nose attached  smiling and not wearing funny glasses with a large nose attached
+
+# ::id 3781                                         # ::id 3781
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / and                                          (xv0 / and
+      :op1 (xv10 / smile-01                               :op1 (xv10 / smile-01
+            :ARG0 (xv4 / girl                                   :ARG0 (xv4 / girl
+                  :mod (xv2 / blonde)                                 :mod (xv2 / blonde)
+                  :ARG0-of (xv6 / have-03                             :ARG0-of (xv6 / have-03
+                        :ARG1 (xv11 / top                                   :ARG1 (xv11 / top
+                              :ARG1-of (xv9 / pink-04)))))                                :ARG1-of (xv9 / pink-04))))
+      :op2 (xv12 / wear-01                                      :polarity -)
+            :ARG0 xv4                                     :op2 (xv12 / wear-01
+            :ARG1 (xv5 / glass                                  :ARG0 xv4
+                  :ARG1-of (xv1 / attach-01                     :ARG1 (xv5 / glass
+                        :ARG2 (xv8 / nose                             :ARG1-of (xv1 / attach-01
+                              :mod (xv7 / large)))                          :ARG2 (xv8 / nose
+                  :ARG1-of (xv3 / funny))))                                       :mod (xv7 / large)))
+                                                                      :ARG1-of (xv3 / funny)))
+                                                                :polarity -)
+
+Scores:
+-------
+Semantic Relatedness Score:     3.3 (0.575)
+
+Ann. Score                     ---  0.514
+BERT Score                     ---  0.806
+BLEU                           ---  0.775
+GraCo                          ---  0.965
+GraCo (G)                      ---  0.979
+GraCo (r)                      ---  0.878
+GraCo (r,G)                    ---  0.973
+Meteor                         ---  0.503
+S2match                        ---  0.952
+Smatch                         ---  0.952
+WLK                            ---  0.883
+WWLK                           ---  0.772
+chrF++                         ---  0.935
+
+---------------------------------------------------------------------------------------------------
+T4361sick
+---------
+
+A child is not wearing a coat and is                A child is wearing a coat and is carrying
+carrying a red sled behind a child in a green and black coat  a red sled behind a child in a green and black coat
+
+# ::id 4361                                         # ::id 4361
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / and                                          (xv0 / and
+      :op1 (xv1 / wear-01                                 :op1 (xv1 / wear-01
+            :ARG0 (xv8 / child)                                 :ARG0 (xv7 / child)
+            :ARG1 (xv7 / coat)                                  :ARG1 (xv6 / coat))
+            :polarity -)                                  :op2 (xv5 / carry-01
+      :op2 (xv6 / carry-01                                      :ARG0 xv7
+            :ARG0 xv8                                           :ARG1 (xv8 / sled-01
+            :ARG1 (xv9 / sled-01                                      :ARG1-of (xv10 / red-02))
+                  :ARG1-of (xv11 / red-02))                     :location (xv9 / behind
+            :location (xv10 / behind                                  :op1 (xv11 / child
+                  :op1 (xv12 / child                                        :ARG1-of (xv12 / have-03
+                        :ARG1-of (xv2 / have-03                                   :ARG1 (xv2 / coat
+                              :ARG1 (xv3 / coat                                         :ARG1-of (xv3 / black-04)
+                                    :ARG1-of (xv4 / black-04)                                      :ARG1-of (xv4 / green-02)))))))
+                                    :ARG1-of (xv5 / green-02)))))))  
+
+Scores:
+-------
+Semantic Relatedness Score:     3.8 (0.7)
+
+Ann. Score                     ---  0.657
+BERT Score                     ---  0.865
+BLEU                           ---  0.93
+GraCo                          ---  0.898
+GraCo (G)                      ---  0.981
+GraCo (r)                      ---  0.89
+GraCo (r,G)                    ---  1.0
+Meteor                         ---  0.58
+S2match                        ---  0.976
+Smatch                         ---  0.976
+WLK                            ---  0.93
+WWLK                           ---  0.873
+chrF++                         ---  0.952
+
+---------------------------------------------------------------------------------------------------
+T4604sick
+---------
+
+A group of people is walking down the street        A group of people is not walking down the
+and a person in a green hat is on the phone         street and a person in a green hat is on the phone
+
+# ::id 4604                                         # ::id 4604
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / and                                          (xv0 / and
+      :op1 (xv11 / walk-01                                :op1 (xv11 / walk-01
+            :ARG0 (xv3 / group                                  :ARG0 (xv3 / group
+                  :consist-of (xv9 / person))                         :consist-of (xv9 / person))
+            :ARG2 (xv2 / down                                   :ARG2 (xv2 / down
+                  :op1 (xv10 / street)))                              :op1 (xv10 / street))
+      :op2 (xv1 / be-located-at-91                              :polarity -)
+            :ARG1 (xv7 / person                           :op2 (xv1 / be-located-at-91
+                  :ARG0-of (xv5 / have-03                       :ARG1 (xv7 / person
+                        :ARG1 (xv6 / hat                              :ARG0-of (xv5 / have-03
+                              :ARG1-of (xv4 / green-02))))                          :ARG1 (xv6 / hat
+            :ARG2 (xv8 / phone)))                                                 :ARG1-of (xv4 / green-02))))
+                                                                :ARG2 (xv8 / phone)))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.2 (0.55)
+
+Ann. Score                     ---  0.486
+BERT Score                     ---  0.844
+BLEU                           ---  0.923
+GraCo                          ---  0.887
+GraCo (G)                      ---  0.987
+GraCo (r)                      ---  0.846
+GraCo (r,G)                    ---  0.973
+Meteor                         ---  0.561
+S2match                        ---  0.973
+Smatch                         ---  0.973
+WLK                            ---  0.922
+WWLK                           ---  0.867
+chrF++                         ---  0.979
+
+---------------------------------------------------------------------------------------------------
+T4765sick
+---------
+
+A young girl is playing on the edge of              A young girl is playing on the edge of
+a fountain and an older woman is watching her       a fountain and an older woman is not watching her
+
+# ::id 4765                                         # ::id 4765
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / and                                          (xv0 / and
+      :op1 (xv1 / play-01                                 :op1 (xv1 / play-01
+            :ARG0 (xv3 / girl                                   :ARG0 (xv4 / girl
+                  :mod (xv6 / young))                                 :mod (xv7 / young))
+            :location (xv4 / edge                               :location (xv5 / edge
+                  :part-of (xv7 / fountain)))                         :part-of (xv8 / fountain)))
+      :op2 (xv2 / watch-01                                :op2 (xv3 / watch-01
+            :ARG0 (xv5 / woman                                  :ARG0 (xv6 / woman
+                  :mod (xv8 / old                                     :mod (xv9 / old
+                        :degree (xv9 / more)))                              :degree (xv2 / more)))
+            :ARG1 xv3))                                         :ARG1 xv4
+                                                                :polarity -))
+
+Scores:
+-------
+Semantic Relatedness Score:     2.8 (0.45)
+
+Ann. Score                     ---  0.371
+BERT Score                     ---  0.866
+BLEU                           ---  0.924
+GraCo                          ---  0.992
+GraCo (G)                      ---  0.981
+GraCo (r)                      ---  0.92
+GraCo (r,G)                    ---  0.997
+Meteor                         ---  0.551
+S2match                        ---  0.969
+Smatch                         ---  0.969
+WLK                            ---  0.911
+WWLK                           ---  0.834
+chrF++                         ---  0.976
+
+---------------------------------------------------------------------------------------------------
+T4602sick
+---------
+
+Four people are walking along a city sidewalk and   Four people are walking along a city sidewalk and
+the one in the green hat is talking on a cell phone  the one in the green hat is not talking on a cell phone
+
+# ::id 4602                                         # ::id 4602
+# ::humancorrect=True                               # ::humancorrect=True
+# ::humancorrect=True                               # ::humancorrect=True
+(xv0 / and                                          (xv0 / and
+      :op1 (xv12 / walk-01                                :op1 (xv12 / walk-01
+            :ARG0 (xv7 / person                                 :ARG0 (xv7 / person
+                  :quant 4)                                           :quant 4)
+            :ARG2 (xv1 / along                                  :ARG2 (xv1 / along
+                  :op1 (xv10 / sidewalk                               :op1 (xv10 / sidewalk
+                        :location (xv3 / city))))                           :location (xv3 / city))))
+      :op2 (xv11 / talk-01                                :op2 (xv11 / talk-01
+            :medium (xv8 / phone                                :medium (xv8 / phone
+                  :mod (xv2 / cell))                                  :mod (xv2 / cell))
+            :ARG0 (xv9 / person                                 :ARG0 (xv9 / person
+                  :ARG0-of (xv5 / have-03                             :ARG0-of (xv5 / have-03
+                        :ARG1 (xv6 / hat                                    :ARG1 (xv6 / hat
+                              :ARG1-of (xv4 / green-02))))))                                :ARG1-of (xv4 / green-02))))
+                                                                :polarity -))
+
+Scores:
+-------
+Semantic Relatedness Score:     3.6 (0.65)
+
+Ann. Score                     ---  0.6
+BERT Score                     ---  0.878
+BLEU                           ---  0.93
+GraCo                          ---  0.978
+GraCo (G)                      ---  0.987
+GraCo (r)                      ---  0.907
+GraCo (r,G)                    ---  0.998
+Meteor                         ---  0.567
+S2match                        ---  0.976
+Smatch                         ---  0.976
+WLK                            ---  0.933
+WWLK                           ---  0.885
+chrF++                         ---  0.986
 
 ---------------------------------------------------------------------------------------------------
 
