@@ -195,14 +195,14 @@ if __name__ == "__main__":
 					# phen_file.extend([create_table_scores(sorted(av_phen.keys()), [av_phen[metric][0] for metric in sorted(av_phen.keys())])])
 					# phen_file.append("\n\nCorrelation Matrix:\n-------------------\n")
 					# phen_file.append(tabulate(matrix_phen, headers='keys', tablefmt='grid'))
-				# phen_file.append("\n\n\nScores for Individual Test Cases:\n=================================\n\n")
-				# for idx in sub_phens[phen]:
-					# phen_file.append("{}\n---------\n\n".format(idx))
-					# try:
-						# phen_file.extend(print_testcase(vals[idx][1], vals[idx][2], vals[idx][0], {k:v for k,v in metric_dict[idx].items() if k in wanted or k in your_wanted}, vals[idx][3], rel))
-					# except IndexError:
-						# phen_file.extend(print_testcase(vals[idx][1], vals[idx][2], vals[idx][0], {k:v for k,v in metric_dict[idx].items() if k in wanted or k in your_wanted}, False, rel))							
-				# phen_file.append("\n\n------------------------------------------------------\n\n")
+			phen_file.append("\n\n\nScores for Individual Test Cases:\n=================================\n\n")
+			for idx in ids:
+				phen_file.append("{}\n---------\n\n".format(idx))
+				try:
+					phen_file.extend(print_testcase(vals[idx][1], vals[idx][2], vals[idx][0], {k:v for k,v in metric_dict[idx].items() if k in wanted or k in your_wanted}, vals[idx][3], rel))
+				except IndexError:
+					phen_file.extend(print_testcase(vals[idx][1], vals[idx][2], vals[idx][0], {k:v for k,v in metric_dict[idx].items() if k in wanted or k in your_wanted}, False, rel))							
+			phen_file.append("\n\n------------------------------------------------------\n\n")
 			write_file("../Results/{}_results.txt".format(phenomenon), phen_file)			
 
 	all_corr_sick, all_av_sick = compute_av_scores(all_used_ids["sick"], wanted, your_wanted, metric_dict, "sick")
@@ -226,12 +226,13 @@ if __name__ == "__main__":
 	sorted(av_columns)
 	av_columns.append('Overall')
 
-	print("-----------------\n	 OVERALL\n-----------------\n\n\nSICK Data Set\n=============\n\nRanking Table:\n-------------------")
+	print("---------------------------\n	 OVERALL\n---------------------------\n\n\nSICK Data Set\n=============\n\nRanking Table:\n--------------")
 	print(create_ranking_table(av_columns_sick, wanted + your_wanted, rank_list_sick))
-	print("\nAverage Scores:\n-------------------")
+	print("\nAverage Scores and MAD (Mean Absolute Deviation):\n-------------------------------------------------")
 	print(create_table_average(av_columns_sick, all_average_sick, "sick"))
 	print("\nCorrelation Matrix:\n-------------------")
 	print(tabulate(all_matrix_sick, headers='keys', tablefmt='grid'))
+	print("\nCorrelation by Phenomenon:\n--------------------------")
 	si = all_matrix_sick.unstack()
 	for k,v in si["Ann. Score"].items():
 		corr_hj_sick[k].append(v)
@@ -240,12 +241,13 @@ if __name__ == "__main__":
 		so = si[met].sort_values(kind="quicksort", ascending=False)
 		print("\n\nOverall Correlation with Tested Score ({}):\n".format(met))
 		print(so[1:].to_string())
-	print("\n\nSTS Data Set\n============\n\nRanking Table:\n-------------------")
+	print("\n\nSTS Data Set\n============\n\nRanking Table:\n--------------")
 	print(create_ranking_table(av_columns, wanted + your_wanted, rank_list))
-	print("\nAverage Scores:\n-------------------")
+	print("\nAverage Scores and MAD (Mean Absolute Deviation):\n-------------------------------------------------")
 	print(create_table_average(av_columns, all_average, "sts"))
 	print("\nCorrelation Matrix:\n-------------------")
 	print(tabulate(all_matrix_sts, headers='keys', tablefmt='grid'))
+	print("\nCorrelation by Phenomenon:\n--------------------------")
 	st = all_matrix_sts.unstack()
 	for k,v in st["Ann. Score"].items():
 		corr_hj[k].append(v)

@@ -92,7 +92,7 @@ def create_cor_table(corr_dict, cols):
 
 	plot_correlation(df)
 	
-	return tabulate(df, headers=cols, tablefmt="grid")
+	return tabulate(df, headers=cols, tablefmt="grid", showindex=False)
 
 
 def create_table_comps(id_dict, val_dict, s_value):
@@ -171,7 +171,7 @@ def create_ranking_table(phenomena, metrics, rank_list):
 		#df[phen] = sorted(rank_list[i].items(), key=lambda x:x[1], reverse=True)
 		df[phen] = column
 
-	return tabulate(df, headers=phenomena, tablefmt='grid')
+	return tabulate(df, headers=phenomena, tablefmt='grid', showindex=False)
 
 
 def plot_correlation(corr_matrix):
